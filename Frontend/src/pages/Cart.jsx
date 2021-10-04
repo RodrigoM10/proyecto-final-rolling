@@ -1,3 +1,5 @@
+//snippet rfc
+
 import React from 'react'
 
 function Cart() {
