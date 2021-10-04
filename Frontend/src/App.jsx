@@ -1,30 +1,64 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-//import Pages
-import Home from './pages/Home'
-
+//router dom
 import { Switch, Route } from "react-router-dom";
+// pages
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Store from "./pages/Store";
+import Cart from "./pages/Cart";
+import About from "./pages/About";
+// admin pages
+import AdminBoard from "./pages/admin/AdminBoard";
+import AdminProfile from "./pages/admin/AdminProfile";
+import MessagesList from "./pages/admin/MessagesList";
+import UserList from "./pages/admin/UserList";
+//main components
+import { NavbarMain } from "./components/navbar/NavbarMain";
+import { FooterMain } from "./components/footer/FooterMain";
 
 function App() {
 
   return (
-    <div>
-      {/* <Header /> */}
+    <div className="footer-fix">
+      <NavbarMain />
           <Switch>
+            {/* pages */}
               <Route path="/" exact>
                 <Home />
               </Route>
-              <Route path="/" exact>
-                {/* PAGE 2 */}
+              <Route path="/about" >
+                <About /> 
               </Route>
-              <Route path="/" exact>
-                {/* PAGE 3 */}
+              <Route path="/store" >
+                <Store />
               </Route>
-              <Route path="/" exact>
-                {/* PAGE 4 */}
+              <Route path="/cart" >
+                <Cart /> 
+              </Route>
+              <Route path="/login" >
+                <Login />
+              </Route>
+              <Route path="/register" >
+                <Register />
+              </Route>
+
+              {/* Admin pages */}
+              <Route path="/adminBoard" >
+                <AdminBoard /> 
+              </Route>
+              <Route path="/adminProfile" >
+                <AdminProfile /> 
+              </Route>
+              <Route path="/messagesList" >
+                <MessagesList /> 
+              </Route>
+              <Route path="/userList" >
+                <UserList /> 
               </Route>
           </Switch>
+          <FooterMain />
     </div>
   );
 }
