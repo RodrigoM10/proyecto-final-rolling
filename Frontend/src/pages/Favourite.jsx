@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Login() {
+function Favourite() {
     return (
         <div>
-            Login
+            Favourite
         </div>
     )
 }
 
-export default Login
+export default Favourite

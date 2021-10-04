@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Login() {
+function Store() {
     return (
         <div>
-            Login
+            Store
         </div>
     )
 }
 
-export default Login
+export default Store

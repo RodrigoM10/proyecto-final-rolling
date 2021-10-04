@@ -1,6 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//import Pages
+import Home from './pages/Home'
 
 import { Switch, Route } from "react-router-dom";
 
@@ -11,7 +13,7 @@ function App() {
       {/* <Header /> */}
           <Switch>
               <Route path="/" exact>
-                {/* PAGE 1 */}
+                <Home />
               </Route>
               <Route path="/" exact>
                 {/* PAGE 2 */}
