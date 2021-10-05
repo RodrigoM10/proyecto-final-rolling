@@ -1,0 +1,60 @@
+.footer {
+    background-color: rgb(38, 38, 73);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 4rem 3rem 1rem 3rem;
+    font-family: 'Playfair Display', serif;
+    color: burlywood;
+ }
+ .footer h5{
+     font-weight: bold;
+ }
+ 
+ .footer a :hover {
+    color: whitesmoke;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+ }
+ 
+ .social-icon {
+    font-size: 2rem;
+    margin: 0 10px;
+    color: burlywood;
+    transition-duration: 0.5s;
+ }
+
+ 
+ .links {
+    list-style: none;
+    font-size: 10px;
+ }
+ 
+ .links a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1rem;
+ }
+ 
+ .links a:hover {
+    color: burlywood;
+ }
+ 
+.footer2{
+    background-color: black;
+    padding: 1rem 3rem 1rem 3rem;
+    color: whitesmoke;
+}
+
+ .volverArriba {
+    font-size: 2.5rem;
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.4s;
+ }
+ 
+ .volverArriba:link, .volverArriba:visited, .volverArriba:active {
+    color: whitesmoke;
+ }
+ 
+ .volverArriba:hover {
+    color: burlywood;
+ }
