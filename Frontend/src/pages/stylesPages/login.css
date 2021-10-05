@@ -1,6 +1,7 @@
 .form-login{
-color: burlywood;
+color: black;
 font-family: 'Playfair Display', serif;
+border: solid rgb(207, 176, 135);
 }
 
 .header {
