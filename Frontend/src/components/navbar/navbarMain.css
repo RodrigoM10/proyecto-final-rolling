@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+
+.navbar {
+    background-color: #203048;
+    color: white;
+    padding: 0;
+}
+.navbar a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar-log a {
+    font-size: 18px;
+    margin: 0 0.3rem;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.navbar-icons a {
+    color: #b59062;
+    font-size: 25px;
+}
+.navbar-links div a {
+    font-size: 20px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+.search-form{
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    .search-form{
+        width: 100%;
+    }
+  }
+.search-input {
+    border: 0 !important;
+    border-radius: 0 1rem 1rem 0;
+    cursor: pointer;
+}
+.search-input:focus{
+outline: none;
+}
+.search-icon {
+    border: 0 !important;
+    border-radius: 1rem 0 0 1rem ;
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    align-items: center;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #b59062;
+    text-align: center;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.navbar-button {
+    background:none;
+    border: none;
+    font-size: 30px;
+}
+
+/* RESPONSIVE NAVBAR */
+.responsive-navbar{
+    font-family: 'Montserrat', sans-serif;
+    width: 530px !important;
+    border: none;
+}
+.responsive-navbar-header {
+    background-color: #203048 !important;
+}
+.responsive-navbar-button {
+    background-color: #b59062;
+    color: white;
+    border: 1px solid #b59062;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 5px;
+     transform: skew(340deg);
+}
