@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+
+.navbar {
+    background-color: #203048;
+    color: white;
+    padding: 0;
+}
+.navbar a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar-log a {
+    font-size: 18px;
+    margin: 0 0.3rem;
+    font-family: "Montserrat", sans-serif;
+}
+.navbar-icons a {
+    color: #b59062;
+    font-size: 25px;
+}
+/* hover efect */
+.navbar-links li {
+    list-style: none;
+    position: relative;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+}
+.navbar-links li a {
+    font-size: 20px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    padding: 5px 1px;
+    z-index: 1;
+    transition: all 0.5s;
+
+}
+.navbar-links li a:hover {
+    color: white !important;
+
+}
+.navbar-links li:before {
+    content: "";
+    position: absolute;
+    height: 1%;
+    width: 0;
+    color: white !important;
+    background-color: #b59062;
+    right: 0;
+    z-index: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+.navbar-links li::after {
+    content: "";
+    position: absolute;
+    height: 1%;
+    width: 0;
+    color: white !important;
+    background-color: #b59062;
+    left: 0;
+    z-index: 0;
+    bottom: 0;
+    transition: all 0.5s;
+
+}
+.navbar-links li:hover:before,
+li:hover::after {
+    width: 100%;
+}
+/* link active */
+.link-active {
+    color: #b59062 !important;
+}
+
+.search-form {
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    .search-form {
+        width: 100%;
+    }
+}
+.search-input {
+    border: 0 !important;
+    border-radius: 0 1rem 1rem 0;
+    cursor: pointer;
+}
+.search-input:focus {
+    outline: none;
+}
+.search-icon {
+    border: 0 !important;
+    border-radius: 1rem 0 0 1rem;
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #b59062;
+    text-align: center;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.navbar-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white !important;
+}
+
+/* RESPONSIVE NAVBAR */
+.responsive-navbar {
+    font-family: "Montserrat", sans-serif;
+    width: 530px !important;
+    border: none;
+}
+.responsive-navbar-header {
+    background-color: #203048 !important;
+}
+.responsive-navbar-button {
+    background-color: #b59062;
+    color: white;
+    border: 1px solid #b59062;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 5px;
+    /* transform: skew(340deg); */
+    transition: all 0.5s;
+    
+}
+.responsive-navbar-button:hover {
+    background-color: white;
+    color: #b59062;
+}
+.responsive-navbar-links {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #203048;
+    margin-bottom: 2rem;
+
+}
+.responsive-navbar-links li {
+    list-style: none;
+    border-bottom: 1px solid #b59062;
+    /* transform: skew(340deg); */
+    transition: all 0.5s;
+
+}
+.responsive-navbar-links li a {
+    color: #203048 !important;
+    cursor: pointer;
+}
+.responsive-navbar-links li:hover  {
+    background-color: #b59062; 
+}
+.responsive-navbar-links li:hover a {
+    color: white !important; 
+}
+/* sector redes */
+.navbar-responsive-redes {
+    color: black;
+}
+.navbar-responsive-subtitle {
+    color: #203048 !important;
+    text-align: center;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 25px;
+    list-style: none;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 30px;
+    list-style: none;
+}
+.face-icon{
+    color: rgb(2, 2, 185);
+}.face-icon:hover{
+    color: rgb(2, 2, 185);
+}
+.twitter-icon{
+    color:#0d6efd;;
+}.twitter-icon:hover{
+    color: #0d6efd;;
+}
+.youtube-icon {
+    color: red;
+}.youtube-icon:hover {
+    color: red;
+}
+.insta-icon {
+    width: 30px;
+}
+
+
+
+/* NAVBAR POSTITIONS */
+.contenedor {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.logo-container a {
+    width: 100%;
+    text-align: center;
+}
+.login-register {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .login-register {
+        position: relative;
+        margin-right: 0;
+        margin-left: auto;
+    }
+    .logo-container {
+        width: auto;
+    }
+}
+@media screen and (max-width: 762px) {
+    .logo-container {
+        /* position: absolute; */
+        width: 100%;
+    }
+}
