@@ -4,7 +4,7 @@ import "./footer.css";
 export const FooterMain = () => {
     return (
         <>
-            <div className="bg-dark  footer">
+            <div className="footer">
                 <div className="row text-center align-items-center">
                     <div className="col-12  my-4">
                         <div className="mb-2">
@@ -13,37 +13,41 @@ export const FooterMain = () => {
                                 className="fab fa-facebook-square social-icon"></i></a>
                             <a href="." target="blank"><i
                                 className="fab fa-instagram-square social-icon"></i></a>
-                                <a href="." target="blank"><i
+                            <a href="." target="blank"><i
                                 className="fab fa-twitter-square social-icon"></i></a>
                         </div>
                     </div>
-                    <hr />
-                    <div className="col-12 col-lg-3 my-4">
+                </div>
+                <hr />
+                <div className="row text-center align-items-center">
+                    <div className="col-12 col-lg-3 col-md-6 my-4">
                         <h5>CONCATENOS</h5>
                         <div className="links mb-2">
-                            <a href="." target="blank" ><i class="far fa-envelope"></i>contactwine@winevibes.com</a><br />
-                            <a href="https://wa.me/c/34635790277" target="blank" ><i class="fab fa-whatsapp"></i>+3816807710</a>
+                            <a href="." className="link-effect">contactwine@winevibes.com</a><br />
+                            <a href="." target="blank" className="link-effect">+3816807710</a>
                         </div>
                     </div>
-                    <div className="links col-12 col-lg-3 my-4">
+                    <div className="col-12 col-lg-3 col-md-6 my-4">
                         <h5>BODEGAS</h5>
                         <div className="links mb-2">
-                            <a href="." target="blank" ><i class="fas fa-wine-bottle"></i>Teo Calderon</a><br />
-                            <a href="." target="blank" ><i class="fas fa-wine-bottle"></i>Don omar</a>
+                            <a href="." target="blank" className="link-effect" >Teo Calderon</a><br />
+                            <a href="." target="blank" className="link-effect" >Aventura</a><br />
+                            <a href="." target="blank" className="link-effect" >Don omar</a>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3  my-4">
+                    <div className="col-12 col-lg-3 col-md-6 my-4">
                         <h5>EVENTOS</h5>
                         <div className="links">
-                            <a href="." target="blank" ><i class="fas fa-wine-bottle"></i>Teo Calderon</a><br />
-                            <a href="." target="blank" ><i class="fas fa-wine-bottle"></i>Don omar</a>
+                            <a href="." target="blank" className="link-effect" >Teo Calderon</a><br />
+                            <a href="." target="blank" className="link-effect" >Don omar</a>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3  my-4">
+                    <div className="col-12 col-lg-3 col-md-6 my-4">
                         <h5>SOPORTE</h5>
                         <div className="links">
-                            <a href="." target="blank" ><i class="fas fa-wine-bottle"></i>Teo Calderon</a><br />
-                            <a href="." target="blank" ><i class="fas fa-wine-bottle"></i>Don omar</a>
+                            <a href="." target="blank" className="link-effect" >Servicio Tecnico</a><br />
+                            <a href="." target="blank" className="link-effect" >Avisos Legales</a><br />
+                            <a href="." target="blank" className="link-effect" >Cookies</a>
                         </div>
                     </div>
                 </div>
