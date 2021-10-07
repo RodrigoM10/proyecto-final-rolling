@@ -38,8 +38,9 @@ export const FooterMain = () => {
                     <div className="col-12 col-lg-3 col-md-6 my-4">
                         <h5>EVENTOS</h5>
                         <div className="links">
-                            <a href="." target="blank" className="link-effect" >Teo Calderon</a><br />
-                            <a href="." target="blank" className="link-effect" >Don omar</a>
+                            <a href="." target="blank" className="link-effect" >La fiesta del Secreto</a><br />
+                            <a href="." target="blank" className="link-effect" >Los Pecados Capitales</a><br />
+                            <a href="." target="blank" className="link-effect" >Finca La Escondida</a>
                         </div>
                     </div>
                     <div className="col-12 col-lg-3 col-md-6 my-4">
