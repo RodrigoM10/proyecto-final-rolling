@@ -1,9 +1,9 @@
 import React from 'react'
 import "./footer.css";
 
-export const FooterMain = () => {
+export const Footer = () => {
     return (
-        <>
+        <div>
             <div className="footer">
                 <div className="row text-center align-items-center">
                     <div className="col-12  my-4">
@@ -64,7 +64,7 @@ export const FooterMain = () => {
                     <a href="." target="blank" className="volverArriba"><i class="fas fa-arrow-up"></i></a>
                 </div>
             </div>
-        </>
+        </div>
 
     )
 }
