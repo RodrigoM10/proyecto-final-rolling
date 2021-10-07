@@ -10,7 +10,7 @@ import { BsCart, BsCartFill, BsFacebook } from 'react-icons/bs';
 import { FaHeart, FaRegHeart} from 'react-icons/fa';
 import { VscMenu, VscSearch, VscClose } from 'react-icons/vsc';
 import { GrTwitter, GrYoutube } from 'react-icons/gr';
-import { RiInstagramFill } from 'react-icons/ri';
+
 
 
 

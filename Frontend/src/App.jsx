@@ -17,7 +17,7 @@ import MessagesList from "./pages/admin/MessagesList";
 import UserList from "./pages/admin/UserList";
 //main components
 import { NavbarMain } from "./components/navbar/NavbarMain";
-import { FooterMain } from "./components/footer/FooterMain";
+import { Footer} from "./components/footer/Footer";
 
 function App() {
 
@@ -62,7 +62,7 @@ function App() {
                 <UserList /> 
               </Route>
           </Switch>
-          <FooterMain />
+          <Footer />
     </div>
   );
 }
