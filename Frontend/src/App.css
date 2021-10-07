@@ -6,3 +6,18 @@ body {
     flex-direction: column;
     min-height: 100vh;
   }
+  .container-register {
+    background-image: url(./assets/register-page-bg.jpg);
+    background-size: cover;
+    border-top: 1px solid #fff;
+    color: white;
+  }
+  .text-welcome-register {
+    padding: 5rem ;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+  .text-welcome-register h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+  }
