@@ -1,3 +1,6 @@
+body {
+  color: white;
+}
 .footer-fix {
     display: flex;
     flex-direction: column;

@@ -67,13 +67,12 @@
 }
 .navbar-links li:hover:before,
 li:hover::after {
-    width: 80%;
+    width: 100%;
 }
 /* link active */
 .link-active {
     color: #b59062 !important;
 }
-
 
 .search-form {
     width: 50%;
@@ -112,6 +111,7 @@ li:hover::after {
     background: none;
     border: none;
     font-size: 30px;
+    color: white !important;
 }
 
 /* RESPONSIVE NAVBAR */
@@ -130,9 +130,77 @@ li:hover::after {
     font-size: 20px;
     padding: 0.5rem 1rem;
     margin: 0.5rem 5px;
-    transform: skew(340deg);
+    /* transform: skew(340deg); */
+    transition: all 0.5s;
+    
+}
+.responsive-navbar-button:hover {
+    background-color: white;
+    color: #b59062;
+}
+.responsive-navbar-links {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #203048;
+    margin-bottom: 2rem;
+
+}
+.responsive-navbar-links li {
+    list-style: none;
+    border-bottom: 1px solid #b59062;
+    /* transform: skew(340deg); */
+    transition: all 0.5s;
+
+}
+.responsive-navbar-links li a {
+    color: #203048 !important;
+    cursor: pointer;
+}
+.responsive-navbar-links li:hover  {
+    background-color: #b59062; 
+}
+.responsive-navbar-links li:hover a {
+    color: white !important; 
+}
+/* sector redes */
+.navbar-responsive-redes {
+    color: black;
+}
+.navbar-responsive-subtitle {
+    color: #203048 !important;
+    text-align: center;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 25px;
+    list-style: none;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 30px;
+    list-style: none;
+}
+.face-icon{
+    color: rgb(2, 2, 185);
+}.face-icon:hover{
+    color: rgb(2, 2, 185);
+}
+.twitter-icon{
+    color:#0d6efd;;
+}.twitter-icon:hover{
+    color: #0d6efd;;
+}
+.youtube-icon {
+    color: red;
+}.youtube-icon:hover {
+    color: red;
+}
+.insta-icon {
+    width: 30px;
 }
 
+
+
+/* NAVBAR POSTITIONS */
 .contenedor {
     position: relative;
     display: flex;
