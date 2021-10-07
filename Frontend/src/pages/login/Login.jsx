@@ -1,5 +1,5 @@
 import React from 'react'
-import "./stylesPages/login.css";
+import "./login.css";
 import { Button, Card, Col, Container, FloatingLabel, Form, Row } from 'react-bootstrap'
 
 function Login() {
@@ -10,7 +10,7 @@ function Login() {
                     <Card className="d-flex justify-content-center form-login">
                         <Card.Body>
                             <div className="d-flex flex-column align-items-center">
-                                <h3 className="header">Welcome to Wine Vibes</h3>
+                                <h3 className="header">Welcome to Rolling Wine</h3>
                                 <p className="subHeader">Only for Members</p>
                             </div>
                             <FloatingLabel
@@ -27,10 +27,10 @@ function Login() {
                                 <Button type="submit" className="mx-auto mt-4">
                                     Iniciar Sesión
                                 </Button>
-                                <Button className="mx-auto btn mt-4">
+                                <Button className="mx-auto mt-4">
                                     Inicia Sesion con Facebook
                                 </Button>
-                                <div>
+                                <div className="d-flex flex-column align-items-center justify-content-center mt-2">
                                     <p>¿Aun no tienes cuenta?</p>
                                     <a href=".">Crea una cuenta</a>
                                 </div>
