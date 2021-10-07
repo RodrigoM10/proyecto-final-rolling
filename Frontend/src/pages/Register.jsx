@@ -1,52 +1,23 @@
 import React from 'react'
-import { Button, Container, Form } from 'react-bootstrap'
+import { Container} from 'react-bootstrap'
+import { FormRegister } from '../components/formRegister/FormRegister'
 
 function Register() {
     return (
-        <Container>
-            <section className="row row-cols-1 row-cols-lg-2">
-                <div>
-                    Bienvenido a Vinos ROLLINGOTES
+        <div className="container-register">
+        <Container >
+            <section className="row  row-cols-1 row-cols-lg-2">
+                <div className="text-welcome-register d-flex flex-column aling-items-center align-items-md-start ">
+                    <h1>Bienvenido a Rolling Wine</h1>
+                    <p className="text-center text-md-start px-5 px-md-0 pe-md-5">Únete gratis a The Wine Collective y sé el primero en enterarte de nuestras mejores ofertas y nuevos lanzamientos. Obtendrá acceso exclusivo a las mejores ofertas de vinos de Argentina, prioridad para comprar vinos raros y de lanzamiento limitado, competiciones y visitas al bodegon únicas.</p>
+                    <h5 className="text-center text-md-start px-5 px-md-0 pe-md-5 ">REGÍSTRESE AHORA GRATIS y sea recompensado por cada compra a través de nuestro Programa de Recompensas de Vino.</h5>
                 </div>
-                <div>
-                    <Form>
-                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
-                            <label> Nombre </label>
-                            <input type="text" />
-                        </Form.Group>
-                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
-                            <label> Apellido </label>
-                            <input type="text" />
-                        </Form.Group>
-                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
-                            <label> Email </label>
-                            <input type="email" />
-                        </Form.Group>
-                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
-                            <label> Contraseña </label>
-                            <input type="password" />
-                        </Form.Group>
-                        <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
-                            <label> Fecha de Nacimiento </label>
-                            <input type="number" placeHolder="DD" id="birth-day" min="1" max="31" maxLength="2" required />
-                            <input type="number" placeHolder="MM" id="birth-day" min="1" max="12" maxLength="2" required />
-                            <input type="number" placeHolder="AAAA" id="birth-day" min="1" max="31" minLength="4" required />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
-                    </Form>
-                </div>
+                <Container>
+                  <FormRegister />
+                </Container>
             </section>
         </Container>
+        </div>
     )
 }
 
