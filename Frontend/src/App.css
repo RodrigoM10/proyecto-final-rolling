@@ -10,6 +10,7 @@ body {
     background-image: url(./assets/register-page-bg.jpg);
     background-size: cover;
     border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
     color: white;
   }
   .text-welcome-register {
