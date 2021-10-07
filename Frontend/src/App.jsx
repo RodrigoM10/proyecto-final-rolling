@@ -22,7 +22,7 @@ import { FooterMain } from "./components/footer/FooterMain";
 function App() {
 
   return (
-    <div className="footer-fix container-register">
+    <div className="footer-fix ">
       <NavbarMain />
           <Switch>
             {/* pages */}

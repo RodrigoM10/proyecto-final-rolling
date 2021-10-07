@@ -29,16 +29,20 @@ export const FormRegister = () => {
                     <input type="number" placeHolder="AAAA" id="birth-day" min="1" max="31" minLength="4" required />
                 </div>
             </Form.Group>
-            <div>
-                
-            </div>
-            <hr/>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
+            <hr />
+            <Form.Group className="mb-4 d-flex flex-column align-items-start justify-content-center" controlId="formBasicEmail">
+                <label className="mb-2 "> ¿Que estas buscando de nuestra bodega?</label>
+                <select name="" id="">
+                    <option>Por favor elija una opcion</option>
+                    <option value="1">Vinos premiun</option>
+                    <option value="2">Visitas al bodegon</option>
+                    <option value="3">Nuevas Ofertas</option>
+                </select>
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Manténgame informado sobre mis pedidos, estado de entrega, noticias y ofertas exclusivas de miembros" />
+            </Form.Group>
+            <button href="/login" exact className="responsive-navbar-button">Iniciar sesión</button>
         </Form>
     )
 }

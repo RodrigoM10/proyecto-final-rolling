@@ -8,6 +8,10 @@
 .form-register input {
     padding: 0.4rem;
 }
+.form-register select {
+    padding: 0.4rem;
+    width: 70%;
+}
 hr {
     opacity: 1 !important;
     width: 102%;
