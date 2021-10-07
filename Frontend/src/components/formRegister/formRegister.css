@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+
+.form-register {
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
+
+}
+.form-register input {
+    padding: 0.4rem;
+}
+hr {
+    opacity: 1 !important;
+    width: 102%;
+}

@@ -6,3 +6,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
   }
+.container-register {
+  background-image: url(./assets/register-page-bg.jpg);
+  background-size: cover;
+    border-top: 1px solid #fff;
+    color: white;
+}
