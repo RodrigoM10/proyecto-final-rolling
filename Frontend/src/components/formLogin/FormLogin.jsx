@@ -1,11 +1,11 @@
 import React from 'react'
 import "./formLogin.css";
-import { Card, Col } from 'react-bootstrap'
+import { Card} from 'react-bootstrap'
 import { FaFacebookSquare } from 'react-icons/fa'
 
 export const FormLogin = () => {
     return (
-        <Col className="col-12 col-lg-6 d-flex flex-column justify-content-between mx-auto my-5">
+ 
             <Card className="d-flex justify-content-center form-login">
                 <Card.Body>
                     <div className="d-flex flex-column align-items-center">
@@ -40,6 +40,6 @@ export const FormLogin = () => {
                     </div>
                 </Card.Body>
             </Card>
-        </Col>
+    
     )
 }
