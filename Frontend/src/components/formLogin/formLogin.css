@@ -1,0 +1,57 @@
+.form-login{
+color: black;
+font-family: 'Playfair Display', serif;
+border: solid #b59062;
+}
+
+.header {
+    color: black;
+}
+.subHeader{
+    color: black;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    .login-form {
+        width: 100%;
+    }
+}
+
+.login-input {
+    height: 50px;
+    border: solid 1px rgb(104, 103, 103)  !important;
+}
+.login-input:focus {
+    outline: solid 2px #b59062 ;
+    box-shadow: 0 0 0 0.25rem rgb(104, 103, 103 / 25%) ;
+}
+
+.responsive-login-face {
+    background-color: #3b5998;
+    color: white;
+    border: 1px solid #3b5998;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 5px;
+    transition: all 0.5s;
+    
+}
+.responsive-login-face:hover {
+    background-color: white;
+    color: #3b5998;
+}
+
+.crea-cuenta a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 0%;
+}
+.crea-cuenta a:hover{
+    color: #b59062;
+    font-weight: 900;
+}

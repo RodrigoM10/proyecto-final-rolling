@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route } from "react-router-dom";
 // pages
 import Home from './pages/Home'
-import Login from './pages/login/Login'
+import Login from './pages/Login'
 import Register from './pages/Register'
 import Store from "./pages/Store";
 import Cart from "./pages/Cart";
