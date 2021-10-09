@@ -22,13 +22,17 @@ export const FormRegister = () => {
                 <input className="col-11 col-md-9" type="password" />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
+                <label className="col-11 col-md-3">Nacimiento</label>
+                <input className="col-11 col-md-9 text-center" type="date" />
+            </Form.Group>
+            {/* <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
                 <label className="col-11 col-md-3" >Nacimiento</label>
                 <div className="col-11 col-md-9 row-cols-3 p-0">
                     <input type="number" placeHolder="DD" id="birth-day" min="1" max="31" maxLength="2" required />
                     <input type="number" placeHolder="MM" id="birth-day" min="1" max="12" maxLength="2" required />
                     <input type="number" placeHolder="AAAA" id="birth-day" min="1" max="31" minLength="4" required />
                 </div>
-            </Form.Group>
+            </Form.Group> */}
             <hr />
             <div className="d-flex flex-column align-items-center align-items-md-start justify-content-center">
             <Form.Group className="mb-4 d-flex flex-column align-items-center align-items-md-start justify-content-center" controlId="formBasicEmail">
