@@ -23,12 +23,17 @@ border: solid #b59062;
 
 .login-input {
     height: 50px;
-    border: solid 1px rgb(104, 103, 103)  !important;
+    border: solid 1px rgb(104, 103, 103);
 }
 .login-input:focus {
     outline: solid 2px #b59062 ;
     box-shadow: 0 0 0 0.25rem rgb(104, 103, 103 / 25%) ;
 }
+
+.login-input:invalid:required {
+    box-shadow: 0 0 0 0.25rem rgb(230, 87, 87 / 25%)
+  }
+  
 
 .responsive-login-face {
     background-color: #3b5998;
