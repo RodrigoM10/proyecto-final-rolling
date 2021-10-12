@@ -2,10 +2,9 @@ import React from "react";
 import "../App.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { CardsProduct } from "../components/cardProduct/CardsProduct";
+import { FiltersProducts } from "../components/filtersProducts/FiltersProducts";
 import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 import { CartSideButton } from "../components/cartSideButton/CartSideButton";
-
-import Filtros from "../components/filtros/Filtros";
 
 
 function Store() {
@@ -76,7 +75,7 @@ function Store() {
       <Container>
           <Row>
               <Col className="col-12 col-md-3  columnaFiltros">
-                <Filtros />
+                <FiltersProducts />
               </Col>
               <Col className="col-12 col-md-9 columnaProductos p-0">
                 <CardsProduct  productos={productos} />
