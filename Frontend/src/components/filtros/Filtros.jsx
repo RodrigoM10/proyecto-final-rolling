@@ -1,6 +1,6 @@
 import React from "react";
 import { Accordion, Form } from "react-bootstrap";
-import "./Filtros.css";
+import './filtros.css'
 
 const Filtros = () => {
   return (

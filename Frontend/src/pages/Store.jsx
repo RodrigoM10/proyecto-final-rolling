@@ -1,12 +1,15 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import CardProductos from "../components/CardProductos";
-import Filtros from "../components/Filtros";
 import "../App.css";
-import SliderProductos from "../components/SliderProductos";
-import Carrito from "../components/Carrito";
+import { Col, Container, Row } from "react-bootstrap";
+import { CardsProduct } from "../components/cardProduct/CardsProduct";
+import { SliderProducts } from "../components/sliderProductos/SliderProducts";
+import { CartSideButton } from "../components/cartSideButton/CartSideButton";
+
+import Filtros from "../components/filtros/Filtros";
+
 
 function Store() {
+  // array harcodeado de productos
   let productos = [
     {
       id: "1",
@@ -70,18 +73,20 @@ function Store() {
 
   return (
     <>
-      <Row>
-        <Col className="col-12 col-md-3  columnaFiltros">
-          <Filtros />
-        </Col>
-        <Col className="col-12 col-md-9 columnaProductos p-0">
-          <CardProductos productos={productos} />
-        </Col>
-      </Row>
-      <Container className="mt-5">
-        <SliderProductos />
+      <Container>
+          <Row>
+              <Col className="col-12 col-md-3  columnaFiltros">
+                <Filtros />
+              </Col>
+              <Col className="col-12 col-md-9 columnaProductos p-0">
+                <CardsProduct  productos={productos} />
+              </Col>
+          </Row>
+          <Container className="mt-5">
+            <SliderProducts />
+          </Container>
       </Container>
-      <Carrito className="position-fixed" />
+      <CartSideButton className="position-fixed" />
     </>
   );
 }
