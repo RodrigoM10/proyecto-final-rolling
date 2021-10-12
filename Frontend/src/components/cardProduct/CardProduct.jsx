@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Card } from "react-bootstrap";
 
 export const CardProduct = ({ producto }) => {
-  const { img, descrpcion, precioLista, precioConDescuento } = producto;
+  const { img, descripcion, precioLista, precioConDescuento } = producto;
   return (
     <div>
     <div className="Productos mx-3">
@@ -23,7 +23,7 @@ export const CardProduct = ({ producto }) => {
         </div>
         <Card.Body>
           <Card.Title className="descripcionProducto mt-1 text-center">
-            {descrpcion}
+            {descripcion}
           </Card.Title>
           <Card.Text className="precioSinDescuento mt-5 text-center">
             RRP: {precioLista}
@@ -31,7 +31,7 @@ export const CardProduct = ({ producto }) => {
           <Card.Text className="text-center precioConDescuento">
             {precioConDescuento}
           </Card.Text>
-          <Card.Text className="text-center">PER BOTTLE</Card.Text>
+          <Card.Text className="text-center">Por unidad</Card.Text>
         </Card.Body>
       </Card>
     </div>
