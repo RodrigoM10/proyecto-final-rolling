@@ -5,6 +5,11 @@ import "./footer.css";
 import { FaArrowUp, FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaYoutubeSquare } from 'react-icons/fa';
 
 export const Footer = () => {
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
         <div className="mt-auto">
             <div className="footer">
@@ -13,7 +18,7 @@ export const Footer = () => {
                         <div className="mb-2 social-icon">
                             <h5>SEGUINOS EN NUESTRAS REDES</h5>
                             <a href="." target="blank">
-                                <FaFacebookSquare  />
+                                <FaFacebookSquare />
                             </a>
                             <a href="." target="blank">
                                 <FaTwitterSquare />
@@ -70,7 +75,7 @@ export const Footer = () => {
                     <p>Keep Calm and drink Wine</p>
                 </div>
                 <div>
-                    <a href="." target="blank" className="volverArriba"><FaArrowUp /></a>
+                    <button className="volverArriba" onClick={scrollToTop}><FaArrowUp /></button>
                 </div>
             </div>
         </div>

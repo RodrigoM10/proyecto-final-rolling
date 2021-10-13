@@ -72,6 +72,9 @@
     color: whitesmoke;
     text-decoration: none;
     transition: 0.4s;
+    background-color: transparent;
+    border: none;
+    padding: 0;
  }
  
  .volverArriba:link, .volverArriba:visited, .volverArriba:active {
