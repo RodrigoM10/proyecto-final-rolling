@@ -124,6 +124,7 @@ li:hover::after {
     background-color: #203048 !important;
 }
 .responsive-navbar-button {
+    font-family: "Montserrat", sans-serif !important;
     background-color: #b59062;
     color: white;
     border: 1px solid #b59062;

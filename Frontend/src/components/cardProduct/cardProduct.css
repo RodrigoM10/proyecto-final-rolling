@@ -3,7 +3,7 @@
 * {
   font-family: "Playfair Display", serif;
 }
-.Productos {
+.productos {
   display: inline-block;
   color: #333;
   margin-top: 3rem;
@@ -11,55 +11,46 @@
   border: 2px solid rgb(168, 77, 77, 0);
   transition: 0.5s;
 }
-.imagenesProducto {
-  align-items: flex-start;
-}
-.card {
+.card-productos {
+  cursor: pointer;
+  width: 21rem;
   border: none;
 }
-.Productos:hover {
+.img-top-center{
+  width: 11.5rem;
+}
+.img-top-left {
+  width: 4rem;
+}
+.img-top-right {
+  width: 5rem;
+}
+.productos:hover {
   border: 2px solid #b59062;
   box-shadow: 9px 9px 11px 2px rgba(0, 0, 0, 0.51);
 }
-.descripcionProducto {
+.name-producto {
   font-weight: bold;
   font-size: 19px;
+  height: 3rem;
 }
-.precioSinDescuento {
+.precio-producto {
   text-decoration: line-through;
   color: #888;
   font-size: 17px;
 }
-.precioConDescuento {
+.precio-producto-descuento {
   font-weight: bold;
   font-size: 28px;
 }
-.agregarCarrito {
-  width: 16rem;
-  height: 3rem;
-  font-family: "Montserrat", sans-serif;
-  color: #ffff;
-  background: #b59062;
-  border: none;
-  font-size: 15px;
-}
-.agregarCarrito :hover {
-  background: #b59062;
-}
-.heart {
+.add-favourite-btn {
+  color:white;
   border: none;
   width: 3rem;
   height: 3rem;
-  background-image: url(https://cdn.shopify.com/s/files/1/1504/5726/t/678/assets/wishlist-full-icon-add.svg?v=14182261920108100049);
-}
-.botonCarrito {
   background: #203048;
-  border: none;
-  position: absolute;
-  right: 0;
-  top: 40%;
-  position: fixed;
-  border-top-left-radius: 70px;
-  border-bottom-left-radius: 70px;
-  border: 3px solid rgba(255, 255, 255, 0.7);
+  transition-duration: 0.3s;
+}
+.add-favourite-btn:hover {
+  background: #203048b9;
 }

@@ -43,7 +43,7 @@ export const FormRegister = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Manténgame informado sobre mis pedidos, estado de entrega, noticias y ofertas exclusivas de miembros" />
             </Form.Group>
-            <button href="/login" exact className="responsive-navbar-button">Iniciar sesión</button>
+            <button  className="responsive-navbar-button">Iniciar sesión</button>
             </div>
         </Form>
     )
