@@ -13,6 +13,12 @@ body {
     border-bottom: 1px solid #fff;
     color: white;
   }
+  .container-contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
+    url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1634099719/cork-738603_960_720_vxqcg0.jpg) no-repeat top center;
+    background-size: cover;
+    color: white;
+  }
   .text-welcome-register {
     padding: 5rem ;
     font-family: "Montserrat", sans-serif;
@@ -30,4 +36,4 @@ body {
   .columnaProductos{
     background: #f7f7f7;
   }
-  
+

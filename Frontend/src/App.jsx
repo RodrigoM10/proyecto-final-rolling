@@ -10,6 +10,7 @@ import Store from "./pages/Store";
 import Cart from "./pages/Cart";
 import Favourite from "./pages/Favourite";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 // admin pages
 import AdminBoard from "./pages/admin/AdminBoard";
 import AdminProfile from "./pages/admin/AdminProfile";
@@ -34,6 +35,9 @@ function App() {
               </Route>
               <Route path="/store" >
                 <Store />
+              </Route>
+              <Route path="/contact" >
+                <Contact />
               </Route>
               <Route path="/cart" >
                 <Cart /> 

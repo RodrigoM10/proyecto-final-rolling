@@ -73,7 +73,7 @@ export const NavbarMain = () => {
                             <Nav.Link as={NavLink} to="/store" exact activeClassName="link-active">NUESTROS VINOS</Nav.Link>
                         </li>
                         <li className="p-2 mx-3">
-                            <Nav.Link as={NavLink} to="/visits" activeClassName="link-active">VISITAS</Nav.Link>
+                            <Nav.Link as={NavLink} to="/contact" activeClassName="link-active">CONTACTO</Nav.Link>
                         </li>
                         <li className="p-2 mx-3">
                             <Nav.Link as={NavLink} to="/about" activeClassName="link-active" >HISTORIA</Nav.Link>
