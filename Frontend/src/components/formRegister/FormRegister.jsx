@@ -7,19 +7,19 @@ export const FormRegister = () => {
         <Form className="form-register my-5  ">
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
                 <label className="col-11 col-md-3">Nombre </label>
-                <input className="col-11 col-md-9" type="text" />
+                <input className="col-11 col-md-9 form-input" type="text" />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
                 <label className="col-11 col-md-3 align-items-center">Apellido</label>
-                <input className="col-11 col-md-9" type="text" />
+                <input className="col-11 col-md-9 form-input" type="text" />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
                 <label className="col-11 col-md-3 align-items-center">Email</label>
-                <input className="col-11 col-md-9" type="email" />
+                <input className="col-11 col-md-9 form-input" type="email" />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
                 <label className="col-11 col-md-3">Contraseña</label>
-                <input className="col-11 col-md-9" type="password" />
+                <input className="col-11 col-md-9 form-input" type="password" />
             </Form.Group>
             {/* <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
                 <label className="col-11 col-md-3">Nacimiento</label>
@@ -28,9 +28,9 @@ export const FormRegister = () => {
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
                 <label className="col-11 col-md-3" >Nacimiento</label>
                 <div className="col-11 col-md-9 row-cols-3 p-0">
-                    <input type="number" placeHolder="DD" id="birth-day" min="1" max="31" maxLength="2" required />
-                    <input type="number" placeHolder="MM" id="birth-day" min="1" max="12" maxLength="2" required />
-                    <input type="number" placeHolder="AAAA" id="birth-day" min="1" max="31" minLength="4" required />
+                    <input  className="form-input" type="number" placeHolder="DD" id="birth-day" min="1" max="31" maxLength="2" required />
+                    <input  className="form-input" type="number" placeHolder="MM" id="birth-day" min="1" max="12" maxLength="2" required />
+                    <input  className="form-input" type="number" placeHolder="AAAA" id="birth-day" min="1" max="31" minLength="4" required />
                 </div>
             </Form.Group>
             <hr />
