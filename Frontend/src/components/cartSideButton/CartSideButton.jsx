@@ -10,7 +10,7 @@ export const CartSideButton = () => {
 
     return (
         <>
-        <Button className="botonCarrito" variant="secondary" onClick={handleShow}>
+        <Button className="cart-side-btn" variant="secondary" onClick={handleShow}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
