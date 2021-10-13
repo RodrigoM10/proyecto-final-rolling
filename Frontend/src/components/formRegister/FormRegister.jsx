@@ -35,7 +35,7 @@ export const FormRegister = () => {
             </Form.Group>
             <hr />
             <div className="d-flex flex-column align-items-center align-items-md-start justify-content-center">
-            <Form.Group className="mb-4 d-flex flex-column align-items-center align-items-md-start justify-content-center" controlId="formBasicEmail">
+            {/* <Form.Group className="mb-4 d-flex flex-column align-items-center align-items-md-start justify-content-center" controlId="formBasicEmail">
                 <label className="mb-2 text-center"> ¿Que estas buscando de nuestra bodega?</label>
                 <select type="text"  id="">
                     <option>Por favor elija una opcion</option>
@@ -43,11 +43,11 @@ export const FormRegister = () => {
                     <option type="text" value="2">Visitas al bodegon</option>
                     <option type="text" value="3">Nuevas Ofertas</option>
                 </select>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            </Form.Group> */}
+            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Manténgame informado sobre mis pedidos, estado de entrega, noticias y ofertas exclusivas de miembros" />
-            </Form.Group>
-            <button href="/login" exact className="responsive-navbar-button">Iniciar sesión</button>
+            </Form.Group> */}
+            <button  className="responsive-navbar-button">Iniciar sesión</button>
             </div>
         </Form>
     )

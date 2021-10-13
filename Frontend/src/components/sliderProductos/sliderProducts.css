@@ -1,0 +1,50 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 20%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 15rem;
+  object-fit: cover;
+}
+.imagenFinal{
+  width: inherit;
+  padding: 3rem;
+}
+.masVendidos{
+  border-bottom: 4px solid #b59062;
+  width: 13rem;
+  display: flex;
+  justify-content: center;
+}
+.sliderTamñano{
+  width: 24rem !important;
+  margin-bottom: 2rem;
+}
+.descripcion{
+  font-size: 1rem;
+  font-weight: bold;
+}
+

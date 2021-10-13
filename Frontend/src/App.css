@@ -22,3 +22,12 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 50px;
   }
+  .columnaFiltros{
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+  }
+  .columnaProductos{
+    background: #f7f7f7;
+  }
+  

@@ -1,0 +1,15 @@
+.filtroMenu{
+    width: 15rem;
+    border-bottom: 2px solid #8795aa;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    
+}
+.acordionEstilo{
+    display: contents;
+}
+.accordion-button{
+    background: #f7f7f7 !important;
+    color: black !important;
+    margin-left: 1rem;
+}
