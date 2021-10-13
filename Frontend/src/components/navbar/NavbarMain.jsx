@@ -116,7 +116,7 @@ export const NavbarMain = () => {
                             <Nav.Link as={NavLink} to="/store" exact activeClassName="link-active" onClick={handleClose}>NUESTROS VINOS</Nav.Link>
                         </li>
                         <li className="p-2 mx-3">
-                            <Nav.Link as={NavLink} to="/contact" activeClassName="link-active" onClick={handleClose}>VISITAS</Nav.Link>
+                            <Nav.Link as={NavLink} to="/contact" activeClassName="link-active" onClick={handleClose}>CONTACTO</Nav.Link>
                         </li>
                         <li className="p-2 mx-3">
                             <Nav.Link as={NavLink} to="/about" activeClassName="link-active" onClick={handleClose}>HISTORIA</Nav.Link>

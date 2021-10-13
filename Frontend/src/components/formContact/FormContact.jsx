@@ -4,7 +4,7 @@ import './formsStyles.css'
 
 export const FormContact = () => {
     return (
-        <Form className="form-register my-5  ">
+        <Form className="form-styles my-5  ">
             <Form.Group className="mb-3 row align-items-center justify-content-center">
                 <label className="col-11 col-md-3">Nombre </label>
                 <input className="col-11 col-md-9 form-input" type="text" />
@@ -14,7 +14,7 @@ export const FormContact = () => {
                 <input className="col-11 col-md-9 form-input" type="email" />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center">
-                <Form.Control className="col-11 col-md-6 form-input"  placeholder="Dejanos un mensaje aqui..." as="textarea" rows={3} />
+                <textarea className="col-12 form-input"  placeholder="Dejanos un mensaje aqui..." as="textarea" rows={3} />
             </Form.Group>
             <hr />
             <Form.Group className="mb-4 d-flex flex-column align-items-center align-items-md-start justify-content-center">
