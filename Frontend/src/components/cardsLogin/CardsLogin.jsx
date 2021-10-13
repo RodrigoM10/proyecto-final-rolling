@@ -8,7 +8,9 @@ export const CardsLogin = () => {
             <Card className="text-center mb-2">
                 <Card.Body>
                     <h4>¿Todavia no tienes la Card Vip Member? </h4>
-                    <button type="submit" className="responsive-navbar-button">Quiero ser Miembro Vip</button>
+                    <a href="/register">
+                    <button className="responsive-navbar-button">Quiero ser Miembro Vip</button>
+                    </a>
                 </Card.Body>
             </Card>
             <Card className="text-white text-center">
@@ -17,7 +19,9 @@ export const CardsLogin = () => {
                     <Card.Text className="evento-texto">
                         Visita nuestras Bodegas, se parte de nuestros eventos y disfruta de los mejores vinos seleccionados.
                     </Card.Text>
-                    <button href="/contact" type="submit" className="responsive-navbar-button">Quiero Participar</button>
+                    <a href="/contact">
+                    <button className="responsive-navbar-button">Quiero Participar</button>
+                    </a>
                 </Card.ImgOverlay>
             </Card>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './navbarMain.css'
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
@@ -7,7 +7,7 @@ import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 
 //React Icons
 import { BsCart, BsCartFill, BsFacebook } from 'react-icons/bs';
-import { FaHeart, FaRegHeart} from 'react-icons/fa';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { VscMenu, VscSearch, VscClose } from 'react-icons/vsc';
 import { GrTwitter, GrYoutube } from 'react-icons/gr';
 
@@ -103,19 +103,23 @@ export const NavbarMain = () => {
                     <button type="button" aria-label="Close" className="navbar-button" onClick={handleClose} ><VscClose /></button>
                 </Offcanvas.Header>
                 <Offcanvas.Header className="d-flex justify-content-evenly">
-                    <button href="/login" exact className="responsive-navbar-button">Iniciar sesión</button>
-                    <button href="/register" exact className="responsive-navbar-button">Registrarse</button>
+                    <a href="/login">
+                        <button className="responsive-navbar-button">Iniciar sesión</button>
+                    </a>
+                    <a href="/register">
+                    <button  exact className="responsive-navbar-button">Registrarse</button>
+                    </a>
                 </Offcanvas.Header>
                 <Offcanvas.Body >
                     <div className="responsive-navbar-links text-center ">
                         <li className="p-2 mx-3" >
-                            <Nav.Link as={NavLink} to="/store" exact activeClassName="link-active">NUESTROS VINOS</Nav.Link>
+                            <Nav.Link as={NavLink} to="/store" exact activeClassName="link-active" onClick={handleClose}>NUESTROS VINOS</Nav.Link>
                         </li>
                         <li className="p-2 mx-3">
-                            <Nav.Link as={NavLink} to="/visits" activeClassName="link-active">VISITAS</Nav.Link>
+                            <Nav.Link as={NavLink} to="/contact" activeClassName="link-active" onClick={handleClose}>VISITAS</Nav.Link>
                         </li>
                         <li className="p-2 mx-3">
-                            <Nav.Link as={NavLink} to="/about" activeClassName="link-active" >HISTORIA</Nav.Link>
+                            <Nav.Link as={NavLink} to="/about" activeClassName="link-active" onClick={handleClose}>HISTORIA</Nav.Link>
                         </li>
                     </div>
                     <div className="navbar-responsive-redes">
