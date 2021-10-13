@@ -54,3 +54,16 @@
 .add-favourite-btn:hover {
   background: #203048b9;
 }
+
+.cart-side-btn {
+  background-color: #203048;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  position: fixed;
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 70px;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  z-index: 5;
+}
