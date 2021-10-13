@@ -11,8 +11,8 @@ export const FormLogin = () => {
         <Card className="d-flex justify-content-center form-login">
             <Card.Body>
                 <div className="d-flex flex-column align-items-center">
-                    <h3 className="header">Welcome to Rolling Wine</h3>
-                    <p className="subHeader">Only for Members</p>
+                    <h3 className="header">Bienvenido a Rolling Wine</h3>
+                    <p className="subHeader">Solo para miembros</p>
                 </div>
                 <form className="login-form" >
                     <div controlId="validationCustom01"className="mb-3 border-0">
@@ -42,7 +42,7 @@ export const FormLogin = () => {
                     <button type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>
                     <div className="d-flex flex-column align-items-center justify-content-center crea-cuenta mt-2">
                         <p className="mb-1">¿Aun no eres miembro?</p>
-                        <a href=".">Crea una cuenta</a>
+                        <a href="/register">Crea una cuenta</a>
                     </div>
                 </div>
             </Card.Body>

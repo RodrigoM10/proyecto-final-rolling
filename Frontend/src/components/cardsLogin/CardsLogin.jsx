@@ -17,7 +17,7 @@ export const CardsLogin = () => {
                     <Card.Text className="evento-texto">
                         Visita nuestras Bodegas, se parte de nuestros eventos y disfruta de los mejores vinos seleccionados.
                     </Card.Text>
-                    <button type="submit" className="responsive-navbar-button">Quiero Participar</button>
+                    <button href="/contact" type="submit" className="responsive-navbar-button">Quiero Participar</button>
                 </Card.ImgOverlay>
             </Card>
         </div>
