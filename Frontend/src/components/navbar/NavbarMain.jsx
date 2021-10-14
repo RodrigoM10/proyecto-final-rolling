@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './navbarMain.css'
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
@@ -23,7 +23,7 @@ export const NavbarMain = () => {
     const { pathname } = location;
     //js split method para obtener el nombre del path del array
     const splitLocation = pathname.split("/");
-    console.log("🚀 ~ file: NavbarMain.jsx ~ line 22 ~ NavbarMain ~ splitLocation", splitLocation);
+
 
     const [show, setShow] = useState(false);
 
@@ -82,7 +82,7 @@ export const NavbarMain = () => {
                 </Container>
                 <Container className="pb-2 d-flex justify-content-center">
                     <form className="search-form" >
-                        <div class="input-group mb-3 border-0">
+                        <div className="input-group mb-3 border-0">
                             <span
                                 className="search-icon"
                                 id="basic-addon1"><VscSearch /></span>
