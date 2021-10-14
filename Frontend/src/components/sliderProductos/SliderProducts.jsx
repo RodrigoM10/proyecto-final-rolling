@@ -7,7 +7,7 @@ import { Button, Card, Container, Image } from "react-bootstrap";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
-import "./sliderProducts.css";
+import "./sliderProducts.css"
 
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
