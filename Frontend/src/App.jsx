@@ -1,5 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from 'react';
+
 //router dom
 import { Switch, Route } from "react-router-dom";
 // pages
@@ -20,9 +22,17 @@ import UserList from "./pages/admin/UserList";
 //main components
 import { NavbarMain } from "./components/navbar/NavbarMain";
 import { Footer } from "./components/footer/Footer";
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> loginFunction
 
 function App() {
 
+  const [user, setUser] = useState({});
+
+  const isAdmin = user.role === 'admin';
   return (
     <div className="footer-fix ">
       <NavbarMain />
@@ -31,56 +41,45 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-
         <Route path="/about" >
           <About />
         </Route>
-
         <Route path="/store" >
           <Store />
         </Route>
-
-        <Route path="/store/:productId">
-          <DetailsProduct />
-        </Route>
-
         <Route path="/contact" >
           <Contact />
         </Route>
-
         <Route path="/cart" >
           <Cart />
         </Route>
-
         <Route path="/favourite" >
           <Favourite />
         </Route>
-
         <Route path="/login" >
           <Login />
         </Route>
-
         <Route path="/register" >
           <Register />
         </Route>
 
         {/* Admin pages */}
-        {/* <Route path="/adminBoard" >
-          <AdminBoard />
-        </Route>
+        {isAdmin && (
+          <Route path="/adminBoard" >
+            <AdminBoard />
+          </Route>
+        )}
 
-        <Route path="/adminProfile" >
-          <AdminProfile />
-        </Route>
+        {/* <Route path="/adminProfile" >
+                <AdminProfile /> 
+              </Route>
+              <Route path="/messagesList" >
+                <MessagesList /> 
+              </Route>
+              <Route path="/userList" >
+                <UserList /> 
+              </Route> */}
 
-        <Route path="/messagesList" >
-          <MessagesList />
-        </Route>
-
-        <Route path="/userList" >
-          <UserList />
-        </Route> */}
-        
       </Switch>
       <Footer />
     </div>
