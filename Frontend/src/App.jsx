@@ -22,11 +22,8 @@ import UserList from "./pages/admin/UserList";
 //main components
 import { NavbarMain } from "./components/navbar/NavbarMain";
 import { Footer } from "./components/footer/Footer";
-<<<<<<< HEAD
-=======
 
 
->>>>>>> loginFunction
 
 function App() {
 
