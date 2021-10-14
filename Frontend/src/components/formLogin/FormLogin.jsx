@@ -1,10 +1,38 @@
 
 import "./formLogin.css";
 import { Card } from 'react-bootstrap'
+import axios from 'axios'
 import { FaFacebookSquare } from 'react-icons/fa'
+import { useState } from "react";
+import { guardarEnLocalStorage } from "../../utils/localStorage";
 
 
 export const FormLogin = () => {
+
+    
+    const [input, setInput] = useState({ email: '', password: '' });
+
+    const handleChange = (event) => {
+        const { value, name } = event.target;
+        const newInput = { ...input, [name]: value };
+        setInput(newInput)
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const form = event.currentTarget;
+
+        if (form.checkValidity() === true) {
+
+            const response = await axios.post('http://localhost:4000/api/auth/login', input);
+
+            const token = response.data.token; 
+            guardarEnLocalStorage({key:'token', value: {token}})
+        }
+    };
+
 
     return (
 
@@ -14,21 +42,23 @@ export const FormLogin = () => {
                     <h3 className="header">Bienvenido a Rolling Wine</h3>
                     <p className="subHeader">Solo para miembros</p>
                 </div>
-                <form className="login-form" >
-                    <div controlId="validationCustom01"className="mb-3 border-0">
+                <form className="login-form" onSubmit={handleSubmit} >
+                    <div className="mb-3 border-0">
                         <input
                             required
                             name="email"
+                            onChange={(e) => handleChange(e)}
                             type="email"
                             className="col-11 login-input"
                             placeholder="Email"
                             aria-describedby="basic-addon1"
                         />
                     </div>
-                    <div controlId="validationCustom02" className="mb-3 border-0">
+                    <div className="mb-3 border-0">
                         <input
                             required
                             name="password"
+                            onChange={(e) => handleChange(e)}
                             type="password"
                             className="col-11 login-input"
                             placeholder="Password"

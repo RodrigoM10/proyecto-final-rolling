@@ -65,7 +65,7 @@ function App() {
         </Route>
 
         {/* Admin pages */}
-        <Route path="/adminBoard" >
+        {/* <Route path="/adminBoard" >
           <AdminBoard />
         </Route>
 
@@ -79,7 +79,7 @@ function App() {
 
         <Route path="/userList" >
           <UserList />
-        </Route>
+        </Route> */}
         
       </Switch>
       <Footer />
