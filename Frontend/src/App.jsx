@@ -1,5 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from 'react';
+
 //router dom
 import { Switch, Route } from "react-router-dom";
 // pages
@@ -18,46 +20,53 @@ import MessagesList from "./pages/admin/MessagesList";
 import UserList from "./pages/admin/UserList";
 //main components
 import { NavbarMain } from "./components/navbar/NavbarMain";
-import { Footer} from "./components/footer/Footer";
+import { Footer } from "./components/footer/Footer";
+
+
 
 function App() {
 
+  const [user, setUser] = useState({});
+
+  const isAdmin = user.role === 'admin';
   return (
     <div className="footer-fix ">
       <NavbarMain />
-          <Switch>
-            {/* pages */}
-              <Route path="/" exact>
-                <Home />
-              </Route>
-              <Route path="/about" >
-                <About /> 
-              </Route>
-              <Route path="/store" >
-                <Store />
-              </Route>
-              <Route path="/contact" >
-                <Contact />
-              </Route>
-              <Route path="/cart" >
-                <Cart /> 
-              </Route>
-              <Route path="/favourite" >
-                <Favourite /> 
-              </Route>
-              <Route path="/login" >
-                <Login />
-              </Route>
-              <Route path="/register" >
-                <Register />
-              </Route>
+      <Switch>
+        {/* pages */}
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/about" >
+          <About />
+        </Route>
+        <Route path="/store" >
+          <Store />
+        </Route>
+        <Route path="/contact" >
+          <Contact />
+        </Route>
+        <Route path="/cart" >
+          <Cart />
+        </Route>
+        <Route path="/favourite" >
+          <Favourite />
+        </Route>
+        <Route path="/login" >
+          <Login />
+        </Route>
+        <Route path="/register" >
+          <Register />
+        </Route>
 
-              {/* Admin pages */}
+        {/* Admin pages */}
+        {isAdmin && (
+          <Route path="/adminBoard" >
+            <AdminBoard />
+          </Route>
+        )}
 
-              {/* <Route path="/adminBoard" >
-                <AdminBoard /> 
-              </Route>
-              <Route path="/adminProfile" >
+        {/* <Route path="/adminProfile" >
                 <AdminProfile /> 
               </Route>
               <Route path="/messagesList" >
@@ -67,8 +76,8 @@ function App() {
                 <UserList /> 
               </Route> */}
 
-          </Switch>
-          <Footer />
+      </Switch>
+      <Footer />
     </div>
   );
 }

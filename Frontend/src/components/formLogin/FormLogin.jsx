@@ -5,12 +5,13 @@ import axios from 'axios'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { useState } from "react";
 import { guardarEnLocalStorage } from "../../utils/localStorage";
-
+import { useHistory } from 'react-router-dom';
 
 export const FormLogin = () => {
 
-    
+
     const [input, setInput] = useState({ email: '', password: '' });
+    const history = useHistory();
 
     const handleChange = (event) => {
         const { value, name } = event.target;
@@ -25,11 +26,23 @@ export const FormLogin = () => {
         const form = event.currentTarget;
 
         if (form.checkValidity() === true) {
+            try {
+                const response = await axios.post('http://localhost:4000/api/auth/login', input);
 
-            const response = await axios.post('http://localhost:4000/api/auth/login', input);
+                const { token, name } = response.data;
+                guardarEnLocalStorage({ key: 'token', value: { token } });
+                alert('Bienvenido ' + name);
+                //El push redirecciona a la pantalla indicada en el parametro.
+                history.push('/adminBoard');
 
-            const token = response.data.token; 
-            guardarEnLocalStorage({key:'token', value: {token}})
+            } catch (error) {
+                console.error(error);
+                if (error.response.data) {
+                    alert(JSON.stringify(error.response.data));
+                } else {
+                    alert('Error de conexion');
+                }
+            }
         }
     };
 
@@ -68,7 +81,7 @@ export const FormLogin = () => {
                     </div>
                     <button type="submit" className="responsive-navbar-button"> Iniciar sesión</button>
                 </form>
-                <div className="d-flex flex-column"> 
+                <div className="d-flex flex-column">
                     <button type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>
                     <div className="d-flex flex-column align-items-center justify-content-center crea-cuenta mt-2">
                         <p className="mb-1">¿Aun no eres miembro?</p>
