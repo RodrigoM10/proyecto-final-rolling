@@ -23,7 +23,6 @@ export const NavbarMain = () => {
     const { pathname } = location;
     //js split method para obtener el nombre del path del array
     const splitLocation = pathname.split("/");
-    console.log("🚀 ~ file: NavbarMain.jsx ~ line 22 ~ NavbarMain ~ splitLocation", splitLocation);
 
     const [show, setShow] = useState(false);
 
