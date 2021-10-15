@@ -1,9 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 //router dom
 import { Switch, Route } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+
 // pages
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -22,14 +25,33 @@ import UserList from "./pages/admin/UserList";
 //main components
 import { NavbarMain } from "./components/navbar/NavbarMain";
 import { Footer } from "./components/footer/Footer";
+// utils
+import { leerDeLocalStorage } from './utils/localStorage';
 
-
+const tokenLocal = leerDeLocalStorage('token') || {};
 
 function App() {
 
   const [user, setUser] = useState({});
+  const history = useHistory();
+  console.log("🚀 ~ file: App.jsx ~ line 33 ~ App ~ user", user)
+  
 
   const isAdmin = user.role === 'admin';
+  useEffect(() => {
+
+    if(!tokenLocal.token) return;
+
+    const request = async () => {
+      const headers = { 'x-auth-token': tokenLocal.token };
+      //el segundo parametro son las propiedades/datos que podemos enviar a la consulta de la api.
+      const response = await axios.get('http://localhost:4000/api/auth', { headers })
+      setUser(response.data);
+    };
+    request();
+  }, [])
+
+
   return (
     <div className="footer-fix ">
       <NavbarMain />
