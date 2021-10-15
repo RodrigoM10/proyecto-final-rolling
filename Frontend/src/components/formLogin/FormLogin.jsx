@@ -33,7 +33,7 @@ export const FormLogin = () => {
                 guardarEnLocalStorage({ key: 'token', value: { token } });
                 alert('Bienvenido ' + name);
                 //El push redirecciona a la pantalla indicada en el parametro.
-                history.push('/adminBoard');
+                history.push('/');
 
             } catch (error) {
                 console.error(error);
