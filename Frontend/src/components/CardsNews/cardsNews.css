@@ -1,0 +1,56 @@
+.card-titulo{
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border: none !important;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    margin-bottom: 10rem;
+    height: 50rem !important;
+}
+.borde-card{
+    width: 3rem;
+    border-bottom: 3px solid #b59062;
+    content: "";
+    display: block;
+    margin: 1rem auto;
+}
+.button-news{
+    width: 12rem;
+    background: #b59062;
+    border: none;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;;
+}
+.button-news:hover{
+    background: #cfbca5;
+}
+.texto-card{
+    height: 7rem;
+}
+.card-estilo img{
+    height: 17rem;
+    border: none;
+
+}
+.news-titulo{
+    font-size: 2.4rem;
+    line-height: 1.5;
+    border-bottom: 1px solid #dfdedc;
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+.card-estilo:hover{
+    background: rgb(243, 243, 243);
+    box-shadow: 1px 1px 5px #494949;
+    transform: scale(1.05);
+    transition: 1s;
+
+}
+.col-tamaño{
+    height: 38rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+

@@ -1,0 +1,38 @@
+.carousel-style{
+    height: 37.5rem;
+}
+.row-height{
+    height: 37.5rem;
+}
+.card-titulo{
+    color: #212529;
+    border-bottom: 3px solid #b59062;
+    display: inline;
+    font-size: 1.5rem;
+}
+.sub-title{
+    color: #203048;
+    font-size: 2.8rem;
+}
+.card-description{
+    font-size: 1rem;
+    color: #212529;
+}
+.card-img{
+    height: 37.5rem;
+}
+.fondo{
+    background: rgb(255, 255, 255,0.8);
+    padding-top: 11rem;
+}
+.borde{
+    border: none;
+    height: 37.5rem;
+}
+.button-slider{
+    background: #B59062;
+    border: none;
+    width: 10rem;
+    height: auto;
+
+}
