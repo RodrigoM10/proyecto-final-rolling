@@ -149,37 +149,37 @@ export const CarouselComments = () => {
           },
         }}
         className="mySwiper"
-      >
-        {mapSlider.map((producto) => {
-          return (
-            <>
-              <div>
-                <SwiperSlide className="Card-tamaño mt-5">
-                  <div>
-                    <div className=" mx-3">
-                      <Card
-                        className="card-comentarios"
-                        style={{ width: "21rem" }}
-                      >
-                        <div className="mt-3 text-center">
-                          <h3>{producto.titulo}</h3>
+        >
+              {mapSlider.map((producto, i) => {
+                return (
+                  <>
+                    <div>
+                      <SwiperSlide className="Card-tamaño mt-5">
+                        <div>
+                          <div className=" mx-3">
+                            <Card
+                              className="card-comentarios"
+                              style={{ width: "21rem" }}
+                            >
+                              <div className="mt-3 text-center">
+                                <h3>{producto.titulo}</h3>
+                              </div>
+                              <Card.Body>
+                                <Card.Title className="descripcion-comentarios mt-1 text-center">
+                                  "{producto.descripcion}"
+                                </Card.Title>
+                                <Card.Text className="descripcion-nombre text-center">
+                                  {producto.nombre}
+                                </Card.Text>
+                              </Card.Body>
+                            </Card>
+                          </div>
                         </div>
-                        <Card.Body>
-                          <Card.Title className="descripcion-comentarios mt-1 text-center">
-                            "{producto.descripcion}"
-                          </Card.Title>
-                          <Card.Text className="descripcion-nombre text-center">
-                            {producto.nombre}
-                          </Card.Text>
-                        </Card.Body>
-                      </Card>
+                      </SwiperSlide>
                     </div>
-                  </div>
-                </SwiperSlide>
-              </div>
-            </>
-          );
-        })}
+                  </>
+                );
+              })}
       </Swiper>
     </>
   );

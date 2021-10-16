@@ -33,29 +33,31 @@ const tokenLocal = leerDeLocalStorage('token') || {};
 function App() {
 
   const [user, setUser] = useState({});
-
   const [isLoading, setIsLoading] = useState(true);
 
-  
+  const requestUserData = async () => {
+      setIsLoading(true);
+      const tokenLocal = leerDeLocalStorage('token') || {};
+
+      if (tokenLocal.token) {
+          const headers = { 'x-auth-token': tokenLocal.token };
+          const response = await axios.get('http://localhost:4000/api/auth', { headers });
+          setUser(response.data);
+      }
+      setIsLoading(false);
+  };
 
   useEffect(() => {
-    
-    if(!tokenLocal.token) return;
-    
-    const request = async () => {
-      const headers = { 'x-auth-token': tokenLocal.token };
-      //el segundo parametro son las propiedades/datos que podemos enviar a la consulta de la api.
-      const response = await axios.get('http://localhost:4000/api/auth', { headers })
-      setUser(response.data);
-    };
-    request();
-  }, [])
+      requestUserData();
+  }, []);
   
   const isAdmin = user.role === 'admin';
   
   return (
     <div className="footer-fix ">
-      <NavbarMain />
+      <NavbarMain 
+        user={user}       
+      />
       <Switch>
         {/* pages */}
         <Route path="/" exact>

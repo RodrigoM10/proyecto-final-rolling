@@ -2,21 +2,23 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './navbarMain.css'
-import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Container, Dropdown, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
 
 
 //React Icons
 import { BsCart, BsCartFill, BsFacebook } from 'react-icons/bs';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegHeart, FaUserAlt } from 'react-icons/fa';
 import { VscMenu, VscSearch, VscClose } from 'react-icons/vsc';
 import { GrTwitter, GrYoutube } from 'react-icons/gr';
+import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
 
-export const NavbarMain = () => {
 
+export const NavbarMain = ({ user }) => {
 
+    const tokenLocal = leerDeLocalStorage('token') || {};
     // asigno la variable location
     const location = useLocation();
     //destructuro pathname from location
@@ -51,11 +53,31 @@ export const NavbarMain = () => {
                             </a>
                         </div>
                         <div className="d-flex align-items-center login-register">
-                            <span className="d-flex align-items-center navbar-log mx-2 d-none d-md-block ">
-                                <a href="/login" className={splitLocation[1] === "login" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Iniciar sesión</a>
-                                <span>/</span>
-                                <a href="/register" className={splitLocation[1] === "register" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Registrarse</a>
-                            </span>
+                            {/* {
+                                    !tokenLocal.token 
+                                    && 
+                                    <span className="d-flex align-items-center navbar-log mx-2 d-none d-md-block ">
+                                            <a href="/login" className={splitLocation[1] === "login" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Iniciar sesión</a>
+                                            <span>/</span>
+                                            <a href="/register" className={splitLocation[1] === "register" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Registrarse</a>
+                                     </span>
+                           }  */}
+                            {
+                                user.role === 'admin'
+                                &&
+                                <NavDropdown
+                                    id="nav-dropdown-dark-example"
+                                    title={<FaUserAlt/>}
+                                    menuVariant="dark"
+                                >
+                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                </NavDropdown>
+
+                            }
                             <span className="d-flex align-items-center navbar-icons">
                                 <a href="/favourite" className="me-3">
                                     {splitLocation[1] === "favourite" ? <FaHeart /> : <FaRegHeart />}
