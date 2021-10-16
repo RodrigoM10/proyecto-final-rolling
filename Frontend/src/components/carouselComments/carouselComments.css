@@ -1,0 +1,109 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.comentarios-estilo {
+  background-image: url(https://cdn.shopify.com/s/files/1/1504/5726/files/bg-homepage-reviews_2000x.png?v=1601260536);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+
+}
+.titulo-comentarios {
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+}
+.Card-tamaño {
+  width: 22rem !important;
+  margin-bottom: 2rem;
+  background: rgb(255, 255, 255, 0) !important;
+}
+.card-comentarios {
+  background: rgb(255, 255, 255, 0);
+  border: none;
+}
+.card-comentarios h3 {
+  font-size: 1.875rem;
+  font-style: italic;
+  line-height: 1;
+  font-weight: bold;
+}
+.descripcion-comentarios {
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 1rem;
+}
+.descripcion-nombre {
+  font-size: 700;
+  font-weight: bold;
+  color: #212529;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.circulo {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	border: 2px solid #b59062;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+  margin:0px auto;
+  padding:3%
+}
+
+.circulo > h2 {
+	font-family: sans-serif;
+	color: white;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+.bordes-estilo{
+  border-bottom: 1px solid rgb(129, 129, 129);
+  padding-bottom: 2rem;
+  border-top: 1px solid rgb(129, 129, 129);
+  padding-top: 1rem;
+}
+.satisfaccion-estilo h4{
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+.satisfaccion-estilo p{
+  font-size: 0.7rem;
+  font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}

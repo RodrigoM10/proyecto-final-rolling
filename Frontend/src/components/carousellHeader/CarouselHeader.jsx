@@ -59,7 +59,7 @@ const Carouselheader = () => {
                       alt="Card image"
                     />
                     <Card.ImgOverlay className="fondo">
-                      <Card.Title className="card-title">
+                      <Card.Title className="card-titulo">
                         {producto.titulo}
                       </Card.Title>
                       <Card.Text className="sub-title">
