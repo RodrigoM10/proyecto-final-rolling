@@ -23,7 +23,7 @@ import AdminProfile from "./pages/admin/AdminProfile";
 import MessagesList from "./pages/admin/MessagesList";
 import UserList from "./pages/admin/UserList";
 //main components
-import { NavbarMain } from "./components/navbar/NavbarMain";
+import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
 // utils
 import { leerDeLocalStorage } from './utils/localStorage';
@@ -33,15 +33,15 @@ const tokenLocal = leerDeLocalStorage('token') || {};
 function App() {
 
   const [user, setUser] = useState({});
-  const history = useHistory();
-  console.log("🚀 ~ file: App.jsx ~ line 33 ~ App ~ user", user)
+
+  const [isLoading, setIsLoading] = useState(true);
+
   
 
-  const isAdmin = user.role === 'admin';
   useEffect(() => {
-
+    
     if(!tokenLocal.token) return;
-
+    
     const request = async () => {
       const headers = { 'x-auth-token': tokenLocal.token };
       //el segundo parametro son las propiedades/datos que podemos enviar a la consulta de la api.
@@ -50,8 +50,9 @@ function App() {
     };
     request();
   }, [])
-
-
+  
+  const isAdmin = user.role === 'admin';
+  
   return (
     <div className="footer-fix ">
       <NavbarMain />
