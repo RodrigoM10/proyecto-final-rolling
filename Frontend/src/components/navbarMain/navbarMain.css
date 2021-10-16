@@ -114,6 +114,18 @@ li:hover::after {
     color: white !important;
 }
 
+/* Estilo del usuario logeado */
+.navbar-user {
+    font-size: 22px;
+    margin: 0 0.3rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.bienvenido-user{
+    color:#b59062 ;
+    font-size: 20px;
+}
+
 /* RESPONSIVE NAVBAR */
 .responsive-navbar {
     font-family: "Montserrat", sans-serif;

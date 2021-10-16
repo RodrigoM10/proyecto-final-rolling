@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import './navbarMain.css'
-import { Container, Dropdown, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
 
 
 //React Icons
 import { BsCart, BsCartFill, BsFacebook } from 'react-icons/bs';
-import { FaHeart, FaRegHeart, FaUserAlt } from 'react-icons/fa';
+import { FaHeart, FaRegHeart, FaShareSquare, FaUserAlt, FaWrench } from 'react-icons/fa';
 import { VscMenu, VscSearch, VscClose } from 'react-icons/vsc';
 import { GrTwitter, GrYoutube } from 'react-icons/gr';
 import { leerDeLocalStorage } from '../../utils/localStorage';
@@ -25,12 +24,20 @@ export const NavbarMain = ({ user }) => {
     const { pathname } = location;
     //js split method para obtener el nombre del path del array
     const splitLocation = pathname.split("/");
+    const history = useHistory();
 
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        window.location.reload();
+        history.push('/');;
+    }
+
 
 
     return (
@@ -52,31 +59,45 @@ export const NavbarMain = ({ user }) => {
                                 LOGO/HOME
                             </a>
                         </div>
+                        {/* condicionales del LOGIN */}
                         <div className="d-flex align-items-center login-register">
-                            {/* {
-                                    !tokenLocal.token 
-                                    && 
-                                    <span className="d-flex align-items-center navbar-log mx-2 d-none d-md-block ">
-                                            <a href="/login" className={splitLocation[1] === "login" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Iniciar sesión</a>
-                                            <span>/</span>
-                                            <a href="/register" className={splitLocation[1] === "register" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Registrarse</a>
-                                     </span>
-                           }  */}
+                            {
+                                !tokenLocal.token
+                                &&
+                                <span className="d-flex align-items-center navbar-log mx-2 d-none d-md-block ">
+                                    <a href="/login" className={splitLocation[1] === "login" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Iniciar sesión</a>
+                                    <span>/</span>
+                                    <a href="/register" className={splitLocation[1] === "register" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Registrarse</a>
+                                </span>
+                            }
                             {
                                 user.role === 'admin'
                                 &&
                                 <NavDropdown
-                                    id="nav-dropdown-dark-example"
-                                    title={<FaUserAlt/>}
-                                    menuVariant="dark"
+                                    className="d-flex align-items-center justify-content-center navbar-user mx-2 d-none d-md-block "
+                                    id="nav-dropdown-ligth-example"
+                                    title={<FaUserAlt />}
+                                    menuVariant="light"
                                 >
-                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                    <NavDropdown.Item className="text-center" href="/adminBoard">Hi "{user.name}"</NavDropdown.Item>
+                                    <NavDropdown.Item className="text-center" href="/adminBoard"><FaWrench />Admin Board</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                    {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare />Logout</NavDropdown.Item>}
                                 </NavDropdown>
-
+                            }
+                            {
+                                user.role === 'user'
+                                &&
+                                <NavDropdown
+                                    className="d-flex align-items-center navbar-user mx-2 d-none d-md-block"
+                                    id="nav-dropdown-light-example"
+                                    title={<FaUserAlt />}
+                                    menuVariant="light"
+                                >
+                                    <p className="text-center">Hi "{user.name}"</p>
+                                    <NavDropdown.Divider />
+                                    {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare />Logout</NavDropdown.Item>}
+                                </NavDropdown>
                             }
                             <span className="d-flex align-items-center navbar-icons">
                                 <a href="/favourite" className="me-3">
@@ -124,14 +145,39 @@ export const NavbarMain = ({ user }) => {
                     <Offcanvas.Title>Logo</Offcanvas.Title>
                     <button type="button" aria-label="Close" className="navbar-button" onClick={handleClose} ><VscClose /></button>
                 </Offcanvas.Header>
-                <Offcanvas.Header className="d-flex justify-content-evenly">
-                    <a href="/login">
-                        <button className="responsive-navbar-button">Iniciar sesión</button>
-                    </a>
-                    <a href="/register">
-                        <button exact className="responsive-navbar-button">Registrarse</button>
-                    </a>
-                </Offcanvas.Header>
+                {/* si no hay registrado ningun usuario entonces lo de siempre */}
+                {!tokenLocal.token
+                    &&
+                    <Offcanvas.Header className="d-flex justify-content-evenly">
+                        <a href="/login">
+                            <button className="responsive-navbar-button">Iniciar sesión</button>
+                        </a>
+                        <a href="/register">
+                            <button exact className="responsive-navbar-button">Registrarse</button>
+                        </a>
+                    </Offcanvas.Header>
+                }
+
+                {/* si esta registrado un usuario con token valido entonces se muestra */}
+                {user.role === 'user' &&
+                    <Offcanvas.Header className="d-flex flex-column justify-content-evenly bienvenido-user">
+                        <p>Bienvenido Sr/a {user.name}</p>
+                        <div>
+                            <button onClick={logout} className="responsive-navbar-button">Cerrar Sesion</button>
+                        </div>
+                    </Offcanvas.Header>
+                }
+                {/* si esta registrado un usuario admin entonces se muestra */}
+                {user.role === 'admin'
+                    &&
+                    <Offcanvas.Header className="d-flex flex-column bienvenido-user">
+                        <p>Bienvenido Sr/a {user.name}</p>
+                        <div className="d-flex justify-content-evenly">
+                        <a href="/adminBoard"><button className="responsive-navbar-button">Admin Board</button></a>
+                        <button onClick={logout} className="responsive-navbar-button">Cerrar Sesion</button>
+                        </div>
+                    </Offcanvas.Header>
+                }
                 <Offcanvas.Body >
                     <div className="responsive-navbar-links text-center ">
                         <li className="p-2 mx-3" >
