@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios'
 
 //router dom
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 
 // pages
@@ -33,30 +33,32 @@ const tokenLocal = leerDeLocalStorage('token') || {};
 function App() {
 
   const [user, setUser] = useState({});
+  console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
   const [isLoading, setIsLoading] = useState(true);
+  console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
 
   const requestUserData = async () => {
-      setIsLoading(true);
-      const tokenLocal = leerDeLocalStorage('token') || {};
+    setIsLoading(true);
+    const tokenLocal = leerDeLocalStorage('token') || {};
 
-      if (tokenLocal.token) {
-          const headers = { 'x-auth-token': tokenLocal.token };
-          const response = await axios.get('http://localhost:4000/api/auth', { headers });
-          setUser(response.data);
-      }
-      setIsLoading(false);
+    if (tokenLocal.token) {
+      const headers = { 'x-auth-token': tokenLocal.token };
+      const response = await axios.get('http://localhost:4000/api/auth', { headers });
+      setUser(response.data);
+    }
+    setIsLoading(false);
   };
 
   useEffect(() => {
-      requestUserData();
+    requestUserData();
   }, []);
-  
+
   const isAdmin = user.role === 'admin';
-  
+
   return (
     <div className="footer-fix ">
-      <NavbarMain 
-        user={user}       
+      <NavbarMain
+        user={user}
       />
       <Switch>
         {/* pages */}
@@ -91,16 +93,31 @@ function App() {
             <AdminBoard />
           </Route>
         )}
+        {isAdmin && (
+          <Route path="/adminProfile" >
+            <AdminProfile />
+          </Route>
+        )}
+        {isAdmin && (
+          <Route path="/messagesList" >
+            <MessagesList />
+          </Route>
+        )}
+        {isAdmin && (
+          <Route path="/userList" >
+            <UserList />
+          </Route>
+        )}
+        {/* {isAdmin && (
+          <Route path="/adminProducts" >
+            <UserList />
+          </Route>
+        )} */}
+        <Route path="/404">404</Route>
 
-        {/* <Route path="/adminProfile" >
-                <AdminProfile /> 
-              </Route>
-              <Route path="/messagesList" >
-                <MessagesList /> 
-              </Route>
-              <Route path="/userList" >
-                <UserList /> 
-              </Route> */}
+        <Route path="*">
+          <Redirect to="/404" />
+        </Route>
 
       </Switch>
       <Footer />
