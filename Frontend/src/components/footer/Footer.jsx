@@ -35,7 +35,7 @@ export const Footer = () => {
                 <hr />
                 <div className="row text-center align-items-center link-effect">
                     <div className="col-12 col-lg-3 col-md-6 my-4">
-                        <h5>CONCATENOS</h5>
+                        <h5>CONTACTENOS</h5>
                         <div className="links mb-2">
                             <a href="." >contactwine@winevibes.com</a><br />
                             <a href="." >+3816807710</a>

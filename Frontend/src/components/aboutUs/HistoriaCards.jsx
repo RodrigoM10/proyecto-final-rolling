@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap'
 
 export const HistoriaCards = () => {
     return (
-        <div className="row gx-3 gy-2 p-4 mb-4 historia-style">
+        <div className="row gx-3 gy-2 p-3 mb-2 historia-style">
             <h1 className="text-center">¿Que hacemos?</h1>
             <div className="col-12 col-xxl-6 p-3">
                 <h4 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi architecto aliquid, inventore ratione temporibus laboriosam at, maiores vero quisquam dolorum nesciunt possimus numquam ullam quam vitae amet ipsa velit. Totam.</h4>
