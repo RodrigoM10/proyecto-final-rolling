@@ -42,31 +42,17 @@ export const CarouselComments = () => {
     },
     {
       id: "4",
-      titulo:
-        "https://cdn.shopify.com/s/files/1/1504/5726/products/112294_750x750.png",
-      descripcion: "2017 Blue Pyrenees Estate Sección 26 Cabernet Sauvignon",
-      nombre: "$24.99",
+      titulo: "Great Value, Wonderful Wines",
+      descripcion:
+        "I’ve been very happy with all purchases from TWC to date. There’s a great selection, reasonable prices offering excellent value. Checkout is easy and delivery is always quite quick! Very happy customer",
+      nombre: "Nicolas, ES",
     },
     {
-      id: "4",
-      titulo:
-        "https://cdn.shopify.com/s/files/1/1504/5726/products/112294_750x750.png",
-      descripcion: "2017 Blue Pyrenees Estate Sección 26 Cabernet Sauvignon",
-      nombre: "$24.99",
-    },
-    {
-      id: "4",
-      titulo:
-        "https://cdn.shopify.com/s/files/1/1504/5726/products/112294_750x750.png",
-      descripcion: "2017 Blue Pyrenees Estate Sección 26 Cabernet Sauvignon",
-      nombre: "$24.99",
-    },
-    {
-      id: "4",
-      titulo:
-        "https://cdn.shopify.com/s/files/1/1504/5726/products/112294_750x750.png",
-      descripcion: "2017 Blue Pyrenees Estate Sección 26 Cabernet Sauvignon",
-      nombre: "$24.99",
+      id: "5",
+      titulo: "Great Value, Wonderful Wines",
+      descripcion:
+        "I’ve been very happy with all purchases from TWC to date. There’s a great selection, reasonable prices offering excellent value. Checkout is easy and delivery is always quite quick! Very happy customer",
+      nombre: "Nicolas, ES",
     },
   ];
 
