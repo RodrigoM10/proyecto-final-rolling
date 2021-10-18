@@ -158,6 +158,7 @@ export const NavbarMain = ({ user }) => {
                         <a href="/login">
                             <button className="responsive-navbar-button">Iniciar sesión</button>
                         </a>
+                        
                         <a href="/register">
                             <button exact className="responsive-navbar-button">Registrarse</button>
                         </a>
