@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom';
 import "./footer.css";
 
+import FooterAdmin from './FooterAdmin';
 // react-icons
 import { FaArrowUp, FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaYoutubeSquare } from 'react-icons/fa';
 
@@ -17,7 +18,7 @@ export const Footer = () => {
 
     return (
         <>
-            {splitLocation[1] !== "adminBoard" &&
+            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "adminProfile" &&
                 <div className="mt-auto">
                     <div className="footer">
                         <div className="row text-center align-items-center">
@@ -87,21 +88,11 @@ export const Footer = () => {
                     </div>
                 </div>
             }
-            {splitLocation[1] === "adminBoard" &&
-                <div className="mt-auto">
-                    <div className="d-flex align-items-center justify-content-between footer2">
-                        <div>
-                            <p>© 2021 The Wine Vibes All rights reserved</p>
-                        </div>
-                        <div>
-                            <p>Keep Calm and drink Wine</p>
-                        </div>
-                        <div>
-                            <button className="volverArriba" onClick={scrollToTop}><FaArrowUp /></button>
-                        </div>
-                    </div>
-                </div>
-            }
+
+            {splitLocation[1] === "adminBoard" && <FooterAdmin />}
+            {splitLocation[1] === "messagesList" && <FooterAdmin />}
+            {splitLocation[1] === "userList" && <FooterAdmin />}
+            {splitLocation[1] === "adminProfile" && <FooterAdmin />}
         </>
     )
 }
