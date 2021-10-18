@@ -27,6 +27,7 @@ import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
 // utils
 import { leerDeLocalStorage } from './utils/localStorage';
+import { NavbarAdmin } from "./components/navbarAdmin/NavbarAdmin";
 
 const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -91,11 +92,11 @@ function App() {
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard />
+            <AdminBoard  user={user}/>
           </Route>
         )}
         {isAdmin && (
-          <Route path="/adminBoard/:userId" >
+          <Route path="/adminProfile" >
             <AdminProfile  user={user}/>
           </Route>
         )}

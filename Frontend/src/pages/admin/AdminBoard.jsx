@@ -1,6 +1,7 @@
 import React from 'react'
 
-function AdminBoard() {
+
+function AdminBoard({user}) {
     return (
         <div>
             ADMIN BOARD

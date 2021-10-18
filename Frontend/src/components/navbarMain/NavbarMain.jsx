@@ -41,7 +41,7 @@ export const NavbarMain = ({ user }) => {
 
     return (
         <>
-            {splitLocation[1] !== "adminBoard" && 
+            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "adminProfile" && 
                 <Navbar className="navbar d-flex flex-column" expand="lg" >
                     <Container className="py-3">
                         {/* ACOMODAR DIVS A GUSTO DUDA NO SE COMO HACER !!!!!!! NO PUEDO :s */}
@@ -141,7 +141,11 @@ export const NavbarMain = ({ user }) => {
                 </Navbar>
             }
             {splitLocation[1] === "adminBoard" && <NavbarAdmin  user={user}/>}
+            {splitLocation[1] === "messagesList" && <NavbarAdmin  user={user}/>}
+            {splitLocation[1] === "userList" && <NavbarAdmin  user={user}/>}
+            {splitLocation[1] === "adminProfile" && <NavbarAdmin  user={user}/>}
 
+             {/* LOGICA OFFCANVAS */}
             <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
                 <Offcanvas.Header className="responsive-navbar-header">
                     <Offcanvas.Title>Logo</Offcanvas.Title>
