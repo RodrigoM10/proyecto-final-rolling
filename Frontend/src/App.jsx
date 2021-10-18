@@ -113,11 +113,11 @@ function App() {
             <UserList />
           </Route>
         )} */}
-        <Route path="/404">404</Route>
+        {/* <Route path="/404">404</Route>
 
         <Route path="*">
           <Redirect to="/404" />
-        </Route>
+        </Route> */}
 
       </Switch>
       <Footer />
