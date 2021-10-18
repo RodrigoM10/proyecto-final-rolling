@@ -54,6 +54,7 @@ function App() {
   }, []);
 
   const isAdmin = user.role === 'admin';
+  console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
 
   return (
     <div className="footer-fix ">
@@ -94,8 +95,8 @@ function App() {
           </Route>
         )}
         {isAdmin && (
-          <Route path="/adminProfile" >
-            <AdminProfile />
+          <Route path="/adminBoard/:userId" >
+            <AdminProfile  user={user}/>
           </Route>
         )}
         {isAdmin && (
@@ -108,16 +109,13 @@ function App() {
             <UserList />
           </Route>
         )}
-        {/* {isAdmin && (
-          <Route path="/adminProducts" >
-            <UserList />
-          </Route>
-        )} */}
-        {/* <Route path="/404">404</Route>
 
+        <Route path="/404">
+          404
+        </Route>
         <Route path="*">
-          <Redirect to="/404" />
-        </Route> */}
+          <Redirect to="/404"/>
+        </Route>
 
       </Switch>
       <Footer />

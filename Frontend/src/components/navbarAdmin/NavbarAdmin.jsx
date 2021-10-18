@@ -11,7 +11,7 @@ import { GrTwitter, GrYoutube } from 'react-icons/gr';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
-export const NavbarAdmin = () => {
+export const NavbarAdmin = ( {user} ) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
     // asigno la variable location
@@ -62,7 +62,7 @@ export const NavbarAdmin = () => {
                                 title={<FaUserAlt />}
                                 menuVariant="light"
                             >
-                                <NavDropdown.Item className="text-center" href="/"><FaWrench />Volver a landing</NavDropdown.Item>
+                                <NavDropdown.Item className="text-center" as={NavLink} to="/"><FaWrench />Volver a landing</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare />Logout</NavDropdown.Item>}
                             </NavDropdown>
@@ -72,7 +72,10 @@ export const NavbarAdmin = () => {
                 <Container className="pb-2 d-none d-md-block">
                     <div className="d-flex align-items-center justify-content-center w-100 navbar-links">
                         <li className="p-2 mx-3" >
-                            <Nav.Link as={NavLink} to="/adminProfile" exact activeClassName="link-active">PERFIL</Nav.Link>
+                            <Nav.Link as={NavLink} to="/adminBoard" exact activeClassName="link-active">BOARD</Nav.Link>
+                        </li>
+                        <li className="p-2 mx-3" >
+                            <Nav.Link as={NavLink} to={`/adminBoard/${user.id}`} exact activeClassName="link-active">PERFIL</Nav.Link>
                         </li>
                         <li className="p-2 mx-3">
                             <Nav.Link as={NavLink} to="/messagesList" activeClassName="link-active">MENSAJES</Nav.Link>

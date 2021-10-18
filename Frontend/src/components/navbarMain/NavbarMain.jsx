@@ -22,7 +22,7 @@ export const NavbarMain = ({ user }) => {
     const { pathname } = location;
     //js split method para obtener el nombre del path del array
     const splitLocation = pathname.split("/");
-    console.log("🚀 ~ file: NavbarMain.jsx ~ line 27 ~ NavbarMain ~ splitLocation", splitLocation)
+
     const history = useHistory();
 
 
@@ -79,11 +79,11 @@ export const NavbarMain = ({ user }) => {
                                         title={<FaUserAlt />}
                                         menuVariant="light"
                                     >
-                                        <NavDropdown.Item className="text-center" href="/adminBoard">Hi "{user.name}"</NavDropdown.Item>
-                                        <NavDropdown.Item className="text-center" href="/adminBoard"><FaWrench />Admin Board</NavDropdown.Item>
+                                        <NavDropdown.Item className="text-center">Hi "{user.name}"</NavDropdown.Item>
+                                        <NavDropdown.Item className="text-center" as={NavLink} to="/adminBoard"><FaWrench />Admin Board</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare />Logout</NavDropdown.Item>}
-                                    </NavDropdown>
+                                        {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare /> Cerrar sesión</NavDropdown.Item>}
+                                    </NavDropdown> 
                                 }
                                 {
                                     user.role === 'user'
@@ -140,7 +140,7 @@ export const NavbarMain = ({ user }) => {
                     </Container>
                 </Navbar>
             }
-            {splitLocation[1] === "adminBoard" && <NavbarAdmin />}
+            {splitLocation[1] === "adminBoard" && <NavbarAdmin  user={user}/>}
 
             <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
                 <Offcanvas.Header className="responsive-navbar-header">

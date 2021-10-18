@@ -1,9 +1,11 @@
 import React from 'react'
-
+import { Redirect, useParams } from 'react-router';
 function AdminProfile() {
+    const { userId } = useParams();
+    
     return (
         <div>
-            Admin Profile
+            Perfil de {userId.name}
         </div>
     )
 }
