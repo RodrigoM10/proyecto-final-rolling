@@ -20,8 +20,21 @@ import UserList from "./pages/admin/UserList";
 //main components
 import { NavbarMain } from "./components/navbar/NavbarMain";
 import { Footer } from "./components/footer/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+
+  const [productos, setProductos] = useState([]);
+
+  const getProductos = async () => {
+    const response = await axios.get('http://localhost:4000/api/productos');
+    setProductos(response.data);
+};
+
+useEffect(() => {
+  getProductos();
+}, []);
 
   return (
     <div className="footer-fix ">
@@ -37,7 +50,7 @@ function App() {
         </Route>
 
         <Route path="/store" >
-          <Store />
+          <Store actualizarProductos={getProductos} productos={productos}/>
         </Route>
 
         <Route path="/store/:productId">

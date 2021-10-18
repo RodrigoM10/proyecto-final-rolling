@@ -3,9 +3,9 @@ import { CardProduct } from "./CardProduct";
 import './cardProduct.css'
 
 
+
 export const CardsProduct = ({ productos }) => {
-  const mapProductos = productos.map((producto) => (
-    <CardProduct producto={producto} />
+  const mapProductos = productos.map((producto, i) => (<CardProduct key={i} producto={producto} />
   ));
   return (
     <>
