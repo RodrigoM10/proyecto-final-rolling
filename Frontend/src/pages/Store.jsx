@@ -20,7 +20,7 @@ function Store({productos}) {
           </Col>
         </Row>
         <Container className="mt-5">
-          <SliderProducts />
+          <SliderProducts productos={productos} />
         </Container>
       </Container>
       <CartSideButton className="position-fixed" />
