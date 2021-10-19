@@ -3,8 +3,8 @@ import { Card } from "react-bootstrap";
 import { FaRegHeart } from 'react-icons/fa';
 
 
-export const CardProduct = ({ producto }) => {
-  const { img, descripcion, precioLista, precioConDescuento } = producto;
+
+export const CardProduct = (props) => {
   return (
     <div>
           <div className="productos mx-3">
@@ -15,7 +15,7 @@ export const CardProduct = ({ producto }) => {
                           variant="top"
                           src="https://twc.s3.ap-southeast-2.amazonaws.com/web/twc_badges/v2/95-TS.svg"
                         />
-                        <Card.Img className="img-top-center" variant="top" src={img} />
+                        <Card.Img className="img-top-center" variant="top" src={props.producto.image} />
                         <Card.Img
                          className="img-top-right"
                           variant="top"
@@ -24,13 +24,13 @@ export const CardProduct = ({ producto }) => {
                     </div>
                     <Card.Body className="card-description" >
                         <Card.Title className="name-producto mt-1 text-center">
-                          {descripcion}
+                          {props.producto.name}
                         </Card.Title>
                         <Card.Text className="precio-producto mt-5 text-center">
-                          RRP: {precioLista}
+                          RRP: ${props.producto.price}
                         </Card.Text>
                         <Card.Text className="text-center precio-producto-descuento">
-                          {precioConDescuento}
+                          ${props.producto.discount}
                         </Card.Text>
                         <Card.Text className="text-center">Por unidad</Card.Text>
                         <div className="d-flex align-items-center ">

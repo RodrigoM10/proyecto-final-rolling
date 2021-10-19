@@ -27,12 +27,13 @@ import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
 // utils
 import { leerDeLocalStorage } from './utils/localStorage';
-import { NavbarAdmin } from "./components/navbarAdmin/NavbarAdmin";
 
-const tokenLocal = leerDeLocalStorage('token') || {};
+
+
 
 function App() {
 
+  const [productos, setProductos] = useState([]);
   const [user, setUser] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
   const [isLoading, setIsLoading] = useState(true);
@@ -53,10 +54,18 @@ function App() {
   useEffect(() => {
     requestUserData();
   }, []);
-
-  const isAdmin = user.role === 'admin';
-  console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
-
+  
+  useEffect(() => {
+    const getProductos = async () => {
+      const response = await axios.get('http://localhost:4000/api/productos');
+      setProductos(response.data);
+    };
+    getProductos();
+  }, []);
+  
+    const isAdmin = user.role === 'admin';
+    console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
+  
   return (
     <div className="footer-fix ">
       <NavbarMain
@@ -71,7 +80,7 @@ function App() {
           <About />
         </Route>
         <Route path="/store" >
-          <Store />
+          <Store productos={productos} />
         </Route>
         <Route path="/contact" >
           <Contact />
@@ -92,12 +101,12 @@ function App() {
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard  user={user}/>
+            <AdminBoard user={user} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/adminProfile" >
-            <AdminProfile  user={user}/>
+            <AdminProfile user={user} />
           </Route>
         )}
         {isAdmin && (
@@ -115,7 +124,7 @@ function App() {
           404
         </Route>
         <Route path="*">
-          <Redirect to="/404"/>
+          <Redirect to="/404" />
         </Route>
 
       </Switch>
