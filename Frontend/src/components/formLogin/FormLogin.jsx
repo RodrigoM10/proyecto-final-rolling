@@ -34,6 +34,7 @@ export const FormLogin = () => {
                 alert('Bienvenido ' + name);
                 //El push redirecciona a la pantalla indicada en el parametro.
                 history.push('/');
+                window.location.reload();
 
             } catch (error) {
                 console.error(error);

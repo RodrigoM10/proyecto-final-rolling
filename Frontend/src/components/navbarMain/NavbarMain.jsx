@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import './navbarMain.css'
-import { Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 
 //React Icons
-import { BsCart, BsCartFill, BsFacebook } from 'react-icons/bs';
+import { BsCart, BsCartFill} from 'react-icons/bs';
 import { FaHeart, FaRegHeart, FaShareSquare, FaUserAlt, FaWrench } from 'react-icons/fa';
-import { VscMenu, VscSearch, VscClose } from 'react-icons/vsc';
-import { GrTwitter, GrYoutube } from 'react-icons/gr';
+import { VscMenu, VscSearch} from 'react-icons/vsc';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
@@ -29,7 +28,6 @@ export const NavbarMain = ({ user }) => {
 
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const logout = () => {
