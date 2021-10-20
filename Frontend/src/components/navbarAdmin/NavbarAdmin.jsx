@@ -5,6 +5,7 @@ import { Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap'
 
 //React Icons
 import { BsFacebook } from 'react-icons/bs';
+import { CgProfile } from 'react-icons/cg';
 import { FaShareSquare, FaUserAlt, FaWrench } from 'react-icons/fa';
 import { VscMenu, VscSearch, VscClose } from 'react-icons/vsc';
 import { GrTwitter, GrYoutube } from 'react-icons/gr';
@@ -59,12 +60,11 @@ export const NavbarAdmin = ({ user }) => {
                             <NavDropdown
                                 className="d-flex align-items-center justify-content-center navbar-user mx-2 d-none d-md-block p-0"
                                 id="nav-dropdown-ligth-example"
-                                title={    
-                                    <FaUserAlt className="mb-1" />
-                                }
+                                title={<span>Hola {user.name} </span>}
                                 menuVariant="light"
                             >
                                 {/* <NavDropdown.Item className="text-center" as={NavLink} to="/adminProfile" exact >Mi Perfil</NavDropdown.Item> */}
+                                <NavDropdown.Item className="text-center"  as={NavLink} to="/profileAdmin"><CgProfile className="mb-1"/> Mi perfil</NavDropdown.Item>
                                 <NavDropdown.Item className="text-center" as={NavLink} to="/" exact><RiArrowGoBackLine className="mb-1" /> Volver a landing</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare className="mb-1"/> Cerrar sesión</NavDropdown.Item>}
@@ -83,9 +83,6 @@ export const NavbarAdmin = ({ user }) => {
                         <li className="p-2 mx-3">
                             <Nav.Link as={NavLink} to="/userList" activeClassName="link-active" >USUARIOS</Nav.Link>
                         </li>
-                        <li className="p-2 mx-3">
-                            <Nav.Link as={NavLink} to="/adminProfile" activeClassName="link-active" >PERFIL</Nav.Link>
-                        </li>
                     </div>
                 </Container>
             </Navbar>
@@ -97,11 +94,11 @@ export const NavbarAdmin = ({ user }) => {
                     <button type="button" aria-label="Close" className="navbar-button" onClick={handleClose} ><VscClose /></button>
                 </Offcanvas.Header>
                 <Offcanvas.Header className="d-flex flex-column bienvenido-user">
-                    <div className="d-flex justify-content-evenly">
-                        <NavLink as={NavLink} to="adminProfile">
-                            <button className="responsive-navbar-button">Mi Perfil</button>
+                <div className="d-flex justify-content-evenly">
+                        <NavLink as={NavLink} to="/myProfile">
+                            <button className="responsive-navbar-button px-4">Mi Perfil</button>
                         </NavLink>
-                        <button onClick={logout} className="responsive-navbar-button">Cerrar Sesion</button>
+                        <button onClick={logout} className="responsive-navbar-button p-1">Cerrar Sesion</button>
                     </div>
                 </Offcanvas.Header>
 

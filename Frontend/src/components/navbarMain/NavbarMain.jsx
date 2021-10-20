@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import './navbarMain.css'
-import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 
 //React Icons
-import { BsCart, BsCartFill} from 'react-icons/bs';
+import { BsCart, BsCartFill } from 'react-icons/bs';
+import { CgProfile } from 'react-icons/cg';
 import { FaHeart, FaRegHeart, FaShareSquare, FaUserAlt, FaWrench } from 'react-icons/fa';
-import { VscMenu, VscSearch} from 'react-icons/vsc';
+import { VscMenu, VscSearch } from 'react-icons/vsc';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
@@ -40,7 +41,7 @@ export const NavbarMain = ({ user }) => {
 
     return (
         <>
-            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "adminProfile" &&
+            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList"  && splitLocation[1] !== "profileAdmin" &&
                 <Navbar className="navbar d-flex flex-column" expand="lg" >
                     <Container className="py-3">
                         {/* ACOMODAR DIVS A GUSTO DUDA NO SE COMO HACER !!!!!!! NO PUEDO :s */}
@@ -75,11 +76,12 @@ export const NavbarMain = ({ user }) => {
                                     <NavDropdown
                                         className="d-flex align-items-center justify-content-center navbar-user mx-2 d-none d-md-block "
                                         id="nav-dropdown-ligth-example"
-                                        title={<FaUserAlt />}
+                                        title={<span>Hola {user.name} </span>}
                                         menuVariant="light"
                                     >
-                                        <NavDropdown.Item className="text-center">Hi "{user.name}"</NavDropdown.Item>
-                                        <NavDropdown.Item className="text-center" as={NavLink} to="/adminBoard"><FaWrench className="mb-1"/> Admin Board</NavDropdown.Item>
+                                        {/* <NavDropdown.Item className="text-center">Hi "{user.name}"</NavDropdown.Item> */}
+                                        <NavDropdown.Item className="text-center"  as={NavLink} to="/myProfile"><CgProfile className="mb-1"/> Mi perfil</NavDropdown.Item>
+                                        <NavDropdown.Item className="text-center" as={NavLink} to="/adminBoard"><FaWrench className="mb-1" /> Admin Board</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare className="mb-1" /> Cerrar sesión</NavDropdown.Item>}
                                     </NavDropdown>
@@ -90,12 +92,12 @@ export const NavbarMain = ({ user }) => {
                                     <NavDropdown
                                         className="d-flex align-items-center navbar-user mx-2 d-none d-md-block"
                                         id="nav-dropdown-light-example"
-                                        title={<FaUserAlt />}
+                                        title={<span>Hola {user.name} </span>}
                                         menuVariant="light"
                                     >
-                                        <p className="text-center">Hi "{user.name}"</p>
+                                        <NavDropdown.Item className="text-center" as={NavLink} to="/myProfile"><CgProfile className="mb-1"/> Mi perfil</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare />Logout</NavDropdown.Item>}
+                                        {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare className="mb-1" /> Cerrar sesión</NavDropdown.Item>}
                                     </NavDropdown>
                                 }
                                 <span className="d-flex align-items-center navbar-icons">
@@ -140,14 +142,12 @@ export const NavbarMain = ({ user }) => {
                 </Navbar>
             }
             {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "adminProfile" &&
-                <NavbarMainMobile user={user} setShow={setShow} show={show}/>
+                <NavbarMainMobile user={user} setShow={setShow} show={show} />
             }
             {splitLocation[1] === "adminBoard" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "messagesList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
-            {splitLocation[1] === "adminProfile" && <NavbarAdmin user={user} />}
-
-
+            {splitLocation[1] === "profileAdmin" && <NavbarAdmin user={user} />}
         </>
 
     )

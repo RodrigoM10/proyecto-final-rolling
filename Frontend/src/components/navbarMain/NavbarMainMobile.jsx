@@ -9,6 +9,7 @@ import { BsFacebook } from 'react-icons/bs';
 import { VscClose } from 'react-icons/vsc';
 import { GrTwitter, GrYoutube } from 'react-icons/gr';
 import { leerDeLocalStorage } from '../../utils/localStorage';
+import { FaWrench } from 'react-icons/fa';
 
 const NavbarMainMobile = (props) => {
     const { user, setShow, show } = props;
@@ -60,10 +61,10 @@ const NavbarMainMobile = (props) => {
                 <Offcanvas.Header className="d-flex flex-column bienvenido-user">
                     <p>Bienvenido Sr/a {user.name}</p>
                     <div className="d-flex justify-content-evenly">
-                        <NavLink as={NavLink} to="/adminBoard">
-                            <button className="responsive-navbar-button">Admin Board</button>
+                        <NavLink as={NavLink} to="/myProfile">
+                            <button className="responsive-navbar-button px-4">Mi Perfil</button>
                         </NavLink>
-                        <button onClick={logout} className="responsive-navbar-button">Cerrar Sesion</button>
+                        <button onClick={logout} className="responsive-navbar-button p-1">Cerrar Sesion</button>
                     </div>
                 </Offcanvas.Header>
             }
@@ -78,6 +79,10 @@ const NavbarMainMobile = (props) => {
                     <li className="p-2 mx-3">
                         <Nav.Link as={NavLink} to="/about" activeClassName="link-active" onClick={handleClose}>HISTORIA</Nav.Link>
                     </li>
+                    <li className="p-2 mx-3">
+                        <Nav.Link as={NavLink} to="/adminBoard" activeClassName="link-active"><FaWrench  className="mb-1 me-2" />ADMIN BOARD</Nav.Link>
+                    </li>
+
                 </div>
                 <div className="navbar-responsive-redes">
                     <Offcanvas.Title className="navbar-responsive-subtitle mt-3">Seguinos en nuestras redes</Offcanvas.Title>
