@@ -5,7 +5,6 @@ import axios from 'axios'
 
 //router dom
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
 
 // pages
 import Home from './pages/Home'
@@ -16,7 +15,7 @@ import Cart from "./pages/Cart";
 import Favourite from "./pages/Favourite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import DetailsProduct from "./pages/DetailsProduct";
+// import DetailsProduct from "./pages/DetailsProduct";
 import MyProfile from "./pages/MyProfile";
 // admin pages
 import AdminBoard from "./pages/admin/AdminBoard";
@@ -41,9 +40,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
 
-  const tokenLocal = leerDeLocalStorage('token') || {}; 
+  const tokenLocalData = leerDeLocalStorage('token') || {}; 
   
   const requestUserData = async () => {
+    
+    const tokenLocal = leerDeLocalStorage('token') || {}; 
     setIsLoading(true);
     if (tokenLocal.token) {
       const headers = { 'x-auth-token': tokenLocal.token };
@@ -107,10 +108,11 @@ function App() {
           <Register />
         </Route>
 
-        {tokenLocal.token &&
+        {tokenLocalData.token &&
         <Route path="/myProfile" >
           <MyProfile user={user} />
-        </Route> }
+        </Route> 
+        }
 
         {/* Admin pages */}
         {isAdmin && (

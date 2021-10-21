@@ -4,11 +4,9 @@ import { Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap'
 
 
 //React Icons
-import { BsFacebook } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
-import { FaShareSquare, FaUserAlt, FaWrench } from 'react-icons/fa';
-import { VscMenu, VscSearch, VscClose } from 'react-icons/vsc';
-import { GrTwitter, GrYoutube } from 'react-icons/gr';
+import { FaShareSquare } from 'react-icons/fa';
+import { VscMenu, VscClose } from 'react-icons/vsc';
 import {RiArrowGoBackLine} from 'react-icons/ri'
 import { leerDeLocalStorage } from '../../utils/localStorage';
 

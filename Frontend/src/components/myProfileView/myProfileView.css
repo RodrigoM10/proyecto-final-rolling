@@ -1,5 +1,19 @@
+  .card-profile{
+    margin: 2.5rem auto;
+    text-align: center;
+    border: 2px solid #b59062;
+    max-width: 50rem;
+    height: auto;
+  }
+  @media only screen and (max-width: 768px) {
+    .card-profile {
+      min-width: 20rem;
+    }
+  }
   .img-avatar{
     border-radius: 1000px;
+    width: 18rem;
+    height: auto;
   }
   .btn-tokito{
     border-radius: 0.3rem;
@@ -17,5 +31,20 @@
   }
   .btn-tokito:focus {
     outline: 0;
-    box-shadow: 0 0 0 0.25rem #b59062;
+    box-shadow: 0 0 0 0.10rem #b59062;
+  }
+  .circle-btn {
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4rem;
+    background-color: #203048;
+    border: 2px outset #203048;
+  }
+  .circle-btn:hover {
+    background: #2f476b;
+    color: #b59062;
+  }
+  .card-body-container {
+    width: 20rem;
   }

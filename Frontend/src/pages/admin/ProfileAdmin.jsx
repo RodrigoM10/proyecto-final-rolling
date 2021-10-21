@@ -1,10 +1,15 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import { MyProfileView } from '../../components/myProfileView/MyProfileView'
 
-export default function ProfileAdmin({user}) {
+export default function ProfileAdmin({ user }) {
     return (
-        <div>
-            <MyProfileView user={user}/>
+        <div className="bg-profile">
+            <Container>
+                <MyProfileView user={user} />
+            </Container>
+
         </div>
+
     )
 }
