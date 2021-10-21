@@ -16,7 +16,6 @@ import Cart from "./pages/Cart";
 import Favourite from "./pages/Favourite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import DetailsProduct from "./pages/DetailsProduct";
 // admin pages
 import AdminBoard from "./pages/admin/AdminBoard";
 import AdminProfile from "./pages/admin/AdminProfile";
@@ -29,13 +28,12 @@ import { Footer } from "./components/footer/Footer";
 import { leerDeLocalStorage } from './utils/localStorage';
 
 
-
-
 function App() {
 
   const [productos, setProductos] = useState([]);
   const [user, setUser] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
+  const [usuarios, setUsuarios] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
 
@@ -55,13 +53,23 @@ function App() {
     requestUserData();
   }, []);
   
+  const getProductos = async () => {
+    const response = await axios.get('http://localhost:4000/api/productos');
+    setProductos(response.data);
+  };
+
   useEffect(() => {
-    const getProductos = async () => {
-      const response = await axios.get('http://localhost:4000/api/productos');
-      setProductos(response.data);
-    };
     getProductos();
-  }, []);
+  }, []); 
+
+  const getUsers = async () => {
+    const response = await axios.get('http://localhost:4000/api/usuarios');
+    setUsuarios(response.data);
+  };
+
+  useEffect(() => {  
+    getUsers();
+  }, [])
   
     const isAdmin = user.role === 'admin';
     console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
@@ -116,7 +124,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList />
+            <UserList getUsers = {getUsers} usuarios ={usuarios}/>
           </Route>
         )}
 
