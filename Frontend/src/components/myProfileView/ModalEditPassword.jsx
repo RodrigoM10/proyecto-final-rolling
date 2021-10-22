@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap';
+import {AiOutlineCheck } from 'react-icons/ai';
 
 
 export const ModalEditPassword = ({ showModalPassword, closeModal, user, requestUserData }) => {
@@ -59,7 +60,7 @@ export const ModalEditPassword = ({ showModalPassword, closeModal, user, request
                                 onChange={(e) => handleChange(e)}
                             />
                         <Form.Control.Feedback>Cambia tu contraseña !</Form.Control.Feedback>
-                        <Button variant="outline-success" className="col-2 p-1 ms-1">Verificar</Button>
+                        <Button variant="outline-success" className="col-2 p-1 ms-1"><AiOutlineCheck/></Button>
                         </Form.Group>
                     </Form>
                     <Form.Group className="mb-3 row align-items-center justify-content-center">

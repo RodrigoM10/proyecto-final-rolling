@@ -52,7 +52,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
                         </button>
                         <OverlayTrigger
                          trigger="focus" 
-                         placement="right"
+                         placement="bottom"
                           overlay={
                             <Popover id="popover-basic">
                                 <Popover.Header as="h3">Configurar Cuenta</Popover.Header>

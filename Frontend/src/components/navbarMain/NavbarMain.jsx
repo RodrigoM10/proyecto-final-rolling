@@ -7,7 +7,7 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 //React Icons
 import { BsCart, BsCartFill } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
-import { FaHeart, FaRegHeart, FaShareSquare, FaUserAlt, FaWrench } from 'react-icons/fa';
+import { FaHeart, FaRegHeart, FaShareSquare, FaWrench } from 'react-icons/fa';
 import { VscMenu, VscSearch } from 'react-icons/vsc';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';

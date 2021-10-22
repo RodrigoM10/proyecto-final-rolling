@@ -17,7 +17,6 @@ const NavbarMainMobile = (props) => {
     const history = useHistory();
 
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     const logout = () => {
         localStorage.removeItem('token');
@@ -86,12 +85,9 @@ const NavbarMainMobile = (props) => {
                 </div>
                 <div className="navbar-responsive-redes">
                     <Offcanvas.Title className="navbar-responsive-subtitle mt-3">Seguinos en nuestras redes</Offcanvas.Title>
-                    <div className="navbar-responsive-icons-container row row-cols-4 my-5">
+                    <div className="navbar-responsive-icons-container d-flex justify-content-evenly my-5">
                         <li>
                             <a href="/facebook" className="face-icon"><BsFacebook /></a>
-                        </li>
-                        <li>
-                            <a href="/youtube" className="youtube-icon"><GrYoutube /></a>
                         </li>
                         <li>
                             <a href="/twitter" className="twitter-icon"><GrTwitter /></a>
