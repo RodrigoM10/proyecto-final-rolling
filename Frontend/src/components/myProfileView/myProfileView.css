@@ -48,3 +48,7 @@
   .card-body-container {
     width: 20rem;
   }
+.btn-config {
+border: 0;
+background-color: white;
+}

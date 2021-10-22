@@ -1,28 +1,32 @@
 import React, { useState } from 'react'
-import { Card, Form, ListGroup, Modal } from 'react-bootstrap'
+import { Card, Form, ListGroup, Modal, OverlayTrigger, Popover } from 'react-bootstrap'
 import './myProfileView.css'
 
 import moment from 'moment';
 import 'moment/locale/es';
 import { FiSettings } from 'react-icons/fi';
+import axios from 'axios';
+import { ModalEditProfile } from './ModalEditProfile';
+import { ModalEditPassword } from './ModalEditPassword';
 moment.locale('es');
 
-export const MyProfileView = ({ user }) => {
+export const MyProfileView = ({ user, requestUserData }) => {
+    console.log("🚀 ~ file: MyProfileView.jsx ~ line 13 ~ MyProfileView ~ ser", user)
     const [showModalEditar, setShowModalEditar] = useState(false);
-    const [showModalContraseña, setShowModalContraseña] = useState(false);
+    const [showModalPassword, setShowModalPassword] = useState(false);
 
     const handleCloseModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
 
-    const handleCloseModalContraseña = () => setShowModalContraseña(false);
-    const handleShowModalContraseña = () => setShowModalContraseña(true);
+    const handleCloseModalPassword = () => setShowModalPassword(false);
+    const handleShowModalPassword = () => setShowModalPassword(true);
+
+
 
     const birthdayUser = new Date(user.birthday);
     const day = birthdayUser.getUTCDate();
     const month = birthdayUser.getUTCMonth();
     const year = birthdayUser.getUTCFullYear();
-    console.log(day, month, year);
-
 
 
 
@@ -46,139 +50,44 @@ export const MyProfileView = ({ user }) => {
                         <button className="m-auto btn-tokito " onClick={handleShowModalEditar}>
                             <h5 className="text-center m-0 py-2  ">Editar perfil</h5>
                         </button>
-                        <button className="m-auto my-2 p-0 circle-btn">
-                            <FiSettings className="p-0 mb-1" />
-                        </button>
+                        <OverlayTrigger
+                         trigger="focus" 
+                         placement="right"
+                          overlay={
+                            <Popover id="popover-basic">
+                                <Popover.Header as="h3">Configurar Cuenta</Popover.Header>
+                                <Popover.Body>
+                                    <ListGroup>
+                                        <ListGroup.Item>
+                                            <button  onClick={handleShowModalPassword}className="btn-config">Cambiar Contraseña</button>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <button className="btn-config">Eliminar Cuenta</button>
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Popover.Body>
+                            </Popover>
+                        }>
+                            <button className="m-auto my-2 p-0 circle-btn">
+                                <FiSettings className="p-0 mb-1" />
+                            </button>
+                        </OverlayTrigger>
                     </div>
                 </div>
             </div>
 
-            <Modal
-                show={showModalEditar}
-                onHide={handleCloseModalEditar}
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title>Datos de Usuario</Modal.Title>
-                </Modal.Header>
-                <Modal.Body
-                >
-                    <Form className="form-register my-5 px-3">
-                        <Form.Group className="mb-3 row align-items-center justify-content-center" >
-                            <label className="col-11 col-md-3">Nombre </label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="name"
-                                // value={user.name}
-                                // onChange={(e) => handleChange(e)}
-                                type="text"
-                                placeholder={user.name}
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3 row align-items-center justify-content-center" >
-                            <label className="col-11 col-md-3 align-items-center">Apellido</label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="lastName"
-                                placeholder={user.lastName}
-
-                                // onChange={(e) => handleChange(e)}
-                                type="text"
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3 row align-items-center justify-content-center" >
-                            <label className="col-11 col-md-3 align-items-center">Email</label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="email"
-                                placeholder={user.email}
-                                // onChange={(e) => handleChange(e)}
-                                type="email"
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3 row align-items-center justify-content-center" >
-                            <label className="col-11 col-md-3">Nacimiento</label>
-                            <input
-                                className="col-11 col-md-9 text-center"
-                                type="date"
-                                name="birthday"
-                                // onChange={(e) => handleChange(e)}
-                                required
-                            />
-                        </Form.Group>
-                        <hr />
-                        <div className="d-flex justify-content-center">
-                            <button className="m-auto btn-tokito " >
-                                <h5 className="text-center m-0 py-2  ">Guardar cambios</h5>
-                            </button>
-                        </div>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer className="d-flex justify-content-between aling-items-center">
-                    <button className="m-auto btn-tokito " onClick={handleShowModalContraseña} >
-                        <h5 className="text-center m-0 py-2  ">Cambiar Contraseña</h5>
-                    </button>
-                    <button className="m-auto my-2 p-0 circle-btn">
-                        <FiSettings className="p-0 mb-1" />
-                    </button>
-
-                </Modal.Footer>
-            </Modal>
-
-            {/* Modal cambiar contraseña */}
-
-            <Modal
-                show={showModalContraseña}
-                onHide={handleCloseModalContraseña}
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title>Datos de Usuario</Modal.Title>
-                </Modal.Header>
-                <Modal.Body
-                >
-                    <Form className="form-register my-5 px-3">
-                        <Form.Group className="mb-3 row align-items-center justify-content-center">
-                            <label className="col-11 col-md-3">Contraseña actual </label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="name"
-                                type="password"
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3 row align-items-center justify-content-center">
-                            <label className="col-11 col-md-3">Contraseña Nueva</label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="name"
-                                type="password"
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3 row align-items-center justify-content-center">
-                            <label className="col-11 col-md-3">Confirmar Contraseña Nueva</label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="name"
-                                type="password"
-                                required
-                            />
-                        </Form.Group>
-  
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer className="d-flex justify-content-between aling-items-center">
-                    <button className="m-auto btn-tokito " >
-                        <h5 className="text-center m-0 py-2  " onClick={handleCloseModalContraseña}>Cambiar Contraseña</h5>
-                    </button>
-                </Modal.Footer>
-                <Modal.Footer> <span>¿Olvidaste tu contraseña?</span></Modal.Footer>
-            </Modal>
-
-
-
+            {user.name && <ModalEditProfile
+                closeModal={handleCloseModalEditar}
+                user={user}
+                showModalEditar={showModalEditar}
+                requestUserData={requestUserData}
+            />}
+            {user.name && <ModalEditPassword
+            closeModal={handleCloseModalPassword}
+            user={user}
+            showModalPassword={showModalPassword}
+            requestUserData={requestUserData}
+            />}
 
         </>
 

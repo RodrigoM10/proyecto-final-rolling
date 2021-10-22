@@ -110,19 +110,19 @@ function App() {
 
         {tokenLocalData.token &&
         <Route path="/myProfile" >
-          <MyProfile user={user} />
+          <MyProfile requestUserData={requestUserData} user={user} />
         </Route> 
         }
 
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard  />
+            <AdminBoard productos={productos} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/profileAdmin" >
-            <ProfileAdmin user={user} />
+            <ProfileAdmin requestUserData={requestUserData} user={user} />
           </Route>
         )}
         {isAdmin && (
