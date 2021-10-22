@@ -29,7 +29,7 @@ function Register() {
                             </a>
                         </div>
                 </div>
-                <Container>
+                <Container className="m-auto">
                   <FormContact />
                 </Container>
             </section>

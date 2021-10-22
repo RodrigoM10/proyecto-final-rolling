@@ -127,7 +127,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/messagesList" >
-            <MessagesList />
+            <MessagesList/>
           </Route>
         )}
         {isAdmin && (
