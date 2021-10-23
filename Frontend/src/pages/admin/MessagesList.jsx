@@ -1,9 +1,9 @@
 import React from 'react'
-import { TableMesseges } from '../../components/tablesAdmin/TableMesseges'
+import { TableMessages } from '../../components/tablesAdmin/TableMessages'
 
-function MessagesList() {
+function MessagesList({messages, getMessages}) {
     return (
-        <TableMesseges />
+        <TableMessages messages={messages} getMessages={getMessages} />
     )
 }
 

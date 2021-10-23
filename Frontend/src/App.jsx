@@ -33,11 +33,18 @@ function App() {
 
   const [productos, setProductos] = useState([]);
   console.log("🚀 ~ file: App.jsx ~ line 38 ~ App ~ productos", productos)
+
   const [user, setUser] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
+ 
   const [usuarios, setUsuarios] = useState({});
+  console.log("🚀 ~ file: App.jsx ~ line 41 ~ App ~ usuarios", usuarios)
+  
   const [isLoading, setIsLoading] = useState(true);
   console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
+  
+  const [messages, setMessages] = useState({})
+  console.log("🚀 ~ file: App.jsx ~ line 43 ~ App ~ Messages", messages)
 
   const tokenLocalData = leerDeLocalStorage('token') || {}; 
   
@@ -61,17 +68,23 @@ function App() {
     const response = await axios.get('http://localhost:4000/api/productos');
     setProductos(response.data);
   };
-
   useEffect(() => {
     getProductos();
   }, []); 
+
+  const getMessages = async () => {
+    const response = await axios.get('http://localhost:4000/api/mensajes');
+    setMessages(response.data);
+  };
+  useEffect(() => {  
+    getMessages();
+  }, [])
 
   // se agrega funcion que trae de la API los usuarios registrados, para pasarla como prop a userList.
   const getUsers = async () => {
     const response = await axios.get('http://localhost:4000/api/usuarios');
     setUsuarios(response.data);
   };
-
   useEffect(() => {  
     getUsers();
   }, [])
@@ -137,7 +150,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/messagesList" >
-            <MessagesList/>
+            <MessagesList messages={messages} getMessages={getMessages}/>
           </Route>
         )}
         {isAdmin && (
