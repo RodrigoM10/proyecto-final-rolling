@@ -15,11 +15,8 @@ import Cart from "./pages/Cart";
 import Favourite from "./pages/Favourite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-<<<<<<< HEAD
-=======
 // import DetailsProduct from "./pages/DetailsProduct";
 import MyProfile from "./pages/MyProfile";
->>>>>>> main
 // admin pages
 import AdminBoard from "./pages/admin/AdminBoard";
 import MessagesList from "./pages/admin/MessagesList";
@@ -59,18 +56,14 @@ function App() {
   useEffect(() => {
     requestUserData();
   }, []);
-<<<<<<< HEAD
   
   const getProductos = async () => {
     const response = await axios.get('http://localhost:4000/api/productos');
     setProductos(response.data);
   };
-=======
->>>>>>> main
 
   useEffect(() => {
     getProductos();
-<<<<<<< HEAD
   }, []); 
 
   const getUsers = async () => {
@@ -85,13 +78,6 @@ function App() {
     const isAdmin = user.role === 'admin';
     console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
   
-=======
-  }, []);
-
-  const isAdmin = user.role === 'admin';
-  console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
-
->>>>>>> main
   return (
     <div className="footer-fix ">
       <NavbarMain
@@ -155,7 +141,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList getUsers = {getUsers} usuarios ={usuarios}/>
+            <UserList getUsers = {getUsers} usuarios ={usuarios} requestUserData={requestUserData} user={user}/>
           </Route>
         )}
 
