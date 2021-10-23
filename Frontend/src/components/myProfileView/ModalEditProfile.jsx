@@ -85,7 +85,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
                     </Form.Group>
                     <hr />
                     <div className="d-flex justify-content-center">
-                        <button type="submit" className="m-auto btn-tokito " >
+                        <button type="submit" className="m-auto btn-admin " >
                             <h5 className="text-center m-0 py-2  ">Guardar cambios</h5>
                         </button>
                     </div>

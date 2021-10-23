@@ -15,21 +15,21 @@
     width: 18rem;
     height: auto;
   }
-  .btn-tokito{
+  .btn-admin{
     border-radius: 0.3rem;
     color: rgb(255, 255, 255);
     background: #203048;
     padding: 1px 6px;
     border: 2px outset #203048;
   }
-  .btn-tokito:hover {
+  .btn-admin:hover {
     background: #2f476b;
     color: #b59062;
   }
-  .btn-tokito:active {
+  .btn-admin:active {
     border: 2px inset #203048; 
   }
-  .btn-tokito:focus {
+  .btn-admin:focus {
     outline: 0;
     box-shadow: 0 0 0 0.10rem #b59062;
   }

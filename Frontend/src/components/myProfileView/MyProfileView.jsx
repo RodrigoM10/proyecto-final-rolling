@@ -47,7 +47,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
                         </ListGroup>
                     </Card.Body>
                     <div className="my-2 d-flex justify-content-end">
-                        <button className="m-auto btn-tokito " onClick={handleShowModalEditar}>
+                        <button className="m-auto btn-admin " onClick={handleShowModalEditar}>
                             <h5 className="text-center m-0 py-2  ">Editar perfil</h5>
                         </button>
                         <OverlayTrigger

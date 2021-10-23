@@ -77,7 +77,7 @@ export const ModalEditPassword = ({ showModalPassword, closeModal, user, request
                 </Form>
             </Modal.Body>
             <Modal.Footer className="d-flex justify-content-between aling-items-center">
-                <button className="m-auto btn-tokito " >
+                <button className="m-auto btn-admin " >
                     <h5 className="text-center m-0 py-2  ">Cambiar Contraseña</h5>
                 </button>
             </Modal.Footer>

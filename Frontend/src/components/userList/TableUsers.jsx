@@ -1,4 +1,3 @@
-import './userList.css'
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Spinner, Table } from 'react-bootstrap';
@@ -63,7 +62,7 @@ export const TableUsers = (props) => {
                         />
                     </div>
                 </form>
-                <button onClick={() => refreshUsers()} className=" btn-tokito">
+                <button onClick={() => refreshUsers()} className=" btn-admin">
                     <h5 className="m-0 py-2 "><FaHistory /></h5>
                 </button>
             </div>
@@ -84,10 +83,10 @@ export const TableUsers = (props) => {
                                 <td>{email}</td>
                                 <td>{role}</td>
                                 <td>
-                                    <button className="m-auto btn-tokito" onClick={() => deleteUser(_id)} >Eliminar</button>
+                                    <button className="m-auto btn-admin" onClick={() => deleteUser(_id)} >Eliminar</button>
                                 </td>
                                 <td>
-                                    <button className="m-auto btn-tokito" onClick={() => findUser(_id)} >Ver</button>
+                                    <button className="m-auto btn-admin" onClick={() => findUser(_id)} >Ver</button>
                                 </td>
                             </tr>
                         </tbody>
