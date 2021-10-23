@@ -50,10 +50,10 @@ export const TableMessages = ({ messages, getMessages }) => {
             </div>
             <Table striped bordered hover>
                 <thead>
-                    <tr className="text-center" >
+                    <tr className="text-center " >
                         <th>Nombre</th>
                         <th>Email</th>
-                        <th>Role</th>
+                        <th>Mensaje</th>
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
