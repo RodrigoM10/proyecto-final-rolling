@@ -7,7 +7,7 @@ import { useState } from "react";
 import { guardarEnLocalStorage } from "../../utils/localStorage";
 import { useHistory } from 'react-router-dom';
 
-export const FormLogin = () => {
+export const FormLogin = ( {requestUserData} ) => {
 
 
     const [input, setInput] = useState({ email: '', password: '' });
@@ -23,6 +23,7 @@ export const FormLogin = () => {
         event.preventDefault();
         event.stopPropagation();
 
+
         const form = event.currentTarget;
 
         if (form.checkValidity() === true) {
@@ -32,9 +33,10 @@ export const FormLogin = () => {
                 const { token, name } = response.data;
                 guardarEnLocalStorage({ key: 'token', value: { token } });
                 alert('Bienvenido ' + name);
+                await requestUserData();
                 //El push redirecciona a la pantalla indicada en el parametro.
                 history.push('/');
-                window.location.reload();
+                // window.location.reload();
 
             } catch (error) {
                 console.error(error);

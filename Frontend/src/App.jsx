@@ -5,7 +5,6 @@ import axios from 'axios'
 
 //router dom
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
 
 // pages
 import Home from './pages/Home'
@@ -16,11 +15,16 @@ import Cart from "./pages/Cart";
 import Favourite from "./pages/Favourite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+<<<<<<< HEAD
+=======
+// import DetailsProduct from "./pages/DetailsProduct";
+import MyProfile from "./pages/MyProfile";
+>>>>>>> main
 // admin pages
 import AdminBoard from "./pages/admin/AdminBoard";
-import AdminProfile from "./pages/admin/AdminProfile";
 import MessagesList from "./pages/admin/MessagesList";
 import UserList from "./pages/admin/UserList";
+import ProfileAdmin from "./pages/admin/ProfileAdmin";
 //main components
 import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
@@ -31,16 +35,19 @@ import { leerDeLocalStorage } from './utils/localStorage';
 function App() {
 
   const [productos, setProductos] = useState([]);
+  console.log("🚀 ~ file: App.jsx ~ line 38 ~ App ~ productos", productos)
   const [user, setUser] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
   const [usuarios, setUsuarios] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
 
+  const tokenLocalData = leerDeLocalStorage('token') || {}; 
+  
   const requestUserData = async () => {
+    
+    const tokenLocal = leerDeLocalStorage('token') || {}; 
     setIsLoading(true);
-    const tokenLocal = leerDeLocalStorage('token') || {};
-
     if (tokenLocal.token) {
       const headers = { 'x-auth-token': tokenLocal.token };
       const response = await axios.get('http://localhost:4000/api/auth', { headers });
@@ -52,14 +59,18 @@ function App() {
   useEffect(() => {
     requestUserData();
   }, []);
+<<<<<<< HEAD
   
   const getProductos = async () => {
     const response = await axios.get('http://localhost:4000/api/productos');
     setProductos(response.data);
   };
+=======
+>>>>>>> main
 
   useEffect(() => {
     getProductos();
+<<<<<<< HEAD
   }, []); 
 
   const getUsers = async () => {
@@ -74,6 +85,13 @@ function App() {
     const isAdmin = user.role === 'admin';
     console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
   
+=======
+  }, []);
+
+  const isAdmin = user.role === 'admin';
+  console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
+
+>>>>>>> main
   return (
     <div className="footer-fix ">
       <NavbarMain
@@ -84,42 +102,55 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
+
         <Route path="/about" >
           <About />
         </Route>
+
         <Route path="/store" >
           <Store productos={productos} />
         </Route>
+
         <Route path="/contact" >
           <Contact />
         </Route>
+
         <Route path="/cart" >
           <Cart />
         </Route>
+
         <Route path="/favourite" >
           <Favourite />
         </Route>
+
         <Route path="/login" >
-          <Login />
+          <Login requestUserData={requestUserData} />
         </Route>
+
         <Route path="/register" >
           <Register />
         </Route>
 
+        {tokenLocalData.token &&
+        <Route path="/myProfile" >
+          <MyProfile requestUserData={requestUserData} user={user} />
+        </Route> 
+        }
+
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard user={user} />
+            <AdminBoard productos={productos} />
           </Route>
         )}
         {isAdmin && (
-          <Route path="/adminProfile" >
-            <AdminProfile user={user} />
+          <Route path="/profileAdmin" >
+            <ProfileAdmin requestUserData={requestUserData} user={user} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/messagesList" >
-            <MessagesList />
+            <MessagesList/>
           </Route>
         )}
         {isAdmin && (
@@ -131,6 +162,7 @@ function App() {
         <Route path="/404">
           404
         </Route>
+
         <Route path="*">
           <Redirect to="/404" />
         </Route>

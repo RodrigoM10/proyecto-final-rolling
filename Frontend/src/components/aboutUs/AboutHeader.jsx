@@ -15,7 +15,7 @@ export const AboutHeader = () => {
             <div className="h-75 d-flex flex-column justify-content-between align-items-center">
                 <div className="my-5 text-center about-text-header">
                     <h1 className="efecto-text1">ROLLING WINE</h1>
-                    <h3 className="efecto-text2">Conoce nuestra Hisotria</h3>
+                    <h3 className="efecto-text2">Conoce nuestra Historia</h3>
                 </div>
                 <div>
                     <button  className="boton-down-header" onClick={scrollDown}><FaArrowAltCircleDown /></button>

@@ -1,11 +1,11 @@
 import React from 'react'
+import { TableProducts } from '../../components/tablesAdmin/TableProducts'
 
 
-function AdminBoard({user}) {
+
+function AdminBoard() {
     return (
-        <div>
-            ADMIN BOARD
-        </div>
+    <TableProducts />
     )
 }
 

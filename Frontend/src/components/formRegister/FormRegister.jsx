@@ -14,6 +14,7 @@ export const FormRegister = () => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
         setInput(newInput);
+        console.log("🚀 ~ file: FormRegister.jsx ~ line 17 ~ handleChange ~ value", value)
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
