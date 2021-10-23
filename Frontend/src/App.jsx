@@ -66,6 +66,7 @@ function App() {
     getProductos();
   }, []); 
 
+  // se agrega funcion que trae de la API los usuarios registrados, para pasarla como prop a userList.
   const getUsers = async () => {
     const response = await axios.get('http://localhost:4000/api/usuarios');
     setUsuarios(response.data);
@@ -141,7 +142,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList getUsers = {getUsers} usuarios ={usuarios} requestUserData={requestUserData} user={user}/>
+            <UserList getUsers={getUsers} usuarios ={usuarios} />
           </Route>
         )}
 

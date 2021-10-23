@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
 export const ModalEditUser = (props) => {
-    const { showModalEditar, closeModal, user, requestUserData } = props
 
-    const [input, setInput] = useState({ name: user.name, role: user.role });
+    const { showModalEditar, closeModal,userFind} = props
+
+    const [input, setInput] = useState({role: userFind.role});
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -13,14 +14,14 @@ export const ModalEditUser = (props) => {
         setInput(newInput);
     }
 
+    // esta consulta no esta andando!! ver que onda, antes andaba pero se cambio el back-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("🚀 ~ file: ModalEditProfile.jsx ~ line 10 ~ ModalEditProfile ~ input", input)
         try {
-            await axios.put(`http://localhost:4000/api/usuarios/${user._id}`, input);
+            await axios.put(`http://localhost:4000/api/auth/${userFind.id}`, input);
             alert('Cambio exitoso');
-            await requestUserData();
             closeModal();
+            props.getUsers();
         } catch (error) {
             console.error(error);
         }
@@ -39,22 +40,12 @@ export const ModalEditUser = (props) => {
                 >
                     <Form className="form-register my-5 px-3" onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 row align-items-center justify-content-center" >
-                            <label className="col-11 col-md-3">Nombre </label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="name"
-                                defaultValue={user.name}
-                                onChange={(e) => handleChange(e)}
-                                type="text"
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3 row align-items-center justify-content-center" >
+                            <p>{userFind.name}</p>
                             <label className="col-11 col-md-3 align-items-center">Role</label>
                             <input
                                 className="col-11 col-md-9 form-input"
                                 name="lastName"
-                                defaultValue={user.role}
+                                defaultValue={userFind.role}
                                 onChange={(e) => handleChange(e)}
                                 type="text"
                                 required
