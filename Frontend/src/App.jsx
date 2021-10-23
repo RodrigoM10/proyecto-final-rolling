@@ -35,10 +35,15 @@ function App() {
 
   const [productos, setProductos] = useState([]);
   console.log("🚀 ~ file: App.jsx ~ line 38 ~ App ~ productos", productos)
+
   const [user, setUser] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
+  
   const [isLoading, setIsLoading] = useState(true);
   console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
+  
+  const [messeges, setMesseges] = useState({})
+  console.log("🚀 ~ file: App.jsx ~ line 43 ~ App ~ messeges", messeges)
 
   const tokenLocalData = leerDeLocalStorage('token') || {}; 
   
