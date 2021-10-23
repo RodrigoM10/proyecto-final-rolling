@@ -42,8 +42,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
   
-  const [messeges, setMesseges] = useState({})
-  console.log("🚀 ~ file: App.jsx ~ line 43 ~ App ~ messeges", messeges)
+  const [messages, setMessages] = useState({})
+  console.log("🚀 ~ file: App.jsx ~ line 43 ~ App ~ Messages", messages)
 
   const tokenLocalData = leerDeLocalStorage('token') || {}; 
   
@@ -63,13 +63,23 @@ function App() {
     requestUserData();
   }, []);
 
+  const getProductos = async () => {
+    const response = await axios.get('http://localhost:4000/api/productos');
+    setProductos(response.data);
+  };
+
   useEffect(() => {
-    const getProductos = async () => {
-      const response = await axios.get('http://localhost:4000/api/productos');
-      setProductos(response.data);
-    };
     getProductos();
-  }, []);
+  }, []); 
+
+  const getMessages = async () => {
+    const response = await axios.get('http://localhost:4000/api/mensajes');
+    setMessages(response.data);
+  };
+
+  useEffect(() => {  
+    getMessages();
+  }, [])
 
   const isAdmin = user.role === 'admin';
   console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
@@ -132,7 +142,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/messagesList" >
-            <MessagesList/>
+            <MessagesList messages={messages} getMessages={getMessages}/>
           </Route>
         )}
         {isAdmin && (

@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap'
 import './formsStyles.css'
 
 export const FormContact = () => {
-    const [input, setInput] = useState({ senderName: '', senderEmail: '', messege: ''});
+    const [input, setInput] = useState({ senderName: '', senderEmail: '', message: ''});
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -19,6 +19,7 @@ export const FormContact = () => {
         } catch (error) {
             console.error(error);
         }
+        e.target.reset();
     }
     return (
         <Form
@@ -48,7 +49,7 @@ export const FormContact = () => {
                 className="col-11 col-md-12 form-input" 
                 placeholder="Dejanos un mensaje aqui..." 
                 as="textarea"
-                name="messege" 
+                name="message" 
                 rows={3} 
                 onChange={(e) => handleChange(e)}
                 />
