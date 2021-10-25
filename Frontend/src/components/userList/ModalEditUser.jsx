@@ -17,8 +17,9 @@ export const ModalEditUser = (props) => {
     // esta consulta no esta andando!! ver que onda, antes andaba pero se cambio el back-
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(userFind._id)
         try {
-            await axios.put(`http://localhost:4000/api/auth/${userFind.id}`, input);
+            await axios.put(`http://localhost:4000/api/usuarios/${userFind._id}`)
             alert('Cambio exitoso');
             closeModal();
             props.getUsers();
@@ -36,11 +37,12 @@ export const ModalEditUser = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Datos de Usuario</Modal.Title>
                 </Modal.Header>
-                <Modal.Body
-                >
+                <Modal.Body>
                     <Form className="form-register my-5 px-3" onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 row align-items-center justify-content-center" >
-                            <p>{userFind.name}</p>
+                            <p>Nombre: {userFind.name}</p>
+                            <p>Apellido: {userFind.lastName}</p>
+                            <p>Cumpleaños: {userFind.birthday}</p>
                             <label className="col-11 col-md-3 align-items-center">Role</label>
                             <input
                                 className="col-11 col-md-9 form-input"
