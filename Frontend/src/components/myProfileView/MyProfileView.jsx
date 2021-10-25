@@ -8,18 +8,23 @@ import { FiSettings } from 'react-icons/fi';
 import axios from 'axios';
 import { ModalEditProfile } from './ModalEditProfile';
 import { ModalEditPassword } from './ModalEditPassword';
+import { ModalDeleteAccount } from './ModalDeletAccount';
 moment.locale('es');
 
 export const MyProfileView = ({ user, requestUserData }) => {
     console.log("🚀 ~ file: MyProfileView.jsx ~ line 13 ~ MyProfileView ~ ser", user)
     const [showModalEditar, setShowModalEditar] = useState(false);
     const [showModalPassword, setShowModalPassword] = useState(false);
+    const [showModalDeleteAccount, setShowModalDeleteAccount] = useState(false);
 
     const handleCloseModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
 
     const handleCloseModalPassword = () => setShowModalPassword(false);
     const handleShowModalPassword = () => setShowModalPassword(true);
+
+    const handleCloseModalDeleteAccount = () => setShowModalDeleteAccount(false);
+    const handleShowModalDeleteAccount = () => setShowModalDeleteAccount(true);
 
 
 
@@ -51,23 +56,23 @@ export const MyProfileView = ({ user, requestUserData }) => {
                             <h5 className="text-center m-0 py-2  ">Editar perfil</h5>
                         </button>
                         <OverlayTrigger
-                         trigger="focus" 
-                         placement="bottom"
-                          overlay={
-                            <Popover id="popover-basic">
-                                <Popover.Header as="h3">Configurar Cuenta</Popover.Header>
-                                <Popover.Body>
-                                    <ListGroup>
-                                        <ListGroup.Item>
-                                            <button  onClick={handleShowModalPassword}className="btn-config">Cambiar Contraseña</button>
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <button className="btn-config">Eliminar Cuenta</button>
-                                        </ListGroup.Item>
-                                    </ListGroup>
-                                </Popover.Body>
-                            </Popover>
-                        }>
+                            trigger="focus"
+                            placement="bottom"
+                            overlay={
+                                <Popover id="popover-basic">
+                                    <Popover.Header as="h3">Configurar Cuenta</Popover.Header>
+                                    <Popover.Body>
+                                        <ListGroup>
+                                            <ListGroup.Item>
+                                                <button onClick={handleShowModalPassword} className="btn-config">Cambiar Contraseña</button>
+                                            </ListGroup.Item>
+                                            <ListGroup.Item>
+                                                <button className="btn-config" onClick={handleShowModalDeleteAccount} >Eliminar Cuenta</button>
+                                            </ListGroup.Item>
+                                        </ListGroup>
+                                    </Popover.Body>
+                                </Popover>
+                            }>
                             <button className="m-auto my-2 p-0 circle-btn">
                                 <FiSettings className="p-0 mb-1" />
                             </button>
@@ -82,12 +87,22 @@ export const MyProfileView = ({ user, requestUserData }) => {
                 showModalEditar={showModalEditar}
                 requestUserData={requestUserData}
             />}
+
             {user.name && <ModalEditPassword
-            closeModal={handleCloseModalPassword}
-            user={user}
-            showModalPassword={showModalPassword}
-            requestUserData={requestUserData}
+                closeModal={handleCloseModalPassword}
+                user={user}
+                showModalPassword={showModalPassword}
+                requestUserData={requestUserData}
             />}
+
+            {user.name && <ModalDeleteAccount
+                closeModal={handleCloseModalDeleteAccount}
+                user={user}
+                showModalDeleteAccount={showModalDeleteAccount}
+                requestUserData={requestUserData}
+            />}
+
+
 
         </>
 
