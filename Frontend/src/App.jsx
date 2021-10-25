@@ -140,7 +140,7 @@ function App() {
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard productos={productos} />
+            <AdminBoard productos={productos} getProductos={getProductos} />
           </Route>
         )}
         {isAdmin && (

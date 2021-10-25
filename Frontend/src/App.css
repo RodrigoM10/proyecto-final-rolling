@@ -59,3 +59,8 @@ body {
   outline: 0;
   box-shadow: 0 0 0 0.10rem #b59062;
 }
+/* search tables admin */
+.search-table {
+  border: 2px solid #203048;
+  border-radius: 1.1rem;
+}

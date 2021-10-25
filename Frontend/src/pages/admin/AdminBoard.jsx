@@ -3,9 +3,9 @@ import { TableProducts } from '../../components/tablesAdmin/TableProducts'
 
 
 
-function AdminBoard() {
+function AdminBoard({productos, getProductos}) {
     return (
-    <TableProducts />
+    <TableProducts productos={productos} getProductos={getProductos}/>
     )
 }
 

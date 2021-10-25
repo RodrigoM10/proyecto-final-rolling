@@ -83,7 +83,7 @@ li:hover::after {
     }
 }
 .search-input {
-    border: 0 !important;
+    border:0 !important;
     border-radius: 0 1rem 1rem 0;
     cursor: pointer;
 }
