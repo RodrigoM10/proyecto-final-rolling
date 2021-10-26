@@ -68,13 +68,8 @@ export const TableUsers = (props) => {
                         />
                     </div>
                 </form>
-<<<<<<< HEAD
                 <button onClick={() => refreshUsers()} className=" btn-admin">
                     <h5 className="m-0 py-2 "><FaHistory /></h5>
-=======
-                <button onClick={() => refreshUsers()} className=" btn-refresh">
-                    <h5 className="m-0"><FaHistory /></h5>
->>>>>>> 634cde22fb5904d2253d7cbf9a12536ea28dfc65
                 </button>
             </div>
             <Table striped bordered hover>
@@ -93,17 +88,9 @@ export const TableUsers = (props) => {
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role}</td>
-<<<<<<< HEAD
-                                <td>
-                                    <button className="m-auto btn-admin" onClick={() => deleteUser(_id)} >Eliminar</button>
-                                </td>
-                                <td>
-                                    <button className="m-auto btn-admin" onClick={() => findUser(_id)} >Ver</button>
-=======
                                 <td className="p-1 d-flex ">
-                                    <button className="m-auto btn-tokito" onClick={() => findUser(_id)} ><FaRegEdit /></button>
-                                    <button className="m-auto btn-tokito" onClick={() => deleteUser(_id)} ><FaEraser /></button>
->>>>>>> 634cde22fb5904d2253d7cbf9a12536ea28dfc65
+                                    <button className="m-auto btn-tokito" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
+                                    <button className="m-auto btn-tokito" onClick={() => deleteUser(_id)} ><FaEraser className="mb-1" /></button>
                                 </td>
                             </tr>
                         </tbody>
