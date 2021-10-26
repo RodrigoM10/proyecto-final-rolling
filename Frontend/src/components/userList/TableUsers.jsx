@@ -1,7 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Spinner, Table } from 'react-bootstrap';
-import { FaHistory } from 'react-icons/fa';
+import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { ModalEditUser } from './ModalEditUser';
@@ -24,7 +24,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         const response = await axios.get(`http://localhost:4000/api/usuarios/${_id}`);
         setfindUser(response.data);
         setIsLoading(false);
-        console.log(response.data.name);
+        console.log(response.data._id);
         handleShowModalEditar();
     };
 
@@ -70,7 +70,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
     return (
         <div>
             <div className="d-flex justify-content-between align-items-center my-2">
-                <form className="search-form" >
+                <form className="search-form  " >
                     <div className="input-group mb-3 search-table">
                         <span
                             className="search-icon"
@@ -79,7 +79,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                             value={busqueda}
                             type="text"
                             className="col-11 search-input"
-                            placeholder="Buscar por nombre"
+                            placeholder="Buscar"
                             aria-describedby="basic-addon1"
                             onChange={filter}
                         />
@@ -95,7 +95,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th colSpan="2">Actions</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 {tableUsers.length === 0 ? 'no hay usuarios registrados' :
@@ -105,11 +105,9 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role}</td>
-                                <td>
-                                    <button className="m-auto btn-admin" onClick={() => deleteUser(_id)} >Eliminar</button>
-                                </td>
-                                <td>
-                                    <button className="m-auto btn-admin" onClick={() => findUser(_id)} >Ver</button>
+                                <td className="p-1 d-flex ">
+                                    <button className="m-auto btn-tokito" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
+                                    <button className="m-auto btn-tokito" onClick={() => deleteUser(_id)} ><FaEraser className="mb-1" /></button>
                                 </td>
                             </tr>
                         </tbody>
