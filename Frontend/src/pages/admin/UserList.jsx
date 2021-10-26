@@ -5,11 +5,11 @@ import { TableUsers } from '../../components/userList/TableUsers';
 
 function UserList(props) {
 
-    const { usuarios, getUsers } = props;
+    const { usuarios, getUsers, setTableUsers, tableUsers } = props;
 
     return (
         <Container>
-            <TableUsers getUsers={getUsers} usuarios={usuarios}/>
+            <TableUsers getUsers={getUsers} usuarios={usuarios} setTableUsers={setTableUsers} tableUsers={tableUsers}/>
         </Container>
     )
 }

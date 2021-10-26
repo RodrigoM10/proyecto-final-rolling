@@ -1,19 +1,17 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { ButtonGroup, Container, Spinner, Table } from 'react-bootstrap'
+import { Container, Spinner, Table } from 'react-bootstrap'
 import { FaHistory } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc'
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import './tablesAdmin.css'
 
 
-export const TableMessages = ({ messages, getMessages }) => {
-
-
+export const TableMessages = ({ messages, getMessages, tableMessages, setTableMessages }) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    // trae de la API por usuario para borrar.
+    // trae de la API por mensaje para borrar.
     const deleteMessage = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
@@ -29,6 +27,25 @@ export const TableMessages = ({ messages, getMessages }) => {
         setIsLoading(false);
     };
 
+    // Funcion de busqueda
+    const [busqueda, setBusqueda] = useState('');
+    const filter = (e) => {
+        const keyword = e.target.value;
+
+        if (keyword !== '') {
+            const results = messages.filter((msj) => {
+                return msj.senderName.toLowerCase().startsWith(keyword.toLowerCase())
+                    || msj.senderEmail.toLowerCase().startsWith(keyword.toLowerCase());
+                // Use the toLowerCase() method to make it case-insensitive
+            });
+            setTableMessages(results);
+        } else {
+            setTableMessages(messages);
+            // If the text field is empty, show all users
+        }
+        setBusqueda(keyword);
+    };
+
     return (
         <Container>
             <div className="d-flex justify-content-between align-items-center my-2">
@@ -38,10 +55,12 @@ export const TableMessages = ({ messages, getMessages }) => {
                             className="search-icon"
                             id="basic-addon1"><VscSearch /></span>
                         <input
+                            value={busqueda}
                             type="text"
                             className="col-11 search-input"
                             placeholder="Buscar"
                             aria-describedby="basic-addon1"
+                            onChange={filter}
                         />
                     </div>
                 </form>
@@ -58,10 +77,10 @@ export const TableMessages = ({ messages, getMessages }) => {
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
-                {messages.length === 0 ? 'no hay mensajes registrados' :
-                    messages.map(({ senderName, senderEmail, message, _id }, i) => (
-                        <tbody className="text-center ">
-                            <tr className key={i}>
+                {tableMessages.length === 0 ? 'no hay mensajes registrados' :
+                    tableMessages.map(({ senderName, senderEmail, message, _id }, i) => (
+                        <tbody className="text-center " key={i}>
+                            <tr>
                                 <td>{senderName}</td>
                                 <td>{senderEmail}</td>
                                 <td>{message}</td>
@@ -72,7 +91,7 @@ export const TableMessages = ({ messages, getMessages }) => {
                         </tbody>
                     ))}
             </Table>
-            
+
             {isLoading && (
                 <div
                     style={{ zIndex: 2, backgroundColor: '#00000017' }}

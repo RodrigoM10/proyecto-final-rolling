@@ -31,26 +31,26 @@ import { leerDeLocalStorage } from './utils/localStorage';
 
 function App() {
 
-  const [productos, setProductos] = useState([]);
+  const [productos, setProductos] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 38 ~ App ~ productos", productos)
 
   const [user, setUser] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
- 
+
   const [usuarios, setUsuarios] = useState({});
   console.log("🚀 ~ file: App.jsx ~ line 41 ~ App ~ usuarios", usuarios)
-  
+
   const [isLoading, setIsLoading] = useState(true);
   console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
-  
+
   const [messages, setMessages] = useState({})
   console.log("🚀 ~ file: App.jsx ~ line 43 ~ App ~ Messages", messages)
 
-  const tokenLocalData = leerDeLocalStorage('token') || {}; 
-  
+  const tokenLocalData = leerDeLocalStorage('token') || {};
+
   const requestUserData = async () => {
-    
-    const tokenLocal = leerDeLocalStorage('token') || {}; 
+
+    const tokenLocal = leerDeLocalStorage('token') || {};
     setIsLoading(true);
     if (tokenLocal.token) {
       const headers = { 'x-auth-token': tokenLocal.token };
@@ -63,35 +63,44 @@ function App() {
   useEffect(() => {
     requestUserData();
   }, []);
-  
+
+
+  const [tableProducts, setTableProducts] = useState({})
   const getProductos = async () => {
     const response = await axios.get('http://localhost:4000/api/productos');
     setProductos(response.data);
+    setTableProducts(response.data);
   };
   useEffect(() => {
     getProductos();
-  }, []); 
+  }, [])
 
+  const [tableMessages, setTableMessages] = useState({})
   const getMessages = async () => {
     const response = await axios.get('http://localhost:4000/api/mensajes');
     setMessages(response.data);
+    setTableMessages(response.data);
   };
-  useEffect(() => {  
+  useEffect(() => {
     getMessages();
   }, [])
 
   // se agrega funcion que trae de la API los usuarios registrados, para pasarla como prop a userList.
+  const [tableUsers, setTableUsers] = useState({})
+
   const getUsers = async () => {
     const response = await axios.get('http://localhost:4000/api/usuarios');
     setUsuarios(response.data);
+    setTableUsers(response.data);
   };
-  useEffect(() => {  
+  useEffect(() => {
     getUsers();
   }, [])
-  
-    const isAdmin = user.role === 'admin';
-    console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
-  
+
+
+  const isAdmin = user.role === 'admin';
+  console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
+
   return (
     <div className="footer-fix ">
       <NavbarMain
@@ -132,15 +141,15 @@ function App() {
         </Route>
 
         {tokenLocalData.token &&
-        <Route path="/myProfile" >
-          <MyProfile requestUserData={requestUserData} user={user} />
-        </Route> 
+          <Route path="/myProfile" >
+            <MyProfile requestUserData={requestUserData} user={user} />
+          </Route>
         }
 
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard productos={productos} getProductos={getProductos} />
+            <AdminBoard productos={productos} getProductos={getProductos} tableProducts={tableProducts} setTableProducts={setTableProducts}/>
           </Route>
         )}
         {isAdmin && (
@@ -150,12 +159,12 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/messagesList" >
-            <MessagesList messages={messages} getMessages={getMessages}/>
+            <MessagesList messages={messages} getMessages={getMessages} tableMessages={tableMessages} setTableMessages={setTableMessages} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList getUsers={getUsers} usuarios ={usuarios} />
+            <UserList getUsers={getUsers} usuarios={usuarios} tableUsers={tableUsers} setTableUsers={setTableUsers} />
           </Route>
         )}
 

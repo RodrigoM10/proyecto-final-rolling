@@ -6,15 +6,14 @@ import { VscSearch } from 'react-icons/vsc';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { ModalEditUser } from './ModalEditUser';
 
-export const TableUsers = (props) => {
-
-    const { usuarios, getUsers } = props;
+export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
     const [userFind, setfindUser] = useState({});
 
     const [showModalEditar, setShowModalEditar] = useState(false);
+
 
     const handleCloseModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
@@ -35,14 +34,36 @@ export const TableUsers = (props) => {
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
         await axios.delete(`http://localhost:4000/api/usuarios/${_id}`, { headers });
-        await props.getUsers();
+        await getUsers();
         setIsLoading(false);
     };
 
     const refreshUsers = async () => {
         setIsLoading(true);
-        await props.getUsers();
+        await getUsers();
         setIsLoading(false);
+    };
+
+
+    // Funcion de busqueda
+    const [busqueda, setBusqueda] = useState('');
+    const filter = (e) => {
+        e.preventDefault();
+        const keyword = e.target.value;
+
+        if (keyword !== '') {
+            const results = usuarios.filter((user) => {
+                return user.name.toLowerCase().startsWith(keyword.toLowerCase())
+                    || user.email.toLowerCase().startsWith(keyword.toLowerCase())
+                    || user.role.toLowerCase().startsWith(keyword.toLowerCase());
+                // Use the toLowerCase() method to make it case-insensitive
+            });
+            setTableUsers(results);
+        } else {
+            setTableUsers(usuarios);
+            // If the text field is empty, show all users
+        }
+        setBusqueda(keyword);
     };
 
 
@@ -55,10 +76,12 @@ export const TableUsers = (props) => {
                             className="search-icon"
                             id="basic-addon1"><VscSearch /></span>
                         <input
+                            value={busqueda}
                             type="text"
                             className="col-11 search-input"
-                            placeholder="Buscar"
+                            placeholder="Buscar por nombre"
                             aria-describedby="basic-addon1"
+                            onChange={filter}
                         />
                     </div>
                 </form>
@@ -75,10 +98,10 @@ export const TableUsers = (props) => {
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
-                {usuarios.length === 0 ? 'no hay usuarios registrados' :
-                    usuarios.map(({ name, email, role, _id }, i) => (
-                        <tbody className="text-center ">
-                            <tr className key={i}>
+                {tableUsers.length === 0 ? 'no hay usuarios registrados' :
+                    tableUsers.map(({ name, email, role, _id }, i) => (
+                        <tbody className="text-center" key={i}>
+                            <tr>
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role}</td>
