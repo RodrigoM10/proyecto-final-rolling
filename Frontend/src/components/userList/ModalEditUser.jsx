@@ -19,7 +19,7 @@ export const ModalEditUser = (props) => {
         e.preventDefault();
         console.log(userFind._id)
         try {
-            await axios.put(`http://localhost:4000/api/usuarios/${userFind._id}`)
+            await axios.put(`http://localhost:4000/api/auth/${userFind._id}`)
             alert('Cambio exitoso');
             closeModal();
             props.getUsers();
