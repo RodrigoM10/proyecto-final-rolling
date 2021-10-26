@@ -142,7 +142,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList getUsers={getUsers} usuarios ={usuarios} />
+            <UserList getUsers={getUsers} usuarios ={usuarios}/>
           </Route>
         )}
 

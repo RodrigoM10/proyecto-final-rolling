@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Spinner, Table } from 'react-bootstrap';
-import { FaHistory } from 'react-icons/fa';
+import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { ModalEditUser } from './ModalEditUser';
+
+
 
 export const TableUsers = (props) => {
 
@@ -16,6 +18,7 @@ export const TableUsers = (props) => {
 
     const [showModalEditar, setShowModalEditar] = useState(false);
 
+
     const handleCloseModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
 
@@ -25,7 +28,7 @@ export const TableUsers = (props) => {
         const response = await axios.get(`http://localhost:4000/api/usuarios/${_id}`);
         setfindUser(response.data);
         setIsLoading(false);
-        console.log(response.data.name);
+        console.log(response.data._id);
         handleShowModalEditar();
     };
 
@@ -49,11 +52,14 @@ export const TableUsers = (props) => {
     return (
         <div>
             <div className="d-flex justify-content-between align-items-center my-2">
-                <form className="search-form" >
-                    <div className="input-group mb-3 border-0">
-                        <span
+                <form className="search-form">
+                    <div className="input-group my-2 border-0">
+                        <button
+                            type="submit"
                             className="search-icon"
-                            id="basic-addon1"><VscSearch /></span>
+                            id="basic-addon1">
+                            <VscSearch />
+                        </button>
                         <input
                             type="text"
                             className="col-11 search-input"
@@ -62,8 +68,13 @@ export const TableUsers = (props) => {
                         />
                     </div>
                 </form>
+<<<<<<< HEAD
                 <button onClick={() => refreshUsers()} className=" btn-admin">
                     <h5 className="m-0 py-2 "><FaHistory /></h5>
+=======
+                <button onClick={() => refreshUsers()} className=" btn-refresh">
+                    <h5 className="m-0"><FaHistory /></h5>
+>>>>>>> 634cde22fb5904d2253d7cbf9a12536ea28dfc65
                 </button>
             </div>
             <Table striped bordered hover>
@@ -72,7 +83,7 @@ export const TableUsers = (props) => {
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th colSpan="2">Actions</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 {usuarios.length === 0 ? 'no hay usuarios registrados' :
@@ -82,11 +93,17 @@ export const TableUsers = (props) => {
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role}</td>
+<<<<<<< HEAD
                                 <td>
                                     <button className="m-auto btn-admin" onClick={() => deleteUser(_id)} >Eliminar</button>
                                 </td>
                                 <td>
                                     <button className="m-auto btn-admin" onClick={() => findUser(_id)} >Ver</button>
+=======
+                                <td className="p-1 d-flex ">
+                                    <button className="m-auto btn-tokito" onClick={() => findUser(_id)} ><FaRegEdit /></button>
+                                    <button className="m-auto btn-tokito" onClick={() => deleteUser(_id)} ><FaEraser /></button>
+>>>>>>> 634cde22fb5904d2253d7cbf9a12536ea28dfc65
                                 </td>
                             </tr>
                         </tbody>
