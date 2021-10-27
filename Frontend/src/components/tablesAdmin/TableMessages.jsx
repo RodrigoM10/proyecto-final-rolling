@@ -51,7 +51,7 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
         <Container>
             <div className="d-flex justify-content-between align-items-center my-2">
                 <form className="search-form  " >
-                    <div className="input-group mb-3 search-table">
+                    <div className="input-group search-table">
                         <span
                             className="search-icon"
                             id="basic-addon1"><VscSearch /></span>

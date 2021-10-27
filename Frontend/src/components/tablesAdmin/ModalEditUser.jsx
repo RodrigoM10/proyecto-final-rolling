@@ -1,4 +1,6 @@
 import axios from 'axios';
+import moment from 'moment';
+import 'moment/locale/es';
 import React, { useState } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
@@ -7,6 +9,11 @@ export const ModalEditUser = (props) => {
     const { showModalEditar, closeModal,userFind} = props
 
     const [input, setInput] = useState({role: userFind.role});
+
+    const birthdayUser = new Date(userFind.birthday);
+    const day = birthdayUser.getUTCDate();
+    const month = birthdayUser.getUTCMonth();
+    const year = birthdayUser.getUTCFullYear();
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -40,11 +47,14 @@ export const ModalEditUser = (props) => {
                     <Modal.Title>Datos de Usuario</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form className="form-register my-5 px-3" onSubmit={handleSubmit}>
+                    <Form className="form-register px-3" onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 row align-items-center justify-content-center" >
                             <p>Nombre: {userFind.name}</p>
                             <p>Apellido: {userFind.lastName}</p>
-                            <p>Cumpleaños: {userFind.birthday}</p>
+                            <p>
+                            {userFind.role === 'admin' ? "Administrador " : "Cliente "}
+                            {moment(userFind.register).fromNow()}</p>
+                            <p>Cumpleaños: {day}/{month + 1}/{year}</p>
                             <label className="col-11 col-md-3 align-items-center">Role</label>
                             <input
                                 className="col-11 col-md-9 form-input"
