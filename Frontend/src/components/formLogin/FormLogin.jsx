@@ -2,6 +2,7 @@
 import "./formLogin.css";
 import { Card } from 'react-bootstrap'
 import axios from 'axios'
+import swal from 'sweetalert'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { useState } from "react";
 import { guardarEnLocalStorage } from "../../utils/localStorage";
@@ -32,7 +33,7 @@ export const FormLogin = ( {requestUserData} ) => {
 
                 const { token, name } = response.data;
                 guardarEnLocalStorage({ key: 'token', value: { token } });
-                alert('Bienvenido ' + name);
+                swal('Bienvenido al Mundo Rolling Winery ' + name);
                 await requestUserData();
                 //El push redirecciona a la pantalla indicada en el parametro.
                 history.push('/');

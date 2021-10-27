@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Table } from 'react-bootstrap';
 import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
+import swal from 'sweetalert';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
 import { ModalEditUser } from './ModalEditUser';
@@ -28,6 +29,22 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         console.log(response.data._id);
         handleShowModalEditar();
     };
+
+    const alertaBorrar = (_id)=>{
+        swal({
+            title: "Esta seguro?",
+            text: "Una vez que lo elimine, el usuario no va a poder entrar nunca mas",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                   deleteUser(_id)
+                } 
+            });
+    }
+    
 
     // trae de la API por usuario para borrar.
     const deleteUser = async (_id) => {
@@ -108,7 +125,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                                 <td>{role}</td>
                                 <td className="p-1 d-flex ">
                                     <button className="m-auto circle-btn" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
-                                    <button className="m-auto circle-btn" onClick={() => deleteUser(_id)} ><FaEraser className="mb-1" /></button>
+                                    <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
                                 </td>
                             </tr>
                         ))}
@@ -125,7 +142,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
             />
 
             {isLoading && (
-    <SpinnerRW />
+                <SpinnerRW />
             )}
         </div>
     )

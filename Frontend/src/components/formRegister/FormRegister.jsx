@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import swal from 'sweetalert'
 import { Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -20,7 +21,12 @@ export const FormRegister = () => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:4000/api/auth/register', input);
-            alert('Registro exitoso');
+            swal({
+                title: "Excelente!",
+                text: "Te has registrado con exito!",
+                icon: "success",
+                button: "Continua"
+              });
             history.push('/login');
         } catch (error) {
             console.error(error);
