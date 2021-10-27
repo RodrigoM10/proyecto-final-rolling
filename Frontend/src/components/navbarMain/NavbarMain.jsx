@@ -56,7 +56,7 @@ export const NavbarMain = ({ user }) => {
                             </div>
                             <div className="logo-container" >
                                 <a href="/"  >
-                                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635348942/logo6_i9cyiz.png" alt="img logo" className="nav-logo-desktop" />
+                                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
                                 </a>
                             </div>
                             {/* condicionales del LOGIN */}
