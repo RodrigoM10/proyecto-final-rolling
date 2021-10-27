@@ -1,10 +1,17 @@
+
 body {
+  box-sizing: border-box;
   color: white;
 }
 .footer-fix {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  }
+
+  .nav-logo-desktop {
+    width: 300px;
+    height: 100px;
   }
   .container-register {
     background-image: url(./assets/register-page-bg.jpg);
@@ -15,7 +22,7 @@ body {
   }
   .container-contact {
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
-    url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1634099719/cork-738603_960_720_vxqcg0.jpg) no-repeat top center;
+    url(./assets/contact-page-bg.jpg) no-repeat top center;
     background-size: cover;
     color: white;
   }
