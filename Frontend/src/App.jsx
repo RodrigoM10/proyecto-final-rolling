@@ -95,7 +95,6 @@ function App() {
 
 
   const isAdmin = user.role === 'admin';
-  console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
 
 if (isLoading) {
   return (

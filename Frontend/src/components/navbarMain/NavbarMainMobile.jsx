@@ -7,7 +7,7 @@ import { Nav, Offcanvas } from 'react-bootstrap';
 //React Icons
 import { BsFacebook } from 'react-icons/bs';
 import { VscClose } from 'react-icons/vsc';
-import { GrTwitter} from 'react-icons/gr';
+import { GrTwitter } from 'react-icons/gr';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { FaWrench } from 'react-icons/fa';
 
@@ -28,7 +28,11 @@ const NavbarMainMobile = (props) => {
     return (
         <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
             <Offcanvas.Header className="responsive-navbar-header">
-                <Offcanvas.Title>Logo</Offcanvas.Title>
+                <div className="logo-container" >
+                    <a href="/"  >
+                        <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
+                    </a>
+                </div>
                 <button type="button" aria-label="Close" className="navbar-button" onClick={handleClose} ><VscClose /></button>
             </Offcanvas.Header>
             {/* si no hay registrado ningun usuario entonces lo de siempre */}
@@ -79,7 +83,7 @@ const NavbarMainMobile = (props) => {
                         <Nav.Link as={NavLink} to="/about" activeClassName="link-active" onClick={handleClose}>HISTORIA</Nav.Link>
                     </li>
                     <li className="p-2 mx-3">
-                        <Nav.Link as={NavLink} to="/adminBoard" activeClassName="link-active"><FaWrench  className="mb-1 me-2" />ADMIN BOARD</Nav.Link>
+                        <Nav.Link as={NavLink} to="/adminBoard" activeClassName="link-active"><FaWrench className="mb-1 me-2" />ADMIN BOARD</Nav.Link>
                     </li>
 
                 </div>

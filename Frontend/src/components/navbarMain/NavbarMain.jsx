@@ -76,10 +76,9 @@ export const NavbarMain = ({ user }) => {
                                     <NavDropdown
                                         className="d-flex align-items-center justify-content-center navbar-user mx-2 d-none d-md-block "
                                         id="nav-dropdown-ligth-example"
-                                        title={<span>Hola {user.name} </span>}
-                                        menuVariant="light"
+                                        title={<span className="text-white">Hola {user.name} </span>}
+                                        menuVariant="ligth"
                                     >
-                                        {/* <NavDropdown.Item className="text-center">Hi "{user.name}"</NavDropdown.Item> */}
                                         <NavDropdown.Item className="text-center"  as={NavLink} to="/myProfile"><CgProfile className="mb-1"/> Mi perfil</NavDropdown.Item>
                                         <NavDropdown.Item className="text-center" as={NavLink} to="/adminBoard"><FaWrench className="mb-1" /> Admin Board</NavDropdown.Item>
                                         <NavDropdown.Divider />

@@ -50,7 +50,7 @@ export const NavbarAdmin = ({ user }) => {
                             </button>
                         </div>
                         <div className="logo-container" >
-                            LOGO/HOME
+                                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
                         </div>
                         {/* condicionales del LOGIN */}
                         <div className="d-flex align-items-center login-register">
@@ -85,7 +85,7 @@ export const NavbarAdmin = ({ user }) => {
                 </Container>
             </Navbar>
 
-            <NavbarAdminMobile setShow={setShow} show={show} />
+            <NavbarAdminMobile setShow={setShow} show={show} user={user}/>
 
         </>
     )

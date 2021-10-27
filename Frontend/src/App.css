@@ -10,8 +10,14 @@ body {
   }
 
   .nav-logo-desktop {
-    width: 320px;
-    height: 100px;
+    width: 290px;
+    height: 80px;
+  }
+  @media only screen and (max-width: 768px) {
+    .nav-logo-desktop {
+      width: 200px;
+      height: 60px;
+    }
   }
   .container-register {
     background-image: url(./assets/register-page-bg.jpg);
