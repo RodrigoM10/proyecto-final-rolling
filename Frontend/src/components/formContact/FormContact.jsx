@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
 import './formsStyles.css'
+import swal from 'sweetalert'
+
 
 export const FormContact = () => {
     const [input, setInput] = useState({ senderName: '', senderEmail: '', message: ''});
@@ -15,7 +17,10 @@ export const FormContact = () => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:4000/api/mensajes', input);
-            alert('Mensaje enviado ');
+            swal({
+                title: "Mensaje enviado con exito !",
+                icon: "success",
+              });
         } catch (error) {
             console.error(error);
         }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { Table } from 'react-bootstrap';
+import { Button, Image, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
 import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
 import swal from 'sweetalert';
@@ -12,7 +12,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const [userFind, setfindUser] = useState({});
+    const [userFind, setUserFind] = useState({});
 
     const [showModalEditar, setShowModalEditar] = useState(false);
 
@@ -24,13 +24,13 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
     const findUser = async (_id) => {
         setIsLoading(true);
         const response = await axios.get(`http://localhost:4000/api/usuarios/${_id}`);
-        setfindUser(response.data);
+        setUserFind(response.data);
         setIsLoading(false);
         console.log(response.data._id);
         handleShowModalEditar();
     };
 
-    const alertaBorrar = (_id)=>{
+    const alertaBorrar = (_id) => {
         swal({
             title: "Esta seguro?",
             text: "Una vez que lo elimine, el usuario no va a poder entrar nunca mas",
@@ -40,11 +40,11 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         })
             .then((willDelete) => {
                 if (willDelete) {
-                   deleteUser(_id)
-                } 
+                    deleteUser(_id)
+                }
             });
     }
-    
+
 
     // trae de la API por usuario para borrar.
     const deleteUser = async (_id) => {
@@ -107,7 +107,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
-            <Table striped bordered hover>
+            <Table bordered hover>
                 <thead>
                     <tr className="text-center" >
                         <th>Nombre</th>
@@ -122,11 +122,34 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                             <tr className="text-center" key={i}>
                                 <td>{name}</td>
                                 <td>{email}</td>
-                                <td>{role}</td>
+                                <td>{role === 'admin' ? "Administrador " : "Cliente "}</td>
                                 <td className="p-1 d-flex ">
+                                <OverlayTrigger
+                                        placement="right"
+                                        delay={{ show: 250, hide: 400 }}
+                                        overlay={
+                                            (props) => (
+                                                <Tooltip id="button-tooltip" {...props}>
+                                                    Editar Usuario
+                                                </Tooltip>)
+                                        }
+                                    >
                                     <button className="m-auto circle-btn" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
-                                    <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                    </OverlayTrigger>
+                                    <OverlayTrigger
+                                        placement="right"
+                                        delay={{ show: 250, hide: 400 }}
+                                        overlay={
+                                            (props) => (
+                                                <Tooltip id="button-tooltip" {...props}>
+                                                    Eliminar Usuario
+                                                </Tooltip>)
+                                        }
+                                    >
+                                        <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                    </OverlayTrigger>
                                 </td>
+
                             </tr>
                         ))}
                 </tbody>

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Form, Modal } from 'react-bootstrap'
+import swal from 'sweetalert'
+
 
 
 export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUserData }) => {    
@@ -20,7 +22,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
         console.log("🚀 ~ file: ModalEditProfile.jsx ~ line 10 ~ ModalEditProfile ~ input", input)
         try {
              await axios.put(`http://localhost:4000/api/usuarios/${user._id}`, input);
-            alert('Cambio exitoso');
+             swal("Perfil editado con exito", "", "success");
             await requestUserData();
             closeModal();
         } catch (error) {
