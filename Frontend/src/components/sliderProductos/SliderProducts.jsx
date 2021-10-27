@@ -24,29 +24,26 @@ const mapSliderProductos = productos?.map((producto, i) =>(
  key={i} producto={producto} 
  className="sliderTamñano mt-5">
                   <div>
-                    <div className=" mx-3">
-                      <Card style={{ width: "21rem" }}>
-                        <div className="imagenesProducto mt-3 d-flex">
+                    <div className="mx-3">
+                      <Card style={{ width: "21rem" }} className="d-flex flex-column align-items-center position-relative">
+                        <div className="mt-3">
                           <Card.Img
-                            className="m-2"
+                            className=""
                             style={{ width: "3rem" }}
                             variant="top"
                             src="https://twc.s3.ap-southeast-2.amazonaws.com/web/twc_badges/v2/95-TS.svg"
                           />
                           <Card.Img
                             variant="top"
-                            src={producto.img}
+                            src={producto.image}
                           />
                         </div>
                         <Card.Body>
                           <Card.Title className="descripcion mt-1 text-center">
-                            {producto.descripcion}
+                            {producto.name}
                           </Card.Title>
-                          <Card.Text className="mt-5 text-center">
-                            {producto.precio}
-                          </Card.Text>
                           <Card.Text className="text-center">
-                          <Button variant="secondary">MÁS INFORMACIÓN</Button>
+                          <button className="btn-admin">MÁS INFORMACIÓN</button>
                           </Card.Text>
                         </Card.Body>
                       </Card>

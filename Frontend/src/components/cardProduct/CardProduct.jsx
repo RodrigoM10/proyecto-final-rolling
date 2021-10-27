@@ -29,7 +29,7 @@ export const CardProduct = ({producto}) => {
               {producto.name}
             </Card.Title>
             <Card.Text className="precio-producto mt-5 text-center">
-             {producto.discount !==0 ? <s>`RRP: $ ${producto.price}`</s> : `sin descuento`}
+             {producto.discount !==0 ? <s>`RRP: $ ${producto.price}`</s> : `Sin descuento`}
             </Card.Text>
             <Card.Text className="text-center precio-producto-descuento">
               {(producto.price - (producto.discount * producto.price) / 100).toFixed(2)}
