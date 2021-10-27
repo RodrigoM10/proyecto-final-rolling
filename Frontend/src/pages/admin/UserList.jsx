@@ -1,7 +1,6 @@
-import '../../components/userList/userList.css'
-import { Container } from 'react-bootstrap';
-import { TableUsers } from '../../components/userList/TableUsers';
 
+import { Container } from 'react-bootstrap';
+import { TableUsers } from '../../components/tablesAdmin/TableUsers';
 
 function UserList(props) {
 
@@ -9,7 +8,7 @@ function UserList(props) {
 
     return (
         <Container>
-            <div className="userlist my-2">
+            <div className="user-list my-2">
                 <h2>Usuarios con Membrecia</h2>
             </div>
             <TableUsers getUsers={getUsers} usuarios={usuarios} setTableUsers={setTableUsers} tableUsers={tableUsers}/>

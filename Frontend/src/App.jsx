@@ -22,12 +22,12 @@ import AdminBoard from "./pages/admin/AdminBoard";
 import MessagesList from "./pages/admin/MessagesList";
 import UserList from "./pages/admin/UserList";
 import ProfileAdmin from "./pages/admin/ProfileAdmin";
+import { SpinnerRW } from "./components/spinner/SpinnerRW";
 //main components
 import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
 // utils
 import { leerDeLocalStorage } from './utils/localStorage';
-import { Spinner } from "react-bootstrap";
 
 
 function App() {
@@ -99,11 +99,7 @@ function App() {
 
 if (isLoading) {
   return (
-    <div
-        style={{ zIndex: 2, backgroundColor: '#00000017' }}
-        className="position-absolute top-0 w-100 h-100 d-flex justify-content-center align-items-center">
-        <Spinner animation="border" role="status" />
-    </div>
+    <SpinnerRW />
   );
 }
 

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { Spinner, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
 import { leerDeLocalStorage } from '../../utils/localStorage';
+import { SpinnerRW } from '../spinner/SpinnerRW';
 import { ModalEditUser } from './ModalEditUser';
 
 export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) => {
@@ -99,15 +100,15 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                     </tr>
                 </thead>
                 <tbody>
-                    {tableUsers.length === 0 ? <tr>'no hay usuarios registrados'</tr> :
+                    {tableUsers.length === 0 ? <tr>'No hay usuarios registrados'</tr> :
                         tableUsers.map(({ name, email, role, _id }, i) => (
                             <tr className="text-center" key={i}>
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role}</td>
                                 <td className="p-1 d-flex ">
-                                    <button className="m-auto btn-tokito" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
-                                    <button className="m-auto btn-tokito" onClick={() => deleteUser(_id)} ><FaEraser className="mb-1" /></button>
+                                    <button className="m-auto circle-btn" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
+                                    <button className="m-auto circle-btn" onClick={() => deleteUser(_id)} ><FaEraser className="mb-1" /></button>
                                 </td>
                             </tr>
                         ))}
@@ -124,11 +125,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
             />
 
             {isLoading && (
-                <div
-                    style={{ zIndex: 2, backgroundColor: '#00000017' }}
-                    className="position-absolute top-0 w-100 h-100 d-flex justify-content-center align-items-center">
-                    <Spinner animation="border" role="status" />
-                </div>
+    <SpinnerRW />
             )}
         </div>
     )

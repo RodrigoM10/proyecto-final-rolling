@@ -64,3 +64,14 @@ body {
   border: 2px solid #203048;
   border-radius: 1.1rem;
 }
+/* user list */
+.user-list{
+  font-family: "Montserrat", sans-serif;
+  color: #b59062;
+  font-weight: 900;
+}
+/* spinner */
+.spinner-style {
+  z-index: 2;
+  background-color: '#00000017';
+}

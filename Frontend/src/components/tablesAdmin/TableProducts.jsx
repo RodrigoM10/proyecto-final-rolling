@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Container, Spinner, Table } from 'react-bootstrap'
+import { Container, Table } from 'react-bootstrap'
 import { FaHistory } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc'
 import { leerDeLocalStorage } from '../../utils/localStorage';
+import { SpinnerRW } from '../spinner/SpinnerRW';
 
 export const TableProducts = ({ productos, getProductos, tableProducts, setTableProducts }) => {
 
@@ -77,7 +78,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                     </tr>
                 </thead>
                 <tbody >
-                {tableProducts.length === 0 ? 'no hay productos registrados' :
+                {tableProducts.length === 0 ? <tr>'No hay productos registrados'</tr>:
                     tableProducts.map(({ name, price, category, _id }, i) => (
                             <tr className="text-center" key={i}>
                                 <td>{name}</td>
@@ -92,11 +93,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
             </Table>
 
             {isLoading && (
-                <div
-                    style={{ zIndex: 2, backgroundColor: '#00000017' }}
-                    className="position-absolute top-0 w-100 h-100 d-flex justify-content-center align-items-center">
-                    <Spinner animation="border" role="status" />
-                </div>
+                <SpinnerRW />
             )}
 
         </Container>
