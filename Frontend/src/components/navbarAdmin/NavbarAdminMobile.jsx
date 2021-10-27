@@ -14,8 +14,8 @@ const NavbarAdminMobile = (props) => {
 
     const logout = () => {
         localStorage.removeItem('token');
+        history.push('/');
         window.location.reload();
-        history.push('/');;
     }
     return (
         <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
