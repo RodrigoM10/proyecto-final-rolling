@@ -7,7 +7,7 @@ import { Nav, Offcanvas } from 'react-bootstrap';
 //React Icons
 import { BsFacebook } from 'react-icons/bs';
 import { VscClose } from 'react-icons/vsc';
-import { GrTwitter, GrYoutube } from 'react-icons/gr';
+import { GrTwitter} from 'react-icons/gr';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { FaWrench } from 'react-icons/fa';
 
@@ -20,8 +20,8 @@ const NavbarMainMobile = (props) => {
 
     const logout = () => {
         localStorage.removeItem('token');
+        history.push('/');
         window.location.reload();
-        history.push('/');;
     }
 
 

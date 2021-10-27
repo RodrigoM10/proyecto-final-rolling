@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
-import { Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 
 //React Icons
 import { CgProfile } from 'react-icons/cg';
 import { FaShareSquare } from 'react-icons/fa';
-import { VscMenu, VscClose } from 'react-icons/vsc';
+import { VscMenu } from 'react-icons/vsc';
 import { RiArrowGoBackLine } from 'react-icons/ri'
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import NavbarAdminMobile from './NavbarAdminMobile';
@@ -31,8 +31,8 @@ export const NavbarAdmin = ({ user }) => {
 
     const logout = () => {
         localStorage.removeItem('token');
-        window.location.reload();
-        history.push('/');;
+        history.push('/');
+        window.location.reload();  
     }
 
     return (

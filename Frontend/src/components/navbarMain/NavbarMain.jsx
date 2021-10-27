@@ -33,8 +33,8 @@ export const NavbarMain = ({ user }) => {
 
     const logout = () => {
         localStorage.removeItem('token');
+        history.push('/');
         window.location.reload();
-        history.push('/');;
     }
 
 
