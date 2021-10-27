@@ -11,7 +11,7 @@ export const HistoriaCards = () => {
                 <h4 className="mb-3">Somos Rodri, Alvaro y Nico 😉... Tres alumnos de la escuela Rolling Code y este es nuestro proyecto final. Fue un hermoso cursado y estamos agradecidos de Rolling porque nos dio las herramientas y nos marco el camino para ser un <b>"FULLSTACK DEV"</b> con todas las letras! 😎</h4>
                 <h5> <b>MUCHAS GRACIAS JJ y Rick por ser nuestros mentores 😄</b></h5>
             </div>
-            <div class="col-12 col-xxl-6 p-3">
+            <div className="col-12 col-xxl-6 p-3">
                 <Carousel fade>
                     <Carousel.Item>
                         <img
