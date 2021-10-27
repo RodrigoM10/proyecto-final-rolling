@@ -18,7 +18,7 @@ SwiperCore.use([Pagination]);
 
 export const SliderProducts = ({productos}) => {
 
-const mapSliderProductos = productos.map((producto, i) =>(
+const mapSliderProductos = productos?.map((producto, i) =>(
 
 <SwiperSlide
  key={i} producto={producto} 

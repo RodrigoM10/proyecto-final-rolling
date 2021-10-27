@@ -76,10 +76,10 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
+                <tbody >
                 {tableProducts.length === 0 ? 'no hay productos registrados' :
                     tableProducts.map(({ name, price, category, _id }, i) => (
-                        <tbody className="text-center" key={i}>
-                            <tr >
+                            <tr className="text-center" key={i}>
                                 <td>{name}</td>
                                 <td>$ {price}</td>
                                 <td>{category}</td>
@@ -87,8 +87,8 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                                     <button className="m-auto btn-admin" onClick={() => deleteProducto(_id)} >Eliminar</button>
                                 </td>
                             </tr>
-                        </tbody>
                     ))}
+                    </tbody>
             </Table>
 
             {isLoading && (

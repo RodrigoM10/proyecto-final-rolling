@@ -77,10 +77,10 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
+                <tbody >
                 {tableMessages.length === 0 ? 'no hay mensajes registrados' :
                     tableMessages.map(({ senderName, senderEmail, message, _id }, i) => (
-                        <tbody className="text-center " key={i}>
-                            <tr>
+                            <tr className="text-center " key={i}>
                                 <td>{senderName}</td>
                                 <td>{senderEmail}</td>
                                 <td>{message}</td>
@@ -88,8 +88,8 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
                                     <button className="m-auto btn-admin" onClick={() => deleteMessage(_id)} >Eliminar</button>
                                 </td>
                             </tr>
-                        </tbody>
                     ))}
+                    </tbody>
             </Table>
 
             {isLoading && (

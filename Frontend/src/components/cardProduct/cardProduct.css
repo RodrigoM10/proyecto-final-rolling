@@ -35,7 +35,7 @@
   height: 3rem;
 }
 .precio-producto {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
   color: #888;
   font-size: 17px;
 }

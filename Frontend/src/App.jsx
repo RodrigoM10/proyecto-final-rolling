@@ -27,24 +27,20 @@ import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
 // utils
 import { leerDeLocalStorage } from './utils/localStorage';
+import { Spinner } from "react-bootstrap";
 
 
 function App() {
 
-  const [productos, setProductos] = useState({});
-  console.log("🚀 ~ file: App.jsx ~ line 38 ~ App ~ productos", productos)
+  const [productos, setProductos] = useState([]);
 
   const [user, setUser] = useState({});
-  console.log("🚀 ~ file: App.jsx ~ line 36 ~ App ~ user", user)
 
-  const [usuarios, setUsuarios] = useState({});
-  console.log("🚀 ~ file: App.jsx ~ line 41 ~ App ~ usuarios", usuarios)
+  const [usuarios, setUsuarios] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
-  console.log("🚀 ~ file: App.jsx ~ line 37 ~ App ~ isLoading", isLoading)
 
-  const [messages, setMessages] = useState({})
-  console.log("🚀 ~ file: App.jsx ~ line 43 ~ App ~ Messages", messages)
+  const [messages, setMessages] = useState([])
 
   const tokenLocalData = leerDeLocalStorage('token') || {};
 
@@ -65,7 +61,7 @@ function App() {
   }, []);
 
 
-  const [tableProducts, setTableProducts] = useState({})
+  const [tableProducts, setTableProducts] = useState([])
   const getProductos = async () => {
     const response = await axios.get('http://localhost:4000/api/productos');
     setProductos(response.data);
@@ -75,7 +71,7 @@ function App() {
     getProductos();
   }, [])
 
-  const [tableMessages, setTableMessages] = useState({})
+  const [tableMessages, setTableMessages] = useState([])
   const getMessages = async () => {
     const response = await axios.get('http://localhost:4000/api/mensajes');
     setMessages(response.data);
@@ -86,7 +82,7 @@ function App() {
   }, [])
 
   // se agrega funcion que trae de la API los usuarios registrados, para pasarla como prop a userList.
-  const [tableUsers, setTableUsers] = useState({})
+  const [tableUsers, setTableUsers] = useState([])
 
   const getUsers = async () => {
     const response = await axios.get('http://localhost:4000/api/usuarios');
@@ -101,7 +97,18 @@ function App() {
   const isAdmin = user.role === 'admin';
   console.log("🚀 ~ file: App.jsx ~ line 57 ~ App ~ isAdmin", isAdmin)
 
+if (isLoading) {
   return (
+    <div
+        style={{ zIndex: 2, backgroundColor: '#00000017' }}
+        className="position-absolute top-0 w-100 h-100 d-flex justify-content-center align-items-center">
+        <Spinner animation="border" role="status" />
+    </div>
+  );
+}
+
+  return (
+    
     <div className="footer-fix ">
       <NavbarMain
         user={user}

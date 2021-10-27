@@ -98,10 +98,10 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                {tableUsers.length === 0 ? 'no hay usuarios registrados' :
-                    tableUsers.map(({ name, email, role, _id }, i) => (
-                        <tbody className="text-center" key={i}>
-                            <tr>
+                <tbody>
+                    {tableUsers.length === 0 ? <tr>'no hay usuarios registrados'</tr> :
+                        tableUsers.map(({ name, email, role, _id }, i) => (
+                            <tr className="text-center" key={i}>
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role}</td>
@@ -110,8 +110,8 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                                     <button className="m-auto btn-tokito" onClick={() => deleteUser(_id)} ><FaEraser className="mb-1" /></button>
                                 </td>
                             </tr>
-                        </tbody>
-                    ))}
+                        ))}
+                </tbody>
             </Table>
 
             {/* le pasamos las props al modal para que disponga de ellas */}

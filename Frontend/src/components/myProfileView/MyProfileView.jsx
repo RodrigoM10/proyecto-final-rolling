@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Card, Form, ListGroup, Modal, OverlayTrigger, Popover } from 'react-bootstrap'
+import { Card, ListGroup, OverlayTrigger, Popover } from 'react-bootstrap'
 import './myProfileView.css'
 
 import moment from 'moment';
 import 'moment/locale/es';
 import { FiSettings } from 'react-icons/fi';
-import axios from 'axios';
+
 import { ModalEditProfile } from './ModalEditProfile';
 import { ModalEditPassword } from './ModalEditPassword';
 import { ModalDeleteAccount } from './ModalDeletAccount';
@@ -38,7 +38,8 @@ export const MyProfileView = ({ user, requestUserData }) => {
     return (
         <>
             <div className="card-profile row  ">
-                <Card.Img variant="top" className=" col-12 col-lg-6 img-avatar my-2 mx-auto" src={user.image} />
+                <Card.Img variant="top" className=" col-12 col-lg-6 img-avatar my-2 mx-auto"
+                 src={ user.image || 'https://res.cloudinary.com/dcx1rcwvu/image/upload/v1634755567/th_ji3jqh.jpg'} />
                 <div className="col-12 col-lg-6  d-flex flex-column aling-items-between card-body-container mx-auto">
                     <Card.Body>
                         <Card.Title className="text-center my-3">{user.name} {user.lastName}</Card.Title>
