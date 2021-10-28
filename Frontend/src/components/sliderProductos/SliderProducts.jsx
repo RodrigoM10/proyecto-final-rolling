@@ -145,12 +145,6 @@ let sliderProductos = [
             );
           })}
         </Swiper>
-        {/* <Container className="text-center">
-          <Image
-            className="imagenFinal"
-            src="https://cdn.shopify.com/s/files/1/1504/5726/files/wk15-WED_061021_The_Ground-Breaking-Nosto_Banner_-_Desktop.png"
-          />
-        </Container> */}
       </>
     )
 }

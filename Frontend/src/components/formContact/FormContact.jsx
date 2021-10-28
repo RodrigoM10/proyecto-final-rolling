@@ -13,8 +13,8 @@ export const FormContact = () => {
                 <label className="col-11 col-md-3 align-items-center">Email</label>
                 <input className="col-11 col-md-9 form-input" type="email" />
             </Form.Group>
-            <Form.Group className="mb-3 row align-items-center justify-content-center">
-                <textarea className="col-12 form-input"  placeholder="Dejanos un mensaje aqui..." as="textarea" rows={3} />
+            <Form.Group className="mb-3 row align-items-center justify-content-center ">
+                <textarea className="col-11 col-md-12 form-input"  placeholder="Dejanos un mensaje aqui..." as="textarea" rows={3} />
             </Form.Group>
             <hr />
             <Form.Group className="mb-4 d-flex flex-column align-items-center align-items-md-start justify-content-center">

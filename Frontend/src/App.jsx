@@ -3,39 +3,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //router dom
 import { Switch, Route } from "react-router-dom";
 // pages
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Store from "./pages/Store";
 import Cart from "./pages/Cart";
 import Favourite from "./pages/Favourite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import DetailsProduct from "./pages/DetailsProduct";
+import DetalleProducts from "./components/productFullScreem/DetalleProducts"
 // admin pages
 import AdminBoard from "./pages/admin/AdminBoard";
 import AdminProfile from "./pages/admin/AdminProfile";
 import MessagesList from "./pages/admin/MessagesList";
 import UserList from "./pages/admin/UserList";
 //main components
-import { NavbarMain } from "./components/navbar/NavbarMain";
+import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 function App() {
-
-  const [productos, setProductos] = useState([]);
-
-  const getProductos = async () => {
-    const response = await axios.get('http://localhost:4000/api/productos');
-    setProductos(response.data);
-};
-
-useEffect(() => {
-  getProductos();
-}, []);
-
   return (
     <div className="footer-fix ">
       <NavbarMain />
@@ -45,55 +32,59 @@ useEffect(() => {
           <Home />
         </Route>
 
-        <Route path="/about" >
+        <Route path="/about">
           <About />
-        </Route>
-
-        <Route path="/store" >
-          <Store actualizarProductos={getProductos} productos={productos}/>
         </Route>
 
         <Route path="/store/:productId">
           <DetailsProduct />
         </Route>
 
-        <Route path="/contact" >
+        <Route path="/products/:productId">
+          <DetalleProducts />
+        </Route>
+
+        <Route path="/store">
+          <Store />
+        </Route>
+
+        <Route path="/contact">
           <Contact />
         </Route>
 
-        <Route path="/cart" >
+        <Route path="/cart">
           <Cart />
         </Route>
 
-        <Route path="/favourite" >
+        <Route path="/favourite">
           <Favourite />
         </Route>
 
-        <Route path="/login" >
+        <Route path="/login">
           <Login />
         </Route>
 
-        <Route path="/register" >
+        <Route path="/register">
           <Register />
         </Route>
 
+
         {/* Admin pages */}
-        <Route path="/adminBoard" >
+        <Route path="/adminBoard">
           <AdminBoard />
         </Route>
 
-        <Route path="/adminProfile" >
+        <Route path="/adminProfile">
           <AdminProfile />
         </Route>
 
-        <Route path="/messagesList" >
+        <Route path="/messagesList">
           <MessagesList />
         </Route>
 
-        <Route path="/userList" >
+        <Route path="/userList">
           <UserList />
         </Route>
-        
       </Switch>
       <Footer />
     </div>
