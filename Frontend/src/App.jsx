@@ -118,6 +118,10 @@ if (isLoading) {
           <About />
         </Route>
 
+        <Route path="/store/:productId">
+          <DetailsProduct productos={productos} />
+        </Route>
+
         <Route path="/store" >
           <Store productos={productos} />
         </Route>

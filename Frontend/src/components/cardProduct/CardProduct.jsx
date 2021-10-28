@@ -1,14 +1,19 @@
 import React from 'react'
 import { Card } from "react-bootstrap";
 import { FaRegHeart } from 'react-icons/fa';
+import { useHistory } from 'react-router';
+
 
 
 export const CardProduct = ({producto}) => {
 
-
+  const history = useHistory();
+  const handlerRedirect = () =>{
+    history.push(`/products/${producto._id}`);
+  }
   return (
     <div>
-      <div className="productos mx-3" >
+      <div className="productos mx-3" onClick={handlerRedirect}>
         <Card className="card-productos">
           <div className="mt-3 d-flex align-items-start">
             <Card.Img
