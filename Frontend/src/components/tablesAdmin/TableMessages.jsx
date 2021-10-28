@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Container, Table } from 'react-bootstrap'
-import { FaHistory } from 'react-icons/fa';
+import swal from 'sweetalert';
+import { Container, OverlayTrigger, Table, Tooltip } from 'react-bootstrap'
+import { FaEraser, FaHistory } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc'
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
@@ -11,6 +12,21 @@ import { SpinnerRW } from '../spinner/SpinnerRW';
 export const TableMessages = ({ messages, getMessages, tableMessages, setTableMessages }) => {
 
     const [isLoading, setIsLoading] = useState(false);
+
+    const alertaBorrar = (_id) => {
+        swal({
+            title: "Esta seguro?",
+            text: "Una vez que lo elimine, el usuario no va a poder entrar nunca mas",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    deleteMessage(_id)
+                }
+            });
+    }
 
     // trae de la API por mensaje para borrar.
     const deleteMessage = async (_id) => {
@@ -69,7 +85,7 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
-            <Table striped bordered hover>
+            <Table  bordered hover>
                 <thead>
                     <tr className="text-center " >
                         <th>Nombre</th>
@@ -79,14 +95,25 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
                     </tr>
                 </thead>
                 <tbody >
-                {tableMessages.length === 0 ? <tr>'No hay mensajes registrados'</tr>:
+                {tableMessages.length === 0 ? <tr>No hay mensajes registrados</tr>:
                     tableMessages.map(({ senderName, senderEmail, message, _id }, i) => (
                             <tr className="text-center " key={i}>
                                 <td>{senderName}</td>
                                 <td>{senderEmail}</td>
                                 <td>{message}</td>
                                 <td>
-                                    <button className="m-auto btn-admin" onClick={() => deleteMessage(_id)} >Eliminar</button>
+                                <OverlayTrigger
+                                        placement="right"
+                                        delay={{ show: 250, hide: 400 }}
+                                        overlay={
+                                            (props) => (
+                                                <Tooltip id="button-tooltip" {...props}>
+                                                    Eliminar Mensaje
+                                                </Tooltip>)
+                                        }
+                                    >
+                                        <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                    </OverlayTrigger>
                                 </td>
                             </tr>
                     ))}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/es';
+import swal from 'sweetalert'
 import React, { useState } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
@@ -29,7 +30,7 @@ export const ModalEditUser = (props) => {
         try {
             // es importante tocar colocar el input, por que el back toma el "input" como el body
             await axios.put(`http://localhost:4000/api/auth/${userFind._id}`, input )
-            alert('Cambio exitoso');
+            swal("Cambio exitoso", `El usuario ahora es ${userFind.role==='admin'? 'Cliente' : 'Administrador' }`, "success");
             closeModal();
             props.getUsers();
         } catch (error) {

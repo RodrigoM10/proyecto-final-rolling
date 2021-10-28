@@ -1,21 +1,31 @@
 import React, { useState } from 'react'
 import { Card, ListGroup, OverlayTrigger, Popover } from 'react-bootstrap'
 import './myProfileView.css'
+import swal from 'sweetalert';
 
 import moment from 'moment';
 import 'moment/locale/es';
 import { FiSettings } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
+
+import { leerDeLocalStorage } from '../../utils/localStorage';
 
 import { ModalEditProfile } from './ModalEditProfile';
 import { ModalEditPassword } from './ModalEditPassword';
-import { ModalDeleteAccount } from './ModalDeletAccount';
+import axios from 'axios';
+import { SpinnerRW } from '../spinner/SpinnerRW';
+
 moment.locale('es');
 
 export const MyProfileView = ({ user, requestUserData }) => {
+
+    const [isLoading, setIsLoading] = useState(false);
+    console.log("🚀 ~ file: ModalDeletAccount.jsx ~ line 12 ~ ModalDeleteAccount ~ isLoading", isLoading)
+    const history = useHistory();
+
     console.log("🚀 ~ file: MyProfileView.jsx ~ line 13 ~ MyProfileView ~ ser", user)
     const [showModalEditar, setShowModalEditar] = useState(false);
     const [showModalPassword, setShowModalPassword] = useState(false);
-    const [showModalDeleteAccount, setShowModalDeleteAccount] = useState(false);
 
     const handleCloseModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
@@ -23,23 +33,46 @@ export const MyProfileView = ({ user, requestUserData }) => {
     const handleCloseModalPassword = () => setShowModalPassword(false);
     const handleShowModalPassword = () => setShowModalPassword(true);
 
-    const handleCloseModalDeleteAccount = () => setShowModalDeleteAccount(false);
-    const handleShowModalDeleteAccount = () => setShowModalDeleteAccount(true);
 
-
+    const alertaBorrar = (_id) => {
+        swal({
+            title: "¿ Esta seguro ?",
+            text: "Al eliminar su cuenta perdera el historial de compras y favoritos", icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Fue un gusto, gracias por visitar nuestra web!", {
+                        text: "Usted elimino su cuenta con exito",
+                        icon: "success",
+                      });
+                     deleteUser(_id)
+                }
+            });
+    }
+    // trae de la API por usuario para borrar.
+    const deleteUser = async (_id) => {
+        setIsLoading(true);
+        const tokenLocal = leerDeLocalStorage('token') || {};
+        const headers = { 'x-auth-token': tokenLocal.token };
+        localStorage.removeItem('token');
+        await axios.delete(`http://localhost:4000/api/usuarios/${user._id}`, { headers });
+        history.push('/');;
+        setIsLoading(false);
+        window.location.reload();
+    };
 
     const birthdayUser = new Date(user.birthday);
     const day = birthdayUser.getUTCDate();
     const month = birthdayUser.getUTCMonth();
     const year = birthdayUser.getUTCFullYear();
 
-
-
     return (
         <>
             <div className="card-profile row  ">
                 <Card.Img variant="top" className=" col-12 col-lg-6 img-avatar my-2 mx-auto"
-                 src={ user.image || 'https://res.cloudinary.com/dcx1rcwvu/image/upload/v1634755567/th_ji3jqh.jpg'} />
+                    src={user.image || 'https://res.cloudinary.com/dcx1rcwvu/image/upload/v1634755567/th_ji3jqh.jpg'} />
                 <div className="col-12 col-lg-6  d-flex flex-column aling-items-between card-body-container mx-auto">
                     <Card.Body>
                         <Card.Title className="text-center my-3">{user.name} {user.lastName}</Card.Title>
@@ -68,7 +101,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
                                                 <button onClick={handleShowModalPassword} className="btn-config">Cambiar Contraseña</button>
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                <button className="btn-config" onClick={handleShowModalDeleteAccount} >Eliminar Cuenta</button>
+                                                <button className="btn-config" onClick={() => alertaBorrar(user._id)} >Eliminar Cuenta</button>
                                             </ListGroup.Item>
                                         </ListGroup>
                                     </Popover.Body>
@@ -96,13 +129,9 @@ export const MyProfileView = ({ user, requestUserData }) => {
                 requestUserData={requestUserData}
             />}
 
-            {user.name && <ModalDeleteAccount
-                closeModal={handleCloseModalDeleteAccount}
-                user={user}
-                showModalDeleteAccount={showModalDeleteAccount}
-                requestUserData={requestUserData}
-            />}
-
+            {isLoading && (
+                <SpinnerRW />
+            )}
 
 
         </>

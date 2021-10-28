@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Container, Table } from 'react-bootstrap'
-import { FaHistory } from 'react-icons/fa';
+import swal from 'sweetalert';
+import { Container, OverlayTrigger, Table, Tooltip } from 'react-bootstrap'
+import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc'
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
@@ -10,9 +11,40 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
 
 
     const [isLoading, setIsLoading] = useState(false);
+    const [productFind, setProductFind] = useState({});
 
+    
+    // const handleCloseModalEditar = () => setShowModalEditar(false);
+    // const handleShowModalEditar = () => setShowModalEditar(true);
+    
+    // funcion para encontrar usuario y mostrar usuario
+    const findProduct = async (_id) => {
+        setIsLoading(true);
+        const response = await axios.get(`http://localhost:4000/api/productos/${_id}`);
+        setProductFind(response.data);
+        setIsLoading(false);
+        console.log(response.data._id);
+        // handleShowModalEditar();
+    };
+
+
+
+    const alertaBorrar = (_id) => {
+        swal({
+            title: "Esta seguro?",
+            text: "Una vez que lo elimine, el usuario no va a poder entrar nunca mas",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    deleteProduct(_id)
+                }
+            });
+    }
     // trae de la API por usuario para borrar.
-    const deleteProducto = async (_id) => {
+    const deleteProduct = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
@@ -68,7 +100,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
-            <Table striped bordered hover>
+            <Table bordered hover>
                 <thead>
                     <tr className="text-center " >
                         <th>Nombre</th>
@@ -84,8 +116,31 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                                 <td>{name}</td>
                                 <td>$ {price}</td>
                                 <td>{category}</td>
-                                <td>
-                                    <button className="m-auto btn-admin" onClick={() => deleteProducto(_id)} >Eliminar</button>
+                                <td className="p-1 d-flex ">
+                                <OverlayTrigger
+                                        placement="right"
+                                        delay={{ show: 250, hide: 400 }}
+                                        overlay={
+                                            (props) => (
+                                                <Tooltip id="button-tooltip" {...props}>
+                                                    Editar Producto
+                                                </Tooltip>)
+                                        }
+                                    >
+                                    <button className="m-auto circle-btn" onClick={() => findProduct(_id)} ><FaRegEdit className="mb-1" /></button>
+                                    </OverlayTrigger>
+                                <OverlayTrigger
+                                        placement="right"
+                                        delay={{ show: 250, hide: 400 }}
+                                        overlay={
+                                            (props) => (
+                                                <Tooltip id="button-tooltip" {...props}>
+                                                    Eliminar Producto
+                                                </Tooltip>)
+                                        }
+                                    >
+                                        <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                    </OverlayTrigger>
                                 </td>
                             </tr>
                     ))}
