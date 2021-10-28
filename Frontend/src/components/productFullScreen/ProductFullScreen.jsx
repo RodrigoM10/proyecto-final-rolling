@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import "./detailsProduct.css";
-import { SliderProducts } from "../sliderProductos/SliderProducts"
 
 export const ProductFullScreen = ({ producto }) => {
  
@@ -20,11 +19,7 @@ export const ProductFullScreen = ({ producto }) => {
           <p className="precio-menor mt-5">${producto.price} POR BOTELLA</p>
           <Button className="boton-comprar">Añadir al carrito</Button>
         </Col>
-        <Col></Col>
       </Row>
-      <div className="mt-5 text-center">
-      <SliderProducts  />
-      </div>
       </>
   );
 };

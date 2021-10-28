@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import './navbarMain.css'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import swal from 'sweetalert';
+
 
 //React Icons
 import { BsCart, BsCartFill } from 'react-icons/bs';

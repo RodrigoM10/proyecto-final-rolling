@@ -119,7 +119,7 @@ if (isLoading) {
         </Route>
 
         <Route path="/store/:productId">
-          <DetailsProduct productos={productos} />
+          <DetailsProduct productos={productos}  />
         </Route>
 
         <Route path="/store" >

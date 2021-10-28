@@ -9,8 +9,9 @@ export const CardProduct = ({producto}) => {
 
   const history = useHistory();
   const handlerRedirect = () =>{
-    history.push(`/products/${producto._id}`);
+    history.push(`/store/${producto._id}`);
   }
+
   return (
     <div>
       <div className="productos mx-3" onClick={handlerRedirect}>
