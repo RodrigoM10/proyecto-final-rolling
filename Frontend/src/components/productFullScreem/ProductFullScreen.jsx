@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Col, Row } from 'react-bootstrap';
 import { SliderProducts } from '../sliderProductos/SliderProducts';
+import './productFullScreen.css'
 
 export const ProductFullScreen = ({producto}) => {
  
