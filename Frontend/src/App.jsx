@@ -28,6 +28,7 @@ import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
 // utils
 import { leerDeLocalStorage } from './utils/localStorage';
+import DetailsProduct from "./pages/DetailsProduct";
 
 
 function App() {
@@ -116,6 +117,9 @@ if (isLoading) {
 
         <Route path="/about" >
           <About />
+        </Route>
+        <Route path="/store/:productId">
+          <DetailsProduct productos={productos} />
         </Route>
 
         <Route path="/store" >
