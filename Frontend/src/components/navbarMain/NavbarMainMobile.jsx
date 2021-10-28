@@ -11,8 +11,7 @@ import { GrTwitter } from 'react-icons/gr';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { FaWrench } from 'react-icons/fa';
 
-const NavbarMainMobile = (props) => {
-    const { user, setShow, show } = props;
+const NavbarMainMobile = ({ user, setShow, show }) => {
     const tokenLocal = leerDeLocalStorage('token') || {};
     const history = useHistory();
 
