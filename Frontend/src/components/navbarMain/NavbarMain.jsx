@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './navbarMain.css'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
@@ -24,8 +24,6 @@ export const NavbarMain = ({ user }) => {
     //js split method para obtener el nombre del path del array
     const splitLocation = pathname.split("/");
 
-    const history = useHistory();
-
 
     const [show, setShow] = useState(false);
 
@@ -33,8 +31,7 @@ export const NavbarMain = ({ user }) => {
 
     const logout = () => {
             localStorage.removeItem('token');
-            history.push('/');
-            window.location.reload();
+            window.location.href='/';
     }
 
 
