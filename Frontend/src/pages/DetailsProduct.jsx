@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProductFullScreen } from "../components/productFullScreem/ProductFullScreen";
+import { ProductFullScreen } from "../components/productFullScreen/ProductFullScreen";
 
 const DetailsProduct = () => {
     const [producto, setProducto] = useState([]);
