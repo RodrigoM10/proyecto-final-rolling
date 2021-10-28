@@ -94,7 +94,6 @@ function App() {
     getUsers();
   }, [])
 
-
   const isAdmin = user.role === 'admin';
 
 if (isLoading) {
@@ -121,10 +120,6 @@ if (isLoading) {
 
         <Route path="/store" >
           <Store productos={productos} />
-        </Route>
-        
-        <Route path="/store/:productId" >
-          <DetailsProduct/>
         </Route>
 
         <Route path="/contact" >

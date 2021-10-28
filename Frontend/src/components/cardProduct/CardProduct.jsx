@@ -3,13 +3,12 @@ import { Card } from "react-bootstrap";
 import { FaRegHeart } from 'react-icons/fa';
 
 
-
 export const CardProduct = ({producto}) => {
 
-  
+
   return (
     <div>
-      <div className="productos mx-3">
+      <div className="productos mx-3" >
         <Card className="card-productos">
           <div className="mt-3 d-flex align-items-start">
             <Card.Img
