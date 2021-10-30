@@ -12,7 +12,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Store from "./pages/Store";
 import Cart from "./pages/Cart";
-import Favourite from "./pages/Favourite";
+import Favorite from "./pages/Favorite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 // import DetailsProduct from "./pages/DetailsProduct";
@@ -29,7 +29,9 @@ import { Footer } from "./components/footer/Footer";
 // utils
 import { leerDeLocalStorage } from './utils/localStorage';
 import DetailsProduct from "./pages/DetailsProduct";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
+const tokenLocalData = leerDeLocalStorage('token') || {};
 
 function App() {
 
@@ -43,10 +45,11 @@ function App() {
 
   const [messages, setMessages] = useState([])
 
-  const tokenLocalData = leerDeLocalStorage('token') || {};
+  // useLocalStorage, es un hook que crea un useState con el valor determinado y guarda en localStorages con la key y el valor incial determinado.
+  // reemplaza, crear useState y leer y guardar en localStorage
+  const [favorites, setFavorites] = useLocalStorage('favorites', []);
 
   const requestUserData = async () => {
-
     const tokenLocal = leerDeLocalStorage('token') || {};
     setIsLoading(true);
     if (tokenLocal.token) {
@@ -96,16 +99,17 @@ function App() {
 
   const isAdmin = user.role === 'admin';
 
-if (isLoading) {
-  return (
-    <SpinnerRW />
-  );
-}
+  if (isLoading) {
+    return (
+      <SpinnerRW />
+    );
+  }
 
   return (
-    
+
     <div className="footer-fix ">
       <NavbarMain
+        favorites={favorites}
         user={user}
       />
       <Switch>
@@ -119,11 +123,11 @@ if (isLoading) {
         </Route>
 
         <Route path="/store/:productId">
-          <DetailsProduct productos={productos}  />
+          <DetailsProduct productos={productos} />
         </Route>
 
         <Route path="/store" >
-          <Store productos={productos} />
+          <Store productos={productos} favorites={favorites} setFavorites={setFavorites} />
         </Route>
 
         <Route path="/contact" >
@@ -134,8 +138,8 @@ if (isLoading) {
           <Cart />
         </Route>
 
-        <Route path="/favourite" >
-          <Favourite />
+        <Route path="/favorite" >
+          <Favorite favorites={favorites} />
         </Route>
 
         <Route path="/login" >
@@ -155,7 +159,7 @@ if (isLoading) {
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard productos={productos} getProductos={getProductos} tableProducts={tableProducts} setTableProducts={setTableProducts}/>
+            <AdminBoard productos={productos} getProductos={getProductos} tableProducts={tableProducts} setTableProducts={setTableProducts} />
           </Route>
         )}
         {isAdmin && (

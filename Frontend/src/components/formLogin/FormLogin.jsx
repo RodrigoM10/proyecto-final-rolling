@@ -23,8 +23,7 @@ export const FormLogin = ( {requestUserData} ) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         event.stopPropagation();
-
-
+        
         const form = event.currentTarget;
 
         if (form.checkValidity() === true) {
