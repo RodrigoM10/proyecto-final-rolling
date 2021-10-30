@@ -139,7 +139,7 @@ function App() {
         </Route>
 
         <Route path="/favorite" >
-          <Favorite favorites={favorites} />
+          <Favorite favorites={favorites} setFavorites={setFavorites} productos={productos} />
         </Route>
 
         <Route path="/login" >
