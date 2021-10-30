@@ -12,6 +12,7 @@
   transition: 0.5s;
 }
 .card-productos {
+  text-decoration: none;
   cursor: pointer;
   width: 21rem;
   border: none;
@@ -43,17 +44,27 @@
   font-weight: bold;
   font-size: 28px;
 }
-.add-favourite-btn {
+.add-favorite-btn {
   color:white;
   border: none;
   width: 3rem;
   height: 3rem;
   background: #203048;
   transition-duration: 0.3s;
+border: 1px solid #203048;
+  
 }
-.add-favourite-btn:hover {
-  background: #203048b9;
+
+.add-favorite-btn:hover {
+background-color: transparent;
 }
+.add-favorite-btn:hover .no-favorite {
+  color: #203048;
+}
+.is-favorite {
+  color: #b59062;
+}
+
 
 .cart-side-btn {
   background-color: #203048;
