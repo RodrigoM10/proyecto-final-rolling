@@ -17,7 +17,7 @@
   width: 21rem;
   border: none;
 }
-.img-top-center{
+.img-top-center {
   width: 11.5rem;
 }
 .img-top-left {
@@ -45,18 +45,17 @@
   font-size: 28px;
 }
 .add-favorite-btn {
-  color:white;
+  color: white;
   border: none;
   width: 3rem;
   height: 3rem;
   background: #203048;
   transition-duration: 0.3s;
-border: 1px solid #203048;
-  
+  border: 1px solid #203048;
 }
 
 .add-favorite-btn:hover {
-background-color: transparent;
+  background-color: transparent;
 }
 .add-favorite-btn:hover .no-favorite {
   color: #203048;
@@ -64,7 +63,6 @@ background-color: transparent;
 .is-favorite {
   color: #b59062;
 }
-
 
 .cart-side-btn {
   background-color: #203048;
@@ -77,4 +75,23 @@ background-color: transparent;
   border-bottom-left-radius: 70px;
   border: 3px solid rgba(255, 255, 255, 0.7);
   z-index: 5;
+}
+
+/* fav card */
+.remove-btn {
+  background-color: transparent;
+  border: 2px solid #888;
+  border-radius: 1rem;
+  color: #888;
+  transition: 0.4s;
+  opacity: 0;
+  margin: 2px;
+}
+.remove-btn:hover {
+  border: 2px solid red;
+  color: red;
+}
+.productos:hover .remove-btn {
+  display: inline;
+  opacity: 1;
 }

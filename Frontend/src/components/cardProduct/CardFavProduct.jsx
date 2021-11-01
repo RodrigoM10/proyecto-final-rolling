@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import { Card } from "react-bootstrap";
+import { Button, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import { MdOutlineClose } from 'react-icons/md'
 
 
 export const CardFavProduct = ({ favProduct, setFavorites }) => {
 
   // filtra en el array favList, y deja el array favList, sin el elemento fav que coincida ( fav === producto._id). Setea el array de favorites con el array favList filtrado.
-  const removeFavorite = () => {
-    setFavorites((favList) => favList.filter((fav) => fav.favProduct.producto._id !== favProduct.producto._id));
-  };
+  // const removeFavorite = () => {
+  //   setFavorites((favList) => favList.filter((fav) => fav.favProduct.producto._id !== favProduct.producto._id));
+  // };
+
 
   return (
     <div>
       <div className="productos mx-3" >
+        <div className="d-flex justify-content-end">
+          <OverlayTrigger
+            placement="right"
+            delay={{ show: 250, hide: 400 }}
+            overlay={
+              (props) => (
+                <Tooltip id="button-tooltip" {...props}>
+                  Eliminar
+                </Tooltip>)
+            }
+          >
+            <button className="remove-btn pb-1">
+              <MdOutlineClose />
+            </button>
+          </OverlayTrigger>
+        </div>
         <Card as={Link} to={`/store/${favProduct.producto._id}`} className="card-productos">
           <div className="mt-3 d-flex align-items-start">
             <Card.Img

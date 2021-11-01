@@ -30,7 +30,7 @@ export const NavbarMain = ({ user, favorites }) => {
     const handleShow = () => setShow(true);
 
     const logout = () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('token', 'favorites');
         window.location.href = '/';
     }
 
@@ -104,10 +104,6 @@ export const NavbarMain = ({ user, favorites }) => {
                                     </a>
                                     <a href="/cart" className="position-relative">
                                         {splitLocation[1] === "cart" ? < BsCartFill /> : <BsCart />}
-                                        {
-                                            favorites.length > 0 &&
-                                            <span className="swym-header--count">{favorites.length}</span>
-                                        }
                                     </a>
                                 </span>
                             </div>
