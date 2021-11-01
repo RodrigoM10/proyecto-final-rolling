@@ -6,6 +6,7 @@ import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc'
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
+import CargaProduts from './CargaProducts';
 
 export const TableProducts = ({ productos, getProductos, tableProducts, setTableProducts }) => {
 
@@ -79,6 +80,8 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
     };
 
     return (
+        <>
+        <CargaProduts productos={productos} />
         <Container>
             <div className="d-flex justify-content-between align-items-center my-2">
                 <form className="search-form  " >
@@ -152,5 +155,6 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
             )}
 
         </Container>
+        </>
     )
 }
