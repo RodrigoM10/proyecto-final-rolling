@@ -1,7 +1,14 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import { MdOutlineClose } from 'react-icons/md';
 
-export const CardSideCarrito = ({ cart }) => {
+export const CardSideCarrito = ({ producto, cart, setCart }) => {
+
+    // const removeToCart = () => {
+    //     const filterCart = cart.filter((cartProduct) => cartProduct.producto._id !== producto.producto._id);
+    //     setCart(filterCart);
+    // };
+
     return (
         <div>
             <div className="row justify-content-center align-content-center">
@@ -20,7 +27,9 @@ export const CardSideCarrito = ({ cart }) => {
                     <button className="agregar-sacar-btn">+</button>
                 </div>
                 <div className="m-2 col-12 col-lg-2">
-                    <button className="boton-remover-canvas">X</button>
+                    <button className="btn-remove-to-cart pb-1 mb-2" >
+                        <MdOutlineClose />
+                    </button>
                 </div>
                 <hr />
             </div>

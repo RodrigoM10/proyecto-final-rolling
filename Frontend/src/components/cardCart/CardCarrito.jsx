@@ -1,13 +1,32 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { MdOutlineClose } from 'react-icons/md';
 import './cardCarrito.css'
 
-export const CardCarrito = ({ cart }) => {
+export const CardCarrito = ({ producto, cart, setCart }) => {
+
+    const removeToCart = () => {
+        const filterCart = cart.filter((cartProduct) => cartProduct.producto._id !== producto.producto._id);
+        setCart(filterCart);
+      };
 
     return (
         <>
             <div className="d-flex justify-content-end">
-                <button className="boton-remover">X</button>
+            <OverlayTrigger
+            placement="right"
+            delay={{ show: 250, hide: 400 }}
+            overlay={
+              (props) => (
+                <Tooltip id="button-tooltip" {...props}>
+                  Eliminar
+                </Tooltip>)
+            }
+          >
+            <button className="btn-remove-to-cart pb-1 mb-2" onClick={removeToCart}>
+              <MdOutlineClose />
+            </button>
+          </OverlayTrigger>
             </div>
             <div className="row justify-content-center align-content-center">
                 <Card.Img className="m-2 col-12 col-lg-2"
