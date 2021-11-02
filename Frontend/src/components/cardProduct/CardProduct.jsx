@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { Card } from "react-bootstrap";
-import { FaHeart} from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 
@@ -30,28 +30,29 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart }
     } else {
       addFavorite()
     }
-    
+
   }
 
-  useEffect(() => {
-    const isInFavorites = favorites.some((fav) => fav.producto._id === producto._id);
-    if (isInFavorites) {
-      setIsInFavorites(true);
-    };
-  }, [favorites]);
+  // useEffect(() => {
+  //   const isInFavorites = favorites.some((fav) => fav.producto._id === producto._id);
+  //   if (isInFavorites) {
+  //     setIsInFavorites(true);
+  //   };
+  // }, [favorites]);
+
+
+  // FUNCION PARA CARRITO 
+  const addToCart = () => {
+    setCart((cart) => cart.concat({ producto }));
+  };
 
   
-    // FUNCION PARA CARRITO 
-    const addToCart = () => {
-      setCart((cart) => cart.concat({ producto }));
-    };
-
-useEffect(() => {
-  const inCart = cart.find((productoCart) => productoCart.producto.id === producto.id);
-  if (inCart) {
+  useEffect(() => {
+    const inCart = cart.find((productoCart) => productoCart.producto.id === producto.id);
+    if (inCart) {
       setIsInCart(true);
-  }
-}, [cart]);
+    }
+  }, [cart]);
 
 
   // USE LOCATION
@@ -91,7 +92,7 @@ useEffect(() => {
           </Card.Body>
         </Card>
         <div className="d-flex align-items-center justify-content-center">
-          <button className= "col-9 responsive-navbar-button " onClick={addToCart} >Añadir al carrito</button>
+          <button className="col-9 responsive-navbar-button " onClick={addToCart} >Añadir al carrito</button>
           {splitLocation[1] !== "favorite" &&
             <button className="col-3 add-favorite-btn" onClick={toggleFavorite} >
               <FaHeart className={isInFavorites ? "is-favorite" : "no-favorite"} />

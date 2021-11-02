@@ -1,23 +1,31 @@
 //snippet rfc
 
 import React from 'react'
+import { Button, Card, Container } from 'react-bootstrap';
+import { CardCarrito } from '../components/cardCart/CardCarrito';
 
-function Cart(cart) {
+function Cart({ cart }) {
+    const mapCarrito = cart?.map((producto, i) => (<CardCarrito key={i} producto={producto} cart={cart} />
+    ));
     return (
-        <div className="container-fluid">
-        <h2 className="text-center my-5">Tu carrito</h2>
-        <div className="row">
-            <div className="products-cards col-12 col-md-8">
-
-                {cart[0]?.producto.title}
-            </div>
-            <div className="col-12 col-md-4">
-                <div className="bg-light p-2 my-3">
-                    <h6>Total:</h6>
+        <Container>
+            <h1 className="text-center my-5">Tu carrito</h1>
+            <div className="row justify-content-center">
+                <div className="col-12 col-lg-9 m-2">
+                    {mapCarrito}
+                </div>
+                <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
+                    <div>
+                        <h2>TOTAL: </h2>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button className="responsive-navbar-button">Ir a pagar</Button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </Container>
     )
 }
 

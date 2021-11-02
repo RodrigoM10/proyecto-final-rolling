@@ -23,7 +23,7 @@ function Store({productos,favorites, setFavorites, cart, setCart}) {
           <SliderProducts productos={productos} />
         </Container>
       </Container>
-      <CartSideButton className="position-fixed" />
+      <CartSideButton cart={cart} className="position-fixed" />
     </>
   );
 }
