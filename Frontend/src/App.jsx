@@ -33,9 +33,9 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 
 
 function App() {
+  const tokenLocalData = leerDeLocalStorage('token') || {};
   
   const [productos, setProductos] = useState([]);
-  console.log("🚀 ~ file: App.jsx ~ line 39 ~ App ~ productos", productos)
 
   const [user, setUser] = useState({});
 
@@ -49,7 +49,6 @@ function App() {
   // reemplaza, crear useState y leer y guardar en localStorage
   const [favorites, setFavorites] = useLocalStorage('favorites', []);
   
-  const tokenLocalData = leerDeLocalStorage('token') || {};
 
   const requestUserData = async () => {
     const tokenLocal = leerDeLocalStorage('token') || {};
@@ -88,7 +87,6 @@ function App() {
 
   // se agrega funcion que trae de la API los usuarios registrados, para pasarla como prop a userList.
   const [tableUsers, setTableUsers] = useState([])
-
   const getUsers = async () => {
     const response = await axios.get('http://localhost:4000/api/usuarios');
     setUsuarios(response.data);

@@ -22,7 +22,6 @@ function Favorite({ favorites, setFavorites }) {
                 :
                 <div>
                     <div className="d-flex flex-wrap justify-content-center">
-
                         {mapFavorites}
                     </div>
                 </div>
