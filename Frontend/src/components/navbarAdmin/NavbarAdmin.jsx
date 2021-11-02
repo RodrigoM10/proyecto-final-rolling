@@ -39,7 +39,6 @@ export const NavbarAdmin = ({ user }) => {
         <>
             <Navbar className="navbar d-flex flex-column" expand="lg" >
                 <Container className="py-3">
-                    {/* ACOMODAR DIVS A GUSTO DUDA NO SE COMO HACER !!!!!!! NO PUEDO :s */}
                     <div className="d-flex align-items-center contenedor">
                         <div className="d-block d-md-none ">
                             <button
