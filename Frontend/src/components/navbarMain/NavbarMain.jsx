@@ -14,7 +14,7 @@ import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
 
 
-export const NavbarMain = ({ user, favorites }) => {
+export const NavbarMain = ({ user, favorites, cart }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
     // asigno la variable location
@@ -103,6 +103,10 @@ export const NavbarMain = ({ user, favorites }) => {
                                     </a>
                                     <a href="/cart" className="position-relative">
                                         {splitLocation[1] === "cart" ? < BsCartFill /> : <BsCart />}
+                                        {
+                                            cart.length > 0 &&
+                                            <span className="swym-header--count">{cart.length}</span>
+                                        }
                                     </a>
                                 </span>
                             </div>

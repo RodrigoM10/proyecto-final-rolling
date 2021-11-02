@@ -50,6 +50,8 @@ function App() {
   const [favorites, setFavorites] = useLocalStorage('favorites', []);
   
 
+  const [cart, setCart] = useLocalStorage('cart', [])
+
   const requestUserData = async () => {
     const tokenLocal = leerDeLocalStorage('token') || {};
     setIsLoading(true);
@@ -110,6 +112,7 @@ function App() {
       <NavbarMain
         favorites={favorites}
         user={user}
+        cart={cart}
       />
       <Switch>
         {/* pages */}
@@ -126,7 +129,7 @@ function App() {
         </Route>
 
         <Route path="/store" >
-          <Store productos={productos} favorites={favorites} setFavorites={setFavorites} />
+          <Store productos={productos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/contact" >
@@ -134,7 +137,7 @@ function App() {
         </Route>
 
         <Route path="/cart" >
-          <Cart />
+          <Cart cart={cart}/>
         </Route>
 
         <Route path="/favorite" >

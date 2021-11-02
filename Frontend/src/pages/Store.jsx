@@ -6,7 +6,7 @@ import { FiltersProducts } from "../components/filtersProducts/FiltersProducts";
 import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 import { CartSideButton } from "../components/cartSideButton/CartSideButton";
 
-function Store({productos,favorites, setFavorites}) {
+function Store({productos,favorites, setFavorites, cart, setCart}) {
 
   return (
     <>
@@ -16,14 +16,14 @@ function Store({productos,favorites, setFavorites}) {
             <FiltersProducts />
           </Col>
           <Col className="col-12 col-md-9 columnaProductos p-0">
-            <CardsProduct productos={productos} favorites={favorites} setFavorites={setFavorites} />
+            <CardsProduct productos={productos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
           </Col>
         </Row>
         <Container className="mt-5">
           <SliderProducts productos={productos} />
         </Container>
       </Container>
-      <CartSideButton className="position-fixed" />
+      <CartSideButton cart={cart} className="position-fixed" />
     </>
   );
 }

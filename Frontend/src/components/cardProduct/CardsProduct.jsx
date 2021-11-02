@@ -3,8 +3,8 @@ import { CardProduct } from "./CardProduct";
 import './cardProduct.css'
 
 
-export const CardsProduct = ({ productos, favorites, setFavorites }) => {
-  const mapProductos =  productos?.map((producto, i) => (<CardProduct key={i} producto={producto} favorites={favorites} setFavorites={setFavorites}/>
+export const CardsProduct = ({ productos, favorites, setFavorites, cart, setCart }) => {
+  const mapProductos =  productos?.map((producto, i) => (<CardProduct key={i} producto={producto} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart}/>
   ));
   return (
     <>

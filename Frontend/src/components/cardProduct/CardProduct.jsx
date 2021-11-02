@@ -5,7 +5,9 @@ import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 
-export const CardProduct = ({ producto, favorites, setFavorites }) => {
+export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart }) => {
+
+  const [isInCart, setIsInCart] = useState(false);
 
   const [isFavorites, setIsFavorites] = useState(false)
   //  Crea el array favorites agregando el 1er  elemento o agrega otro elemento al array. (el array favorites queda seteado en el array favList.)
@@ -40,6 +42,29 @@ export const CardProduct = ({ producto, favorites, setFavorites }) => {
   }, [favorites]);
 
 
+  // FUNCION PARA aÑADIR A CARRITO CARRITO
+  const addToCart = () => {
+    setCart((cart) => cart.concat({ producto }));
+  };
+
+  const cartEffect = () => {
+    const inCart = cart.find((productoCart) => productoCart.producto.id === producto.id);
+    if (inCart) {
+      setIsInCart(true);
+    }
+  }
+
+  useEffect(() => {
+    cartEffect();
+  }, [cart]);
+
+
+  // USE LOCATION
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
+
   return (
     <div>
       <div className="productos mx-3" >
@@ -71,13 +96,13 @@ export const CardProduct = ({ producto, favorites, setFavorites }) => {
           </Card.Body>
         </Card>
         <div className="d-flex align-items-center justify-content-center">
-          <button className="col-9 responsive-navbar-button ">Añadir al carrito</button>
-            <button className="col-3 add-favorite-btn" onClick={toggleFavorite} >
-              <FaHeart className={isFavorites ? "is-favorite" : "no-favorite"} />
-            </button>
-        </div>
+          <button className="col-9 responsive-navbar-button " onClick={addToCart} >Añadir al carrito</button>
+          <button className="col-3 add-favorite-btn" onClick={toggleFavorite} >
+            <FaHeart className={isFavorites ? "is-favorite" : "no-favorite"} />
+          </button>
+        </div >
       </div>
-    </div>
+    </div >
   )
 }
 
