@@ -28,9 +28,9 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
         <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
             <Offcanvas.Header className="responsive-navbar-header">
                 <div className="logo-container" >
-                    <a href="/"  >
+                    <NavLink as={NavLink} to="/" onClick={handleClose}>
                         <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
-                    </a>
+                    </NavLink>
                 </div>
                 <button type="button" aria-label="Close" className="navbar-button" onClick={handleClose} ><VscClose /></button>
             </Offcanvas.Header>
@@ -50,9 +50,12 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
 
             {/* si esta registrado un usuario con token valido entonces se muestra */}
             {user.role === 'user' &&
-                <Offcanvas.Header className="d-flex flex-column justify-content-evenly bienvenido-user">
+                <Offcanvas.Header className="d-flex flex-column bienvenido-user">
                     <p>Bienvenido Sr/a {user.name}</p>
                     <div>
+                        <NavLink as={NavLink} to="/myProfile" onClick={handleClose}>
+                            <button className="responsive-navbar-button px-4" >Mi Perfil</button>
+                        </NavLink>
                         <button onClick={logout} className="responsive-navbar-button">Cerrar Sesion</button>
                     </div>
                 </Offcanvas.Header>
@@ -63,7 +66,7 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                 <Offcanvas.Header className="d-flex flex-column bienvenido-user">
                     <p>Bienvenido Sr/a {user.name}</p>
                     <div className="d-flex justify-content-evenly">
-                        <NavLink as={NavLink} to="/myProfile">
+                        <NavLink  as={NavLink} to="/myProfile" onClick={handleClose} >
                             <button className="responsive-navbar-button px-4">Mi Perfil</button>
                         </NavLink>
                         <button onClick={logout} className="responsive-navbar-button p-1">Cerrar Sesion</button>
@@ -81,9 +84,11 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                     <li className="p-2 mx-3">
                         <Nav.Link as={NavLink} to="/about" activeClassName="link-active" onClick={handleClose}>HISTORIA</Nav.Link>
                     </li>
+                    {user.role === 'admin' &&      
                     <li className="p-2 mx-3">
                         <Nav.Link as={NavLink} to="/adminBoard" activeClassName="link-active"><FaWrench className="mb-1 me-2" />ADMIN BOARD</Nav.Link>
                     </li>
+                    }
 
                 </div>
                 <div className="navbar-responsive-redes">

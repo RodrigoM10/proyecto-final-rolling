@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 import { MdOutlineClose } from 'react-icons/md'
 
 
-export const CardFavProduct = ({ favProduct, setFavorites }) => {
+export const CardFavProduct = ({ favProduct, setFavorites, favorites }) => {
+
+const removeFavorite = () => {
+  const filterFavorite = favorites.filter((fav) => fav.producto._id !== favProduct.producto._id);
+  setFavorites(filterFavorite);
+};
+
   return (
     <div>
       <div className="productos mx-3" >
@@ -19,7 +25,7 @@ export const CardFavProduct = ({ favProduct, setFavorites }) => {
                 </Tooltip>)
             }
           >
-            <button className="remove-btn pb-1" >
+            <button className="remove-btn pb-1" onClick={removeFavorite}>
               <MdOutlineClose />
             </button>
           </OverlayTrigger>

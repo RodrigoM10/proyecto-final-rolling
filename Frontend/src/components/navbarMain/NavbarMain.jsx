@@ -30,7 +30,8 @@ export const NavbarMain = ({ user, favorites }) => {
     const handleShow = () => setShow(true);
 
     const logout = () => {
-        localStorage.removeItem('token', 'favorites');
+        localStorage.removeItem('token');
+        localStorage.removeItem('favorites');
         window.location.href = '/';
     }
 

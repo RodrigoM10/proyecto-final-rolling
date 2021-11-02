@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { Card } from "react-bootstrap";
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 
@@ -9,16 +9,13 @@ export const CardProduct = ({ producto, favorites, setFavorites }) => {
 
   const [isFavorites, setIsFavorites] = useState(false)
   //  Crea el array favorites agregando el 1er  elemento o agrega otro elemento al array. (el array favorites queda seteado en el array favList.)
-  // const addFavorite = ()) => {
-  //   setFavorites((favList) => favList.concat({ producto }))
-  // }
   const addFavorite = () => {
-    setFavorites((favList) => [...favList, producto._id]);
-  };
+    setFavorites((favList) => favList.concat({ producto }))
+  }
 
   // filtra en el array favList, y deja el array favList, sin el elemento fav que coincida ( fav === producto._id). Setea el array de favorites con el array favList filtrado.
   const removeFavorite = () => {
-    setFavorites((favList) => favList.filter((fav) => fav !== producto._id));
+    setFavorites((favList) => favList.filter((fav) => fav.producto._id !== producto._id));
     setIsFavorites(false)
   };
 
@@ -26,7 +23,7 @@ export const CardProduct = ({ producto, favorites, setFavorites }) => {
   // si isFavored ( osea si esta favoriteado), llama a la funcion removeFavorite, con el parametro producto._id.
   // si no, llama a la funcion addFavorite, con el parametro producto._id.
   const toggleFavorite = () => {
-    const isFavored = favorites.some((fav) => fav === producto._id);
+    const isFavored = favorites.some((fav) => fav.producto._id === producto._id);
     if (isFavored) {
       removeFavorite()
     } else {
@@ -36,17 +33,11 @@ export const CardProduct = ({ producto, favorites, setFavorites }) => {
   }
 
   useEffect(() => {
-    const isFavorites = favorites.some((fav) => fav === producto._id);
+    const isFavorites = favorites.some((fav) => fav.producto._id === producto._id);
     if (isFavorites) {
       setIsFavorites(true);
     };
   }, [favorites]);
-
-
-  // USE LOCATION
-  const location = useLocation();
-  const { pathname } = location;
-  const splitLocation = pathname.split("/");
 
 
   return (
@@ -81,10 +72,9 @@ export const CardProduct = ({ producto, favorites, setFavorites }) => {
         </Card>
         <div className="d-flex align-items-center justify-content-center">
           <button className="col-9 responsive-navbar-button ">Añadir al carrito</button>
-          {splitLocation[1] !== "favorite" &&
             <button className="col-3 add-favorite-btn" onClick={toggleFavorite} >
               <FaHeart className={isFavorites ? "is-favorite" : "no-favorite"} />
-            </button>}
+            </button>
         </div>
       </div>
     </div>
