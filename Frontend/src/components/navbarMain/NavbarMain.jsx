@@ -32,6 +32,7 @@ export const NavbarMain = ({ user, favorites, cart }) => {
     const logout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('favorites');
+        localStorage.removeItem('cart');
         window.location.href = '/';
     }
 

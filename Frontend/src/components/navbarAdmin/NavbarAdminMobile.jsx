@@ -14,8 +14,9 @@ const NavbarAdminMobile = (props) => {
 
     const logout = () => {
         localStorage.removeItem('token');
-        history.push('/');
-        window.location.reload();
+        localStorage.removeItem('favorites');
+        localStorage.removeItem('cart');
+        window.location.href = '/';
     }
 
     return (
