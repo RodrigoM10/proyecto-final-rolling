@@ -17,7 +17,6 @@ const DetailsProduct = ({productos}) => {
                 `http://localhost:4000/api/productos/${productId}`
             );
             setProducto(response.data);
-            console.log(response);
         }
         getProducto();
     }, [productId]);

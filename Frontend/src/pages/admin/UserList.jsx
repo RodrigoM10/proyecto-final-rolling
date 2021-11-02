@@ -8,9 +8,7 @@ function UserList(props) {
 
     return (
         <Container>
-            <div className="user-list my-2">
-                <h2>Usuarios con Membrecia</h2>
-            </div>
+                <h2 className="title-style my-2">Usuarios con Membrecia</h2>
             <TableUsers getUsers={getUsers} usuarios={usuarios} setTableUsers={setTableUsers} tableUsers={tableUsers}/>
         </Container>
     )

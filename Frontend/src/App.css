@@ -77,14 +77,22 @@ body {
   border: 2px solid #203048;
   border-radius: 1.1rem;
 }
-/* user list */
-.user-list{
-  font-family: "Montserrat", sans-serif;
+
+.title-style{
+  /* font-family: "Montserrat", sans-serif; */
+  /* font-weight: 900; */
   color: #b59062;
-  font-weight: 900;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6 !important
 }
 /* spinner */
 .spinner-style {
   z-index: 2;
   background-color: '#00000017';
+}
+/* no results card */
+.no-results-card {
+  color: #f7f7f7;
+  background-color: #b59062ce !important ;
+  border: 0.3rem ridge #b8884e !important ;
 }

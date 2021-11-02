@@ -36,6 +36,7 @@ const tokenLocalData = leerDeLocalStorage('token') || {};
 function App() {
 
   const [productos, setProductos] = useState([]);
+  console.log("🚀 ~ file: App.jsx ~ line 39 ~ App ~ productos", productos)
 
   const [user, setUser] = useState({});
 
@@ -48,6 +49,7 @@ function App() {
   // useLocalStorage, es un hook que crea un useState con el valor determinado y guarda en localStorages con la key y el valor incial determinado.
   // reemplaza, crear useState y leer y guardar en localStorage
   const [favorites, setFavorites] = useLocalStorage('favorites', []);
+  console.log("🚀 ~ file: App.jsx ~ line 52 ~ App ~ favorites", favorites)
 
   const requestUserData = async () => {
     const tokenLocal = leerDeLocalStorage('token') || {};
@@ -65,6 +67,19 @@ function App() {
   }, []);
 
 
+  // favorites 
+  const [favsProducts, setFavsProducts] = useState([])
+  const favsParam = favorites.length ? favorites : 0;
+  useEffect(() => {
+    const getFavsProducts = async () => {
+      const response = await axios.get(`http://localhost:4000/api/productos/${favsParam}`, []
+      );
+      setFavsProducts(response.data);
+    }
+    getFavsProducts();
+  }, [favsParam])
+
+  console.log("🚀 ~ file: App.jsx ~ line 70 ~ App ~ favsProducts", favsProducts)
   const [tableProducts, setTableProducts] = useState([])
   const getProductos = async () => {
     const response = await axios.get('http://localhost:4000/api/productos');
@@ -139,7 +154,7 @@ function App() {
         </Route>
 
         <Route path="/favorite" >
-          <Favorite favorites={favorites} setFavorites={setFavorites} productos={productos} />
+          <Favorite favorites={favorites} setFavorites={setFavorites} favsProducts={favsProducts} setFavsProducts={setFavsProducts} />
         </Route>
 
         <Route path="/login" >
