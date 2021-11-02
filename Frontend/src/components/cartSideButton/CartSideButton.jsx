@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
-import { CardProduct } from "../cardProduct/CardProduct";
+import { CardSideCarrito } from "../cardCart/CardSideCarrito";
 
 export const CartSideButton = ({ cart }) => {
 
@@ -8,6 +8,9 @@ export const CartSideButton = ({ cart }) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const mapSideCarrito = cart?.map((producto, i) => (<CardSideCarrito key={i} producto={producto} cart={cart} />
+    ));
 
 
   return (
@@ -29,7 +32,7 @@ export const CartSideButton = ({ cart }) => {
         <Offcanvas.Header closeButton> Tu Carrito </Offcanvas.Header>
         <Offcanvas.Body className="text-center mt-5">
           <div className="d-flex flex-column ">
-           
+            {mapSideCarrito}
           </div>
           <Button closeButton className="" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
         </Offcanvas.Body>

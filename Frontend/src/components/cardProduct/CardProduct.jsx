@@ -33,26 +33,29 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart }
 
   }
 
-  // useEffect(() => {
-  //   const isInFavorites = favorites.some((fav) => fav.producto._id === producto._id);
-  //   if (isInFavorites) {
-  //     setIsInFavorites(true);
-  //   };
-  // }, [favorites]);
+  useEffect(() => {
+    const isInFavorites = favorites.some((fav) => fav.producto._id === producto._id);
+    if (isInFavorites) {
+      setIsInFavorites(true);
+    };
+  }, [favorites]);
 
 
-  // FUNCION PARA CARRITO 
+  // FUNCION PARA aÑADIR A CARRITO CARRITO  
   const addToCart = () => {
     setCart((cart) => cart.concat({ producto }));
   };
 
-  
-  useEffect(() => {
+  const cartEffect =() =>{
     const inCart = cart.find((productoCart) => productoCart.producto.id === producto.id);
     if (inCart) {
       setIsInCart(true);
     }
-  }, [cart]);
+  }
+ 
+  useEffect(() => {
+  cartEffect();
+  },[cart]);
 
 
   // USE LOCATION

@@ -9,7 +9,7 @@ function Cart({ cart }) {
     ));
     return (
         <Container>
-            <h1 className="text-center my-5">Tu carrito</h1>
+            <h2 className="text-center my-5">Tu carrito</h2>
             <div className="row justify-content-center">
                 <div className="col-12 col-lg-9 m-2">
                     {mapCarrito}
