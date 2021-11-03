@@ -24,7 +24,11 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
             <BsCart />
         }
       </Button>
-      <Offcanvas show={showSideCart} onHide={handleClose}>
+      <Offcanvas 
+      show={showSideCart} 
+      onHide={handleClose}
+      scroll='true'
+      >
         <Offcanvas.Header closeButton> Tu Carrito </Offcanvas.Header>
         <Offcanvas.Body className="text-center mt-5">
           <div className="d-flex flex-column ">
