@@ -9,13 +9,13 @@ import { CartSideButton } from "../components/cartSideButton/CartSideButton";
 function Store({ productos, favorites, setFavorites, cart, setCart, allProducts }) {
   const [showSideCart, setShowSideCart] = useState(false);
   return (
-    <>
+    <div className="bg-grey">
       <Container>
         <Row>
-          <Col className="col-12 col-md-3  columnaFiltros">
+          <Col className="col-12 col-md-3 d-flex justify-content-center">
             <FiltersProducts />
           </Col>
-          <Col className="col-12 col-md-9 columnaProductos p-0">
+          <Col className="d-flex justify-content-center p-0 my-5 ">
             <CardsProduct
               allProducts={allProducts}
               favorites={favorites}
@@ -37,7 +37,7 @@ function Store({ productos, favorites, setFavorites, cart, setCart, allProducts 
         showSideCart={showSideCart}
         setShowSideCart={setShowSideCart}
         className="position-fixed" />
-    </>
+    </div>
   );
 }
 

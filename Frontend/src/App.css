@@ -1,60 +1,52 @@
-
 body {
   box-sizing: border-box;
   color: white;
 }
 .footer-fix {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
+.nav-logo-desktop {
+  width: 290px;
+  height: 80px;
+}
+@media only screen and (max-width: 768px) {
   .nav-logo-desktop {
-    width: 290px;
-    height: 80px;
+    width: 200px;
+    height: 60px;
   }
-  @media only screen and (max-width: 768px) {
-    .nav-logo-desktop {
-      width: 200px;
-      height: 60px;
-    }
-  }
-  .container-register {
-    background-image: url(./assets/register-page-bg.jpg);
-    background-size: cover;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    color: white;
-  }
-  .container-contact {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
+}
+.container-register {
+  background-image: url(./assets/register-page-bg.jpg);
+  background-size: cover;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: white;
+}
+.container-contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
     url(./assets/contact-page-bg.jpg) no-repeat top center;
-    background-size: cover;
-    color: white;
-  }
-  .text-welcome-register {
-    padding: 5rem ;
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
-  }
-  .text-welcome-register h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 50px;
-  }
-  .columnaFiltros{
-    background: #f7f7f7;
-    display: flex;
-    justify-content: center;
-  }
-  .columnaProductos{
-    background: #f7f7f7;
-  }
-.bg-profile {
+  background-size: cover;
+  color: white;
+}
+.text-welcome-register {
+  padding: 5rem;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+.text-welcome-register h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+}
+
+.bg-grey {
   background-color: #f7f7f7;
 }
 
 /* botones admin */
-.btn-admin{
+.btn-admin {
   border-radius: 0.3rem;
   color: rgb(255, 255, 255);
   background: #203048;
@@ -66,11 +58,11 @@ body {
   color: #b59062;
 }
 .btn-admin:active {
-  border: 2px inset #203048; 
+  border: 2px inset #203048;
 }
 .btn-admin:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.10rem #b59062;
+  box-shadow: 0 0 0 0.1rem #b59062;
 }
 /* search tables admin */
 .search-table {
@@ -78,17 +70,17 @@ body {
   border-radius: 1.1rem;
 }
 
-.title-style{
+.title-style {
   /* font-family: "Montserrat", sans-serif; */
   /* font-weight: 900; */
   color: #b59062;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #dee2e6 !important
+  border-bottom: 1px solid #dee2e6 !important;
 }
 /* spinner */
 .spinner-style {
   z-index: 2;
-  background-color: '#00000017';
+  background-color: "#00000017";
 }
 /* no results card */
 .no-results-card {

@@ -60,8 +60,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
 
 
   return (
-    <div>
-      <div className="productos mx-3" >
+      <div className="productos mx-1 p-0" >
         <Card as={Link} to={`/store/${producto._id}`} className="card-productos">
           <div className="mt-3 d-flex align-items-start">
             <Card.Img
@@ -96,7 +95,6 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
           </button>
         </div >
       </div>
-    </div >
   )
 }
 

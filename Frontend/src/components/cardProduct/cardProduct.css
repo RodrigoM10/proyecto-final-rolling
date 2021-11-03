@@ -4,12 +4,9 @@
   font-family: "Playfair Display", serif;
 }
 .productos {
-  display: inline-block;
-  color: #333;
-  margin-top: 3rem;
+  /* color: #333; */
   margin-bottom: 3rem;
-  border: 2px solid rgb(168, 77, 77, 0);
-  transition: 0.5s;
+  transition: 0.4s;
 }
 .card-productos {
   text-decoration: none;
@@ -36,7 +33,6 @@
   height: 3rem;
 }
 .precio-producto {
-  /* text-decoration: line-through; */
   color: #888;
   font-size: 17px;
 }
@@ -53,7 +49,6 @@
   transition-duration: 0.3s;
   border: 1px solid #203048;
 }
-
 .add-favorite-btn:hover {
   background-color: transparent;
 }
@@ -63,7 +58,6 @@
 .is-favorite {
   color: #b59062;
 }
-
 .cart-side-btn {
   background-color: #203048;
   border: none;
@@ -76,7 +70,6 @@
   border: 3px solid rgba(255, 255, 255, 0.7);
   z-index: 5;
 }
-
 /* fav card */
 .remove-btn {
   background-color: transparent;
