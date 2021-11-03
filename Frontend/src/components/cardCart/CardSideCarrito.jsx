@@ -4,10 +4,10 @@ import { MdOutlineClose } from 'react-icons/md';
 
 export const CardSideCarrito = ({ producto, cart, setCart }) => {
 
-    // const removeToCart = () => {
-    //     const filterCart = cart.filter((cartProduct) => cartProduct.producto._id !== producto.producto._id);
-    //     setCart(filterCart);
-    // };
+    const removeToCart = () => {
+        const filterCart = cart.filter((cartProduct) => cartProduct.producto._id !== producto.producto._id);
+        setCart(filterCart);
+    };
 
     return (
         <div>
@@ -27,7 +27,7 @@ export const CardSideCarrito = ({ producto, cart, setCart }) => {
                     <button className="agregar-sacar-btn">+</button>
                 </div>
                 <div className="m-2 col-12 col-lg-2">
-                    <button className="btn-remove-to-cart pb-1 mb-2" >
+                    <button className="btn-remove-to-cart pb-1 mb-2" onClick={removeToCart} >
                         <MdOutlineClose />
                     </button>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import { Nav, Offcanvas } from 'react-bootstrap';
 
 //React Icons
@@ -8,7 +8,6 @@ import { RiArrowGoBackLine } from 'react-icons/ri';
 
 const NavbarAdminMobile = (props) => {
     const { setShow, show, user } = props;
-    const history = useHistory();
 
     const handleClose = () => setShow(false);
 
@@ -23,7 +22,7 @@ const NavbarAdminMobile = (props) => {
         <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
             <Offcanvas.Header className="responsive-navbar-header">
                 <div className="logo-container" >
-                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
+                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635957069/logo_11_r58drd.png" alt="img logo" className="nav-logo-desktop" />
                 </div>
                 <button type="button" aria-label="Close" className="navbar-button" onClick={handleClose} ><VscClose /></button>
             </Offcanvas.Header>

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { ProductFullScreen } from "../components/productFullScreen/ProductFullScreen";
 import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 
-const DetailsProduct = ({productos}) => {
+const DetailsProduct = ({productos, cart, setCart}) => {
     const [producto, setProducto] = useState([]);
 
     const { productId } = useParams();
@@ -24,7 +24,7 @@ const DetailsProduct = ({productos}) => {
     return (
         <>
             <div>
-                <ProductFullScreen producto={producto} />
+                <ProductFullScreen producto={producto} cart={cart} setCart={setCart}  />
             </div>
             <div className="mt-5 text-center">
             <SliderProducts productos={productos} />

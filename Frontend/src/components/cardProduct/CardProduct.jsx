@@ -90,7 +90,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
           </Card.Body>
         </Card>
         <div className="d-flex align-items-center justify-content-center">
-          <button className="col-9 responsive-navbar-button " onClick={addToCart} >Añadir al carrito</button>
+          <button className="col-9 responsive-navbar-button" onClick={addToCart} >Añadir al carrito</button>
           <button className="col-3 add-favorite-btn" onClick={toggleFavorite} >
             <FaHeart className={isFavorites ? "is-favorite" : "no-favorite"} />
           </button>
