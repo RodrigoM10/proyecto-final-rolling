@@ -4,15 +4,17 @@
   font-family: "Playfair Display", serif;
 }
 .productos {
-  /* color: #333; */
+  color: #333;
   margin-bottom: 3rem;
   transition: 0.4s;
+  border: 2px solid rgb(168, 77, 77, 0);
+  width:21rem;
 }
 .card-productos {
   text-decoration: none;
   cursor: pointer;
-  width: 21rem;
   border: none;
+  border-radius: 0;
 }
 .img-top-center {
   width: 11.5rem;
@@ -23,7 +25,7 @@
 .img-top-right {
   width: 5rem;
 }
-.productos:hover {
+.productos:hover  {
   border: 2px solid #b59062;
   box-shadow: 9px 9px 11px 2px rgba(0, 0, 0, 0.51);
 }
