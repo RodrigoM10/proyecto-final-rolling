@@ -1,10 +1,24 @@
-import React from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import "./detailsProduct.css";
 
-export const ProductFullScreen = ({ producto }) => {
+export const ProductFullScreen = ({ producto, cart, setCart }) => {
  
   const precioMayor = (producto.price)*0.90;
+
+  const [isInCart, setIsInCart] = useState(false);
+
+    // FUNCION PARA aÑADIR A CARRITO CARRITO
+    const addToCart = () => {
+      setCart((cart) => cart.concat({ producto }));
+    };
+
+    useEffect(() => { 
+      const inCart = cart.find((productoCart) => productoCart.producto.id === producto.id);
+      if (inCart) {
+        setIsInCart(true);
+      }
+    }, [cart]);
 
   return (
     <>
@@ -17,7 +31,7 @@ export const ProductFullScreen = ({ producto }) => {
         <div className="precio-mayor mt-4">
           <p>${precioMayor}</p>(12 o MÁS BOTELLLAS)</div>
           <p className="precio-menor mt-5">${producto.price} POR BOTELLA</p>
-          <Button className="boton-comprar">Añadir al carrito</Button>
+          <button onClick={addToCart} className="responsive-navbar-button">Añadir al carrito</button>
         </Col>
       </Row>
       </>
