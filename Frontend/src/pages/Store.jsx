@@ -6,7 +6,7 @@ import { FiltersProducts } from "../components/filtersProducts/FiltersProducts";
 import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 import { CartSideButton } from "../components/cartSideButton/CartSideButton";
 
-function Store({ productos, favorites, setFavorites, cart, setCart }) {
+function Store({ productos, favorites, setFavorites, cart, setCart, allProducts }) {
   const [showSideCart, setShowSideCart] = useState(false);
   return (
     <>
@@ -17,7 +17,7 @@ function Store({ productos, favorites, setFavorites, cart, setCart }) {
           </Col>
           <Col className="col-12 col-md-9 columnaProductos p-0">
             <CardsProduct
-              productos={productos}
+              allProducts={allProducts}
               favorites={favorites}
               setFavorites={setFavorites}
               cart={cart}

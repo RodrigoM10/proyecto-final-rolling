@@ -36,6 +36,7 @@ function App() {
   const tokenLocalData = leerDeLocalStorage('token') || {};
   
   const [productos, setProductos] = useState([]);
+  console.log("🚀 ~ file: App.jsx ~ line 39 ~ App ~ productos", productos)
 
   const [user, setUser] = useState({});
 
@@ -67,11 +68,13 @@ function App() {
     requestUserData();
   }, []);
 
+  const [allProducts, setAllProducts] = useState([])
   const [tableProducts, setTableProducts] = useState([])
   const getProductos = async () => {
     const response = await axios.get('http://localhost:4000/api/productos');
     setProductos(response.data);
     setTableProducts(response.data);
+    setAllProducts(response.data);
   };
   useEffect(() => {
     getProductos();
@@ -113,6 +116,8 @@ function App() {
         favorites={favorites}
         user={user}
         cart={cart}
+        setAllProducts={setAllProducts}
+        productos={productos}
       />
       <Switch>
         {/* pages */}
@@ -129,7 +134,7 @@ function App() {
         </Route>
 
         <Route path="/store" >
-          <Store productos={productos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
+          <Store allProducts={allProducts} productos={productos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/contact" >

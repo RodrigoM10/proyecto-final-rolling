@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom';
 import './navbarMain.css'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 
 //React Icons
@@ -14,7 +15,9 @@ import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
 
 
-export const NavbarMain = ({ user, favorites, cart }) => {
+export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos }) => {
+
+    const history = useHistory();
 
     const tokenLocal = leerDeLocalStorage('token') || {};
     // asigno la variable location
@@ -35,6 +38,27 @@ export const NavbarMain = ({ user, favorites, cart }) => {
         localStorage.removeItem('cart');
         window.location.href = '/';
     }
+
+
+    // Funcion de busqueda
+    const [busqueda, setBusqueda] = useState('');
+    console.log("🚀 ~ file: NavbarMain.jsx ~ line 42 ~ NavbarMain ~ busqueda", busqueda)
+    const filter = (e) => {
+        e.preventDefault();
+        const keyword = e.target.value;
+        history.push('/store');
+        if (keyword !== '') {
+            const results = productos.filter((prod) => {
+                return prod.name.toLowerCase().startsWith(keyword.toLowerCase());
+                // Use the toLowerCase() method to make it case-insensitive
+            });
+            setAllProducts(results);
+        } else {
+            setAllProducts(productos);
+            // If the text field is empty, show all users
+        }
+        setBusqueda(keyword);
+    };
 
     return (
         <>
@@ -133,10 +157,12 @@ export const NavbarMain = ({ user, favorites, cart }) => {
                                     className="search-icon"
                                     id="basic-addon1"><VscSearch /></span>
                                 <input
+                                    value={busqueda}
                                     type="text"
                                     className="col-11 search-input"
                                     placeholder="Buscá tu vino "
                                     aria-describedby="basic-addon1"
+                                    onChange={filter}
                                 />
                             </div>
                         </form>

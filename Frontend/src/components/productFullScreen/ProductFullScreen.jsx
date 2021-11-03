@@ -15,7 +15,7 @@ export const ProductFullScreen = ({ producto }) => {
         <span className="producto-nombre">{producto.name}</span>
         <h2 className="producto-descripcion mt-3">{producto.description}</h2>
         <div className="precio-mayor mt-4">
-          <p>${precioMayor}</p>(12 o MÁS BOTELLLAS)</div>
+          <p>${(precioMayor).toFixed(2)}</p>(12 o MÁS BOTELLLAS)</div>
           <p className="precio-menor mt-5">${producto.price} POR BOTELLA</p>
           <Button className="boton-comprar">Añadir al carrito</Button>
         </Col>
