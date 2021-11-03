@@ -5,7 +5,7 @@ import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 
-export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart }) => {
+export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, setShowSideCart }) => {
 
   const [isInCart, setIsInCart] = useState(false);
 
@@ -31,7 +31,6 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart }
     } else {
       addFavorite()
     }
-
   }
 
   useEffect(() => {
@@ -45,6 +44,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart }
   // FUNCION PARA aÑADIR A CARRITO CARRITO
   const addToCart = () => {
     setCart((cart) => cart.concat({ producto }));
+    setShowSideCart(true);
   };
 
   const cartEffect = () => {
@@ -53,16 +53,10 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart }
       setIsInCart(true);
     }
   }
-
   useEffect(() => {
     cartEffect();
   }, [cart]);
 
-
-  // USE LOCATION
-  const location = useLocation();
-  const { pathname } = location;
-  const splitLocation = pathname.split("/");
 
 
   return (
