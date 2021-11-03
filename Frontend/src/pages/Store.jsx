@@ -23,7 +23,7 @@ function Store({ productos, favorites, setFavorites, cart, setCart }) {
               cart={cart}
               setCart={setCart}
               setShowSideCart={setShowSideCart}
-               />
+            />
           </Col>
         </Row>
         <Container className="mt-5">
@@ -31,6 +31,8 @@ function Store({ productos, favorites, setFavorites, cart, setCart }) {
         </Container>
       </Container>
       <CartSideButton
+      
+        setCart={setCart}
         cart={cart}
         showSideCart={showSideCart}
         setShowSideCart={setShowSideCart}

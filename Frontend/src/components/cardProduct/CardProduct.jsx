@@ -71,7 +71,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
             />
             <Card.Img className="img-top-center" variant="top" src={producto.image} />
             <Card.Img
-              className="img-top-right"
+              className="m-2 img-top-right"
               variant="top"
               src="https://twc.s3.ap-southeast-2.amazonaws.com/web/twc_icons/v2/instock-icon.svg"
             />

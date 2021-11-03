@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import { BsCart, BsCartFill } from "react-icons/bs";
 import { CardSideCarrito } from "../cardCart/CardSideCarrito";
@@ -30,7 +30,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
           <div className="d-flex flex-column ">
             {mapSideCarrito}
           </div>
-          <Button closeButton className="" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
+          <Button onClick={handleClose} className="" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
         </Offcanvas.Body>
       </Offcanvas>
     </>
