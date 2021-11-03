@@ -19,7 +19,7 @@ export const CardSideCarrito = ({ cart }) => {
                     <h4 className="m-2">1</h4>
                     <button className="agregar-sacar-btn">+</button>
                 </div>
-                <div className="m-2 col-12 col-lg-2">
+                <div className="col-12 col-lg-2">
                     <button className="boton-remover-canvas">X</button>
                 </div>
                 <hr />
