@@ -51,7 +51,7 @@ export const NavbarMain = ({ user, favorites, cart }) => {
                             </div>
                             <div className="logo-container" >
                                 <a href="/"  >
-                                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
+                                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635957069/logo_11_r58drd.png" alt="img logo" className="nav-logo-desktop" />
                                 </a>
                             </div>
                             {/* condicionales del LOGIN */}

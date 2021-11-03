@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { NavLink, useLocation} from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 
@@ -22,7 +22,6 @@ export const NavbarAdmin = ({ user }) => {
     //js split method para obtener el nombre del path del array
     const splitLocation = pathname.split("/");
     console.log("🚀 ~ file: NavbarMain.jsx ~ line 27 ~ NavbarMain ~ splitLocation", splitLocation)
-    const history = useHistory();
 
 
     const [show, setShow] = useState(false);
@@ -50,7 +49,7 @@ export const NavbarAdmin = ({ user }) => {
                             </button>
                         </div>
                         <div className="logo-container" >
-                                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
+                                    <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635957069/logo_11_r58drd.png" alt="img logo" className="nav-logo-desktop" />
                         </div>
                         {/* condicionales del LOGIN */}
                         <div className="d-flex align-items-center login-register">

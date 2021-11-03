@@ -30,7 +30,7 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
             <Offcanvas.Header className="responsive-navbar-header">
                 <div className="logo-container" >
                     <NavLink as={NavLink} to="/" onClick={handleClose}>
-                        <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635351530/logo8_vfohit.png" alt="img logo" className="nav-logo-desktop" />
+                        <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635957069/logo_11_r58drd.png" alt="img logo" className="nav-logo-desktop" />
                     </NavLink>
                 </div>
                 <button type="button" aria-label="Close" className="navbar-button" onClick={handleClose} ><VscClose /></button>
