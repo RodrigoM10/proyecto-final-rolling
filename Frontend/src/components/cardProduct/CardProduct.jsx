@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
 import { Card } from "react-bootstrap";
 import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -43,7 +42,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
 
   // FUNCION PARA aÑADIR A CARRITO CARRITO
   const addToCart = () => {
-    setCart((cart) => cart.concat({ producto }));
+    setCart((cart) => cart.concat({ producto , cantidad: 1  }));
     setShowSideCart(true);
   };
 

@@ -6,7 +6,22 @@ import { CardCarrito } from '../components/cardCart/CardCarrito';
 
 function Cart({ cart, setCart }) {
 
-    const mapCarrito = cart?.map((producto, i) => (<CardCarrito key={i} producto={producto} cart={cart} setCart={setCart} />
+    const changeCantidad = (id, cantidad) => {
+        const updateCart = cart.map((producto) => {
+            if (producto.producto.id === id) {
+                return { ...producto, cantidad };
+            }
+            return producto
+        });
+
+        setCart(updateCart);
+    };
+
+    let total = cart.reduce((total, { producto, cantidad }) => total + producto.price * cantidad, 0);
+
+
+    // mapeo de los productos que estan en el carrito 
+    const mapCarrito = cart?.map((producto, i) => (<CardCarrito key={i} producto={producto} cart={cart} setCart={setCart} changeCantidad={changeCantidad} />
 
     ));
     return (
@@ -26,7 +41,7 @@ function Cart({ cart, setCart }) {
                 }
                 <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
                     <div>
-                        <h2>TOTAL: </h2>
+                        <h2>TOTAL: {total.toFixed(2)} </h2>
                         <Card.Text>
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
