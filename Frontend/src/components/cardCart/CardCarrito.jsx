@@ -1,10 +1,12 @@
 
+import { useEffect, useState } from 'react';
 import { Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { MdOutlineClose } from 'react-icons/md';
 import './cardCarrito.css'
 
-export const CardCarrito = ({ productCart, cart, setCart, cartItem, setCartItem, setSubTotal }) => {
+export const CardCarrito = ({ productCart, cart, setCart }) => {
 
+  const [cartItem, setCartItem] = useState(1)
 
   const removeToCart = () => {
     const filterCart = cart.filter((prodCart) => prodCart.producto._id !== productCart.producto._id);
@@ -20,9 +22,6 @@ export const CardCarrito = ({ productCart, cart, setCart, cartItem, setCartItem,
   };
 
 
-  const subTotalFn = productCart.producto.price * cartItem
-  setSubTotal(subTotalFn);
-  
   return (
     <>
       <div className="d-flex justify-content-end">
@@ -59,7 +58,7 @@ export const CardCarrito = ({ productCart, cart, setCart, cartItem, setCartItem,
           <button onClick={oneMore} className="agregar-sacar-btn">+</button>
         </div>
         <Card.Text className="text-center col-12 col-lg-2">
-          <h6>Sub total: $ {subTotalFn}</h6>
+          <h6>Sub total: ${productCart.producto.price * cartItem}</h6>
         </Card.Text>
         <hr />
       </div>
