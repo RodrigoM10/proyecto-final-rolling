@@ -1,20 +1,30 @@
 //snippet rfc
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
 
 function Cart({ cart, setCart }) {
 
-    // console.log("🚀 ~ file: Cart.jsx ~ line 11 ~ Cart ~ subTotal", subTotal)
+    const changeCantidad = (_id, cantidad) => {
+        const updateCart = cart.map((productCart) => {
+            if (productCart.producto._id === _id) {
+                return { ...productCart, cantidad };
+            }
+            return productCart
+        });
+        setCart(updateCart);
+    };
+
     // se usa el metodo "reduce" - con la particularidad de reducir conjunto de datos en uno solo 
-    let total = cart.reduce((total,{producto, cantidad }) => total + producto * cantidad, 0);
+    let total = cart.reduce((total,{producto, cantidad }) => total + producto.price * cantidad, 0);
 
     // mapeo de los productos que estan en el carrito 
-    const mapCarrito = cart?.map((productCart, i) => (<CardCarrito
+    const mapCarrito = cart.map((productCart, i) => (<CardCarrito
      key={i} productCart={productCart} 
      cart={cart} setCart={setCart} 
+     changeCantidad={changeCantidad}
      />
     ));
     //fn limpia productos del carrito
@@ -58,7 +68,7 @@ function Cart({ cart, setCart }) {
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
                         </Card.Text>
-                        <Button className="responsive-navbar-button">Ir a pagar</Button>
+                        <Button className="responsive-cart-button">Ir a pagar</Button>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Offcanvas } from "react-bootstrap";
+import { Button, Offcanvas, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { BsCart, BsCartFill } from "react-icons/bs";
+import { MdOutlineCleaningServices } from "react-icons/md";
 import { CardSideCarrito } from "../cardCart/CardSideCarrito";
 
 export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart }) => {
@@ -8,8 +9,28 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
   const handleClose = () => setShowSideCart(false);
   const handleShow = () => setShowSideCart(true);
 
-  const mapSideCarrito = cart?.map((productCart, i) => (<CardSideCarrito key={i} productCart={productCart} cart={cart} setCart={setCart} />
+  const changeCantidad = (_id, cantidad) => {
+    const updateCart = cart.map((productCart) => {
+        if (productCart.producto._id === _id) {
+            return { ...productCart, cantidad };
+        }
+        return productCart
+    });
+    setCart(updateCart);
+};
+
+  let total = cart.reduce((total, { producto, cantidad }) => total + producto.price * cantidad, 0);
+
+  const mapSideCarrito = cart?.map((productCart, i) => (<CardSideCarrito 
+    key={i} productCart={productCart} 
+    cart={cart} setCart={setCart}
+    changeCantidad={changeCantidad} />
   ));
+
+  //fn limpia productos del carrito
+  const clearCart = () => {
+    setCart([]);
+  };
 
   return (
     <>
@@ -24,16 +45,29 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
             <BsCart />
         }
       </Button>
-      <Offcanvas 
-      show={showSideCart} 
-      onHide={handleClose}
-      scroll='true'
+      <Offcanvas
+        show={showSideCart}
+        onHide={handleClose}
+        scroll='true'
       >
         <Offcanvas.Header closeButton> Tu Carrito </Offcanvas.Header>
-        <Offcanvas.Body className="text-center mt-5">
+        <Offcanvas.Body className="text-center mt-2">
+          <OverlayTrigger
+            placement="right"
+            delay={{ show: 250, hide: 400 }}
+            overlay={
+              (props) => (
+                <Tooltip id="button-tooltip" {...props}>
+                  Limpiar carrito
+                </Tooltip>)
+            }
+          >
+            <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
+          </OverlayTrigger>
           <div className="d-flex flex-column ">
             {mapSideCarrito}
           </div>
+          <h2>TOTAL: ${total.toFixed(2)} </h2>
           <Button onClick={handleClose} className="" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
         </Offcanvas.Body>
       </Offcanvas>

@@ -13,6 +13,41 @@
     color: black;
 }
 
+.agregar-sacar-btn-modal {
+  color: white;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background: #203048;
+  transition-duration: 0.3s;
+  border: 1px solid #203048;
+}
+
+.agregar-sacar-btn-modal:hover {
+  background-color: transparent;
+  color: black;
+}
+
+.delete-cartItem-btn {
+  color: #b59062;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  background: whitesmoke;
+  transition-duration: 0.3s;
+  border: 1px solid #b59062;
+}
+
+.delete-cartItem-btn-modal {
+  color: #b59062;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background: whitesmoke;
+  transition-duration: 0.3s;
+  border: 1px solid #b59062;
+}
+
 .btn-remove-to-cart {
     background-color: transparent;
     border: 2px solid #888;
@@ -59,5 +94,10 @@
   padding: 0.5rem 1rem;
   margin: 0.5rem 5px;
   transition: all 0.5s;
+}
+
+.responsive-cart-button:hover {
+  background-color: white;
+  color: #b59062;
 }
 
