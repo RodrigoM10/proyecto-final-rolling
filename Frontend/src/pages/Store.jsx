@@ -11,11 +11,12 @@ function Store({ productos, favorites, setFavorites, cart, setCart, allProducts 
   return (
     <div className="bg-grey">
       <Container>
+      <h2 className="title-style mt-5">Todos nuestros vinos</h2>
         <Row>
-          <Col className="col-12 col-md-2 d-flex justify-content-center">
+          <Col className="col-12 col-md-2 d-flex justify-content-center mb-5">
             <FiltersProducts />
           </Col>
-          <Col className="d-flex justify-content-center my-5 ">
+          <Col className="d-flex justify-content-center mt-3 mb-5 ">
             <CardsProduct
               allProducts={allProducts}
               favorites={favorites}

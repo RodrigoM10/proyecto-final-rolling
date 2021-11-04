@@ -64,7 +64,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
             <Card as={Link} to={`/store/${producto._id}`} className="card-productos">
               <div className="mt-3 d-flex align-items-start justify-content-center">
                 <Card.Img
-                  className="m-2 img-top-left"
+                  className=" img-top-left"
                   variant="top"
                   src="https://twc.s3.ap-southeast-2.amazonaws.com/web/twc_badges/v2/95-TS.svg"
                 />
