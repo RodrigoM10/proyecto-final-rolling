@@ -2,10 +2,10 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import { MdOutlineClose } from 'react-icons/md';
 
-export const CardSideCarrito = ({ producto, cart, setCart }) => {
+export const CardSideCarrito = ({ productCart, cart, setCart }) => {
 
     const removeToCart = () => {
-        const filterCart = cart.filter((cartProduct) => cartProduct.producto._id !== producto.producto._id);
+        const filterCart = cart.filter((prodCart) => prodCart.producto._id !== productCart.producto._id);
         setCart(filterCart);
     };
 
@@ -15,15 +15,15 @@ export const CardSideCarrito = ({ producto, cart, setCart }) => {
                 <Card.Img className="m-2 col-12 col-lg-2"
                     variant="top"
                     style={{ width: '8rem' }}
-                    src={cart[0]?.producto.image}
+                    src={productCart.producto.image}
                 />
                 <Card.Text className="text-center m-2 col-12 col-lg-2" >
-                    {cart[0]?.producto.name}
-                    <h6>${cart[0]?.producto.price}</h6>
+                    {productCart.producto.name}
+                    <h6>${productCart.producto.price}</h6>
                 </Card.Text>
                 <div className="m-2 col-12 col-lg-2">
                     <button className="agregar-sacar-btn">-</button>
-                    <h4 className="m-2">1</h4>
+                    <h4 className="m-2">{productCart.cantidad}</h4>
                     <button className="agregar-sacar-btn">+</button>
                 </div>
                 <div className="m-2 col-12 col-lg-2">

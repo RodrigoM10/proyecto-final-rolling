@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { Button, Image, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
+import { OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
 import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
 import swal from 'sweetalert';

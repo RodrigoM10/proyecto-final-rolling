@@ -36,3 +36,28 @@
     background: none;
     border: none;
 }
+
+.clean-cart {
+  background-color: transparent;
+  border: 2px solid #888;
+  border-radius: 1rem;
+  color: #888;
+  transition: 0.4s;
+  margin: 2px;
+}
+.clean-cart:hover {
+  border: 2px solid red;
+  color: red;
+}
+
+.responsive-cart-button{
+  font-family: "Montserrat", sans-serif !important;
+  background-color: whitesmoke;
+  color: #b59062;
+  border: 1px solid #b59062;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+}
+

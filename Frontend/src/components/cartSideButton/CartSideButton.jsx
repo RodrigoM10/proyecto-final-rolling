@@ -8,7 +8,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
   const handleClose = () => setShowSideCart(false);
   const handleShow = () => setShowSideCart(true);
 
-  const mapSideCarrito = cart?.map((producto, i) => (<CardSideCarrito key={i} producto={producto} cart={cart} setCart={setCart} />
+  const mapSideCarrito = cart?.map((productCart, i) => (<CardSideCarrito key={i} productCart={productCart} cart={cart} setCart={setCart} />
   ));
 
   return (
