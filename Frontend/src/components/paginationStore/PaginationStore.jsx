@@ -61,7 +61,7 @@ export const PaginationStore = ({currentPage,setCurrentPage,pages}) => {
     }
 
     const scrollToTop = () => {
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 250);
       };
     return (
         <div>
