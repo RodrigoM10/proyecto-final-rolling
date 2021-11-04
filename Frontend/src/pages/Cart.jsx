@@ -7,7 +7,6 @@ import { CardCarrito } from '../components/cardCart/CardCarrito';
 
 function Cart({ cart, setCart }) {
 
-
     // console.log("🚀 ~ file: Cart.jsx ~ line 11 ~ Cart ~ subTotal", subTotal)
     // se usa el metodo "reduce" - con la particularidad de reducir conjunto de datos en uno solo 
     let total = cart.reduce((total,{producto, cantidad }) => total + producto * cantidad, 0);
@@ -18,12 +17,10 @@ function Cart({ cart, setCart }) {
      cart={cart} setCart={setCart} 
      />
     ));
-
     //fn limpia productos del carrito
     const clearCart = () => {
         setCart([]);
       };
-
 
     return (
         <Container>

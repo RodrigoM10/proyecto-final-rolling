@@ -21,6 +21,7 @@ export const CardCarrito = ({ productCart, cart, setCart }) => {
     setCartItem(cartItem - 1);
   };
 
+const subTotal = productCart.producto.price*cartItem
 
   return (
     <>
@@ -58,7 +59,7 @@ export const CardCarrito = ({ productCart, cart, setCart }) => {
           <button onClick={oneMore} className="agregar-sacar-btn">+</button>
         </div>
         <Card.Text className="text-center col-12 col-lg-2">
-          <h6>Sub total: ${productCart.producto.price * cartItem}</h6>
+          <h6>Sub total: ${subTotal.toFixed(2)}</h6>
         </Card.Text>
         <hr />
       </div>
