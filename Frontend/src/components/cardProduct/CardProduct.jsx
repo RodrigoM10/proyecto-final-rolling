@@ -39,10 +39,11 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
     };
   }, [favorites]);
 
+  const cantidad = 1
 
   // FUNCION PARA aÑADIR A CARRITO CARRITO
   const addToCart = () => {
-    setCart((cart) => cart.concat({ producto, cantidad: 1 }));
+    setCart((cart) => cart.concat({ producto, cantidad }));
     setShowSideCart(true);
   };
 
@@ -90,14 +91,13 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
         </Card>
         <div className="d-flex align-items-center justify-content-center">
           <button
-          disabled={isInCart}
-            className={isInCart ? 'col-9 responsive-cart-button': 'col-9 responsive-navbar-button'}
+            className={isInCart ? 'col-9 responsive-cart-button' : 'col-9 responsive-navbar-button'}
             onClick={addToCart} >
             {isInCart ? (
-                        'Añadido al Carrito'
-                    ) : (
-                        'Añadir al Carrito'
-                    )}
+              'Añadido al Carrito'
+            ) : (
+              'Añadir al Carrito'
+            )}
           </button>
           <button className="col-3 add-favorite-btn" onClick={toggleFavorite} >
             <FaHeart className={isFavorites ? "is-favorite" : "no-favorite"} />
