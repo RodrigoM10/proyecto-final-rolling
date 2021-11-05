@@ -50,7 +50,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
         onHide={handleClose}
         scroll='true'
       >
-        <Offcanvas.Header closeButton> Tu Carrito </Offcanvas.Header>
+        <Offcanvas.Header closeButton> <h4 style={{ color: '#b59062' }} >Tu Carrito </h4>  </Offcanvas.Header>
         <Offcanvas.Body className="text-center mt-2">
           <OverlayTrigger
             placement="right"
@@ -68,7 +68,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
             {mapSideCarrito}
           </div>
           <h2>TOTAL: ${total.toFixed(2)} </h2>
-          <Button onClick={handleClose} className="" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
+          <Button onClick={handleClose} className="responsive-cart-button" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
         </Offcanvas.Body>
       </Offcanvas>
     </>

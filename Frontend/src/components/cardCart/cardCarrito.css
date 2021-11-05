@@ -61,17 +61,6 @@
     color: red;
   }
 
-.boton-remover-canvas {
-    position: relative;
-    color: black;
-    text-align: center;
-    font-size: 12px;
-    border: none;
-    padding:0;
-    background: none;
-    border: none;
-}
-
 .clean-cart {
   background-color: transparent;
   border: 2px solid #888;
@@ -87,8 +76,8 @@
 
 .responsive-cart-button{
   font-family: "Montserrat", sans-serif !important;
-  background-color: whitesmoke;
-  color: #b59062;
+  background-color: #b59062;
+  color: whitesmoke;
   border: 1px solid #b59062;
   font-size: 20px;
   padding: 0.5rem 1rem;
@@ -99,5 +88,6 @@
 .responsive-cart-button:hover {
   background-color: white;
   color: #b59062;
+  border: 1px solid #b59062;
 }
 

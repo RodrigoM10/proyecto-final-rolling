@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Card } from 'react-bootstrap'
+
+import { Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { MdOutlineClose } from 'react-icons/md';
 
 export const CardSideCarrito = ({ productCart, cart, setCart, changeCantidad }) => {
@@ -40,9 +40,21 @@ export const CardSideCarrito = ({ productCart, cart, setCart, changeCantidad }) 
                     <button onClick={oneMore} className="agregar-sacar-btn-modal">+</button>
                 </div>
                 <div className="m-2 col-12 col-lg-2">
-                    <button className="btn-remove-to-cart pb-1 mb-2" onClick={removeToCart} >
+                    <OverlayTrigger
+                        placement="right"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={
+                            (props) => (
+                                <Tooltip id="button-tooltip" {...props}>
+                                    Eliminar del carrito
+                                </Tooltip>)
+                        }
+                    >
+                        <button className="btn-remove-to-cart pb-1 mb-2" onClick={removeToCart} >
                         <MdOutlineClose />
                     </button>
+                    </OverlayTrigger>
+                   
                 </div>
                 <hr />
             </div>
