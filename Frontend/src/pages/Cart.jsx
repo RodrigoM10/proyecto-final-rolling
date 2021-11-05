@@ -80,18 +80,17 @@ function Cart({ cart, setCart }) {
                             <Card.Text>
                                 <Button onClick={continueToBuy} className="btn-admin my-2" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
                             </Card.Text>
-                            <Button className="responsive-cart-button">Ir a pagar</Button>
                         </div>
                     </div>
                 </div>
             </Container>
 
             {/* PAGAR PRODUCTO ACORDION */}
-            <Accordion>
-                <Accordion.Item className="carga-Productos-Accordion" eventKey="0">
+            <Accordion className="mb-3">
+                <Accordion.Item className="accordion-buy" eventKey="0">
                     <Accordion.Header>
-                        <h3>CARGAR PRODUCTOS</h3>
-                    </Accordion.Header>
+                        IR A PAGAR           
+                      </Accordion.Header>
                     <Accordion.Body className="d-flex">
                         <Form
                             noValidate
@@ -217,7 +216,7 @@ function Cart({ cart, setCart }) {
                                 <Button
                                     type="submit"
                                     className="boton-cargar mx-auto mt-5"
-                                    // disabled={isLoading}
+                                // disabled={isLoading}
                                 >
                                     Agregar Producto
                                     {/* {isLoading && (
