@@ -9,12 +9,15 @@ export const ProductFullScreen = ({ producto, cart, setCart }) => {
   const [isInCart, setIsInCart] = useState(false);
 
     // FUNCION PARA aÑADIR A CARRITO CARRITO
+
+    const cantidad = 1
+
     const addToCart = () => {
-      setCart((cart) => cart.concat({ producto }));
+      setCart((cart) => cart.concat({ producto, cantidad }));
     };
 
     useEffect(() => { 
-      const inCart = cart.find((productoCart) => productoCart.producto.id === producto.id);
+      const inCart = cart?.find((productoCart) => productoCart.producto._id === producto._id);
       if (inCart) {
         setIsInCart(true);
       }
@@ -31,7 +34,16 @@ export const ProductFullScreen = ({ producto, cart, setCart }) => {
         <div className="precio-mayor mt-4">
           <p>${(precioMayor).toFixed(2)}</p>(12 o MÁS BOTELLLAS)</div>
           <p className="precio-menor mt-5">${producto.price} POR BOTELLA</p>
-          <button onClick={addToCart} className="responsive-navbar-button">Añadir al carrito</button>
+          <button
+          disabled={isInCart}
+          className={isInCart ? 'col-9 responsive-cart-button' : 'col-9 responsive-navbar-button'}
+          onClick={addToCart} >
+          {isInCart ? (
+            'Añadido al Carrito'
+          ) : (
+            'Añadir al Carrito'
+          )}
+        </button>
         </Col>
       </Row>
       </>

@@ -47,9 +47,9 @@ export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos })
         e.preventDefault();
         const keyword = e.target.value;
         history.push('/store');
-        if (keyword !== '') {
+        if (keyword.length > 2) {
             const results = productos.filter((prod) => {
-                return prod.name.toLowerCase().startsWith(keyword.toLowerCase());
+                return prod.name.toLowerCase().includes(keyword.toLowerCase());
                 // Use the toLowerCase() method to make it case-insensitive
             });
             setAllProducts(results);

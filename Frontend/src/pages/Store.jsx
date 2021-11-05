@@ -32,7 +32,6 @@ function Store({ productos, favorites, setFavorites, cart, setCart, allProducts 
         </Container>
       </Container>
       <CartSideButton
-      
         setCart={setCart}
         cart={cart}
         showSideCart={showSideCart}
