@@ -95,7 +95,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
       <div className="d-flex align-items-center justify-content-center bg-white">
         <button
           disabled={isInCart}
-          className={isInCart ? 'col-9 responsive-cart-button' : 'col-9 responsive-navbar-button'}
+          className={isInCart ? 'col-9 responsive-cart-button-add' : 'col-9 responsive-navbar-button'}
           onClick={addToCart} >
           {isInCart ? (
             'Añadido al Carrito'

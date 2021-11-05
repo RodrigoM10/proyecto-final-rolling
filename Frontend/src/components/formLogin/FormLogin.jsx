@@ -41,7 +41,20 @@ export const FormLogin = ( {requestUserData} ) => {
             } catch (error) {
                 console.error(error);
                 if (error.response.data) {
-                    alert(JSON.stringify(error.response.data));
+                    swal({
+                        title: "Datos Incorrectos / Usuario No Registrado",
+                        text: "Aun no tienes cuenta? Registrate ya mismo!",
+                        icon: "error",
+                        buttons: ["No, Gracias", "Registrate!"],
+                        dangerMode: true,
+                      })
+                      .then((willDelete) => {
+                        if (willDelete) {
+                          history.push('/register')
+                        } else {
+                          swal("Sera en otra Ocacion!");
+                        }
+                      });
                 } else {
                     alert('Error de conexion');
                 }

@@ -91,3 +91,15 @@
   border: 1px solid #b59062;
 }
 
+.responsive-cart-button-add{
+  font-family: "Montserrat", sans-serif !important;
+  background-color: whitesmoke;
+  color: #b59062;
+  border: 1px solid #b59062;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+}
+
+
