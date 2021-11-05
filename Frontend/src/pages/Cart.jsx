@@ -4,8 +4,15 @@ import React from 'react'
 import { Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
+import { useHistory } from 'react-router-dom';
+
 
 function Cart({ cart, setCart }) {
+    const history = useHistory();
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 250);
+      };
 
     const changeCantidad = (_id, cantidad) => {
         const updateCart = cart.map((productCart) => {
@@ -32,7 +39,13 @@ function Cart({ cart, setCart }) {
         setCart([]);
       };
 
+      const continueToBuy = () => {
+        history.push('/store');
+        scrollToTop(0, 250);
+      }
+
     return (
+        <>
         <Container>
             <div className="d-flex justify-content-between align-items-center">
                 <h2 className="title-style my-2">Tu carrito</h2>
@@ -65,14 +78,15 @@ function Cart({ cart, setCart }) {
                     <div>
                         <h2>TOTAL: ${total.toFixed(2)} </h2>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                        <Button onClick={continueToBuy} className="btn-admin my-2" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
                         </Card.Text>
                         <Button className="responsive-cart-button">Ir a pagar</Button>
                     </div>
                 </div>
             </div>
         </Container>
+
+        </>
     )
 }
 
