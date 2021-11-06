@@ -4,8 +4,9 @@ import React, { useState } from 'react'
 import { Accordion, Button, Card, Col, Container, Form, InputGroup, Nav, OverlayTrigger, Row, Spinner, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FormBuy } from '../components/formBuy/FormBuy';
+import { CardDataCompra } from '../components/cardCart/CardDataCompra';
 
 
 function Cart({ cart, setCart }) {
@@ -35,6 +36,7 @@ function Cart({ cart, setCart }) {
         changeCantidad={changeCantidad}
     />
     ));
+
     //fn limpia productos del carrito
     const clearCart = () => {
         setCart([]);
@@ -45,6 +47,10 @@ function Cart({ cart, setCart }) {
         scrollToTop(0, 250);
     }
 
+    const mapCompra = cart.map((productCart, i) => (<CardDataCompra
+        key={i} productCart={productCart}
+    />
+    ));
 
     return (
         <>
@@ -95,7 +101,31 @@ function Cart({ cart, setCart }) {
                     </Accordion.Header>
                     <Accordion.Body className="d-flex">
                         <div className="row row-cols-1 row-cols-lg-2 w-100">
-                            <div className="d-flex justify-content-center align-items-center">DATOS DE LA COMPRA</div>
+                            {/* LISTADO DE DATOS DE COMPRA */}
+                            <div className="d-flex flex-column align-items-between datos-Compra-div">
+                                <h3 className="m-2 text-center">DATOS DE LA COMPRA</h3>
+                                <div className="row justify-content-md-center align-items-md-center">
+                                    {cart.length === 0 ?
+                                            <p className="text-center">No tienes Productos para comprar</p>
+                                        :
+                                        { mapCompra }
+                                    }
+                                </div>
+                                <hr />
+                                <div className="m-2 d-flex justify-content-around">
+                                    <h5>SubTotal:</h5>
+                                    <h5>${total.toFixed(2)} </h5>
+                                </div>
+                                <div className="m-2 d-flex justify-content-around">
+                                    <h5>Envio:</h5>
+                                    <h5> ${(total * 0.1).toFixed(2)} </h5>
+                                </div>
+                                <hr />
+                                <div className="m-2 d-flex justify-content-around">
+                                    <h3>Total $ </h3>
+                                    <h3>{(total * 0.10 + total).toFixed(2)}</h3>
+                                </div>
+                            </div>
                             <div>
                                 <FormBuy />
                             </div>
