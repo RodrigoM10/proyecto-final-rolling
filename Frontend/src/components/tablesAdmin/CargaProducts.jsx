@@ -60,9 +60,9 @@ export default function CargaProduts(props) {
   return (
     <>
       <Accordion>
-        <Accordion.Item className="carga-Productos-Accordion" eventKey="0">
+        <Accordion.Item className="accordion-buy my-4" eventKey="0">
           <Accordion.Header>
-            <h3>CARGAR PRODUCTOS</h3>
+            Cargar Producto
           </Accordion.Header>
           <Accordion.Body className="d-flex">
             <Form
@@ -72,7 +72,7 @@ export default function CargaProduts(props) {
               className="formulario-estilo card mt-5 p-5 mx-auto border-0"
               style={{ width: "auto", background: "beige" }}
             >
-              
+
               <Row>
                 <Col className="col-12 col-lg-6">
                   <Form.Group controlId="name">
@@ -121,7 +121,7 @@ export default function CargaProduts(props) {
                   </Form.Group>
                 </Col>
               </Row>
-              
+
               <Row>
                 <Col className="col-12 col-lg-6">
                   <Form.Group controlId="background">
@@ -200,7 +200,7 @@ export default function CargaProduts(props) {
                 </Button>
               </Row>
             </Form>
-            
+
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
