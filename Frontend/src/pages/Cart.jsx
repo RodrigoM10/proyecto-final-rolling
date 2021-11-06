@@ -1,7 +1,7 @@
 //snippet rfc
 
 import React, { useState } from 'react'
-import { Accordion, Button, Card, Col, Container, Form, InputGroup, Nav, OverlayTrigger, Row, Spinner, Tab, Tabs, Tooltip } from 'react-bootstrap';
+import { Accordion, Button, Card, Col, Container, Form, InputGroup, Nav, OverlayTrigger, Row, Spinner, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
 import { Link, useHistory } from 'react-router-dom';
@@ -45,9 +45,6 @@ function Cart({ cart, setCart }) {
         scrollToTop(0, 250);
     }
 
-
-    // tabs
-    const [key, setKey] = useState('home');
 
     return (
         <>
@@ -100,25 +97,9 @@ function Cart({ cart, setCart }) {
                         <div className="row row-cols-1 row-cols-lg-2 w-100">
                             <div className="d-flex justify-content-center align-items-center">DATOS DE LA COMPRA</div>
                             <div>
-                                <Tabs
-                                    id="controlled-tab-example"
-                                    activeKey={key}
-                                    onSelect={(k) => setKey(k)}
-                                    className="mb-3"
-                                >
-                                    <div eventKey="home" title="Home">
-                                        <FormBuy />
-                                    </div>
-                                    <Tab eventKey="profile" title="Profile">
-                                        hola juancarlos
-                                    </Tab>
-                                    <Tab eventKey="contact" title="Contact" disabled>
-                                        hola juancarlos
-                                    </Tab>
-                                </Tabs>
+                                <FormBuy />
                             </div>
                         </div>
-
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
