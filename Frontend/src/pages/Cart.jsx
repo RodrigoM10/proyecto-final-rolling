@@ -1,10 +1,11 @@
 //snippet rfc
 
-import React from 'react'
-import { Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Accordion, Button, Card, Col, Container, Form, InputGroup, Nav, OverlayTrigger, Row, Spinner, Tab, Tabs, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { FormBuy } from '../components/formBuy/FormBuy';
 
 
 function Cart({ cart, setCart }) {
@@ -12,7 +13,7 @@ function Cart({ cart, setCart }) {
 
     const scrollToTop = () => {
         window.scrollTo(0, 250);
-      };
+    };
 
     const changeCantidad = (_id, cantidad) => {
         const updateCart = cart.map((productCart) => {
@@ -25,67 +26,102 @@ function Cart({ cart, setCart }) {
     };
 
     // se usa el metodo "reduce" - con la particularidad de reducir conjunto de datos en uno solo 
-    let total = cart.reduce((total,{producto, cantidad }) => total + producto.price * cantidad, 0);
+    let total = cart.reduce((total, { producto, cantidad }) => total + producto.price * cantidad, 0);
 
     // mapeo de los productos que estan en el carrito 
     const mapCarrito = cart.map((productCart, i) => (<CardCarrito
-     key={i} productCart={productCart} 
-     cart={cart} setCart={setCart} 
-     changeCantidad={changeCantidad}
-     />
+        key={i} productCart={productCart}
+        cart={cart} setCart={setCart}
+        changeCantidad={changeCantidad}
+    />
     ));
     //fn limpia productos del carrito
     const clearCart = () => {
         setCart([]);
-      };
+    };
 
-      const continueToBuy = () => {
+    const continueToBuy = () => {
         history.push('/store');
         scrollToTop(0, 250);
-      }
+    }
+
+
+    // tabs
+    const [key, setKey] = useState('home');
 
     return (
         <>
-        <Container>
-            <div className="d-flex justify-content-between align-items-center">
-                <h2 className="title-style my-2">Tu carrito</h2>
-                <OverlayTrigger
-                                        placement="right"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Limpiar carrito
-                                                </Tooltip>)
-                                        }
-                                    >
-                                         <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices/></button>
-                                    </OverlayTrigger>         
-            </div>
-            <div className="row justify-content-center">
-                {cart.length === 0 ?
-                    <Card className="no-results-card text-center text-dark-50 p-5 m-5">
-                        <Card.Title>Tu carrito esta vacio</Card.Title>
-                    </Card>
-                    :
-                    <div>
-                        <div className="col-12 col-lg-9 m-2">
-                            {mapCarrito}
+            <Container>
+                <div className="d-flex justify-content-between align-items-center">
+                    <h2 className="title-style my-2">Tu carrito</h2>
+                    <OverlayTrigger
+                        placement="right"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={
+                            (props) => (
+                                <Tooltip id="button-tooltip" {...props}>
+                                    Limpiar carrito
+                                </Tooltip>)
+                        }
+                    >
+                        <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
+                    </OverlayTrigger>
+                </div>
+                <div className="row justify-content-center">
+                    {cart.length === 0 ?
+                        <Card className="no-results-card text-center text-dark-50 p-5 m-5">
+                            <Card.Title>Tu carrito esta vacio</Card.Title>
+                        </Card>
+                        :
+                        <div>
+                            <div className="col-12 col-lg-9 m-2">
+                                {mapCarrito}
+                            </div>
+                        </div>
+                    }
+                    <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
+                        <div>
+                            <h2>TOTAL: ${total.toFixed(2)} </h2>
+                            <Card.Text>
+                                <Button onClick={continueToBuy} className="btn-admin my-2" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
+                            </Card.Text>
                         </div>
                     </div>
-                }
-                <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
-                    <div>
-                        <h2>TOTAL: ${total.toFixed(2)} </h2>
-                        <Card.Text>
-                        <Button onClick={continueToBuy} className="btn-admin my-2" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
-                        </Card.Text>
-                        <Button className="responsive-cart-button">Ir a pagar</Button>
-                    </div>
                 </div>
-            </div>
-        </Container>
+            </Container>
 
+            {/* PAGAR PRODUCTO ACORDION */}
+            <Accordion className="mb-3">
+                <Accordion.Item className="accordion-buy" eventKey="0">
+                    <Accordion.Header>
+                        Proceder a la compra
+                    </Accordion.Header>
+                    <Accordion.Body className="d-flex">
+                        <div className="row row-cols-1 row-cols-lg-2 w-100">
+                            <div className="d-flex justify-content-center align-items-center">DATOS DE LA COMPRA</div>
+                            <div>
+                                <Tabs
+                                    id="controlled-tab-example"
+                                    activeKey={key}
+                                    onSelect={(k) => setKey(k)}
+                                    className="mb-3"
+                                >
+                                    <div eventKey="home" title="Home">
+                                        <FormBuy />
+                                    </div>
+                                    <Tab eventKey="profile" title="Profile">
+                                        hola juancarlos
+                                    </Tab>
+                                    <Tab eventKey="contact" title="Contact" disabled>
+                                        hola juancarlos
+                                    </Tab>
+                                </Tabs>
+                            </div>
+                        </div>
+
+                    </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
         </>
     )
 }

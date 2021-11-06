@@ -31,8 +31,6 @@ export const FormRegister = () => {
             console.error(error);
         }
     }
-
-
     return (
         <Form className="form-register my-5" onSubmit={handleSubmit}>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">

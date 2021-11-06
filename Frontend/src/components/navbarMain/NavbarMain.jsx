@@ -15,8 +15,8 @@ import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
 
 
-export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos }) => {
-
+export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos, allProducts }) => {
+console.log("🚀 ~ file: NavbarMain.jsx ~ line 19 ~ NavbarMain ~ allProducts", allProducts)
     const history = useHistory();
 
     const tokenLocal = leerDeLocalStorage('token') || {};
@@ -48,13 +48,13 @@ export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos })
         const keyword = e.target.value;
         history.push('/store');
         if (keyword.length > 2) {
-            const results = productos.filter((prod) => {
+            const results = allProducts.filter((prod) => {
                 return prod.name.toLowerCase().includes(keyword.toLowerCase());
                 // Use the toLowerCase() method to make it case-insensitive
             });
             setAllProducts(results);
         } else {
-            setAllProducts(productos);
+            setAllProducts(allProducts);
             // If the text field is empty, show all users
         }
         setBusqueda(keyword);

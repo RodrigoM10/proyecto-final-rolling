@@ -118,6 +118,7 @@ function App() {
         cart={cart}
         setAllProducts={setAllProducts}
         productos={productos}
+        allProducts={allProducts}
       />
       <Switch>
         {/* pages */}

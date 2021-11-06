@@ -6,6 +6,7 @@ import './cardProduct.css'
 
 
 export const CardsProduct = ({ allProducts, favorites, setFavorites, cart, setCart, setShowSideCart }) => {
+console.log("🚀 ~ file: CardsProduct.jsx ~ line 9 ~ CardsProduct ~ allProducts", allProducts)
 
   // Paginacion
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,6 +15,7 @@ export const CardsProduct = ({ allProducts, favorites, setFavorites, cart, setCa
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = allProducts.slice(indexOfFirstItem, indexOfLastItem)
+  console.log("🚀 ~ file: CardsProduct.jsx ~ line 17 ~ CardsProduct ~ currentItems", currentItems)
 
   const pages = [];
   for (let i = 1; i <= Math.ceil(allProducts.length / itemsPerPage); i++) {
