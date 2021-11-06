@@ -107,8 +107,7 @@ body {
   border: 1px solid #b59062;
   font-size: 20px;
   padding: 0.5rem 1rem;
-  width: 50%;
-  /* border: 2px solid black; */
+  width: 40%;
 }
 .accordion-buy .accordion-header button:hover {
   background-color: white !important;
@@ -116,28 +115,4 @@ body {
 }
 .accordion-buy .accordion-header button:focus {
   box-shadow: none;
-}
-/* .accordion .carga-Productos-Accordion .accordion-header button{
-  margin: 0;
-  display: flow-root;
-  text-align: center;
-  border-bottom: 3px solid rgb(46, 46, 46,0.4);
-} */
-.cargarProductos{
-  background: red;
-}
-.carga-Productos-Accordion{
-  display: contents;
-  justify-content: center;
-}
-.boton-cargar{
-  background: #b59062;
-  border: none;
-  border-radius: 0px;
-  width: auto;
-  box-shadow: 1px 1px 5px rgb(0, 0, 0);
-
-}
-.formulario-estilo{
-  box-shadow: 1px 1px 5px rgb(85, 85, 85);
 }

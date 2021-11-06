@@ -1,10 +1,11 @@
 //snippet rfc
 
-import React from 'react'
-import { Accordion, Button, Card, Col, Container, Form, InputGroup, OverlayTrigger, Row, Spinner, Tooltip } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Accordion, Button, Card, Col, Container, Form, InputGroup, Nav, OverlayTrigger, Row, Spinner, Tab, Tabs, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { FormBuy } from '../components/formBuy/FormBuy';
 
 
 function Cart({ cart, setCart }) {
@@ -43,6 +44,10 @@ function Cart({ cart, setCart }) {
         history.push('/store');
         scrollToTop(0, 250);
     }
+
+
+    // tabs
+    const [key, setKey] = useState('home');
 
     return (
         <>
@@ -89,144 +94,30 @@ function Cart({ cart, setCart }) {
             <Accordion className="mb-3">
                 <Accordion.Item className="accordion-buy" eventKey="0">
                     <Accordion.Header>
-                        IR A PAGAR           
-                      </Accordion.Header>
+                        Proceder a la compra
+                    </Accordion.Header>
                     <Accordion.Body className="d-flex">
-                        <Form
-                            noValidate
-                            // validated={validated}
-                            // onSubmit={handleSubmit}
-                            className="formulario-estilo card mt-5 p-5 mx-auto border-0"
-                            style={{ width: "auto", background: "beige" }}
-                        >
-
-                            <Row>
-                                <Col className="col-12 col-lg-6">
-                                    <Form.Group controlId="name">
-                                        <Form.Label>Nombre</Form.Label>
-                                        <Form.Control
-                                            name="name"
-                                            // onChange={(e) => handleChange(e)}
-                                            required
-                                            type="text"
-                                            placeholder="Nombre"
-                                        />
-                                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                                    </Form.Group>
-                                </Col>
-                                <Col className="col-12 col-lg-6">
-                                    <Form.Group controlId="image">
-                                        <Form.Label>Imagen</Form.Label>
-                                        <InputGroup hasValidation>
-                                            <Form.Control
-                                                name="image"
-                                                // onChange={(e) => handleChange(e)}
-                                                type="text"
-                                                placeholder="http://productos.jpg"
-                                                aria-describedby="inputGroupPrepend"
-                                                required
-                                            />
-                                            <Form.Control.Feedback type="invalid">
-                                                Imagen requerida!
-                                            </Form.Control.Feedback>
-                                        </InputGroup>
-                                    </Form.Group>
-                                </Col>
-                                <Col className="col-12 col-lg-6">
-                                    <Form.Group controlId="description">
-                                        <Form.Label>Descripcion</Form.Label>
-                                        <InputGroup hasValidation>
-                                            <Form.Control
-                                                name="description"
-                                                // onChange={(e) => handleChange(e)}
-                                                type="text"
-                                                placeholder=""
-                                                aria-describedby="inputGroupPrepend"
-                                                required
-                                            />
-                                        </InputGroup>
-                                    </Form.Group>
-                                </Col>
-                            </Row>
-
-                            <Row>
-                                <Col className="col-12 col-lg-6">
-                                    <Form.Group controlId="background">
-                                        <Form.Label>Imagen detalle</Form.Label>
-                                        <InputGroup hasValidation>
-                                            <Form.Control
-                                                name="background"
-                                                // onChange={(e) => handleChange(e)}
-                                                type="text"
-                                                placeholder="http://productos.jpg"
-                                                aria-describedby="inputGroupPrepend"
-                                                required
-                                            />
-                                            <Form.Control.Feedback type="invalid">
-                                                Imagen requerida!
-                                            </Form.Control.Feedback>
-                                        </InputGroup>
-                                    </Form.Group>
-                                </Col>
-                                <Col className="col-12 col-lg-6">
-                                    <Form.Group controlId="category">
-                                        <Form.Label>Categoria</Form.Label>
-                                        <InputGroup hasValidation>
-                                            <Form.Control
-                                                name="category"
-                                                // onChange={(e) => handleChange(e)}
-                                                type="text"
-                                                placeholder=""
-                                                aria-describedby="inputGroupPrepend"
-                                                required
-                                            />
-                                        </InputGroup>
-                                    </Form.Group>
-                                </Col>
-                                <Col className="col-12 col-lg-6">
-                                    <Form.Group controlId="price">
-                                        <Form.Label>Precio</Form.Label>
-                                        <InputGroup hasValidation>
-                                            <Form.Control
-                                                name="price"
-                                                // onChange={(e) => handleChange(e)}
-                                                type="text"
-                                                placeholder="$"
-                                                aria-describedby="inputGroupPrepend"
-                                                required
-                                            />
-                                        </InputGroup>
-                                    </Form.Group>
-                                </Col>
-                            </Row>
-                            <Form.Group controlId="discount">
-                                <Form.Label>Descuento</Form.Label>
-                                <InputGroup hasValidation>
-                                    <Form.Control
-                                        // name="discount"
-                                        // onChange={(e) => handleChange(e)}
-                                        type="text"
-                                        placeholder=""
-                                        aria-describedby="inputGroupPrepend"
-                                        required
-                                    />
-                                </InputGroup>
-                            </Form.Group>
-                            <Row>
-                                <Button
-                                    type="submit"
-                                    className="boton-cargar mx-auto mt-5"
-                                // disabled={isLoading}
+                        <div className="row row-cols-1 row-cols-lg-2 w-100">
+                            <div className="d-flex justify-content-center align-items-center">DATOS DE LA COMPRA</div>
+                            <div>
+                                <Tabs
+                                    id="controlled-tab-example"
+                                    activeKey={key}
+                                    onSelect={(k) => setKey(k)}
+                                    className="mb-3"
                                 >
-                                    Agregar Producto
-                                    {/* {isLoading && (
-                                        <Spinner animation="border" role="status">
-                                            <span className="visually-hidden">Loading...</span>
-                                        </Spinner>
-                                    )} */}
-                                </Button>
-                            </Row>
-                        </Form>
+                                    <div eventKey="home" title="Home">
+                                        <FormBuy />
+                                    </div>
+                                    <Tab eventKey="profile" title="Profile">
+                                        hola juancarlos
+                                    </Tab>
+                                    <Tab eventKey="contact" title="Contact" disabled>
+                                        hola juancarlos
+                                    </Tab>
+                                </Tabs>
+                            </div>
+                        </div>
 
                     </Accordion.Body>
                 </Accordion.Item>
