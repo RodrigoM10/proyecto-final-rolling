@@ -102,4 +102,13 @@
   transition: all 0.5s;
 }
 
+.datos-Compra-div{
+  background-color: rgba(238, 238, 238, 0.726);
+}
+
+.img-buy-data{
+  border: 1px solid rgba(238, 238, 238, 0.726);
+  background-color: white;
+}
+
 

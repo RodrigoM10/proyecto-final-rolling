@@ -1,9 +1,7 @@
 
 .detalle-estilo{
-    height: 42rem;
-    width: 100%;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat top center;
     margin: 0;
 }
 .columna-detalle{
