@@ -29,8 +29,6 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         handleShowModalEditar();
     };
 
-
-
     const alertaBorrar = (_id) => {
         swal({
             title: "Esta seguro?",

@@ -17,14 +17,14 @@ export default function ModalEditProducts(props) {
     e.preventDefault();
     e.stopPropagation();
     try {
-        // es importante tocar colocar el input, por que el back toma el "input" como el body
-        await axios.put(`http://localhost:4000/api/productos/${productFind._id}`, input )
-        swal("Producto modificado");
-        closeModal();
+      // es importante tocar colocar el input, por que el back toma el "input" como el body
+      await axios.put(`http://localhost:4000/api/productos/${productFind._id}`, input)
+      swal("Producto modificado");
+      closeModal();
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
-}
+  }
 
 
   return (
@@ -35,64 +35,70 @@ export default function ModalEditProducts(props) {
         </Modal.Header>
         <Modal.Body>
           <Form className="form-register px-3" onSubmit={handleSubmit}>
-            <Form.Group controlId="name">
-              <Form.Label>Nombre:</Form.Label>
+            <Form.Group controlId="name" className="mb-3 row">
+              <Form.Label className="col-12 col-md-3">Nombre:</Form.Label>
               <input
+                className="col-12 col-md-9"
                 name="name"
                 onChange={(e) => handleChange(e)}
                 required
                 type="text"
-                placeholder={productFind.name}
+                defaultValue={productFind.name}
               />
             </Form.Group>
-            <Form.Group className="mt-3" controlId="description">
-              <Form.Label>Descripcion:</Form.Label>
+            <Form.Group className="mb-3 row" controlId="description">
+              <Form.Label className="col-12 col-md-3">Descripcion:</Form.Label>
               <input
+                className="col-12 col-md-9"
                 name="description"
                 onChange={(e) => handleChange(e)}
                 required
                 type="text"
-                placeholder={productFind.description}
+                defaultValue={productFind.description}
               />
             </Form.Group>
-            <Form.Group className="mt-3" controlId="image">
-              <Form.Label>Imagen:</Form.Label>
+            <Form.Group className="mb-3 row" controlId="image">
+              <Form.Label className="col-12 col-md-3">Imagen:</Form.Label>
               <input
+                className="col-12 col-md-9"
                 name="image"
                 onChange={(e) => handleChange(e)}
                 required
                 type="text"
-                placeholder={productFind.image}
+                defaultValue={productFind.image}
               />
             </Form.Group>
-            <Form.Group className="mt-3" controlId="background">
-              <Form.Label>Imagen fondo:</Form.Label>
+            <Form.Group className="mb-3 row" controlId="background">
+              <Form.Label className="col-12 col-md-3">Imagen fondo:</Form.Label>
               <input
+                className="col-12 col-md-9"
                 name="background"
                 onChange={(e) => handleChange(e)}
                 required
                 type="text"
-                placeholder={productFind.background}
+                defaultValue={productFind.background}
               />
             </Form.Group>
-            <Form.Group className="mt-3" controlId="category">
-              <Form.Label>Categoria:</Form.Label>
+            <Form.Group className="mb-3 row" controlId="category">
+              <Form.Label className="col-12 col-md-3">Categoria:</Form.Label>
               <input
+                className="col-12 col-md-9"
                 name="category"
                 onChange={(e) => handleChange(e)}
                 required
                 type="text"
-                placeholder={productFind.category}
+                defaultValue={productFind.category}
               />
             </Form.Group>
-            <Form.Group className="mt-3" controlId="price">
-              <Form.Label>Precio:</Form.Label>
+            <Form.Group className="mb-3 row" controlId="price">
+              <Form.Label className="col-12 col-md-3">Precio:</Form.Label>
               <input
+                className="col-12 col-md-9"
                 name="price"
                 onChange={(e) => handleChange(e)}
                 required
                 type="text"
-                placeholder={productFind.price}
+                defaultValue={productFind.price}
               />
             </Form.Group>
             <hr />
