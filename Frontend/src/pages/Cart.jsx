@@ -1,7 +1,7 @@
 //snippet rfc
 
-import React, { useState } from 'react'
-import { Accordion, Button, Card, Col, Container, Form, InputGroup, Nav, OverlayTrigger, Row, Spinner, Tooltip } from 'react-bootstrap';
+import React from 'react'
+import { Accordion, Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
 import { useHistory } from 'react-router-dom';
@@ -94,45 +94,43 @@ function Cart({ cart, setCart }) {
             </Container>
 
             {/* PAGAR PRODUCTO ACORDION */}
-            <Accordion className="mb-3">
-                <Accordion.Item className="accordion-buy" eventKey="0">
-                    <Accordion.Header>
-                        Proceder a la compra
-                    </Accordion.Header>
-                    <Accordion.Body className="d-flex">
-                        <div className="row row-cols-1 row-cols-lg-2 w-100">
-                            {/* LISTADO DE DATOS DE COMPRA */}
-                            <div className="d-flex flex-column align-items-between datos-Compra-div">
-                                <h3 className="m-2 text-center">DATOS DE LA COMPRA</h3>
-                                <div className="row justify-content-md-center align-items-md-center">
-                                    {cart.length === 0 ?
-                                            <p className="text-center">No tienes Productos para comprar</p>
-                                        :
-                                        { mapCompra }
-                                    }
+            {cart.length !== 0 &&
+                <Accordion className="mb-3">
+                    <Accordion.Item className="accordion-buy" eventKey="0">
+                        <Accordion.Header>
+                            Proceder a la compra
+                        </Accordion.Header>
+                        <Accordion.Body className="d-flex">
+                            <div className="row row-cols-1 row-cols-lg-2 w-100">
+                                {/* LISTADO DE DATOS DE COMPRA */}
+                                <div className="d-flex flex-column align-items-between datos-Compra-div">
+                                    <h3 className="m-2 text-center">DATOS DE LA COMPRA</h3>
+                                    <div className="row justify-content-md-center align-items-md-center">
+                                        {mapCompra}
+                                    </div>
+                                    <hr />
+                                    <div className="m-2 d-flex justify-content-around">
+                                        <h5>SubTotal:</h5>
+                                        <h5>${total.toFixed(2)} </h5>
+                                    </div>
+                                    <div className="m-2 d-flex justify-content-around">
+                                        <h5>Envio:</h5>
+                                        <h5> $5 </h5>
+                                    </div>
+                                    <hr />
+                                    <div className="m-2 d-flex justify-content-around">
+                                        <h3>Total $ </h3>
+                                        <h3>{(5 + total).toFixed(2)}</h3>
+                                    </div>
                                 </div>
-                                <hr />
-                                <div className="m-2 d-flex justify-content-around">
-                                    <h5>SubTotal:</h5>
-                                    <h5>${total.toFixed(2)} </h5>
-                                </div>
-                                <div className="m-2 d-flex justify-content-around">
-                                    <h5>Envio:</h5>
-                                    <h5> ${(total * 0.1).toFixed(2)} </h5>
-                                </div>
-                                <hr />
-                                <div className="m-2 d-flex justify-content-around">
-                                    <h3>Total $ </h3>
-                                    <h3>{(total * 0.10 + total).toFixed(2)}</h3>
+                                <div>
+                                    <FormBuy />
                                 </div>
                             </div>
-                            <div>
-                                <FormBuy />
-                            </div>
-                        </div>
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            }
         </>
     )
 }

@@ -26,10 +26,9 @@ export function SliderProducts({ productos }) {
       className="sliderTamñano mt-5">
       <div>
         <div className="mx-3">
-          <Card style={{ width: "21rem" }} className="d-flex flex-column align-items-center position-relative">
+          <Card style={{ width: "19rem" }} className="d-flex flex-column align-items-center card-prod-slider">
             <div className="mt-3">
               <Card.Img
-                className=""
                 style={{ width: "3rem" }}
                 variant="top"
                 src="https://twc.s3.ap-southeast-2.amazonaws.com/web/twc_badges/v2/95-TS.svg" />
