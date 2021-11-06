@@ -54,6 +54,7 @@ export default function CargaProduts(props) {
       setIsLoading(false);
     }
     event.target.reset();
+    setValidated(false);
   };
 
   return (

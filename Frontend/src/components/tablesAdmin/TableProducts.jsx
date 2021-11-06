@@ -7,16 +7,17 @@ import { VscSearch } from 'react-icons/vsc'
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
 import CargaProduts from './CargaProducts';
+import ModalEditProducts from './ModalEditProducts';
 
 export const TableProducts = ({ productos, getProductos, tableProducts, setTableProducts }) => {
 
 
     const [isLoading, setIsLoading] = useState(false);
     const [productFind, setProductFind] = useState({});
+    const [showModalEditar, setShowModalEditar] = useState(false);
 
-    
-    // const handleCloseModalEditar = () => setShowModalEditar(false);
-    // const handleShowModalEditar = () => setShowModalEditar(true);
+    const closeModalEditar = () => setShowModalEditar(false);
+    const handleShowModalEditar = () => setShowModalEditar(true);
     
     // funcion para encontrar usuario y mostrar usuario
     const findProduct = async (_id) => {
@@ -25,7 +26,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         setProductFind(response.data);
         setIsLoading(false);
         console.log(response.data._id);
-        // handleShowModalEditar();
+        handleShowModalEditar();
     };
 
 
@@ -153,7 +154,11 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
             {isLoading && (
                 <SpinnerRW />
             )}
-
+            <ModalEditProducts 
+            showModalEditar={showModalEditar}
+            closeModal={closeModalEditar}
+            productFind={productFind}
+         />
         </Container>
         </>
     )
