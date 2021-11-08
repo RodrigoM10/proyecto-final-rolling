@@ -11,28 +11,26 @@ import ModalEditProducts from './ModalEditProducts';
 
 export const TableProducts = ({ productos, getProductos, tableProducts, setTableProducts }) => {
 
-
     const [isLoading, setIsLoading] = useState(false);
     const [productFind, setProductFind] = useState({});
     const [showModalEditar, setShowModalEditar] = useState(false);
 
     const closeModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
-    
-    // funcion para encontrar usuario y mostrar usuario
+
+
     const findProduct = async (_id) => {
         setIsLoading(true);
         const response = await axios.get(`http://localhost:4000/api/productos/${_id}`);
         setProductFind(response.data);
         setIsLoading(false);
-        console.log(response.data._id);
         handleShowModalEditar();
     };
 
     const alertaBorrar = (_id) => {
         swal({
             title: "Esta seguro?",
-            text: "Una vez que lo elimine, el usuario no va a poder entrar nunca mas",
+            text: "Una vez que elimine el producto ya no aparecerá en el  landing",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -43,7 +41,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                 }
             });
     }
-    // trae de la API por usuario para borrar.
+    // trae de la API por producto para borrar.
     const deleteProduct = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
@@ -66,8 +64,8 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
 
         if (keyword !== '') {
             const results = productos.filter((prod) => {
-                return prod.name.toLowerCase().startsWith(keyword.toLowerCase())
-                    || prod.category.toLowerCase().startsWith(keyword.toLowerCase());
+                return prod.name.toLowerCase().includes(keyword.toLowerCase())
+                    || prod.category.toLowerCase().includes(keyword.toLowerCase());
                 // Use the toLowerCase() method to make it case-insensitive
             });
             setTableProducts(results);
@@ -153,8 +151,8 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                 <SpinnerRW />
             )}
             <ModalEditProducts 
-            showModalEditar={showModalEditar}
             closeModal={closeModalEditar}
+            showModalEditar={showModalEditar}
             productFind={productFind}
          />
         </Container>

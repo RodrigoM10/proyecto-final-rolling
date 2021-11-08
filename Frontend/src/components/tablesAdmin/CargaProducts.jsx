@@ -181,7 +181,6 @@ export default function CargaProduts(props) {
                     type="text"
                     placeholder=""
                     aria-describedby="inputGroupPrepend"
-                    required
                   />
                 </InputGroup>
               </Form.Group>

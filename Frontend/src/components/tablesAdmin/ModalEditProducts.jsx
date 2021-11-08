@@ -5,8 +5,8 @@ import swal from "sweetalert";
 
 export default function ModalEditProducts(props) {
   const { showModalEditar, closeModal, productFind } = props;
-  const [input, setInput] = useState(productFind);
-  console.log(input);
+  const [input, setInput] = useState({ name: productFind.name, description: productFind.description, image: productFind.image, background: productFind.background, category: productFind.category, price: productFind.price, discount: productFind.discount  });
+
   const handleChange = (e) => {
     const { value, name } = e.target;
     console.log(e.target);
@@ -25,7 +25,6 @@ export default function ModalEditProducts(props) {
       console.error(error);
     }
   }
-
 
   return (
     <>
@@ -99,6 +98,17 @@ export default function ModalEditProducts(props) {
                 required
                 type="text"
                 defaultValue={productFind.price}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3 row" controlId="discount">
+              <Form.Label className="col-12 col-md-3">Precio:</Form.Label>
+              <input
+                className="col-12 col-md-9"
+                name="discount"
+                onChange={(e) => handleChange(e)}
+                required
+                type="text"
+                defaultValue={productFind.discount}
               />
             </Form.Group>
             <hr />
