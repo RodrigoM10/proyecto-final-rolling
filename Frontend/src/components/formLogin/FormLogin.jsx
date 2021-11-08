@@ -65,6 +65,10 @@ export const FormLogin = ({ requestUserData }) => {
     };
 
 
+    const errorLink = () => {
+        swal("Oops!", "Todavia no trabajamos en esto :(", "error");
+    }
+
     return (
 
         <Card className="d-flex justify-content-center form-login">
@@ -100,7 +104,7 @@ export const FormLogin = ({ requestUserData }) => {
                     <button type="submit" className="btn-general-style"> Iniciar sesión</button>
                 </form>
                 <div className="d-flex flex-column">
-                    <button type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>
+                    <button onClick={errorLink} type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>
                     <div className="d-flex flex-column align-items-center justify-content-center crea-cuenta mt-2">
                         <p className="mb-1">¿Aun no eres miembro?</p>
                         <a href="/register">Crea una cuenta</a>

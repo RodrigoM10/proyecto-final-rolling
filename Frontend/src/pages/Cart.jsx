@@ -108,7 +108,7 @@ function Cart({ cart, setCart }) {
                                     <div className="row justify-content-md-center align-items-md-center">
                                         {mapCompra}
                                     </div>
-                                    <hr />
+                                    <hr style={{ width: '40rem' }} />
                                     <div className="m-2 d-flex justify-content-around">
                                         <h5>SubTotal:</h5>
                                         <h5>${total.toFixed(2)} </h5>
@@ -117,7 +117,7 @@ function Cart({ cart, setCart }) {
                                         <h5>Envio:</h5>
                                         <h5> $5 </h5>
                                     </div>
-                                    <hr />
+                                    <hr style={{ width: '40rem' }} />
                                     <div className="m-2 d-flex justify-content-around">
                                         <h3>Total $ </h3>
                                         <h3>{(5 + total).toFixed(2)}</h3>

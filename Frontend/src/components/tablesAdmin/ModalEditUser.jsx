@@ -7,9 +7,9 @@ import { Form, Modal } from 'react-bootstrap'
 
 export const ModalEditUser = (props) => {
 
-    const { showModalEditar, closeModal,userFind} = props
+    const { showModalEditar, closeModal, userFind, getUsers } = props
 
-    const [input, setInput] = useState({role: userFind.role});
+    const [input, setInput] = useState({ role: userFind.role });
 
     const birthdayUser = new Date(userFind.birthday);
     const day = birthdayUser.getUTCDate();
@@ -29,10 +29,10 @@ export const ModalEditUser = (props) => {
         console.log(userFind._id)
         try {
             // es importante tocar colocar el input, por que el back toma el "input" como el body
-            await axios.put(`http://localhost:4000/api/auth/${userFind._id}`, input )
-            swal("Cambio exitoso", `El usuario ahora es ${userFind.role==='admin'? 'Cliente' : 'Administrador' }`, "success");
+            await axios.put(`http://localhost:4000/api/auth/${userFind._id}`, input)
+            swal("Cambio exitoso", `El usuario ahora es ${userFind.role === 'admin' ? 'Cliente' : 'Administrador'}`, "success");
             closeModal();
-            props.getUsers();
+            getUsers();
         } catch (error) {
             console.error(error);
         }
@@ -49,22 +49,19 @@ export const ModalEditUser = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form className="form-register px-3" onSubmit={handleSubmit}>
-                        <Form.Group className="mb-3 row align-items-center justify-content-center" >
+                        <Form.Group className="mb-3 row align-items-center justify-content-start" >
                             <p>Nombre: {userFind.name}</p>
                             <p>Apellido: {userFind.lastName}</p>
                             <p>
-                            {userFind.role === 'admin' ? "Administrador " : "Cliente "}
-                            {moment(userFind.register).fromNow()}</p>
+                                {userFind.role === 'admin' ? "Administrador " : "Cliente "}
+                                {moment(userFind.register).fromNow()}</p>
                             <p>Cumpleaños: {day}/{month + 1}/{year}</p>
-                            <label className="col-11 col-md-3 align-items-center">Role</label>
-                            <input
-                                className="col-11 col-md-9 form-input"
-                                name="role"
-                                defaultValue={userFind.role}
-                                onChange={(e) => handleChange(e)}
-                                type="text"
-                                required
-                            />
+                            <label className="col-11 col-md-3 align-items-center label-role">Role:</label>
+                            <select name="role" onChange={(e) => handleChange(e)} className="col-11 col-md-9 form-input-editUser" required>
+                                <option value=""></option>
+                                <option value="user">Cliente</option>
+                                <option value="admin">Administrador</option>
+                            </select>
                         </Form.Group>
                         <hr />
                         <div className="d-flex justify-content-center">

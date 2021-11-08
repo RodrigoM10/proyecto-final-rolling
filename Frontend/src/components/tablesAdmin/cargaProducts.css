@@ -37,3 +37,9 @@
 .formulario-estilo{
     box-shadow: 1px 1px 5px rgb(196, 146, 146);
 }
+
+.input-category{
+    height: 2.3rem;
+    border-radius: 0.3rem;
+    border: 1px solid #ced4da;
+}

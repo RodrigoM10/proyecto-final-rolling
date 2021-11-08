@@ -27,3 +27,12 @@ hr {
 .form-input:invalid:required {
     box-shadow: 0 0 0 0.25rem rgb(230, 87, 87 / 25%)
   }
+
+  .form-input-editUser {
+      height: 1.8rem;
+      width: 200px !important;
+    border: solid 1px rgb(104, 103, 103);
+}
+.label-role{
+    width: 60px !important;
+}

@@ -80,15 +80,13 @@ export default function ModalEditProducts(props) {
               />
             </Form.Group>
             <Form.Group className="mb-3 row" controlId="category">
-              <Form.Label className="col-12 col-md-3">Categoria:</Form.Label>
-              <input
-                className="col-12 col-md-9"
-                name="category"
-                onChange={(e) => handleChange(e)}
-                required
-                type="text"
-                defaultValue={productFind.category}
-              />
+              <Form.Label  className="col-12 col-md-3">Categoria:</Form.Label>
+              <select name="category"  onChange={(e) => handleChange(e)} className="col-12 col-md-9" required>
+              <option value=""></option>
+              <option value="Rojo">Rojo</option>
+              <option value="Espumoso">Espumoso</option>
+              <option value="Blanco">Blanco</option>
+              </select>
             </Form.Group>
             <Form.Group className="mb-3 row" controlId="price">
               <Form.Label className="col-12 col-md-3">Precio:</Form.Label>

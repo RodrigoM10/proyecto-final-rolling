@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container} from 'react-bootstrap'
 import { FormContact } from '../components/formContact/FormContact'
-import {  FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaYoutubeSquare } from 'react-icons/fa';
+import {  FaFacebookSquare, FaInstagramSquare, FaTwitterSquare} from 'react-icons/fa';
 
 
 function Register() {

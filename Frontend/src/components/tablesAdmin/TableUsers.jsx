@@ -159,6 +159,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                 closeModal={handleCloseModalEditar}
                 showModalEditar={showModalEditar}
                 userFind={userFind}
+                getUsers={getUsers}
             />
 
             {isLoading && (
