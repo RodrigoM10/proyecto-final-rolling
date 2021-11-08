@@ -68,7 +68,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
             {mapSideCarrito}
           </div>
           <h2>TOTAL: ${total.toFixed(2)} </h2>
-          <Button onClick={handleClose} className="responsive-cart-button" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
+          <buton onClick={handleClose} className="btn-general-style" aria-label="Close">CONTINUA COMPRANDO</buton>
         </Offcanvas.Body>
       </Offcanvas>
     </>

@@ -95,7 +95,7 @@ export const FormRegister = () => {
             </Form.Group> */}
             <hr />
             <div className="d-flex flex-column align-items-center align-items-md-start justify-content-center">
-                <button type="submit" className="responsive-navbar-button">Registrarme</button>
+                <button type="submit" className="btn-general-style">Registrarme</button>
                 <Link className="mt-2 text-decoration-none text-white" to="/login">
                     ¿Ya tiene una cuenta? Iniciar sesión
                 </Link>

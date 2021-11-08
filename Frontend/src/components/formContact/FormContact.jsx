@@ -82,7 +82,7 @@ export const FormContact = () => {
                 />
             </Form.Group> */}
             <div className="d-flex flex-column align-items-center align-items-md-start justify-content-center">
-                <button className="responsive-navbar-button">Contactanos</button>
+                <button className="btn-general-style">Contactanos</button>
             </div>
         </Form>
     )

@@ -4,12 +4,14 @@ import { Card, Container } from 'react-bootstrap';
 import { CardFavProduct } from '../components/cardProduct/CardFavProduct';
 
 
+function Favorite({ favorites, setFavorites, cart, setCart }) {
 
 
-function Favorite({ favorites, setFavorites }) {
-
-
-    const mapFavorites = favorites?.map((favProduct, i) => (<CardFavProduct key={i} favProduct={favProduct} setFavorites={setFavorites} favorites={favorites} />
+    const mapFavorites = favorites?.map((favProduct, i) => (
+    <CardFavProduct 
+        key={i} favProduct={favProduct} 
+        setFavorites={setFavorites} favorites={favorites} 
+        cart={cart} setCart={setCart}/>
     ));
 
     return (

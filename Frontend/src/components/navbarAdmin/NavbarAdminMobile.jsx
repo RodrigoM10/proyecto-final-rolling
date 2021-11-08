@@ -30,9 +30,9 @@ const NavbarAdminMobile = (props) => {
             <p>Administrador {user.name}</p>
                 <div className="d-flex justify-content-evenly">
                     <NavLink as={NavLink} to="/profileAdmin">
-                        <button className="responsive-navbar-button px-4">Mi Perfil</button>
+                        <button className="btn-general-style px-4">Mi Perfil</button>
                     </NavLink>
-                    <button onClick={logout} className="responsive-navbar-button p-1">Cerrar Sesion</button>
+                    <button onClick={logout} className="btn-general-style p-1">Cerrar Sesion</button>
                 </div>
             </Offcanvas.Header>
 

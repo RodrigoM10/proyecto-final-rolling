@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import "./detailsProduct.css";
+import "./productFullScreen.css";
 
 export const ProductFullScreen = ({ producto, cart, setCart }) => {
  
@@ -25,7 +25,7 @@ export const ProductFullScreen = ({ producto, cart, setCart }) => {
 
   return (
     <>
-      <Row style={{ 
+      <Row className="details-product-bg" style={{ 
       backgroundImage: `url(${producto.background})` 
     }}>
         <Col className="columna-detalle col-12 col-md-10 col-lg-8 col-xl-5 text-center">
@@ -36,7 +36,7 @@ export const ProductFullScreen = ({ producto, cart, setCart }) => {
           <p className="precio-menor mt-5">${producto.price} POR BOTELLA</p>
           <button
           disabled={isInCart}
-          className={isInCart ? 'col-9 responsive-cart-button' : 'col-9 responsive-navbar-button'}
+          className={isInCart ? 'col-9 responsive-cart-button-add' : 'col-9 btn-general-style'}
           onClick={addToCart} >
           {isInCart ? (
             'Añadido al Carrito'
