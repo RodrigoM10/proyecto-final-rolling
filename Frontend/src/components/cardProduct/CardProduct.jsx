@@ -9,20 +9,14 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
   const [isInCart, setIsInCart] = useState(false);
 
   const [isFavorites, setIsFavorites] = useState(false)
-  //  Crea el array favorites agregando el 1er  elemento o agrega otro elemento al array. (el array favorites queda seteado en el array favList.)
+
   const addFavorite = () => {
     setFavorites((favList) => favList.concat({ producto }))
   }
-
-  // filtra en el array favList, y deja el array favList, sin el elemento fav que coincida ( fav === producto._id). Setea el array de favorites con el array favList filtrado.
   const removeFavorite = () => {
     setFavorites((favList) => favList.filter((fav) => fav.producto._id !== producto._id));
     
   };
-
-  //  esta funcion 1° se fija si existe en el array favoritos un elemento fav que coincida con ese producto._id.
-  // si isFavored ( osea si esta favoriteado), llama a la funcion removeFavorite, con el parametro producto._id.
-  // si no, llama a la funcion addFavorite, con el parametro producto._id.
   const toggleFavorite = () => {
     const isFavored = favorites.some((fav) => fav.producto._id === producto._id);
     if (isFavored) {

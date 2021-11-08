@@ -117,7 +117,6 @@ function App() {
         user={user}
         cart={cart}
         setAllProducts={setAllProducts}
-        productos={productos}
         allProducts={allProducts}
       />
       <Switch>
@@ -135,7 +134,7 @@ function App() {
         </Route>
 
         <Route path="/store" >
-          <Store allProducts={allProducts} productos={productos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
+          <Store allProducts={allProducts} setAllProducts={setAllProducts} productos={productos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/contact" >

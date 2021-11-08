@@ -15,7 +15,7 @@ import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
 
 
-export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos, allProducts }) => {
+export const NavbarMain = ({ user, favorites, cart, setAllProducts, allProducts }) => {
 
     const history = useHistory();
 
@@ -45,7 +45,7 @@ export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos, a
         e.preventDefault();
         const keyword = e.target.value;
         history.push('/store');
-        if (keyword.length > 2) {
+        if (keyword.length !== '') {
             const results = allProducts.filter((prod) => {
                 return prod.name.toLowerCase().includes(keyword.toLowerCase());
                 // Use the toLowerCase() method to make it case-insensitive
