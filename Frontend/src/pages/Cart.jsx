@@ -1,6 +1,6 @@
 //snippet rfc
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Accordion, Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
@@ -8,8 +8,8 @@ import { useHistory } from 'react-router-dom';
 import { FormBuy } from '../components/formBuy/FormBuy';
 import { CardDataCompra } from '../components/cardCart/CardDataCompra';
 
+function Cart({ cart, setCart, user }) {
 
-function Cart({ cart, setCart }) {
     const history = useHistory();
 
     const scrollToTop = () => {
@@ -124,13 +124,14 @@ function Cart({ cart, setCart }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <FormBuy />
+                                    <FormBuy user={user} />
                                 </div>
                             </div>
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
             }
+
         </>
     )
 }

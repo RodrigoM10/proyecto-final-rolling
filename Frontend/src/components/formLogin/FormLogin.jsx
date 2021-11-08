@@ -8,11 +8,14 @@ import { useState } from "react";
 import { guardarEnLocalStorage } from "../../utils/localStorage";
 import { useHistory } from 'react-router-dom';
 
-export const FormLogin = ( {requestUserData} ) => {
-
+export const FormLogin = ( {requestUserData, cart} ) => {
 
     const [input, setInput] = useState({ email: '', password: '' });
     const history = useHistory();
+    
+    const scrollToTop = () => {
+        window.scrollTo(0, 400);
+      };
 
     const handleChange = (event) => {
         const { value, name } = event.target;
@@ -35,8 +38,12 @@ export const FormLogin = ( {requestUserData} ) => {
                 swal('Bienvenido al Mundo Rolling Winery ' + name);
                 await requestUserData();
                 //El push redirecciona a la pantalla indicada en el parametro.
-                history.push('/');
-                // window.location.reload();
+                if(cart.length !==0) {
+                    history.push('/cart');
+                    scrollToTop();
+                } else {
+                    history.push('/');
+                }
 
             } catch (error) {
                 console.error(error);

@@ -4,7 +4,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import swal from "sweetalert";
 
 export default function ModalEditProducts(props) {
-  const { showModalEditar, closeModal, productFind } = props;
+  const { showModalEditar, closeModal, productFind, getProductos } = props;
   const [input, setInput] = useState({ name: productFind.name, description: productFind.description, image: productFind.image, background: productFind.background, category: productFind.category, price: productFind.price, discount: productFind.discount  });
 
   const handleChange = (e) => {
@@ -21,6 +21,7 @@ export default function ModalEditProducts(props) {
       await axios.put(`http://localhost:4000/api/productos/${productFind._id}`, input)
       swal("Producto modificado");
       closeModal();
+      getProductos();
     } catch (error) {
       console.error(error);
     }

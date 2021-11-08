@@ -143,7 +143,7 @@ function App() {
         </Route>
 
         <Route path="/cart" >
-          <Cart cart={cart} setCart={setCart}/>
+          <Cart cart={cart} setCart={setCart} user={user} />
         </Route>
 
         <Route path="/favorite" >
@@ -151,7 +151,7 @@ function App() {
         </Route>
 
         <Route path="/login" >
-          <Login requestUserData={requestUserData} />
+          <Login requestUserData={requestUserData} cart={cart}/>
         </Route>
 
         <Route path="/register" >

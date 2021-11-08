@@ -13,7 +13,7 @@ import { useState } from "react";
 import axios from "axios";
 import swal from 'sweetalert';
 
-export default function CargaProduts(props) {
+export default function CargaProduts() {
   const [input, setInput] = useState({
     name: "",
     image: "",

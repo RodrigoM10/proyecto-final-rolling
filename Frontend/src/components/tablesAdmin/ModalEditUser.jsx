@@ -5,9 +5,7 @@ import swal from 'sweetalert'
 import React, { useState } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
-export const ModalEditUser = (props) => {
-
-    const { showModalEditar, closeModal,userFind} = props
+export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}) => {
 
     const [input, setInput] = useState({role: userFind.role});
 
@@ -32,7 +30,7 @@ export const ModalEditUser = (props) => {
             await axios.put(`http://localhost:4000/api/auth/${userFind._id}`, input )
             swal("Cambio exitoso", `El usuario ahora es ${userFind.role==='admin'? 'Cliente' : 'Administrador' }`, "success");
             closeModal();
-            props.getUsers();
+            getUsers();
         } catch (error) {
             console.error(error);
         }

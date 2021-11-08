@@ -10,6 +10,9 @@ export const PaginationStore = ({currentPage,setCurrentPage,pages}) => {
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
   
 
+    const scrollToTop = () => {
+      window.scrollTo(0, 250);
+    };
     // Render to number pages
     const handleClick = (e) => {
         setCurrentPage(Number(e.target.id));
@@ -60,9 +63,6 @@ export const PaginationStore = ({currentPage,setCurrentPage,pages}) => {
       pageDecrementBtn = <li onClick={handlePrevbtn}> &hellip; </li>;
     }
 
-    const scrollToTop = () => {
-        window.scrollTo(0, 250);
-      };
       
     return (
         <div>
