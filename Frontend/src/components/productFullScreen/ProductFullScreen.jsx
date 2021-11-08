@@ -25,7 +25,7 @@ export const ProductFullScreen = ({ producto, cart, setCart }) => {
 
   return (
     <>
-      <Row style={{ 
+      <Row className="detalle-estilo" style={{ 
       backgroundImage: `url(${producto.background})` 
     }}>
         <Col className="columna-detalle col-12 col-md-10 col-lg-8 col-xl-5 text-center">

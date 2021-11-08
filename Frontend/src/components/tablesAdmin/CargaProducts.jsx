@@ -13,7 +13,7 @@ import { useState } from "react";
 import axios from "axios";
 import swal from 'sweetalert';
 
-export default function CargaProduts(props) {
+export default function CargaProduts(productos) {
   const [input, setInput] = useState({
     name: "",
     image: "",
@@ -38,7 +38,7 @@ export default function CargaProduts(props) {
     const newInput = { ...input, [name]: value };
     // Con ese objeto actualizamos el estado.
     setInput(newInput);
-    console.log(newInput);
+    // console.log(newInput);
   };
 
   const handleSubmit = async (event) => {
@@ -46,12 +46,14 @@ export default function CargaProduts(props) {
     event.stopPropagation();
     setValidated(true);
     const form = event.currentTarget;
+    console.log(form)
 
     if (form.checkValidity() === true) {
       setIsLoading(true);
-      await axios.post("http://localhost:4000/api/productos", input);
+      await axios.post("http://localhost:4000/api/productos/", input);
       swal("Excelente", "Producto agregado", "success");
       setIsLoading(false);
+
     }
     event.target.reset();
     setValidated(false);

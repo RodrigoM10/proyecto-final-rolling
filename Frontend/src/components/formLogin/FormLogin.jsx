@@ -8,7 +8,7 @@ import { useState } from "react";
 import { guardarEnLocalStorage } from "../../utils/localStorage";
 import { useHistory } from 'react-router-dom';
 
-export const FormLogin = ( {requestUserData} ) => {
+export const FormLogin = ({ requestUserData }) => {
 
 
     const [input, setInput] = useState({ email: '', password: '' });
@@ -23,7 +23,7 @@ export const FormLogin = ( {requestUserData} ) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         event.stopPropagation();
-        
+
         const form = event.currentTarget;
 
         if (form.checkValidity() === true) {
@@ -32,7 +32,9 @@ export const FormLogin = ( {requestUserData} ) => {
 
                 const { token, name } = response.data;
                 guardarEnLocalStorage({ key: 'token', value: { token } });
-                swal('Bienvenido al Mundo Rolling Winery ' + name);
+                swal({
+                    text: 'Bienvenido al Mundo Rolling Winery ' + name,
+                });
                 await requestUserData();
                 //El push redirecciona a la pantalla indicada en el parametro.
                 history.push('/');
@@ -47,14 +49,14 @@ export const FormLogin = ( {requestUserData} ) => {
                         icon: "error",
                         buttons: ["No, Gracias", "Registrate!"],
                         dangerMode: true,
-                      })
-                      .then((willDelete) => {
-                        if (willDelete) {
-                          history.push('/register')
-                        } else {
-                          swal("Sera en otra Ocacion!");
-                        }
-                      });
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                history.push('/register')
+                            } else {
+                                swal("Sera en otra Ocacion!");
+                            }
+                        });
                 } else {
                     alert('Error de conexion');
                 }

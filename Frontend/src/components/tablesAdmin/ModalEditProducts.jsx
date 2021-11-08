@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 import swal from "sweetalert";
 
 export default function ModalEditProducts(props) {
-  const { showModalEditar, closeModal, productFind } = props;
+  const { showModalEditar, closeModal, productFind, getProductos } = props;
   const [input, setInput] = useState(productFind);
-  console.log(input);
+  // console.log(input);
   const handleChange = (e) => {
     const { value, name } = e.target;
-    console.log(e.target);
+    // console.log(e.target);
     const newInput = { ...input, [name]: value };
     setInput(newInput);
   };
@@ -20,6 +20,7 @@ export default function ModalEditProducts(props) {
       // es importante tocar colocar el input, por que el back toma el "input" como el body
       await axios.put(`http://localhost:4000/api/productos/${productFind._id}`, input)
       swal("Producto modificado");
+      await getProductos();
       closeModal();
     } catch (error) {
       console.error(error);

@@ -156,6 +156,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
             showModalEditar={showModalEditar}
             closeModal={closeModalEditar}
             productFind={productFind}
+            getProductos={getProductos}
          />
         </Container>
         </>

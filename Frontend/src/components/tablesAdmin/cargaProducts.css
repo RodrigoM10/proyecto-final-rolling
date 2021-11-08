@@ -17,8 +17,23 @@
     border-radius: 0px;
     width: auto;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
-
+}
+.boton-cargar:hover{
+    background: whitesmoke;
+    color:#b59062 ;
+    border: none;
+    border-radius: 0px;
+    width: auto;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+}
+.boton-cargar:focus{
+    background: whitesmoke;
+    color:#b59062 ;
+    border: none;
+    border-radius: 0px;
+    width: auto;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
 }
 .formulario-estilo{
-    box-shadow: 1px 1px 5px rgb(85, 85, 85);
+    box-shadow: 1px 1px 5px rgb(196, 146, 146);
 }
