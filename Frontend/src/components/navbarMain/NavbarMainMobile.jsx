@@ -40,11 +40,11 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                 &&
                 <Offcanvas.Header className="d-flex justify-content-evenly">
                     <a href="/login">
-                        <button className="responsive-navbar-button">Iniciar sesión</button>
+                        <button className="btn-general-style">Iniciar sesión</button>
                     </a>
 
                     <a href="/register">
-                        <button exact className="responsive-navbar-button">Registrarse</button>
+                        <button exact className="btn-general-style">Registrarse</button>
                     </a>
                 </Offcanvas.Header>
             }
@@ -55,9 +55,9 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                     <p>Bienvenido Sr/a {user.name}</p>
                     <div>
                         <NavLink as={NavLink} to="/myProfile" onClick={handleClose}>
-                            <button className="responsive-navbar-button px-4" >Mi Perfil</button>
+                            <button className="btn-general-style px-4" >Mi Perfil</button>
                         </NavLink>
-                        <button onClick={logout} className="responsive-navbar-button">Cerrar Sesion</button>
+                        <button onClick={logout} className="btn-general-style">Cerrar Sesion</button>
                     </div>
                 </Offcanvas.Header>
             }
@@ -68,9 +68,9 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                     <p>Bienvenido Sr/a {user.name}</p>
                     <div className="d-flex justify-content-evenly">
                         <NavLink  as={NavLink} to="/myProfile" onClick={handleClose} >
-                            <button className="responsive-navbar-button px-4">Mi Perfil</button>
+                            <button className="btn-general-style px-4">Mi Perfil</button>
                         </NavLink>
-                        <button onClick={logout} className="responsive-navbar-button p-1">Cerrar Sesion</button>
+                        <button onClick={logout} className="btn-general-style p-1">Cerrar Sesion</button>
                     </div>
                 </Offcanvas.Header>
             }

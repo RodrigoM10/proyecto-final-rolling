@@ -51,8 +51,8 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
 
         if (keyword !== '') {
             const results = messages.filter((msj) => {
-                return msj.senderName.toLowerCase().startsWith(keyword.toLowerCase())
-                    || msj.senderEmail.toLowerCase().startsWith(keyword.toLowerCase());
+                return msj.senderName.toLowerCase().includes(keyword.toLowerCase())
+                    || msj.senderEmail.toLowerCase().includes(keyword.toLowerCase());
                 // Use the toLowerCase() method to make it case-insensitive
             });
             setTableMessages(results);

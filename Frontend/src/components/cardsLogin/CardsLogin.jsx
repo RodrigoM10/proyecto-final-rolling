@@ -9,7 +9,7 @@ export const CardsLogin = () => {
                 <Card.Body>
                     <h4>¿Todavia no tienes la Card Vip Member? </h4>
                     <a href="/register">
-                    <button className="responsive-navbar-button">Quiero ser Miembro Vip</button>
+                    <button className="btn-general-style">Quiero ser Miembro Vip</button>
                     </a>
                 </Card.Body>
             </Card>
@@ -20,7 +20,7 @@ export const CardsLogin = () => {
                         Visita nuestras Bodegas, se parte de nuestros eventos y disfruta de los mejores vinos seleccionados.
                     </Card.Text>
                     <a href="/contact">
-                    <button className="responsive-navbar-button">Quiero Participar</button>
+                    <button className="btn-general-style">Quiero Participar</button>
                     </a>
                 </Card.ImgOverlay>
             </Card>

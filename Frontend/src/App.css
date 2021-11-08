@@ -44,6 +44,22 @@ body {
 .bg-grey {
   background-color: #f7f7f7;
 }
+/* BOTON GENERAL */
+.btn-general-style {
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #b59062;
+  color: white;
+  border: 1px solid #b59062;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.btn-general-style:hover {
+  background-color: white;
+  color: #b59062;
+}
 
 /* botones admin */
 .btn-admin {

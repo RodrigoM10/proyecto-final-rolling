@@ -97,7 +97,7 @@ export const FormLogin = ({ requestUserData }) => {
                             aria-describedby="basic-addon1"
                         />
                     </div>
-                    <button type="submit" className="responsive-navbar-button"> Iniciar sesión</button>
+                    <button type="submit" className="btn-general-style"> Iniciar sesión</button>
                 </form>
                 <div className="d-flex flex-column">
                     <button type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>

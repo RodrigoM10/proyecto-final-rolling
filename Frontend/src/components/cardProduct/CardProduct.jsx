@@ -41,9 +41,10 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
     };
   }, [favorites]);
 
-  const cantidad = 1
-
+  
   // FUNCION PARA aÑADIR A CARRITO CARRITO
+  const cantidad = 1
+  
   const addToCart = () => {
     setCart((cart) => cart.concat({ producto, cantidad }));
     setShowSideCart(true);
@@ -95,7 +96,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
       <div className="d-flex align-items-center justify-content-center bg-white">
         <button
           disabled={isInCart}
-          className={isInCart ? 'col-9 responsive-cart-button-add' : 'col-9 responsive-navbar-button'}
+          className={isInCart ? 'col-9 responsive-cart-button-add' : 'col-9 btn-general-style'}
           onClick={addToCart} >
           {isInCart ? (
             'Añadido al Carrito'

@@ -46,7 +46,6 @@ export default function CargaProduts(productos) {
     event.stopPropagation();
     setValidated(true);
     const form = event.currentTarget;
-    console.log(form)
 
     if (form.checkValidity() === true) {
       setIsLoading(true);
@@ -183,7 +182,6 @@ export default function CargaProduts(productos) {
                     type="text"
                     placeholder=""
                     aria-describedby="inputGroupPrepend"
-                    required
                   />
                 </InputGroup>
               </Form.Group>

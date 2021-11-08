@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { MdOutlineClose } from 'react-icons/md'
@@ -6,10 +6,10 @@ import { MdOutlineClose } from 'react-icons/md'
 
 export const CardFavProduct = ({ favProduct, setFavorites, favorites }) => {
 
-const removeFavorite = () => {
-  const filterFavorite = favorites.filter((fav) => fav.producto._id !== favProduct.producto._id);
-  setFavorites(filterFavorite);
-};
+  const removeFavorite = () => {
+    const filterFavorite = favorites.filter((fav) => fav.producto._id !== favProduct.producto._id);
+    setFavorites(filterFavorite);
+  };
 
   return (
     <div>
@@ -58,7 +58,16 @@ const removeFavorite = () => {
           </Card.Body>
         </Card>
         <div className="d-flex align-items-center justify-content-center">
-          <button className="col-9 responsive-navbar-button ">Añadir al carrito</button>
+          {/* <button
+            disabled={isInCart}
+            className={isInCart ? 'col-9 responsive-cart-button-add' : 'col-9 btn-general-style'}
+            onClick={addToCart} >
+            {isInCart ? (
+              'Añadido al Carrito'
+            ) : (
+              'Añadir al Carrito'
+            )}
+          </button> */}
         </div>
       </div>
     </div>

@@ -26,14 +26,13 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         const response = await axios.get(`http://localhost:4000/api/usuarios/${_id}`);
         setUserFind(response.data);
         setIsLoading(false);
-        console.log(response.data._id);
         handleShowModalEditar();
     };
 
     const alertaBorrar = (_id) => {
         swal({
             title: "Esta seguro?",
-            text: "Una vez que lo elimine, el usuario no va a poder entrar nunca mas",
+            text: "Una vez que lo elimine, el usuario debera crear otra cuenta para entrar.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -71,9 +70,9 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
 
         if (keyword !== '') {
             const results = usuarios.filter((user) => {
-                return user.name.toLowerCase().startsWith(keyword.toLowerCase())
-                    || user.email.toLowerCase().startsWith(keyword.toLowerCase())
-                    || user.role.toLowerCase().startsWith(keyword.toLowerCase());
+                return user.name.toLowerCase().includes(keyword.toLowerCase())
+                    || user.email.toLowerCase().includes(keyword.toLowerCase())
+                    || user.role.toLowerCase().includes(keyword.toLowerCase());
                 // Use the toLowerCase() method to make it case-insensitive
             });
             setTableUsers(results);
@@ -159,9 +158,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
             <ModalEditUser
                 closeModal={handleCloseModalEditar}
                 showModalEditar={showModalEditar}
-                findUser={findUser}
                 userFind={userFind}
-                getUsers={getUsers}
             />
 
             {isLoading && (

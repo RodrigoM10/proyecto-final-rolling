@@ -172,7 +172,7 @@ export const FormBuy = () => {
                             </Form.Group>
                         </Row>
                     {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
-                    <button className="responsive-navbar-button" type="submit">
+                    <button className="btn-general-style" type="submit">
                         Comprar
                     </button>
                     </Accordion.Body>

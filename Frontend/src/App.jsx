@@ -147,7 +147,7 @@ function App() {
         </Route>
 
         <Route path="/favorite" >
-          <Favorite favorites={favorites} setFavorites={setFavorites} />
+          <Favorite favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/login" >

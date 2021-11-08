@@ -1,8 +1,8 @@
-
-.detalle-estilo{
+.details-product-bg {
+    height: 60vh;
     background-size: cover;
-    background-repeat: no-repeat top center;
-    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .columna-detalle{
     align-self: center;
@@ -40,15 +40,4 @@
     font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     border-radius: 0px;
     width: 15rem;
-}
-@media (min-width: 1400px){
-    .detalle-estilo{
-        height: 48rem;
-        width: 100%;
-        background-size: 85%;
-        background-repeat: repeat;
-        background-position: left;
-        margin: 0;
-    
-    }
 }

@@ -138,22 +138,7 @@ li:hover::after {
 .responsive-navbar-header {
     background-color: #203048 !important;
 }
-.responsive-navbar-button {
-    font-family: "Montserrat", sans-serif !important;
-    background-color: #b59062;
-    color: white;
-    border: 1px solid #b59062;
-    font-size: 20px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 5px;
-    /* transform: skew(340deg); */
-    transition: all 0.5s;
-    
-}
-.responsive-navbar-button:hover {
-    background-color: white;
-    color: #b59062;
-}
+
 .responsive-navbar-links {
     padding-bottom: 4rem;
     border-bottom: 1px solid #203048;
