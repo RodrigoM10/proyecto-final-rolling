@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 // Import Swiper styles
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
 import "./carouselComments.css";
+
+// Import Effect to scroll down
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
@@ -15,7 +19,12 @@ import SwiperCore, { Pagination } from "swiper";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-export const CarouselComments = ({sliderMensajes}) => {
+export const CarouselComments = ({ sliderMensajes }) => {
+
+  // Efecto para scroll down 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, [])
 
   const mapSliderMensajes = sliderMensajes.map((mensaje, i) => (
     <SwiperSlide key={i} mensaje={mensaje} className="Card-tamaño mt-5">
@@ -44,12 +53,12 @@ export const CarouselComments = ({sliderMensajes}) => {
 
   return (
     <>
-      <h3 className="text-center titulo-comentarios">
+      <h3 data-aos="fade-left" className="text-center titulo-comentarios">
         See what our customers have said in September
       </h3>
       <div className="bordes-estilo">
         <Container>
-          <Row>
+          <Row data-aos="fade-up">
             <Col className="col-lg-4 satisfaccion-estilo d-flex justify-content-center p-5">
               <div className="circulo">
                 <svg
@@ -109,6 +118,7 @@ export const CarouselComments = ({sliderMensajes}) => {
         </Container>
       </div>
       <Swiper
+        data-aos="fade-right"
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
@@ -133,8 +143,8 @@ export const CarouselComments = ({sliderMensajes}) => {
           },
         }}
         className="mySwiper"
-        >
-          {mapSliderMensajes}
+      >
+        {mapSliderMensajes}
       </Swiper>
     </>
   );
