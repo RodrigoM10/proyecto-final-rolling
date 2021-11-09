@@ -9,9 +9,15 @@ import './formBuy.css'
 export const FormBuy = ({ user }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
+    const birthdayUser = new Date(user.birthday);
+    const day = birthdayUser.getUTCDate();
+    const month = birthdayUser.getUTCMonth();
+    const year = birthdayUser.getUTCFullYear();
+    const birthdayFormat = `${year}-${month + 1}-${day}`;
+
 
     const [input, setInput] = useState({
-        buyerEmail: '', buyerDate: '', buyerName: '', buyerLastName: '', buyerAddress1: '', buyerAddress2: '', buyerCity: '', buyerState: '', buyerZip: '', buyerShippingInstructions: '', buyerCardNumber: '', buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
+        buyerEmail: user.email, buyerDate:birthdayFormat, buyerName: user.name, buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '', buyerState: '', buyerZip: '', buyerShippingInstructions: '', buyerCardNumber: '', buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
     });
 
     const handleChange = (e) => {
@@ -35,6 +41,11 @@ export const FormBuy = ({ user }) => {
         }
         e.target.reset();
     }
+    const scrollToTop = () => {
+        window.scrollTo(0, 150);
+      };
+
+
 
     return (
             <Form onSubmit={handleSubmit}>
@@ -42,7 +53,7 @@ export const FormBuy = ({ user }) => {
                     {
                         !tokenLocal.token
                         &&
-                        <Link to='/login' className="my-3 text-decoration-none text-secondary text-center">
+                        <Link to='/login' onClick={scrollToTop} className="my-3 text-decoration-none text-secondary text-center">
                             ¿Ya tiene una cuenta? Iniciar sesión
                         </Link>
                     }
@@ -54,23 +65,36 @@ export const FormBuy = ({ user }) => {
                             name="buyerEmail"
                             onChange={(e) => handleChange(e)}
                             defaultValue={tokenLocal.token ? user.email : ""}
+                            required
                         />
 
                     </FloatingLabel>
                 </Form.Group>
-                {!tokenLocal.token &&
+               
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         {/* <Form.Label>Nacimiento</Form.Label> */}
                         <h5 className="mt-2">Nacimiento</h5>
+                       {tokenLocal.token ? 
+                        <Form.Control 
+                                type="date"
+                                name="buyerDate"
+                                onChange={(e) => handleChange(e)}
+                                defaultValue={birthdayFormat}
+                                required
+                            />
+                            :
                         <Form.Control type="date"
                             name="buyerDate"
                             onChange={(e) => handleChange(e)}
-                        />
+                            required
+                       />
+                           
+                    } 
                         <Form.Text className="text-muted mb-1">
                             Necesitamos este dato para venderte alcohol
                         </Form.Text>
                     </Form.Group>
-                }
+
 
                 <h5 className="mt-2">Dirección de envio</h5>
 

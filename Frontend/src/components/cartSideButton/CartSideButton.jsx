@@ -52,18 +52,20 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
       >
         <Offcanvas.Header closeButton> <h4 style={{ color: '#b59062' }} >Tu Carrito </h4>  </Offcanvas.Header>
         <Offcanvas.Body className="text-center mt-2">
-          <OverlayTrigger
-            placement="right"
-            delay={{ show: 250, hide: 400 }}
-            overlay={
-              (props) => (
-                <Tooltip id="button-tooltip" {...props}>
-                  Limpiar carrito
-                </Tooltip>)
-            }
-          >
-            <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
-          </OverlayTrigger>
+          {cart.length !== 0 &&
+            <OverlayTrigger
+              placement="right"
+              delay={{ show: 250, hide: 400 }}
+              overlay={
+                (props) => (
+                  <Tooltip id="button-tooltip" {...props}>
+                    Limpiar carrito
+                  </Tooltip>)
+              }
+            >
+              <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
+            </OverlayTrigger>
+          }
           <div className="d-flex flex-column ">
             {mapSideCarrito}
           </div>

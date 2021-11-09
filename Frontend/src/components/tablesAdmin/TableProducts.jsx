@@ -146,16 +146,16 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                     ))}
                     </tbody>
             </Table>
-
             {isLoading && (
-                <SpinnerRW />
+                <SpinnerRW   />
             )}
+
             <ModalEditProducts 
             closeModal={closeModalEditar}
             showModalEditar={showModalEditar}
             productFind={productFind}
             getProductos={getProductos}
-         />
+            />
         </Container>
         </>
     )

@@ -95,8 +95,15 @@ body {
 }
 /* spinner */
 .spinner-style {
+  position:fixed;
+  top: 50%;
+  right: 48%;
   z-index: 2;
-  background-color: "#00000017";
+  color: #1d4683 !important;
+}
+.spinner-style .spinner-border {
+  width: 4rem;
+  height: 4rem;
 }
 /* no results card */
 .no-results-card {
@@ -106,7 +113,6 @@ body {
 }
 
 /* acordion logica compra */
-
 .accordion-buy {
   border: none !important;
 }
@@ -135,6 +141,23 @@ body {
 }
 .accordion-buy .accordion-body {
   margin: 1rem 0;
-  border-top: 1.5px solid black;
   padding-top: 0;
+}
+.datos-compra-div{
+  background-color: rgba(238, 238, 238, 0.726);
+  border-right: 1.5px solid black;
+}
+
+@media only screen and (max-width: 992px) {
+  .datos-compra-div{
+    background-color: rgba(238, 238, 238, 0.726);
+    border-right: none;
+  }
+}
+.img-buy-data{
+  border: 1px solid rgba(238, 238, 238, 0.726);
+  background-color: white;
+}
+.border-subtotal-total {
+  border-top: 1.5px solid black;
 }

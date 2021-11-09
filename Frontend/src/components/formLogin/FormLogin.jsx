@@ -35,7 +35,11 @@ export const FormLogin = ( {requestUserData, cart} ) => {
 
                 const { token, name } = response.data;
                 guardarEnLocalStorage({ key: 'token', value: { token } });
-                swal('Bienvenido al Mundo Rolling Winery ' + name);
+                if(cart.length !==0) {
+                    swal('Genial '+ name +' estas listo para comprar tus vinos en Rolling Winery ' );
+                } else {
+                    swal('Bienvenido al Mundo Rolling Winery ' + name);
+                }
                 await requestUserData();
                 //El push redirecciona a la pantalla indicada en el parametro.
                 if(cart.length !==0) {

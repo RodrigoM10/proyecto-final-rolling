@@ -81,7 +81,6 @@ export const FormRegister = () => {
                   type="date"
                   name="birthday"
                   onChange={(e) => handleChange(e)}
-                //   max="1995-08-25"
                   required 
                   />
             </Form.Group>
