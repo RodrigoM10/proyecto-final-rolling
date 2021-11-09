@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 import swal from "sweetalert";
 
 export default function ModalEditProducts(props) {
@@ -9,7 +9,7 @@ export default function ModalEditProducts(props) {
 
   const handleChange = (e) => {
     const { value, name } = e.target;
-    console.log(e.target);
+    // console.log(e.target);
     const newInput = { ...input, [name]: value };
     setInput(newInput);
   };
@@ -20,6 +20,7 @@ export default function ModalEditProducts(props) {
       // es importante tocar colocar el input, por que el back toma el "input" como el body
       await axios.put(`http://localhost:4000/api/productos/${productFind._id}`, input)
       swal("Producto modificado");
+      await getProductos();
       closeModal();
       getProductos();
     } catch (error) {
@@ -80,15 +81,13 @@ export default function ModalEditProducts(props) {
               />
             </Form.Group>
             <Form.Group className="mb-3 row" controlId="category">
-              <Form.Label className="col-12 col-md-3">Categoria:</Form.Label>
-              <input
-                className="col-12 col-md-9"
-                name="category"
-                onChange={(e) => handleChange(e)}
-                required
-                type="text"
-                defaultValue={productFind.category}
-              />
+              <Form.Label  className="col-12 col-md-3">Categoria:</Form.Label>
+              <select name="category"  onChange={(e) => handleChange(e)} className="col-12 col-md-9" required>
+              <option value=""></option>
+              <option value="Rojo">Rojo</option>
+              <option value="Espumoso">Espumoso</option>
+              <option value="Blanco">Blanco</option>
+              </select>
             </Form.Group>
             <Form.Group className="mb-3 row" controlId="price">
               <Form.Label className="col-12 col-md-3">Precio:</Form.Label>

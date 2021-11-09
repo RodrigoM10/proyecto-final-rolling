@@ -52,7 +52,7 @@ export const CardFavProduct = ({ favProduct, setFavorites, favorites }) => {
               {favProduct.producto.discount !== 0 ? <s>`RRP: $ ${favProduct.producto.price}`</s> : `Sin descuento`}
             </Card.Text>
             <Card.Text className="text-center precio-producto-descuento">
-              {(favProduct.producto.price - (favProduct.producto.discount * favProduct.producto.price) / 100).toFixed(2)}
+              $ {(favProduct.producto.price - (favProduct.producto.discount * favProduct.producto.price) / 100).toFixed(2)}
             </Card.Text>
             <Card.Text className="text-center">Por unidad</Card.Text>
           </Card.Body>

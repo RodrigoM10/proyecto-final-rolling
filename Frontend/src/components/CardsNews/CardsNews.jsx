@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Col, Row, Card, Button } from "react-bootstrap";
 import "./cardsNews.css";
+// Imports Effect to scroll down
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Cardsnews = () => {
+  // Efecto para scroll down 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, [])
+
   return (
     <>
-      <div className="mt-5 text-center">
+      <div data-aos="fade-up" className="mt-5 text-center">
         <h3 className="news-titulo">Discover new flavours and producers</h3>
       </div>
-      <Container className="mt-5 mb-5">
-        <Row>
+      <Container className="mt-2 mb-3">
+        <Row data-aos="fade-up">
           <Col className="col-tamaño">
             <Card className="card-estilo border-0 text-center" style={{ width: "21rem" }}>
               <Card.Img
@@ -40,8 +48,8 @@ const Cardsnews = () => {
                 <Card.Title className="card-titulo">Take Our Wine Preference Quiz</Card.Title>
                 <Card.Text className="borde-card"></Card.Text>
                 <Card.Text className="texto-card">
-                To receive a personalised wine experience, tailor-made just for you.
-                  
+                  To receive a personalised wine experience, tailor-made just for you.
+
                 </Card.Text>
                 <Button className="button-news">EXPLORE NOW</Button>
               </Card.Body>
@@ -57,7 +65,7 @@ const Cardsnews = () => {
                 <Card.Title className="card-titulo">Industry leading Rewards Program</Card.Title>
                 <Card.Text className="borde-card"></Card.Text>
                 <Card.Text className="texto-card">
-                Our unrivaled rewards program includes discount vouchers, free shipping and more...
+                  Our unrivaled rewards program includes discount vouchers, free shipping and more...
                 </Card.Text>
                 <Button className="button-news">FIND OUT MORE</Button>
               </Card.Body>

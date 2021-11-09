@@ -78,7 +78,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
 
     return (
         <>
-        <CargaProduts />
+        <CargaProduts getProductos={getProductos} />
         <Container>
             <div className="d-flex justify-content-between align-items-center my-2">
                 <form className="search-form  " >

@@ -24,24 +24,24 @@
  .efecto-text1{
     position: relative;
     font-size: 80px;
-    /* animation: efecto-text1 2.2s cubic-bezier(0.77, 0, 0.7, 1); */
+    animation: efecto-text1 2.2s cubic-bezier(0.77, 0, 0.7, 1);
     transition: 0.5s;
  }
  .efecto-text2{
     position: relative;
     font-size: 40px;
-    /* animation: efecto-text2 2.2s cubic-bezier(0.77, 0, 0.7, 1); */
-    transition: 0.5s;
+    animation: efecto-text2 2.2s cubic-bezier(0.77, 0, 0.7, 1);
+    transition: 0.8s;
  }
 
- /* @keyframes efecto-text1 {
+ @keyframes efecto-text1 {
     0% {
-       transform: translateX(500px);
+       transform: translateY(200px);
     }
  }
  @keyframes efecto-text2 {
     0% {
-       transform: translateX(-500px);
+       transform: translateY(300px);
     }
  }
  
@@ -57,7 +57,7 @@
        transform: translateX(-330px);
     }
  }
- } */
+ }
 
  .boton-down-header{
      background:none;

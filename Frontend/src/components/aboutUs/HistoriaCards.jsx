@@ -1,17 +1,23 @@
-import React from 'react'
+import  { useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export const HistoriaCards = () => {
+    useEffect(() => {
+        Aos.init({duration:2000});
+    }, [])
+
     return (
         <div className="row gx-3 gy-2 p-3 mb-2 historia-style">
-            <h1 className="text-center">¿Que hacemos?</h1>
-            <div className="col-12 col-xxl-6 p-3">
+            <h1 data-aos="fade-up" className="text-center">¿Que hacemos?</h1>
+            <div data-aos="fade-up"  className="col-12 col-xxl-6 p-3">
                 <h4 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi architecto aliquid, inventore ratione temporibus laboriosam at, maiores vero quisquam dolorum nesciunt possimus numquam ullam quam vitae amet ipsa velit. Totam.</h4>
                 <h4 style={{ color: '#b59062' }} ><b>¿Quienes somos en realidad?</b></h4>
                 <h4 className="mb-3">Somos Rodri, Alvaro y Nico 😉... Tres alumnos de la escuela Rolling Code y este es nuestro proyecto final. Fue un hermoso cursado y estamos agradecidos de Rolling porque nos dio las herramientas y nos marco el camino para ser un <b>"FULLSTACK DEV"</b> con todas las letras! 😎</h4>
                 <h5> <b>MUCHAS GRACIAS JJ y Rick por ser nuestros mentores 😄</b></h5>
             </div>
-            <div className="col-12 col-xxl-6 p-3">
+            <div data-aos="fade-up" className="col-12 col-xxl-6 p-3">
                 <Carousel fade>
                     <Carousel.Item>
                         <img

@@ -37,6 +37,7 @@ export const FormContact = () => {
                 className="col-11 col-md-9 form-input" 
                 type="text" 
                 name="senderName" 
+                required
                 onChange={(e) => handleChange(e)}
                 />
             </Form.Group>
@@ -46,6 +47,7 @@ export const FormContact = () => {
                 className="col-11 col-md-9 form-input" 
                 type="email" 
                 name="senderEmail" 
+                required
                 onChange={(e) => handleChange(e)}
                 />
             </Form.Group>
@@ -55,6 +57,9 @@ export const FormContact = () => {
                 placeholder="Dejanos un mensaje aqui..." 
                 as="textarea"
                 name="message" 
+                required
+                minLength="15"
+                maxLength="250"
                 rows={3} 
                 onChange={(e) => handleChange(e)}
                 />
