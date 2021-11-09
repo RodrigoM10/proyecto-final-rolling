@@ -1,8 +1,8 @@
-
 .detalle-estilo{
     background-size: cover;
-    background-repeat: no-repeat top center;
+    background-repeat: repeat;
     margin: 0;
+    height: 40rem;
 }
 .columna-detalle{
     align-self: center;
@@ -43,10 +43,9 @@
 }
 @media (min-width: 1400px){
     .detalle-estilo{
-        height: 48rem;
+        height: 55rem;
         width: 100%;
-        background-size: 85%;
-        background-repeat: repeat;
+        background-repeat: no-repeat;
         background-position: left;
         margin: 0;
     

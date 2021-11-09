@@ -45,7 +45,7 @@ export const CarouselComments = ({sliderMensajes}) => {
   return (
     <>
       <h3 className="text-center titulo-comentarios">
-        See what our customers have said in September
+      Vea lo que han dicho nuestros clientes en Octubre
       </h3>
       <div className="bordes-estilo">
         <Container>
@@ -65,8 +65,8 @@ export const CarouselComments = ({sliderMensajes}) => {
                 </svg>
               </div>
               <div>
-                <h4>98.2%</h4>
-                <p>Wine Satisfaction Rate</p>
+                <h4 className="pt-3">98.2%</h4>
+                <p>Tasa de satisfacción del vino</p>
               </div>
             </Col>
             <Col className="col-lg-4 satisfaccion-estilo d-flex justify-content-center p-5">
@@ -83,11 +83,11 @@ export const CarouselComments = ({sliderMensajes}) => {
                 </svg>
               </div>
               <div>
-                <h4>4.7</h4>
-                <p>Store Rating via Google</p>
+                <h4 className="pt-3">4.7</h4>
+                <p>Calificación a través de Google</p>
               </div>
             </Col>
-            <Col className="col-lg-3 satisfaccion-estilo mx-4 d-flex justify-content-center p-5">
+            <Col className="col-lg-3 satisfaccion-estilo mx-3 d-flex justify-content-center p-5">
               <div className="circulo p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,8 +101,8 @@ export const CarouselComments = ({sliderMensajes}) => {
                 </svg>
               </div>
               <div className="mx-1">
-                <h4>Our Producers</h4>
-                <p>We choose to partner with small to medium winemakers, to bring you authentic wine and great value</p>
+                <h4>Nuestros Productores</h4>
+                <p>Elegimos asociarnos con enólogos pequeños y medianos para ofrecerle vino auténtico y de gran valor.</p>
               </div>
             </Col>
           </Row>
