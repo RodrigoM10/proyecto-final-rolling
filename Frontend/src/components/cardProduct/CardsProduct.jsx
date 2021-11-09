@@ -5,36 +5,44 @@ import { CardProduct } from "./CardProduct";
 import './cardProduct.css'
 
 
-export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSideCart, busqueda, allProducts }) => {
+export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSideCart, busqueda, allProducts, selectCategory, selectPrice }) => {
 
   // Paginacion
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const [currentProducts, setCurrentProducts] = useState([])
+  const [currentProducts, setCurrentProducts] = useState([]);
+
 
   useEffect(() => {
     const limit = 8;
     const start = 0 + currentPage * limit - limit;
     const end = start + limit;
 
-    let searchProducts = []
+
+    // filtered products
+
+    const filteredProducts = allProducts
+    .filter((prodFil) => !selectCategory ||  prodFil.category === selectCategory)
+    .filter((prodfil)=> !selectPrice || prodfil.price < selectPrice)
+
+    let searchProducts = [];
 
     if (busqueda.length !== '') {
-      searchProducts = allProducts.filter((prod) => {
+      searchProducts = filteredProducts.filter((prod) => {
         return prod.name.toLowerCase().includes(busqueda.toLowerCase());
       });
     } else {
-      searchProducts = allProducts;
+      searchProducts = filteredProducts;
     }
-    // filtered products
+
 
     const productsSlice = searchProducts.slice(start, end);
     setCurrentProducts(productsSlice);
 
     const totalPages = Math.ceil(searchProducts.length / limit);
     setTotalPages(totalPages);
-  }, [allProducts, currentPage, busqueda]);
+  }, [allProducts, currentPage, busqueda, selectCategory, selectPrice]);
 
 
   const mapProductos = currentProducts?.map((producto) => (

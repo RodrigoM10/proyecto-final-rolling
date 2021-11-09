@@ -1,38 +1,67 @@
-import React from 'react'
-import { Accordion, Form } from 'react-bootstrap';
-// import { Accordion, Form } from "react-bootstrap";
+import React, { useState } from 'react'
+import { Accordion, CloseButton, Form } from 'react-bootstrap';
 import './filtersProducts.css';
 
-export const FiltersProducts = ({ busqueda, allProducts }) => {
+export const FiltersProducts = ({ setSelectCategory, selectCategory, onselectCat, onselectPri, setSelectPrice, selectPrice }) => {
 
-  console.log(allProducts)
+  const filtrarCategoria = (e) => {
+    const category = e.target.value;
+    setSelectCategory(category)
+  }
 
-  // const filtrarCategoria = (e) => {
-  //   const categorySelected = e.target.value
-  //   const filterCategory = allProducts.filter(producto => producto.category === categorySelected).map(filteredCategory => ({ filteredCategory }))
-  //   console.log(filterCategory);
-  // }
+  const filtrarPrecio = (e) => {
+    const price = e.target.value;
+    setSelectPrice(price)
+  }
+
+  const clearSelect = () => {
+    onselectCat('');
+    onselectPri('')
+  }
+
+  const visibleClearCat = selectCategory ? '' : 'd-none';
+
+  const visibleClearPri = selectPrice ? '' : 'd-none';
+
 
   return (
     <>
-      {/* <div>
-        <select class="form-select" aria-label="Default select example">
-          <option value="">Open this select menu</option>
-          <option value="20">Menos de $20</option>
-          <option value="rango1">$20 y $30</option>
-          <option value="rango2">$31 y $40</option>
-          <option value="40">Mas de  $40</option>
-        </select>
+      <div className="d-flex flex-column justify-content-start align-content-center">
+
+        <div className=" d-flex  align-content-center">
+          <div className="d-flex flex-column">
+            <label className="m-2" for="cars">Categoria</label>
+            <select onChange={filtrarCategoria} className="form-select" >
+              <option value="Rojo">Rojo</option>
+              <option value="Blanco">Blanco</option>
+              <option value="Espumoso">Espumoso</option>
+            </select>
+          </div>
+          <div>
+            <CloseButton className={`m-2 ${visibleClearCat}`} onClick={clearSelect} />
+          </div>
+        </div>
+
+        <div className=" d-flex  align-content-center">
+          <div className="d-flex flex-column">
+            {/* <label for="customRange3" class="form-label">Precio</label>
+            <input type="range" className="form-range" min="10" max="60" step="0.5" id="customRange3" /> */}
+             <label className="m-2" for="cars">Precio</label>
+            <select onChange={filtrarPrecio} className="form-select" >
+              <option value="20">Hasta 20</option>
+              <option value="30">Hasta 30</option>
+              <option value="40">Hasta 40</option>
+              <option value="60">Hasta 60</option>
+            </select>
+          </div>
+          <div>
+            <CloseButton className={`m-2 ${visibleClearPri}`} onClick={clearSelect} />
+          </div>
+        </div>
+
       </div>
-      <div>
-        <select onChange={(e) => filtrarCategoria(e)} className="form-select" aria-label="Default select example">
-          <option value="">Open this select menu</option>
-          <option value="Rojo">Tintillo</option>
-          <option value="Blanco">Blancusco</option>
-          <option value="Espumoso">Espumoni</option>
-        </select>
-      </div> */}
-       <Accordion defaultActiveKey="0">  
+
+      {/* <Accordion defaultActiveKey="0">  
        <Accordion.Item className="acordionEstilo" eventKey="0">
                 <Accordion.Header className="filtroMenu mt-5">PRECIO</Accordion.Header>
                 <Accordion.Body>
@@ -88,7 +117,7 @@ export const FiltersProducts = ({ busqueda, allProducts }) => {
                   </div>
                 </Accordion.Body>
               </Accordion.Item>
-      </Accordion> 
+      </Accordion>  */}
     </>
   )
 }
