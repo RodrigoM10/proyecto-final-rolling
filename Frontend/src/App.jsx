@@ -30,6 +30,18 @@ import { Footer } from "./components/footer/Footer";
 import { leerDeLocalStorage } from './utils/localStorage';
 import DetailsProduct from "./pages/DetailsProduct";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import Lottie from "react-lottie"
+import pagewine from "./utils/lottieArchivos/pagewine.json";
+import { Container } from "react-bootstrap";
+
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    },
+
+}
 
 
 function App() {
@@ -190,7 +202,9 @@ function App() {
         )}
 
         <Route path="/404">
-          404
+          <Container>
+          <Lottie options={{animationData: pagewine, ...defaultOptions}} />
+          </Container>
         </Route>
 
         <Route path="*">
