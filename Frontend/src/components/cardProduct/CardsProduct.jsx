@@ -24,7 +24,7 @@ export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSi
 
     const filteredProducts = allProducts
     .filter((prodFil) => !selectCategory ||  prodFil.category === selectCategory)
-    .filter((prodfil)=> !selectPrice || prodfil.price < selectPrice)
+    .filter((prodfil)=> !selectPrice || prodfil.price <= selectPrice)
 
     let searchProducts = [];
 

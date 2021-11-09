@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Accordion, CloseButton, Form } from 'react-bootstrap';
+
+import { CloseButton} from 'react-bootstrap';
 import './filtersProducts.css';
 
 export const FiltersProducts = ({ setSelectCategory, selectCategory, onselectCat, onselectPri, setSelectPrice, selectPrice }) => {
@@ -26,11 +26,12 @@ export const FiltersProducts = ({ setSelectCategory, selectCategory, onselectCat
 
   return (
     <>
-      <div className="d-flex flex-column justify-content-start align-content-center">
+      <div className="d-flex flex-column justify-content-start ">
+        <h4>Filtra tus Vinos </h4>
 
-        <div className=" d-flex  align-content-center">
+        <div className=" d-flex  align-content-center mt-2">
           <div className="d-flex flex-column">
-            <label className="m-2" for="cars">Categoria</label>
+            <label className="m-2" >Categoria</label>
             <select onChange={filtrarCategoria} className="form-select" >
               <option value="Rojo">Rojo</option>
               <option value="Blanco">Blanco</option>
@@ -42,16 +43,20 @@ export const FiltersProducts = ({ setSelectCategory, selectCategory, onselectCat
           </div>
         </div>
 
-        <div className=" d-flex  align-content-center">
+        <div className=" d-flex  align-content-center mt-2">
           <div className="d-flex flex-column">
-            {/* <label for="customRange3" class="form-label">Precio</label>
-            <input type="range" className="form-range" min="10" max="60" step="0.5" id="customRange3" /> */}
-             <label className="m-2" for="cars">Precio</label>
+            {/* <label className="m-2">Precio</label>
+            <div className="d-flex">
+              <p className="m-0">$20</p>
+              <input onChange={filtrarPrecio} name="price" type="range" className="rango-precio" min="20" max="60" step="10" />
+              <p className="m-0">$60</p>
+            </div> */}
+            <label className="m-2">Precio</label>
             <select onChange={filtrarPrecio} className="form-select" >
-              <option value="20">Hasta 20</option>
-              <option value="30">Hasta 30</option>
-              <option value="40">Hasta 40</option>
-              <option value="60">Hasta 60</option>
+              <option value="20">Hasta $20</option>
+              <option value="30">Hasta $30</option>
+              <option value="40">Hasta $40</option>
+              <option value="60">Hasta $60</option>
             </select>
           </div>
           <div>
