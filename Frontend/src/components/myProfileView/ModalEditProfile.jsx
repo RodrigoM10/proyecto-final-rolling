@@ -10,7 +10,10 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
         const day = birthdayUser.getUTCDate();
         const month = birthdayUser.getUTCMonth();
         const year = birthdayUser.getUTCFullYear();
-    const [input, setInput] = useState({ name: user.name, lastName: user.lastName, email: user.email, birthday: `${year}-${month + 1}-${day}` });
+        const birthdayFormat = `${year}-${month + 1}-${day}`;
+    
+    const [input, setInput] = useState({ name: user.name, lastName: user.lastName, email: user.email, birthday: birthdayFormat});
+
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -19,7 +22,6 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("🚀 ~ file: ModalEditProfile.jsx ~ line 10 ~ ModalEditProfile ~ input", input)
         try {
              await axios.put(`http://localhost:4000/api/usuarios/${user._id}`, input);
              swal("Perfil editado con exito", "", "success");
@@ -80,7 +82,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
                             className="col-11 col-md-9 text-center"
                             type="date"
                             name="birthday"
-                            defaultValue={`${year}-${month + 1}-${day}`}
+                            defaultValue={birthdayFormat}
                             onChange={(e) => handleChange(e)}
                             required
                         />

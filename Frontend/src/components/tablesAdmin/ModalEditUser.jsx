@@ -5,9 +5,7 @@ import swal from 'sweetalert'
 import React, { useState } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
-export const ModalEditUser = (props) => {
-
-    const { showModalEditar, closeModal, userFind, getUsers } = props
+export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}) => {
 
     const [input, setInput] = useState({ role: userFind.role });
 

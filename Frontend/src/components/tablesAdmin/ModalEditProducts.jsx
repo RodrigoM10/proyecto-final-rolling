@@ -22,6 +22,7 @@ export default function ModalEditProducts(props) {
       swal("Producto modificado");
       await getProductos();
       closeModal();
+      getProductos();
     } catch (error) {
       console.error(error);
     }

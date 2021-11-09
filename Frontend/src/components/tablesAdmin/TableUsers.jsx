@@ -32,7 +32,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
     const alertaBorrar = (_id) => {
         swal({
             title: "Esta seguro?",
-            text: "Una vez que lo elimine, el usuario debera crear otra cuenta para entrar.",
+            text: "Una vez que lo elimine, el usuario debera crear otra cuenta para ingresar.",
             icon: "warning",
             buttons: true,
             dangerMode: true,

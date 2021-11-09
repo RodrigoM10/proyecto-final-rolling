@@ -16,7 +16,7 @@ import NavbarMainMobile from './NavbarMainMobile';
 
 
 export const NavbarMain = ({ user, favorites, cart, setAllProducts, productos, allProducts }) => {
-console.log("🚀 ~ file: NavbarMain.jsx ~ line 19 ~ NavbarMain ~ allProducts", allProducts)
+
     const history = useHistory();
 
     const tokenLocal = leerDeLocalStorage('token') || {};
@@ -38,8 +38,6 @@ console.log("🚀 ~ file: NavbarMain.jsx ~ line 19 ~ NavbarMain ~ allProducts", 
         localStorage.removeItem('cart');
         window.location.href = '/';
     }
-
-
     // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
     console.log("🚀 ~ file: NavbarMain.jsx ~ line 42 ~ NavbarMain ~ busqueda", busqueda)
