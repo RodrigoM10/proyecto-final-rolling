@@ -16,10 +16,9 @@ import NavbarMainMobile from './NavbarMainMobile';
 
 
 export const NavbarMain = ({ user, favorites, cart, setAllProducts, allProducts }) => {
-
     const history = useHistory();
-
     const tokenLocal = leerDeLocalStorage('token') || {};
+
     // asigno la variable location
     const location = useLocation();
     //destructuro pathname from location
