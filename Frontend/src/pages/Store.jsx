@@ -6,7 +6,7 @@ import { FiltersProducts } from "../components/filtersProducts/FiltersProducts";
 import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 import { CartSideButton } from "../components/cartSideButton/CartSideButton";
 
-function Store({ productos, favorites, setFavorites, cart, setCart, allProducts, setAllProducts, setProductos, busqueda }) {
+function Store({ productos, favorites, setFavorites, cart, setCart, allProducts, setProductos, busqueda }) {
   const [showSideCart, setShowSideCart] = useState(false);
   return (
     <div className="bg-grey">

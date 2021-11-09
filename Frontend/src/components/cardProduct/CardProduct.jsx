@@ -33,7 +33,7 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
     } else {
       setIsFavorites(false)
     };
-  }, [favorites]);
+  }, [favorites, producto]);
 
   
   // FUNCION PARA aÑADIR A CARRITO CARRITO

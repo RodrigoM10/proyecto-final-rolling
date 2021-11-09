@@ -27,6 +27,7 @@ export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSi
     } else {
       searchProducts = allProducts;
     }
+    // filtered products
 
     const productsSlice = searchProducts.slice(start, end);
     setCurrentProducts(productsSlice);

@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
 import './formBuy.css'
+import { useHistory } from 'react-router-dom';
 
 export const FormBuy = ({ user, cart }) => {
-
+    const history = useHistory();
     const tokenLocal = leerDeLocalStorage('token') || {};
     const birthdayUser = new Date(user.birthday);
     const day = birthdayUser.getUTCDate();
@@ -54,17 +55,22 @@ export const FormBuy = ({ user, cart }) => {
 
             }
             await axios.post('http://localhost:4000/api/ventas', newBuy);
+
             swal({
                 title: "Compra Exitosa !",
                 icon: "success",
+            }).then(() => {
+                localStorage.removeItem('cart');
+                window.location.href = '/store';
+                window.scrollTo(0, 150);
             });
-            // localStorage.removeItem('cart');
-            // window.location.href = '/store';
+
         } catch (error) {
             console.error(error);
         }
-        // e.target.reset();
+        e.target.reset();
     }
+
     const scrollToTop = () => {
         window.scrollTo(0, 150);
     };
