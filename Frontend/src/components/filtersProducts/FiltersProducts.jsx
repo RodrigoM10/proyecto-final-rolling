@@ -1,12 +1,39 @@
 import React from 'react'
-import { Accordion, Form } from "react-bootstrap";
+import { Accordion, Form } from 'react-bootstrap';
+// import { Accordion, Form } from "react-bootstrap";
 import './filtersProducts.css';
 
-export const FiltersProducts = () => {
-    return (
-        <Accordion defaultActiveKey="0"> 
-        {/* FILTROS POR PRECIO */}
-              <Accordion.Item className="acordionEstilo" eventKey="0">
+export const FiltersProducts = ({ busqueda, allProducts }) => {
+
+  console.log(allProducts)
+
+  // const filtrarCategoria = (e) => {
+  //   const categorySelected = e.target.value
+  //   const filterCategory = allProducts.filter(producto => producto.category === categorySelected).map(filteredCategory => ({ filteredCategory }))
+  //   console.log(filterCategory);
+  // }
+
+  return (
+    <>
+      {/* <div>
+        <select class="form-select" aria-label="Default select example">
+          <option value="">Open this select menu</option>
+          <option value="20">Menos de $20</option>
+          <option value="rango1">$20 y $30</option>
+          <option value="rango2">$31 y $40</option>
+          <option value="40">Mas de  $40</option>
+        </select>
+      </div>
+      <div>
+        <select onChange={(e) => filtrarCategoria(e)} className="form-select" aria-label="Default select example">
+          <option value="">Open this select menu</option>
+          <option value="Rojo">Tintillo</option>
+          <option value="Blanco">Blancusco</option>
+          <option value="Espumoso">Espumoni</option>
+        </select>
+      </div> */}
+       <Accordion defaultActiveKey="0">  
+       <Accordion.Item className="acordionEstilo" eventKey="0">
                 <Accordion.Header className="filtroMenu mt-5">PRECIO</Accordion.Header>
                 <Accordion.Body>
                   <div className="d-flex">
@@ -34,9 +61,9 @@ export const FiltersProducts = () => {
                     </>
                   </div>
                 </Accordion.Body>
-              </Accordion.Item>
-              {/* FILTROS POR CATEGORIA */}
-              <Accordion.Item className="acordionEstilo" eventKey="1">
+              </Accordion.Item> 
+
+      <Accordion.Item className="acordionEstilo" eventKey="1">
                 <Accordion.Header className="filtroMenu mt-3">
                   CATEGORÍA
                 </Accordion.Header>
@@ -61,6 +88,7 @@ export const FiltersProducts = () => {
                   </div>
                 </Accordion.Body>
               </Accordion.Item>
-      </Accordion>
-    )
+      </Accordion> 
+    </>
+  )
 }
