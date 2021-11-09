@@ -19,7 +19,7 @@ const Cardsnews = () => {
 
   return (
     <>
-      <div className="mt-5 text-center">
+      <div data-aos="fade-up" className="mt-5 text-center">
         <h3 className="news-titulo">Descubre nuevos sabores y productores.</h3>
       </div>
       <Container className="mt-2 mb-3">

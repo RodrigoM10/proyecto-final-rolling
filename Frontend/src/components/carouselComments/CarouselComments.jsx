@@ -53,7 +53,7 @@ export const CarouselComments = ({ sliderMensajes }) => {
 
   return (
     <>
-      <h3 className="text-center titulo-comentarios">
+      <h3 data-aos="fade-left" className="text-center titulo-comentarios">
       Vea lo que han dicho nuestros clientes en Octubre
       </h3>
       <div className="bordes-estilo">

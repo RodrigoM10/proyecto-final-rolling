@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button,
   Col,
@@ -11,6 +11,9 @@ import {
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./collectionTable.css";
+// Imports Effect to scroll down
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const scrollToTop = () => {
   window.scrollTo(0, 250);
@@ -18,12 +21,18 @@ const scrollToTop = () => {
 
 
 const CollectionTable = () => {
+
+   // Efecto para scroll down 
+   useEffect(() => {
+    Aos.init({ duration: 2500 });
+  }, [])
+
   return (
     <div>
       <Container className="text-center">
-        <h3 className="collection-tilulo">Explore nuestras colecciones favoritas</h3>
-        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-          <Row className="mt-5">
+        <h3 data-aos="fade-up" className="collection-tilulo">Explore nuestras colecciones favoritas</h3>
+        <Tab.Container  id="left-tabs-example" defaultActiveKey="first">
+          <Row data-aos="fade-up" className="mt-5">
             <Col sm={3} className="p-0 col-sm-12 col-xl-3">
               <Nav variant="pills" className="flex-column">
                 <Nav.Item>
