@@ -36,7 +36,6 @@ function App() {
   const tokenLocalData = leerDeLocalStorage('token') || {};
   
   const [productos, setProductos] = useState([]);
-  console.log("🚀 ~ file: App.jsx ~ line 39 ~ App ~ productos", productos)
 
   const [user, setUser] = useState({});
 
@@ -45,6 +44,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [messages, setMessages] = useState([])
+  
+  const [busqueda, setBusqueda] = useState('');
+
 
   // useLocalStorage, es un hook que crea un useState con el valor determinado y guarda en localStorages con la key y el valor incial determinado.
   // reemplaza, crear useState y leer y guardar en localStorage
@@ -113,10 +115,11 @@ function App() {
 
     <div className="footer-fix ">
       <NavbarMain
+        setBusqueda={setBusqueda}
         favorites={favorites}
         user={user}
         cart={cart}
-        setAllProducts={setAllProducts}
+        setProductos={setProductos}
         allProducts={allProducts}
       />
       <Switch>
@@ -134,7 +137,8 @@ function App() {
         </Route>
 
         <Route path="/store" >
-          <Store allProducts={allProducts} setAllProducts={setAllProducts} productos={productos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
+          <Store allProducts={allProducts} setAllProducts={setAllProducts} 
+          productos={productos} setProductos={setProductos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} busqueda={busqueda}/>
         </Route>
 
         <Route path="/contact" >

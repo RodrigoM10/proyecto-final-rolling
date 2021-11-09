@@ -5,30 +5,39 @@ import { CardProduct } from "./CardProduct";
 import './cardProduct.css'
 
 
-export const CardsProduct = ({ allProducts, setAllProducts, favorites, setFavorites, cart, setCart, setShowSideCart }) => {
+export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSideCart, busqueda, allProducts }) => {
 
   // Paginacion
- 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
   const [currentProducts, setCurrentProducts] = useState([])
-  
+
   useEffect(() => {
     const limit = 8;
     const start = 0 + currentPage * limit - limit;
     const end = start + limit;
 
-    const productsSlice = allProducts.slice(start, end);
+    let searchProducts = []
+
+    if (busqueda.length !== '') {
+      searchProducts = allProducts.filter((prod) => {
+        return prod.name.toLowerCase().includes(busqueda.toLowerCase());
+      });
+    } else {
+      searchProducts = allProducts;
+    }
+
+    const productsSlice = searchProducts.slice(start, end);
     setCurrentProducts(productsSlice);
 
-    const totalPages = Math.ceil(allProducts.length / limit);
+    const totalPages = Math.ceil(searchProducts.length / limit);
     setTotalPages(totalPages);
-  }, [allProducts, currentPage]);
+  }, [allProducts, currentPage, busqueda]);
 
 
-  const mapProductos = currentProducts?.map((producto, i) => (
-    <CardProduct key={i} producto={producto}
+  const mapProductos = currentProducts?.map((producto) => (
+    <CardProduct key={producto._id} producto={producto}
       favorites={favorites}
       setFavorites={setFavorites}
       cart={cart}
@@ -43,8 +52,8 @@ export const CardsProduct = ({ allProducts, setAllProducts, favorites, setFavori
           <Card.Title>Producto no encontrado</Card.Title>
         </Card> :
         <>
-        <span className="mb-3">Pagina {currentPage} de {totalPages}</span>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">{mapProductos}</div>
+          <span className="mb-3">Pagina {currentPage} de {totalPages}</span>
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">{mapProductos}</div>
         </>
       }
       {/* Pagination */}

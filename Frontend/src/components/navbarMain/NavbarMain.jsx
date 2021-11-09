@@ -15,7 +15,7 @@ import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
 
 
-export const NavbarMain = ({ user, favorites, cart, setAllProducts, allProducts }) => {
+export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, setBusqueda}) => {
     const history = useHistory();
     const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -37,24 +37,15 @@ export const NavbarMain = ({ user, favorites, cart, setAllProducts, allProducts 
         localStorage.removeItem('cart');
         window.location.href = '/';
     }
+
     // Funcion de busqueda
-    const [busqueda, setBusqueda] = useState('');
-    console.log("🚀 ~ file: NavbarMain.jsx ~ line 42 ~ NavbarMain ~ busqueda", busqueda)
+
     const filter = (e) => {
         e.preventDefault();
         const keyword = e.target.value;
         history.push('/store');
-        if (keyword.length !== '') {
-            const results = allProducts.filter((prod) => {
-                return prod.name.toLowerCase().includes(keyword.toLowerCase());
-                // Use the toLowerCase() method to make it case-insensitive
-            });
-            setAllProducts(results);
-        } else {
-            setAllProducts(allProducts);
-            // If the text field is empty, show all users
-        }
         setBusqueda(keyword);
+   
     };
 
     return (
@@ -154,7 +145,6 @@ export const NavbarMain = ({ user, favorites, cart, setAllProducts, allProducts 
                                     className="search-icon"
                                     id="basic-addon1"><VscSearch /></span>
                                 <input
-                                    value={busqueda}
                                     type="text"
                                     className="col-11 search-input"
                                     placeholder="Buscá tu vino "

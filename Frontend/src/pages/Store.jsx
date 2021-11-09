@@ -6,7 +6,7 @@ import { FiltersProducts } from "../components/filtersProducts/FiltersProducts";
 import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 import { CartSideButton } from "../components/cartSideButton/CartSideButton";
 
-function Store({ productos, favorites, setFavorites, cart, setCart, allProducts, setAllProducts }) {
+function Store({ productos, favorites, setFavorites, cart, setCart, allProducts, setAllProducts, setProductos, busqueda }) {
   const [showSideCart, setShowSideCart] = useState(false);
   return (
     <div className="bg-grey">
@@ -18,8 +18,9 @@ function Store({ productos, favorites, setFavorites, cart, setCart, allProducts,
           </Col>
           <Col className="d-flex justify-content-center mt-3 mb-5 ">
             <CardsProduct
+              setProductos={setProductos}
               allProducts={allProducts}
-              setAllProducts={setAllProducts}
+              busqueda={busqueda}
               favorites={favorites}
               setFavorites={setFavorites}
               cart={cart}

@@ -9,7 +9,6 @@ import { FormBuy } from '../components/formBuy/FormBuy';
 import { CardDataCompra } from '../components/cardCart/CardDataCompra';
 
 function Cart({ cart, setCart, user }) {
-
     const history = useHistory();
 
     const scrollToTop = () => {
@@ -125,7 +124,7 @@ function Cart({ cart, setCart, user }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <FormBuy user={user} />
+                                    <FormBuy user={user} cart={cart}/>
                                 </div>
                             </div>
                         </Accordion.Body>
