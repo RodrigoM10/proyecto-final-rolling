@@ -1,6 +1,9 @@
 import React from "react";
 import "./carouselHeader.css";
 import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import "../CardsNews/cardsNews.css"
+
 
 
 
@@ -25,7 +28,7 @@ const Carouselheader = ({ sliderProductos }) => {
             <Card.Text className="card-description">
               {producto.descripcion}
             </Card.Text>
-            <Button className="button-slider">SHOP NOW</Button>{" "}
+            <Button as={NavLink} to="/store" className="button-news">COMPRA AHORA</Button>{" "}
           </Card.ImgOverlay>
         </Card>
       </Col>
