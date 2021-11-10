@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container, ListGroup, ListGroupItem, Modal, Table } from 'react-bootstrap'
+import { ListGroup, ListGroupItem, Modal, Table } from 'react-bootstrap'
 
 export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
 
@@ -63,7 +63,7 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
                     <div className="d-flex flex-column bg-datos-compra">
                         <div>
                             <h5 className="text-center"> <u>Datos de compra</u> </h5>
-                            <div className="ms-1">
+                            <div className="overflow-compra" >
                                 {mapProductsList}
                             </div>
                             <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">

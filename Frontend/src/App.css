@@ -164,3 +164,11 @@ body {
 .border-subtotal-total {
   border-top: 1.5px solid black;
 }
+.overflow-compra{
+  width: 100%;
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+
+}

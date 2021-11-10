@@ -18,7 +18,10 @@ export const FormBuy = ({ user, cart }) => {
     const [validated, setValidated] = useState(false);
 
     const [input, setInput] = useState({
-        buyerEmail: user.email, buyerDate: birthdayFormat, buyerName: user.name, buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '', buyerState: '', buyerZip: '', buyerShippingInstructions: '', buyerCardNumber: '', buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
+        buyerEmail: user.email, buyerDate: birthdayFormat, buyerName: user.name, 
+        buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '',
+         buyerState: '', buyerZip: '', buyerShippingInstructions: '', buyerCardNumber: '',
+          buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
     });
 
     const handleChange = (e) => {
@@ -69,7 +72,7 @@ export const FormBuy = ({ user, cart }) => {
         } catch (error) {
             console.error(error);
             if (error.response.data) {
-                swal(JSON.stringify(error.response.data));
+                swal("Faltan datos", "Completar los campos obligatorios", "warning");
             } else {
                 alert('error de conexion')
             }

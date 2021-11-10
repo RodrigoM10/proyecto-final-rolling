@@ -21,18 +21,18 @@ export const CardSideCarrito = ({ productCart, cart, setCart, changeCantidad }) 
 
     return (
         <div>
-            <div className="row justify-content-center align-content-center">
-                <Card.Img className="m-2 col-12 col-lg-2"
+            <div className="row  row-cols-6 align-items-center">
+                <Card.Img className="m-2 "
                     variant="top"
-                    style={{ width: '8rem' }}
+                    style={{ width: '7rem' }}
                     src={productCart.producto.image}
                 />
-                <Card.Text className="text-center m-2 col-12 col-lg-2" >
-                    {productCart.producto.name} 
+                <Card.Text className="text-center m-2 " >
+                    {productCart.producto.name}
                     <br />
                     <b className="mt-1">${productCart.producto.price}</b>
                 </Card.Text>
-                <div className="m-2 col-12 col-lg-2">
+                <div className="m-2 ">
                     <button
                         onClick={oneLess}
                         disabled={isCartZero}
@@ -40,8 +40,9 @@ export const CardSideCarrito = ({ productCart, cart, setCart, changeCantidad }) 
                     <h4>{productCart.cantidad}</h4>
                     <button onClick={oneMore} className="agregar-sacar-btn-modal">+</button>
                 </div>
-                <div className="m-2 col-12 col-lg-2">
+                <div >
                     <OverlayTrigger
+                        className="m-2 "
                         placement="right"
                         delay={{ show: 250, hide: 400 }}
                         overlay={
@@ -52,13 +53,12 @@ export const CardSideCarrito = ({ productCart, cart, setCart, changeCantidad }) 
                         }
                     >
                         <button className="btn-remove-to-cart pb-1 mb-2" onClick={removeToCart} >
-                        <MdOutlineClose />
-                    </button>
+                            <MdOutlineClose />
+                        </button>
                     </OverlayTrigger>
-                   
                 </div>
-                <hr />
             </div>
+                <hr />
         </div>
     )
 }

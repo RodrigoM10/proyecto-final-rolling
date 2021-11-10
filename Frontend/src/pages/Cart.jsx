@@ -101,10 +101,10 @@ function Cart({ cart, setCart, user }) {
                         <Accordion.Header>
                             Proceder a la compra
                         </Accordion.Header>
-                        <Accordion.Body className="d-flex">
-                            <div className="row row-cols-1 row-cols-lg-2 w-100">
+                        <Accordion.Body className="px-0">
+                            <div className="row row-cols-1 row-cols-lg-2 w-100 mx-0">
                                 {/* LISTADO DE DATOS DE COMPRA */}
-                                <div className="d-flex flex-column align-items-between datos-compra-div">
+                                <div className="d-flex flex-column align-items-between datos-compra-div m-auto">
                                     <h3 className="m-2 text-center ">DATOS DE LA COMPRA</h3>
                                     <div className="row justify-content-md-center align-items-md-center">
                                         {mapCompra}

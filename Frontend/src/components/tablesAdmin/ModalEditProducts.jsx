@@ -5,11 +5,18 @@ import swal from "sweetalert";
 
 export default function ModalEditProducts(props) {
   const { showModalEditar, closeModal, productFind, getProductos } = props;
-  const [input, setInput] = useState({ name: productFind.name, description: productFind.description, image: productFind.image, background: productFind.background, category: productFind.category, price: productFind.price, discount: productFind.discount  });
+  const [input, setInput] = useState({
+    name: productFind.name,
+    description: productFind.description,
+    image: productFind.image,
+    background: productFind.background,
+    category: productFind.category,
+    price: productFind.price,
+    discount: productFind.discount
+  });
 
   const handleChange = (e) => {
     const { value, name } = e.target;
-    // console.log(e.target);
     const newInput = { ...input, [name]: value };
     setInput(newInput);
   };
@@ -17,7 +24,6 @@ export default function ModalEditProducts(props) {
     e.preventDefault();
     e.stopPropagation();
     try {
-      // es importante tocar colocar el input, por que el back toma el "input" como el body
       await axios.put(`http://localhost:4000/api/productos/${productFind._id}`, input)
       swal("Producto modificado");
       await getProductos();
@@ -81,12 +87,12 @@ export default function ModalEditProducts(props) {
               />
             </Form.Group>
             <Form.Group className="mb-3 row" controlId="category">
-              <Form.Label  className="col-12 col-md-3">Categoria:</Form.Label>
-              <select name="category"  onChange={(e) => handleChange(e)} className="col-12 col-md-9" required>
-              <option value=""></option>
-              <option value="Rojo">Rojo</option>
-              <option value="Espumoso">Espumoso</option>
-              <option value="Blanco">Blanco</option>
+              <Form.Label className="col-12 col-md-3">Categoria:</Form.Label>
+              <select name="category" onChange={(e) => handleChange(e)} className="col-12 col-md-9" required>
+                <option value="" disabled selected>Tipo de vino...</option>
+                <option value="Rojo">Rojo</option>
+                <option value="Espumoso">Espumoso</option>
+                <option value="Blanco">Blanco</option>
               </select>
             </Form.Group>
             <Form.Group className="mb-3 row" controlId="price">

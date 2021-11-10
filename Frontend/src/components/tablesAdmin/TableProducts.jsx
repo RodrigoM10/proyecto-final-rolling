@@ -28,9 +28,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
 
         const productsSlice = tableProducts.slice(start, end);
         setCurrentProducts(productsSlice);
-
-        console.log(productsSlice)
-
+        
         const totalPages = Math.ceil(tableProducts.length / limit);
         setTotalPages(totalPages);
     }, [currentPage, tableProducts]);

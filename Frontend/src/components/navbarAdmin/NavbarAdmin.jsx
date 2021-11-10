@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 //React Icons

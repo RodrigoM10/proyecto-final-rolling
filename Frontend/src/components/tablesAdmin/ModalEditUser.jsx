@@ -19,14 +19,10 @@ export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}
         const newInput = { ...input, [name]: value };
         setInput(newInput);
     }
-
-    // esta consulta no esta andando!! ver que onda, antes andaba pero se cambio el back-
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log(userFind._id)
         try {
-            // es importante tocar colocar el input, por que el back toma el "input" como el body
             await axios.put(`http://localhost:4000/api/auth/${userFind._id}`, input)
             swal("Cambio exitoso", `El usuario ahora es ${userFind.role === 'admin' ? 'Cliente' : 'Administrador'}`, "success");
             closeModal();
@@ -56,7 +52,7 @@ export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}
                             <p>Cumpleaños: {day}/{month + 1}/{year}</p>
                             <label className="col-11 col-md-3 align-items-center label-role">Role:</label>
                             <select name="role" onChange={(e) => handleChange(e)} className="col-11 col-md-9 form-input-editUser" required>
-                                <option value=""></option>
+                                <option value="" disabled selected >Elje un rol</option>
                                 <option value="user">Cliente</option>
                                 <option value="admin">Administrador</option>
                             </select>

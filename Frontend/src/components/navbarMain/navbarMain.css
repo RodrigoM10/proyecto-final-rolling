@@ -132,7 +132,6 @@ li:hover::after {
 /* RESPONSIVE NAVBAR */
 .responsive-navbar {
     font-family: "Montserrat", sans-serif;
-    width: 530px !important;
     border: none;
 }
 .responsive-navbar-header {
