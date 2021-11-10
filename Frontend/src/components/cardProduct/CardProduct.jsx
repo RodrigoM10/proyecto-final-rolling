@@ -44,17 +44,15 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
     setShowSideCart(true);
   };
 
-  const cartEffect = () => {
+
+  useEffect(() => {
     const inCart = cart.find((productoCart) => productoCart.producto._id === producto._id);
     if (inCart) {
       setIsInCart(true);
     } else {
       setIsInCart(false);
     }
-  }
-  useEffect(() => {
-    cartEffect();
-  }, [cart]);
+  }, [cart, producto]);
 
 
 
