@@ -30,7 +30,6 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind, getSale
             </tr>
         </thead>
     </Table>
-
     ))
 
     return (
