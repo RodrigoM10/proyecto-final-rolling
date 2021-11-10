@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Accordion, Button, Card, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
+import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
@@ -14,6 +14,9 @@ export const FormBuy = ({ user, cart }) => {
     const year = birthdayUser.getUTCFullYear();
     const birthdayFormat = `${year}-${month + 1}-${day}`;
 
+    // Validaciones reactBoot
+    const [validated, setValidated] = useState(false);
+
     const [input, setInput] = useState({
         buyerEmail: user.email, buyerDate: birthdayFormat, buyerName: user.name, buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '', buyerState: '', buyerZip: '', buyerShippingInstructions: '', buyerCardNumber: '', buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
     });
@@ -26,6 +29,7 @@ export const FormBuy = ({ user, cart }) => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
+        e.stopPropagation();
         try {
             const newBuy = {
                 buyerData: {
@@ -65,7 +69,12 @@ export const FormBuy = ({ user, cart }) => {
         } catch (error) {
             console.error(error);
         }
-        e.target.reset();
+
+        setValidated(true);
+        if (setValidated === true) {
+            e.target.reset();
+        }
+        
     }
 
     const scrollToTop = () => {
@@ -75,7 +84,7 @@ export const FormBuy = ({ user, cart }) => {
 
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <div className="row row-cols-1">
                 {
                     !tokenLocal.token
@@ -86,7 +95,7 @@ export const FormBuy = ({ user, cart }) => {
                 }
                 <h5 className="mt-2">Informacion del Contacto</h5>
             </div>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="validationCustom01">
                 <FloatingLabel controlId="floatingSelect" label="Email">
                     <Form.Control type="email"
                         name="buyerEmail"
@@ -94,12 +103,9 @@ export const FormBuy = ({ user, cart }) => {
                         defaultValue={tokenLocal.token ? user.email : ""}
                         required
                     />
-
                 </FloatingLabel>
             </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                {/* <Form.Label>Nacimiento</Form.Label> */}
+            <Form.Group className="mb-3" controlId="validationCustom03">
                 <h5 className="mt-2">Nacimiento</h5>
                 {tokenLocal.token ?
                     <Form.Control
@@ -115,18 +121,17 @@ export const FormBuy = ({ user, cart }) => {
                         onChange={(e) => handleChange(e)}
                         required
                     />
-
                 }
-                <Form.Text className="text-muted mb-1">
-                    Necesitamos este dato para venderte alcohol
-                </Form.Text>
+                <Form.Control.Feedback type="invalid">
+                    Necesitamos saber tu edad para Venderte Alcohol
+                </Form.Control.Feedback>
             </Form.Group>
 
 
             <h5 className="mt-2">Dirección de envio</h5>
 
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col} controlId="validationCustom02">
                     <FloatingLabel controlId="floatingSelect" label="Nombre">
                         <Form.Control type="text"
                             name="buyerName"
@@ -134,8 +139,11 @@ export const FormBuy = ({ user, cart }) => {
                             defaultValue={tokenLocal.token ? user.name : ""}
                             required />
                     </FloatingLabel>
+                    <Form.Control.Feedback type="invalid">
+                        Necesitamos tu Nombre
+                    </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col} controlId="validationCustom04">
                     <FloatingLabel controlId="floatingSelect" label="Apellido">
                         <Form.Control type="text"
                             name="buyerLastName"
@@ -143,23 +151,32 @@ export const FormBuy = ({ user, cart }) => {
                             defaultValue={tokenLocal.token ? user.lastName : ""}
                             required />
                     </FloatingLabel>
+                    <Form.Control.Feedback type="invalid">
+                        Necesitamos tu Apellido
+                    </Form.Control.Feedback>
                 </Form.Group>
             </Row>
-            <Form.Group className="mb-3" controlId="formGridAddress1">
+            <Form.Group className="mb-3" controlId="validationCustom05">
                 <FloatingLabel controlId="floatingSelect" label="Dirección">
                     <Form.Control type="text"
                         name="buyerAddress1"
                         onChange={(e) => handleChange(e)}
                         required />
                 </FloatingLabel>
+                <Form.Control.Feedback type="invalid">
+                    Dato Requerido
+                </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formGridAddress2">
+            <Form.Group className="mb-3" controlId="validationCustom06">
                 <FloatingLabel controlId="floatingSelect" label="Piso, departamento ...">
                     <Form.Control type="text"
                         name="buyerAddress2"
                         onChange={(e) => handleChange(e)}
                         required />
                 </FloatingLabel>
+                <Form.Control.Feedback type="invalid">
+                    Dato Requerido
+                </Form.Control.Feedback>
             </Form.Group>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridCity">
@@ -169,6 +186,9 @@ export const FormBuy = ({ user, cart }) => {
                             onChange={(e) => handleChange(e)}
                             required />
                     </FloatingLabel>
+                    <Form.Control.Feedback type="invalid">
+                        Dato Requerido
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridState">
                     <FloatingLabel controlId="floatingSelect" label="Provincia">
@@ -177,6 +197,9 @@ export const FormBuy = ({ user, cart }) => {
                             onChange={(e) => handleChange(e)}
                             required />
                     </FloatingLabel>
+                    <Form.Control.Feedback type="invalid">
+                        Dato Requerido
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridState">
                     <FloatingLabel controlId="floatingSelect" label="Codigo Postal">
@@ -185,6 +208,9 @@ export const FormBuy = ({ user, cart }) => {
                             onChange={(e) => handleChange(e)}
                             required />
                     </FloatingLabel>
+                    <Form.Control.Feedback type="invalid">
+                        Dato Requerido
+                    </Form.Control.Feedback>
                 </Form.Group>
             </Row>
             <Form.Group className="mt-2 mb-3" controlId="exampleForm.ControlTextarea1">
@@ -205,7 +231,7 @@ export const FormBuy = ({ user, cart }) => {
                         <Form.Text className="text-muted mb-1">
                             Todas las transacciones son seguras y encriptadas.
                         </Form.Text>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="validationCustom07">
                             <FloatingLabel controlId="floatingSelect" label="Numero de Tarjeta">
                                 <Form.Control type="text" minLength="16" maxLength="19"
                                     name="buyerCardNumber"
@@ -213,8 +239,11 @@ export const FormBuy = ({ user, cart }) => {
                                     autoComplete={false}
                                     required />
                             </FloatingLabel>
+                            <Form.Control.Feedback type="invalid">
+                                Por Favor complete los datos de la tarjeta
+                            </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="validationCustom08">
                             <FloatingLabel controlId="floatingSelect" label="Nombre Tarjeta">
                                 <Form.Control type="text"
                                     name="buyerCardName"
@@ -222,9 +251,12 @@ export const FormBuy = ({ user, cart }) => {
                                     autoComplete={false}
                                     required />
                             </FloatingLabel>
+                            <Form.Control.Feedback type="invalid">
+                                Por Favor complete los datos de la tarjeta
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Row className="mb-3">
-                            <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Group as={Col} controlId="validationCustom10">
                                 <FloatingLabel controlId="floatingSelect" label="Vencimiento (MM/YY)">
                                     <Form.Control type="text" minLength="5" maxLength="5"
                                         name="buyerCardDate"
@@ -232,8 +264,11 @@ export const FormBuy = ({ user, cart }) => {
                                         autoComplete={false}
                                         required />
                                 </FloatingLabel>
+                                <Form.Control.Feedback type="invalid">
+                                   Fecha de Vencimiento Necesaria 
+                                </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} controlId="formGridPassword">
+                            <Form.Group as={Col} controlId="validationCustom10">
                                 <FloatingLabel controlId="floatingSelect" label="Codigo de seguridad">
                                     <Form.Control type="text" maxLength="3" minLength="3"
                                         name="buyerCardCode"
@@ -241,6 +276,9 @@ export const FormBuy = ({ user, cart }) => {
                                         autoComplete={false}
                                         required />
                                 </FloatingLabel>
+                                <Form.Control.Feedback type="invalid">
+                                   Fecha de Vencimiento Necesaria 
+                                </Form.Control.Feedback>
                             </Form.Group>
                         </Row>
                         {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}

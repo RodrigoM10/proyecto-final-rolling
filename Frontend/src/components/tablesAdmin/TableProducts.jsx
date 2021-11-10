@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import swal from 'sweetalert';
 import { Container, OverlayTrigger, Table, Tooltip } from 'react-bootstrap'
 import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
@@ -8,12 +8,36 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
 import CargaProduts from './CargaProducts';
 import ModalEditProducts from './ModalEditProducts';
+import { PaginationStore } from '../paginationStore/PaginationStore';
 
 export const TableProducts = ({ productos, getProductos, tableProducts, setTableProducts }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [productFind, setProductFind] = useState({});
     const [showModalEditar, setShowModalEditar] = useState(false);
+
+    // Paginacion
+    // Paginacion
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+
+    const [currentProducts, setCurrentProducts] = useState([])
+
+
+
+    useEffect(() => {
+        const limit = 10;
+        const start = 0 + currentPage * limit - limit;
+        const end = start + limit;
+
+        const productsSlice = tableProducts.slice(start, end);
+        setCurrentProducts(productsSlice);
+
+        console.log(productsSlice)
+
+        const totalPages = Math.ceil(tableProducts.length / limit);
+        setTotalPages(totalPages);
+    }, [currentPage, tableProducts]);
 
     const closeModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
@@ -25,6 +49,17 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         setProductFind(response.data);
         setIsLoading(false);
         handleShowModalEditar();
+    };
+
+
+    // trae de la API por producto para borrar.
+    const deleteProduct = async (_id) => {
+        setIsLoading(true);
+        const tokenLocal = leerDeLocalStorage('token') || {};
+        const headers = { 'x-auth-token': tokenLocal.token };
+        await axios.delete(`http://localhost:4000/api/productos/${_id}`, { headers });
+        await getProductos();
+        setIsLoading(false);
     };
 
     const alertaBorrar = (_id) => {
@@ -41,16 +76,8 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                 }
             });
     }
-    // trae de la API por producto para borrar.
-    const deleteProduct = async (_id) => {
-        setIsLoading(true);
-        const tokenLocal = leerDeLocalStorage('token') || {};
-        const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/productos/${_id}`, { headers });
-        await getProductos();
-        setIsLoading(false);
-    };
 
+    // Funcion que actualiza los productos, los trae del BACK
     const refreshProductos = async () => {
         setIsLoading(true);
         await getProductos();
@@ -59,6 +86,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
 
     // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
+
     const filter = (e) => {
         const keyword = e.target.value;
 
@@ -75,87 +103,98 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         setBusqueda(keyword);
     };
 
+
     return (
         <>
-        <CargaProduts getProductos={getProductos} />
-        <Container>
-            <div className="d-flex justify-content-between align-items-center my-2">
-                <form className="search-form  " >
-                    <div className="input-group search-table">
-                        <span
-                            className="search-icon"
-                            id="basic-addon1"><VscSearch /></span>
-                        <input
-                            value={busqueda}
-                            type="text"
-                            className="col-11 search-input"
-                            placeholder="Buscar"
-                            aria-describedby="basic-addon1"
-                            onChange={filter}
-                        />
-                    </div>
-                </form>
-                <button onClick={() => refreshProductos()} className=" my-2 p-0 circle-btn">
-                    <FaHistory className="p-0  mb-1" />
-                </button>
-            </div>
-            <Table bordered hover>
-                <thead>
-                    <tr className="text-center " >
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Categoria</th>
-                        <th colSpan="2">Actions</th>
-                    </tr>
-                </thead>
-                <tbody >
-                {tableProducts.length === 0 ? <tr>'No hay productos registrados'</tr>:
-                    tableProducts.map(({ name, price, category, _id }, i) => (
-                            <tr className="text-center" key={i}>
-                                <td>{name}</td>
-                                <td>$ {price}</td>
-                                <td>{category}</td>
-                                <td className="p-1 d-flex ">
-                                <OverlayTrigger
-                                        placement="right"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Editar Producto
-                                                </Tooltip>)
-                                        }
-                                    >
-                                    <button className="m-auto circle-btn" onClick={() => findProduct(_id)} ><FaRegEdit className="mb-1" /></button>
-                                    </OverlayTrigger>
-                                <OverlayTrigger
-                                        placement="right"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Eliminar Producto
-                                                </Tooltip>)
-                                        }
-                                    >
-                                        <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
-                                    </OverlayTrigger>
-                                </td>
-                            </tr>
-                    ))}
-                    </tbody>
-            </Table>
-            {isLoading && (
-                <SpinnerRW   />
-            )}
+            <CargaProduts getProductos={getProductos} />
+            <Container>
+                <div className="d-flex justify-content-between align-items-center my-2">
+                    <form className="search-form  " >
+                        <div className="input-group search-table">
+                            <span
+                                className="search-icon"
+                                id="basic-addon1"><VscSearch /></span>
+                            <input
+                                value={busqueda}
+                                type="text"
+                                className="col-11 search-input"
+                                placeholder="Buscar"
+                                aria-describedby="basic-addon1"
+                                onChange={filter}
+                            />
+                        </div>
+                    </form>
+                    <button onClick={() => refreshProductos()} className=" my-2 p-0 circle-btn">
+                        <FaHistory className="p-0  mb-1" />
+                    </button>
+                </div>
+                <span className="text-center mb-3">Pagina {currentPage} de {totalPages}</span>
+                <Table bordered hover>
+                    <thead>
+                        <tr className="text-center " >
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Categoria</th>
+                            <th colSpan="2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {currentProducts.length === 0 ? <tr>'No hay productos registrados'</tr> :
+                            currentProducts.map(({ name, price, category, _id }, i) => (
+                                <tr className="text-center" key={i}>
+                                    <td>{name}</td>
+                                    <td>$ {price}</td>
+                                    <td>{category}</td>
+                                    <td className="p-1 d-flex ">
+                                        <OverlayTrigger
+                                            placement="right"
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={
+                                                (props) => (
+                                                    <Tooltip id="button-tooltip" {...props}>
+                                                        Editar Producto
+                                                    </Tooltip>)
+                                            }
+                                        >
+                                            <button className="m-auto circle-btn" onClick={() => findProduct(_id)} ><FaRegEdit className="mb-1" /></button>
+                                        </OverlayTrigger>
+                                        <OverlayTrigger
+                                            placement="right"
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={
+                                                (props) => (
+                                                    <Tooltip id="button-tooltip" {...props}>
+                                                        Eliminar Producto
+                                                    </Tooltip>)
+                                            }
+                                        >
+                                            <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                        </OverlayTrigger>
+                                    </td>
+                                </tr>
+                            ))}
 
-            <ModalEditProducts 
-            closeModal={closeModalEditar}
-            showModalEditar={showModalEditar}
-            productFind={productFind}
-            getProductos={getProductos}
-            />
-        </Container>
+                    </tbody>
+                </Table>
+                <div className="d-flex justify-content-center ">
+                <PaginationStore
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalPages={totalPages}
+                />
+                </div>
+                
+                {isLoading && (
+                    <SpinnerRW />
+                )}
+
+                <ModalEditProducts
+                    closeModal={closeModalEditar}
+                    showModalEditar={showModalEditar}
+                    productFind={productFind}
+                    getProductos={getProductos}
+                />
+            </Container>
         </>
     )
 }

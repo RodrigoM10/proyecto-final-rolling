@@ -101,7 +101,7 @@ export default function ModalEditProducts(props) {
               />
             </Form.Group>
             <Form.Group className="mb-3 row" controlId="discount">
-              <Form.Label className="col-12 col-md-3">Precio:</Form.Label>
+              <Form.Label className="col-12 col-md-3">Descuento:</Form.Label>
               <input
                 className="col-12 col-md-9"
                 name="discount"
