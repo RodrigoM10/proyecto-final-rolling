@@ -28,8 +28,9 @@ export const CardSideCarrito = ({ productCart, cart, setCart, changeCantidad }) 
                     src={productCart.producto.image}
                 />
                 <Card.Text className="text-center m-2 col-12 col-lg-2" >
-                    {productCart.producto.name}
-                    <h5>${productCart.producto.price}</h5>
+                    {productCart.producto.name} 
+                    <br />
+                    <b className="mt-1">${productCart.producto.price}</b>
                 </Card.Text>
                 <div className="m-2 col-12 col-lg-2">
                     <button

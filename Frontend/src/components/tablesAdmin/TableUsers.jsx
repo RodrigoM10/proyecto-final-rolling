@@ -11,11 +11,8 @@ import { ModalEditUser } from './ModalEditUser';
 export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) => {
 
     const [isLoading, setIsLoading] = useState(false);
-
     const [userFind, setUserFind] = useState({});
-
     const [showModalEditar, setShowModalEditar] = useState(false);
-
 
     const handleCloseModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
@@ -43,8 +40,6 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                 }
             });
     }
-
-
     // trae de la API por usuario para borrar.
     const deleteUser = async (_id) => {
         setIsLoading(true);
@@ -54,13 +49,11 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         await getUsers();
         setIsLoading(false);
     };
-
     const refreshUsers = async () => {
         setIsLoading(true);
         await getUsers();
         setIsLoading(false);
     };
-
 
     // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
@@ -73,12 +66,10 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                 return user.name.toLowerCase().includes(keyword.toLowerCase())
                     || user.email.toLowerCase().includes(keyword.toLowerCase())
                     || user.role.toLowerCase().includes(keyword.toLowerCase());
-                // Use the toLowerCase() method to make it case-insensitive
             });
             setTableUsers(results);
         } else {
             setTableUsers(usuarios);
-            // If the text field is empty, show all users
         }
         setBusqueda(keyword);
     };

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Container, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
 import { AiFillEye } from 'react-icons/ai';
-import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
+import { FaEraser, FaHistory} from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
 import swal from 'sweetalert';
 import { leerDeLocalStorage } from '../../utils/localStorage';
