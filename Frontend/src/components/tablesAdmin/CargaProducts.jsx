@@ -26,18 +26,9 @@ export default function CargaProduts({ getProductos }) {
 
 
   const handleChange = (event) => {
-    // Extraemos y guardamos en variables, el nombre y el valor del input en el que escribió el usuario.
-    // const inputHtml = event.target;
-    // const name = inputHtml.name;
-    // const value = inputHtml.value;
     const { value, name } = event.target;
-
-    // Declaramos un objeto que contiene una copia de las propiedades del state input,
-    // más el dato nuevo ingresado usando el name y value del elemento.
     const newInput = { ...input, [name]: value };
-    // Con ese objeto actualizamos el estado.
     setInput(newInput);
-    // console.log(newInput);
   };
 
   const handleSubmit = async (event) => {

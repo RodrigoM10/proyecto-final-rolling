@@ -7,20 +7,14 @@ import './cardProduct.css'
 
 export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSideCart, busqueda, allProducts, selectCategory, selectPrice }) => {
 
-  // Paginacion
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-
   const [currentProducts, setCurrentProducts] = useState([]);
-
 
   useEffect(() => {
     const limit = 8;
     const start = 0 + currentPage * limit - limit;
     const end = start + limit;
-
-
-    // filtered products
 
     const filteredProducts = allProducts
     .filter((prodFil) => !selectCategory ||  prodFil.category === selectCategory)
@@ -35,8 +29,6 @@ export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSi
     } else {
       searchProducts = filteredProducts;
     }
-
-
     const productsSlice = searchProducts.slice(start, end);
     setCurrentProducts(productsSlice);
 

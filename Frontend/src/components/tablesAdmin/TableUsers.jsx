@@ -116,14 +116,17 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                     </tr>
                 </thead>
                 <tbody>
-                    {tableUsers.length === 0 ? <tr>'No hay usuarios registrados'</tr> :
+                    {tableUsers.length === 0 ?
+                        <tr>
+                            <td colSpan="6"> No hay usuarios registrados</td>
+                        </tr> :
                         tableUsers.map(({ name, email, role, _id }, i) => (
                             <tr className="text-center" key={i}>
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role === 'admin' ? "Administrador " : "Cliente "}</td>
                                 <td className="p-1 d-flex ">
-                                <OverlayTrigger
+                                    <OverlayTrigger
                                         placement="right"
                                         delay={{ show: 250, hide: 400 }}
                                         overlay={
@@ -133,7 +136,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                                                 </Tooltip>)
                                         }
                                     >
-                                    <button className="m-auto circle-btn" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
+                                        <button className="m-auto circle-btn" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
                                     </OverlayTrigger>
                                     <OverlayTrigger
                                         placement="right"

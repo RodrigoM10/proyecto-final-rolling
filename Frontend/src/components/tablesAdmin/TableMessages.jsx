@@ -85,7 +85,7 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
-            <Table  bordered hover>
+            <Table bordered hover>
                 <thead>
                     <tr className="text-center " >
                         <th>Nombre</th>
@@ -95,14 +95,17 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
                     </tr>
                 </thead>
                 <tbody >
-                {tableMessages.length === 0 ? <tr>No hay mensajes registrados</tr>:
-                    tableMessages.map(({ senderName, senderEmail, message, _id }, i) => (
+                    {tableMessages.length === 0 ?
+                        <tr>
+                            <td colSpan="6">No hay mensajes registrados</td>
+                        </tr> :
+                        tableMessages.map(({ senderName, senderEmail, message, _id }, i) => (
                             <tr className="text-center " key={i}>
                                 <td>{senderName}</td>
                                 <td>{senderEmail}</td>
                                 <td>{message}</td>
                                 <td>
-                                <OverlayTrigger
+                                    <OverlayTrigger
                                         placement="right"
                                         delay={{ show: 250, hide: 400 }}
                                         overlay={
@@ -116,8 +119,8 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
                                     </OverlayTrigger>
                                 </td>
                             </tr>
-                    ))}
-                    </tbody>
+                        ))}
+                </tbody>
             </Table>
 
             {isLoading && (

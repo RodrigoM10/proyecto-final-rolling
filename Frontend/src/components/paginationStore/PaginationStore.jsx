@@ -1,22 +1,17 @@
-
 import './paginationStore.css'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
-
 
 export const PaginationStore = ({totalPages = 0, setCurrentPage, currentPage = 1}) => {
   const scrollToTop = () => {
     window.scrollTo(0, 250);
   };
-
     const handleSetPage = (n) => {
       scrollToTop();
       setCurrentPage(n);
     };
-
     const pagination = () => {
       const pages = [];
       let count = 0;
-  
       for (let i = currentPage - 3; i < currentPage + 5; i++) {
         const active = i === currentPage ? 'current-number' : '';
   
@@ -34,7 +29,6 @@ export const PaginationStore = ({totalPages = 0, setCurrentPage, currentPage = 1
   
       return pages;
     };
-
     const prevNext = (n) => {
       const disabled = n === 0 || n > totalPages;
       const isPrevious = n < currentPage;

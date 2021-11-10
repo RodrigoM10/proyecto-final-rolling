@@ -1,24 +1,18 @@
 import React from 'react'
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Button, Card} from "react-bootstrap";
 // Import Swiper styles
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-
 import "./sliderProducts.css"
-
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
 import { Link } from 'react-router-dom';
-
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-
 export function SliderProducts({ productos }) {
-
   const mapSliderProductos = productos?.map((producto, i) => (
 
     <SwiperSlide

@@ -16,14 +16,10 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
     const [productFind, setProductFind] = useState({});
     const [showModalEditar, setShowModalEditar] = useState(false);
 
-    // Paginacion
-    // Paginacion
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
     const [currentProducts, setCurrentProducts] = useState([])
-
-
 
     useEffect(() => {
         const limit = 10;
@@ -42,7 +38,6 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
     const closeModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
 
-
     const findProduct = async (_id) => {
         setIsLoading(true);
         const response = await axios.get(`http://localhost:4000/api/productos/${_id}`);
@@ -50,7 +45,6 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         setIsLoading(false);
         handleShowModalEditar();
     };
-
 
     // trae de la API por producto para borrar.
     const deleteProduct = async (_id) => {
@@ -83,10 +77,8 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         await getProductos();
         setIsLoading(false);
     };
-
     // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
-
     const filter = (e) => {
         const keyword = e.target.value;
 
@@ -102,8 +94,6 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         }
         setBusqueda(keyword);
     };
-
-
     return (
         <>
             <CargaProduts getProductos={getProductos} />
@@ -139,9 +129,12 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                         </tr>
                     </thead>
                     <tbody >
-                        {currentProducts.length === 0 ? <tr>'No hay productos registrados'</tr> :
-                            currentProducts.map(({ name, price, category, _id }, i) => (
-                                <tr className="text-center" key={i}>
+                        {currentProducts.length === 0 ?
+                            <tr> 
+                                <td colSpan="6">No hay productos registrados</td> 
+                            </tr> :
+                            currentProducts.map(({ name, price, category, _id }, tabProducts) => (
+                                <tr className="text-center" key={tabProducts}>
                                     <td>{name}</td>
                                     <td>$ {price}</td>
                                     <td>{category}</td>
@@ -173,17 +166,16 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                                     </td>
                                 </tr>
                             ))}
-
                     </tbody>
                 </Table>
                 <div className="d-flex justify-content-center ">
-                <PaginationStore
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    totalPages={totalPages}
-                />
+                    <PaginationStore
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                        totalPages={totalPages}
+                    />
                 </div>
-                
+
                 {isLoading && (
                     <SpinnerRW />
                 )}

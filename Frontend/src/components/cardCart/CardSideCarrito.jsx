@@ -29,7 +29,7 @@ export const CardSideCarrito = ({ productCart, cart, setCart, changeCantidad }) 
                 />
                 <Card.Text className="text-center m-2 col-12 col-lg-2" >
                     {productCart.producto.name}
-                    <h6>${productCart.producto.price}</h6>
+                    <h5>${productCart.producto.price}</h5>
                 </Card.Text>
                 <div className="m-2 col-12 col-lg-2">
                     <button

@@ -45,12 +45,6 @@ export const FiltersProducts = ({ setSelectCategory, selectCategory, onselectCat
 
         <div className=" d-flex  align-content-center mt-2">
           <div className="d-flex flex-column">
-            {/* <label className="m-2">Precio</label>
-            <div className="d-flex">
-              <p className="m-0">$20</p>
-              <input onChange={filtrarPrecio} name="price" type="range" className="rango-precio" min="20" max="60" step="10" />
-              <p className="m-0">$60</p>
-            </div> */}
             <label className="m-2">Precio</label>
             <select onChange={filtrarPrecio} className="form-select" >
               <option value="20">Hasta $20</option>
@@ -63,66 +57,7 @@ export const FiltersProducts = ({ setSelectCategory, selectCategory, onselectCat
             <CloseButton className={`m-2 ${visibleClearPri}`} onClick={clearSelect} />
           </div>
         </div>
-
       </div>
-
-      {/* <Accordion defaultActiveKey="0">  
-       <Accordion.Item className="acordionEstilo" eventKey="0">
-                <Accordion.Header className="filtroMenu mt-5">PRECIO</Accordion.Header>
-                <Accordion.Body>
-                  <div className="d-flex">
-                    <>
-                      <Form.Check aria-label="option 1" />
-                      <p className="mx-3">Menos de $20</p>
-                    </>
-                  </div>
-                  <div className="d-flex">
-                    <>
-                      <Form.Check aria-label="option 2" />
-                      <p className="mx-3"> $20 - $30</p>
-                    </>
-                  </div>
-                  <div className="d-flex">
-                    <>
-                      <Form.Check aria-label="option 3" />
-                      <p className="mx-3"> $31 - $40</p>
-                    </>
-                  </div>
-                  <div className="d-flex">
-                    <>
-                      <Form.Check aria-label="option 4" />
-                      <p className="mx-3"> Más de $40</p>
-                    </>
-                  </div>
-                </Accordion.Body>
-              </Accordion.Item> 
-
-      <Accordion.Item className="acordionEstilo" eventKey="1">
-                <Accordion.Header className="filtroMenu mt-3">
-                  CATEGORÍA
-                </Accordion.Header>
-                <Accordion.Body>
-                  <div className="d-flex">
-                    <>
-                      <Form.Check aria-label="option 1" />
-                      <p className="mx-3">Rojo</p>
-                    </>
-                  </div>
-                  <div className="d-flex">
-                    <>
-                      <Form.Check aria-label="option 2" />
-                      <p className="mx-3">Blanco</p>
-                    </>
-                  </div>
-                  <div className="d-flex">
-                    <>
-                      <Form.Check aria-label="option 3" />
-                      <p className="mx-3">Espumoso</p>
-                    </>
-                  </div>
-                </Accordion.Body>
-              </Accordion.Item>
-      </Accordion>  */}
     </>
   )
 }

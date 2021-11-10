@@ -5,7 +5,6 @@ import { MdOutlineCleaningServices } from "react-icons/md";
 import { CardSideCarrito } from "../cardCart/CardSideCarrito";
 
 export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart }) => {
-
   const handleClose = () => setShowSideCart(false);
   const handleShow = () => setShowSideCart(true);
 
@@ -27,7 +26,6 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
     changeCantidad={changeCantidad} />
   ));
 
-  //fn limpia productos del carrito
   const clearCart = () => {
     setCart([]);
   };
@@ -70,7 +68,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
             {mapSideCarrito}
           </div>
           <h2>TOTAL: ${total.toFixed(2)} </h2>
-          <buton onClick={handleClose} className="btn-general-style" aria-label="Close">CONTINUA COMPRANDO</buton>
+          <button onClick={handleClose} className="btn-general-style" aria-label="Close">CONTINUA COMPRANDO</button>
         </Offcanvas.Body>
       </Offcanvas>
     </>

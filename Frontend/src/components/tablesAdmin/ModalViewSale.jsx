@@ -1,8 +1,7 @@
 import React from 'react'
-import { Col, Container, ListGroup, ListGroupItem, Modal, Row, Table } from 'react-bootstrap'
+import { Col, Container, ListGroup, ListGroupItem, Modal, Table } from 'react-bootstrap'
 
-export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind, getSales }) => {
-    console.log("🚀 ~ file: ModalViewSale.jsx ~ line 5 ~ ModalViewSale ~ saleFind", saleFind)
+export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
 
     const { buyerData, buyerShipping, productsList } = saleFind;
 

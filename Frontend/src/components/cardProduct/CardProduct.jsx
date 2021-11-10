@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, setShowSideCart }) => {
 
   const [isInCart, setIsInCart] = useState(false);
-
   const [isFavorites, setIsFavorites] = useState(false)
 
+  // Funcion para para productos a favoritos
   const addFavorite = () => {
     setFavorites((favList) => favList.concat({ producto }))
   }
@@ -25,7 +25,6 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
       addFavorite()
     }
   }
-
   useEffect(() => {
     const isFavorites = favorites.some((fav) => fav.producto._id === producto._id);
     if (isFavorites) {
@@ -35,15 +34,12 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
     };
   }, [favorites, producto]);
 
-  
-  // FUNCION PARA aÑADIR A CARRITO CARRITO
-  const cantidad = 1
-  
+// Funcion para productos al carrito
+  const cantidad = 1  
   const addToCart = () => {
     setCart((cart) => cart.concat({ producto, cantidad }));
     setShowSideCart(true);
   };
-
 
   useEffect(() => {
     const inCart = cart.find((productoCart) => productoCart.producto._id === producto._id);
@@ -53,8 +49,6 @@ export const CardProduct = ({ producto, favorites, setFavorites, cart, setCart, 
       setIsInCart(false);
     }
   }, [cart, producto]);
-
-
 
   return (
     <div className="productos mx-1 p-0" >
