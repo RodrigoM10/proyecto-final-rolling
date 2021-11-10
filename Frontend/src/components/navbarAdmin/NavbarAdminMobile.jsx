@@ -48,6 +48,9 @@ const NavbarAdminMobile = (props) => {
                         <Nav.Link as={NavLink} to="/userList" activeClassName="link-active" onClick={handleClose}>USUARIOS</Nav.Link>
                     </li>
                     <li className="p-2 mx-3">
+                        <Nav.Link as={NavLink} to="/salesList" activeClassName="link-active" onClick={handleClose}>VENTAS</Nav.Link>
+                    </li>
+                    <li className="p-2 mx-3">
                         <Nav.Link as={NavLink} to="/" activeClassName="link-active"><RiArrowGoBackLine className="mb-1" onClick={handleClose} />  VOLVER A LANDING</Nav.Link>
                     </li>
                 </div>

@@ -5,17 +5,14 @@ import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
 import './formBuy.css'
-import { useHistory } from 'react-router-dom';
 
 export const FormBuy = ({ user, cart }) => {
-    const history = useHistory();
     const tokenLocal = leerDeLocalStorage('token') || {};
     const birthdayUser = new Date(user.birthday);
     const day = birthdayUser.getUTCDate();
     const month = birthdayUser.getUTCMonth();
     const year = birthdayUser.getUTCFullYear();
     const birthdayFormat = `${year}-${month + 1}-${day}`;
-
 
     const [input, setInput] = useState({
         buyerEmail: user.email, buyerDate: birthdayFormat, buyerName: user.name, buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '', buyerState: '', buyerZip: '', buyerShippingInstructions: '', buyerCardNumber: '', buyerCardName: '', buyerCardDate: '', buyerCardCode: ''

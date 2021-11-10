@@ -22,8 +22,9 @@ import AdminBoard from "./pages/admin/AdminBoard";
 import MessagesList from "./pages/admin/MessagesList";
 import UserList from "./pages/admin/UserList";
 import ProfileAdmin from "./pages/admin/ProfileAdmin";
-import { SpinnerRW } from "./components/spinner/SpinnerRW";
+import SalesList from "./pages/admin/SalesList";
 //main components
+import { SpinnerRW } from "./components/spinner/SpinnerRW";
 import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import { Footer } from "./components/footer/Footer";
 // utils
@@ -35,18 +36,18 @@ import pagewine from "./utils/lottieArchivos/pagewine.json";
 import { Container } from "react-bootstrap";
 
 const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    },
+  loop: true,
+  autoplay: true,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  },
 
 }
 
 
 function App() {
   const tokenLocalData = leerDeLocalStorage('token') || {};
-  
+
   const [productos, setProductos] = useState([]);
 
   const [user, setUser] = useState({});
@@ -55,15 +56,17 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const [messages, setMessages] = useState([])
-  
+  const [messages, setMessages] = useState([]);
+
+  const [sales, setSales] = useState([]);
+
   const [busqueda, setBusqueda] = useState('');
 
 
   // useLocalStorage, es un hook que crea un useState con el valor determinado y guarda en localStorages con la key y el valor incial determinado.
   // reemplaza, crear useState y leer y guardar en localStorage
   const [favorites, setFavorites] = useLocalStorage('favorites', []);
-  
+
 
   const [cart, setCart] = useLocalStorage('cart', [])
 
@@ -93,6 +96,18 @@ function App() {
   useEffect(() => {
     getProductos();
   }, [])
+
+  const [tableSales, setTableSales] = useState([]);
+  console.log("🚀 ~ file: App.jsx ~ line 101 ~ App ~ tableSales", tableSales)
+  const getSales = async () => {
+    const response = await axios.get('http://localhost:4000/api/ventas');
+    setSales(response.data);
+    setTableSales(response.data);
+  }
+  useEffect(() => {
+    getSales();
+  }, [])
+
 
   const [tableMessages, setTableMessages] = useState([])
   const getMessages = async () => {
@@ -149,8 +164,8 @@ function App() {
         </Route>
 
         <Route path="/store" >
-          <Store allProducts={allProducts} setAllProducts={setAllProducts} 
-          productos={productos} setProductos={setProductos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} busqueda={busqueda}/>
+          <Store allProducts={allProducts} setAllProducts={setAllProducts}
+            productos={productos} setProductos={setProductos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} busqueda={busqueda} />
         </Route>
 
         <Route path="/contact" >
@@ -166,7 +181,7 @@ function App() {
         </Route>
 
         <Route path="/login" >
-          <Login requestUserData={requestUserData} cart={cart}/>
+          <Login requestUserData={requestUserData} cart={cart} />
         </Route>
 
         <Route path="/register" >
@@ -200,10 +215,15 @@ function App() {
             <UserList getUsers={getUsers} usuarios={usuarios} tableUsers={tableUsers} setTableUsers={setTableUsers} />
           </Route>
         )}
+        {isAdmin && (
+          <Route path="/salesList" >
+            <SalesList getSales={getSales} sales={sales} tableSales={tableSales} setTableSales={setTableSales} />
+          </Route>
+        )}
 
         <Route path="/404">
           <Container>
-          <Lottie options={{animationData: pagewine, ...defaultOptions}} />
+            <Lottie options={{ animationData: pagewine, ...defaultOptions }} />
           </Container>
         </Route>
 
