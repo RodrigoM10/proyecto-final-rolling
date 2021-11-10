@@ -14,7 +14,6 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({buyerData: {}, buyerShipping:{}, productsList:[]});
 
-
     const [showModalViewSale, setShowModalViewSale] = useState(false);
 
     const handleCloseModalViewSale = () => setShowModalViewSale(false);
