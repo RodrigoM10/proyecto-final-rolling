@@ -29,6 +29,11 @@ export const FormRegister = () => {
             history.push('/login');
         } catch (error) {
             console.error(error);
+            if (error.response.data) {
+                swal(JSON.stringify(error.response.data));
+            } else {
+                alert('error de conexion')
+            }
         }
     }
     return (
