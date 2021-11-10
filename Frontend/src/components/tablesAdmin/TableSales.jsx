@@ -9,9 +9,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
 import { ModalViewSale } from './ModalViewSale';
 
-export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
-    console.log("🚀 ~ file: TableSales.jsx ~ line 13 ~ TableSales ~ tableSales", tableSales)
-
+export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({});
@@ -24,7 +22,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/usuarios/${_id}`);
+        const response = await axios.get(`http://localhost:4000/api/ventas/${_id}`);
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
@@ -33,7 +31,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
     const alertaBorrar = (_id) => {
         swal({
             title: "Esta seguro?",
-            text: "Se perdera el dato de la compra... asegurese bien",
+            text: "Se perdera el dato de la compra...",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -60,6 +58,22 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
         setIsLoading(false);
     };
 
+    
+    // Funcion de busqueda
+    const [busqueda, setBusqueda] = useState('');
+
+    const filter = (e) => {
+        const keyword = e.target.value;
+        if (keyword !== '') {
+            const results = sales.filter((sale) => {
+                return sale.buyerData.buyerEmail.toLowerCase().includes(keyword.toLowerCase());
+            });
+            setTableSales(results);
+        } else {
+            setTableSales(sales);
+        }
+        setBusqueda(keyword);
+    };
 
     return (
         <Container>
@@ -70,12 +84,12 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
                             className="search-icon"
                             id="basic-addon1"><VscSearch /></span>
                         <input
-                            // value={busqueda}
+                            value={busqueda}
                             type="text"
                             className="col-11 search-input"
                             placeholder="Buscar"
                             aria-describedby="basic-addon1"
-                        // onChange={filter}
+                            onChange={filter}
                         />
                     </div>
                 </form>
@@ -83,9 +97,10 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
-            <Table bordered hover>
+            <Table bordered hover >
                 <thead>
                     <tr className="text-center " >
+                        <th>Fecha</th>
                         <th>Cliente</th>
                         <th>Provincia</th>
                         <th>Productos</th>
@@ -97,25 +112,35 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
                     {tableSales.length === 0 ? <tr>No hay ventas registradas</tr> :
                         tableSales.map(({
                             buyerData: {
-                                buyerEmail
+                                buyerEmail,
+                                registerBuy
                             },
                             buyerShipping: {
                                 buyerState
                             },
                             productsList
 
-                            , _id }, i) => (
-                            <tr className="text-center " key={i}>
+                            , _id }, tabSale) => (
+                            <tr className="text-center " key={tabSale}>
+                                <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
                                 <td>{buyerEmail}</td>
                                 <td>{buyerState}</td>
                                 <td>{productsList.map(({ producto, quantity }) => (
-                                    <>
-                                        <p>Nombre:{producto.name}</p>
-                                        <p>Precio:{producto.price}</p>
-                                    </>
-                                ))}
+                                    <Table size="sm">
+                                        <thead>
+                                            <tr>
+                                                <td>{producto.name}</td>
+                                                <td>{quantity} u</td>
+                                                <td>$ {producto.price}</td>
+                                            </tr>
+                                        </thead>
+                                    </Table>
+                                )
+                                )}
                                 </td>
-                                {/* <td>{message}</td> */}
+                                <span className="d-flex align-items-center justify-content-center">$ {
+                                    (productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)
+                                }</span>
                                 <td>
                                     <OverlayTrigger
                                         placement="right"
@@ -123,7 +148,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
                                         overlay={
                                             (props) => (
                                                 <Tooltip id="button-tooltip" {...props}>
-                                                    Editar Usuario
+                                                    Ver Venta
                                                 </Tooltip>)
                                         }
                                     >
@@ -135,11 +160,11 @@ export const TableSales = ({ getSales, sales, tableSales, setTablesSales }) => {
                                         overlay={
                                             (props) => (
                                                 <Tooltip id="button-tooltip" {...props}>
-                                                    Eliminar Mensaje
+                                                    Eliminar Venta
                                                 </Tooltip>)
                                         }
                                     >
-                                        <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                        <button className="ms-3 circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
                                     </OverlayTrigger>
                                 </td>
                             </tr>

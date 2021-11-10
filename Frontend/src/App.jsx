@@ -98,7 +98,6 @@ function App() {
   }, [])
 
   const [tableSales, setTableSales] = useState([]);
-  console.log("🚀 ~ file: App.jsx ~ line 101 ~ App ~ tableSales", tableSales)
   const getSales = async () => {
     const response = await axios.get('http://localhost:4000/api/ventas');
     setSales(response.data);
