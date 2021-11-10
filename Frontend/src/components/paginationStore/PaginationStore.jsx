@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import './paginationStore.css'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
