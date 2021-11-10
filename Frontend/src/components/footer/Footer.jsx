@@ -18,7 +18,7 @@ export const Footer = () => {
 
     return (
         <>
-            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "profileAdmin" &&
+            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "profileAdmin" && splitLocation[1] !== "salesList" &&
                 <div className="mt-auto">
                     <div className="footer">
                         <div className="row text-center align-items-center">
@@ -93,6 +93,7 @@ export const Footer = () => {
             {splitLocation[1] === "messagesList" && <FooterAdmin />}
             {splitLocation[1] === "userList" && <FooterAdmin />}
             {splitLocation[1] === "profileAdmin" && <FooterAdmin />}
+            {splitLocation[1] === "salesList" && <FooterAdmin />}
         </>
     )
 }

@@ -80,6 +80,9 @@ export const NavbarAdmin = ({ user }) => {
                         <li className="p-2 mx-3">
                             <Nav.Link as={NavLink} to="/userList" activeClassName="link-active" >USUARIOS</Nav.Link>
                         </li>
+                        <li className="p-2 mx-3">
+                            <Nav.Link as={NavLink} to="/salesList" activeClassName="link-active" >VENTAS</Nav.Link>
+                        </li>
                     </div>
                 </Container>
             </Navbar>

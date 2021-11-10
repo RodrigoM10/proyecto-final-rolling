@@ -45,12 +45,11 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
         const keyword = e.target.value;
         history.push('/store');
         setBusqueda(keyword);
-   
     };
 
     return (
         <>
-            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "profileAdmin" &&
+            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "profileAdmin" && splitLocation[1] !== "salesList" &&
                 <Navbar className="navbar d-flex flex-column" expand="lg" >
                     <Container className="py-3">
                         <div className="d-flex align-items-center contenedor">
@@ -156,13 +155,14 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
                     </Container>
                 </Navbar>
             }
-            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "adminProfile" &&
+            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "adminProfile" && splitLocation[1] !== "salesList" &&
                 <NavbarMainMobile user={user} setShow={setShow} show={show} />
             }
             {splitLocation[1] === "adminBoard" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "messagesList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "profileAdmin" && <NavbarAdmin user={user} />}
+            {splitLocation[1] === "salesList" && <NavbarAdmin user={user} />}
         </>
 
     )

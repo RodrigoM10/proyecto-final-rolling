@@ -66,12 +66,11 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
             const results = productos.filter((prod) => {
                 return prod.name.toLowerCase().includes(keyword.toLowerCase())
                     || prod.category.toLowerCase().includes(keyword.toLowerCase());
-                // Use the toLowerCase() method to make it case-insensitive
             });
             setTableProducts(results);
         } else {
             setTableProducts(productos);
-            // If the text field is empty, show all users
+
         }
         setBusqueda(keyword);
     };

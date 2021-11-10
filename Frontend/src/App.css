@@ -146,6 +146,10 @@ body {
   background-color: rgba(238, 238, 238, 0.726);
   border-right: 1.5px solid black;
 }
+.bg-datos-compra {
+  background-color: rgba(238, 238, 238, 0.726);
+  border-left: 1.5px solid black;
+}
 
 @media only screen and (max-width: 992px) {
   .datos-compra-div{
