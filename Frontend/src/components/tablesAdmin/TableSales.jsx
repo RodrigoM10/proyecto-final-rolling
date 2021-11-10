@@ -58,7 +58,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
         setIsLoading(false);
     };
 
-    
+
     // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
 
@@ -66,7 +66,9 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
         const keyword = e.target.value;
         if (keyword !== '') {
             const results = sales.filter((sale) => {
-                return sale.buyerData.buyerEmail.toLowerCase().includes(keyword.toLowerCase());
+                return sale.buyerData.buyerEmail.toLowerCase().includes(keyword.toLowerCase())
+                    || sale.buyerData.registerBuy.toLowerCase().includes(keyword.toLowerCase())
+                    || sale.buyerShipping.buyerState.toLowerCase().includes(keyword.toLowerCase());
             });
             setTableSales(results);
         } else {
@@ -109,7 +111,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                     </tr>
                 </thead>
                 <tbody >
-                    {tableSales.length === 0 ? <tr>No hay ventas registradas</tr> :
+                    {tableSales.length === 0 ? <tr> <td colSpan="6">No hay ventas registradas</td> </tr> :
                         tableSales.map(({
                             buyerData: {
                                 buyerEmail,
@@ -120,54 +122,54 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                             },
                             productsList
 
-                            , _id }, tabSale) => (
-                            <tr className="text-center " key={tabSale}>
-                                <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
-                                <td>{buyerEmail}</td>
-                                <td>{buyerState}</td>
-                                <td>{productsList.map(({ producto, quantity }) => (
-                                    <Table size="sm">
-                                        <thead>
-                                            <tr>
-                                                <td>{producto.name}</td>
-                                                <td>{quantity} u</td>
-                                                <td>$ {producto.price}</td>
-                                            </tr>
-                                        </thead>
-                                    </Table>
-                                )
-                                )}
-                                </td>
-                                <span className="d-flex align-items-center justify-content-center">$ {
-                                    (productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)
-                                }</span>
-                                <td>
-                                    <OverlayTrigger
-                                        placement="right"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Ver Venta
-                                                </Tooltip>)
-                                        }
-                                    >
-                                        <button className="m-auto circle-btn" onClick={() => findSale(_id)} ><AiFillEye className="mb-1" /></button>
-                                    </OverlayTrigger>
-                                    <OverlayTrigger
-                                        placement="right"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Eliminar Venta
-                                                </Tooltip>)
-                                        }
-                                    >
-                                        <button className="ms-3 circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
-                                    </OverlayTrigger>
-                                </td>
-                            </tr>
+                            , _id }, tab) => (
+                                <tr className="text-center " key={tab}>
+                                    <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
+                                    <td>{buyerEmail}</td>
+                                    <td>{buyerState}</td>
+                                    <td>{productsList.map(({ producto, quantity }, prod) => (
+                                        <Table size="sm" key={prod}>
+                                            <thead>
+                                                <tr className="row">
+                                                    <td className="col-6">{producto.name}</td>
+                                                    <td className="col-3">{quantity} u</td>
+                                                    <td className="col-3">$ {producto.price}</td>
+                                                </tr>
+                                            </thead>
+                                        </Table>
+                                        )
+                                        )}
+                                    </td>
+                                    <td className="d-flex align-items-center justify-content-center" >
+                                        $ {(productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)}
+                                    </td>
+                                    <td>
+                                        <OverlayTrigger
+                                            placement="right"
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={
+                                                (props) => (
+                                                    <Tooltip id="button-tooltip" {...props}>
+                                                        Ver Venta
+                                                    </Tooltip>)
+                                            }
+                                        >
+                                            <button className="m-auto circle-btn" onClick={() => findSale(_id)} ><AiFillEye className="mb-1" /></button>
+                                        </OverlayTrigger>
+                                        <OverlayTrigger
+                                            placement="right"
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={
+                                                (props) => (
+                                                    <Tooltip id="button-tooltip" {...props}>
+                                                        Eliminar Venta
+                                                    </Tooltip>)
+                                            }
+                                        >
+                                            <button className="ms-3 circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                        </OverlayTrigger>
+                                    </td>
+                                </tr>
                         ))}
                 </tbody>
             </Table>
@@ -176,13 +178,14 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                 closeModal={handleCloseModalViewSale}
                 showModalViewSale={showModalViewSale}
                 saleFind={saleFind}
-                getSales={getSales}
             />
 
-            {isLoading && (
-                <SpinnerRW />
-            )}
+            {
+        isLoading && (
+            <SpinnerRW />
+        )
+    }
 
-        </Container>
+        </Container >
     )
 }

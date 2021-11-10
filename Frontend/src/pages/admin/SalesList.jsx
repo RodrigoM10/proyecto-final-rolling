@@ -7,7 +7,7 @@ export default function SalesList({ getSales, sales, tableSales, setTableSales }
         <>
             <Container>
                 <h2 className="title-style my-2">Ventas</h2>
-                <TableSales getSales={getSales} sales={sales} tableSales={tableSales} setTablesSales={setTableSales} />
+                <TableSales getSales={getSales} sales={sales} tableSales={tableSales} setTableSales={setTableSales} />
             </Container>
         </>
     );

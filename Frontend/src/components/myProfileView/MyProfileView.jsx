@@ -20,10 +20,8 @@ moment.locale('es');
 export const MyProfileView = ({ user, requestUserData }) => {
 
     const [isLoading, setIsLoading] = useState(false);
-    console.log("🚀 ~ file: ModalDeletAccount.jsx ~ line 12 ~ ModalDeleteAccount ~ isLoading", isLoading)
     const history = useHistory();
 
-    console.log("🚀 ~ file: MyProfileView.jsx ~ line 13 ~ MyProfileView ~ ser", user)
     const [showModalEditar, setShowModalEditar] = useState(false);
     const [showModalPassword, setShowModalPassword] = useState(false);
 
@@ -33,10 +31,6 @@ export const MyProfileView = ({ user, requestUserData }) => {
     const handleCloseModalPassword = () => setShowModalPassword(false);
     const handleShowModalPassword = () => setShowModalPassword(true);
 
-console.log('register', user.register);
-const registerUser = new Date(user.register);
-console.log("🚀 ~ file: MyProfileView.jsx ~ line 38 ~ MyProfileView ~ new Date", new Date())
-console.log("🚀 ~ file: MyProfileView.jsx ~ line 38 ~ MyProfileView ~ registerUser", registerUser)
 
 
     const alertaBorrar = (_id) => {
