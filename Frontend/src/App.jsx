@@ -15,7 +15,6 @@ import Cart from "./pages/Cart";
 import Favorite from "./pages/Favorite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-// import DetailsProduct from "./pages/DetailsProduct";
 import MyProfile from "./pages/MyProfile";
 // admin pages
 import AdminBoard from "./pages/admin/AdminBoard";
@@ -44,30 +43,19 @@ const defaultOptions = {
 
 }
 
-
 function App() {
   const tokenLocalData = leerDeLocalStorage('token') || {};
 
   const [productos, setProductos] = useState([]);
-
   const [user, setUser] = useState({});
-
   const [usuarios, setUsuarios] = useState([]);
-
-  const [isLoading, setIsLoading] = useState(true);
-
   const [messages, setMessages] = useState([]);
-
   const [sales, setSales] = useState([]);
 
   const [busqueda, setBusqueda] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
-
-  // useLocalStorage, es un hook que crea un useState con el valor determinado y guarda en localStorages con la key y el valor incial determinado.
-  // reemplaza, crear useState y leer y guardar en localStorage
   const [favorites, setFavorites] = useLocalStorage('favorites', []);
-
-
   const [cart, setCart] = useLocalStorage('cart', [])
 
   const requestUserData = async () => {
@@ -85,6 +73,7 @@ function App() {
     requestUserData();
   }, []);
 
+  // get productos de api rest
   const [allProducts, setAllProducts] = useState([])
   const [tableProducts, setTableProducts] = useState([])
   const getProductos = async () => {
@@ -97,6 +86,7 @@ function App() {
     getProductos();
   }, [])
 
+  // get ventas de api rest
   const [tableSales, setTableSales] = useState([]);
   const getSales = async () => {
     const response = await axios.get('http://localhost:4000/api/ventas');
@@ -107,7 +97,7 @@ function App() {
     getSales();
   }, [])
 
-
+  // get mensajes de api rest
   const [tableMessages, setTableMessages] = useState([])
   const getMessages = async () => {
     const response = await axios.get('http://localhost:4000/api/mensajes');
@@ -118,7 +108,7 @@ function App() {
     getMessages();
   }, [])
 
-  // se agrega funcion que trae de la API los usuarios registrados, para pasarla como prop a userList.
+  // get usuarios de api rest
   const [tableUsers, setTableUsers] = useState([])
   const getUsers = async () => {
     const response = await axios.get('http://localhost:4000/api/usuarios');
@@ -138,7 +128,6 @@ function App() {
   }
 
   return (
-
     <div className="footer-fix ">
       <NavbarMain
         setBusqueda={setBusqueda}
@@ -159,12 +148,19 @@ function App() {
         </Route>
 
         <Route path="/store/:productId">
-          <DetailsProduct cart={cart} setCart={setCart} productos={productos} />
+          <DetailsProduct
+            cart={cart}
+            setCart={setCart}
+            productos={productos} />
         </Route>
 
         <Route path="/store" >
-          <Store allProducts={allProducts} setAllProducts={setAllProducts}
-            productos={productos} setProductos={setProductos} favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} busqueda={busqueda} />
+          <Store
+            allProducts={allProducts} setAllProducts={setAllProducts}
+            productos={productos} setProductos={setProductos}
+            favorites={favorites} setFavorites={setFavorites}
+            cart={cart} setCart={setCart}
+            busqueda={busqueda} />
         </Route>
 
         <Route path="/contact" >
@@ -172,15 +168,24 @@ function App() {
         </Route>
 
         <Route path="/cart" >
-          <Cart cart={cart} setCart={setCart} user={user} />
+          <Cart
+            cart={cart}
+            setCart={setCart}
+            user={user} />
         </Route>
 
         <Route path="/favorite" >
-          <Favorite favorites={favorites} setFavorites={setFavorites} cart={cart} setCart={setCart} />
+          <Favorite
+            favorites={favorites}
+            setFavorites={setFavorites}
+            cart={cart}
+            setCart={setCart} />
         </Route>
 
         <Route path="/login" >
-          <Login requestUserData={requestUserData} cart={cart} />
+          <Login
+            requestUserData={requestUserData}
+            cart={cart} />
         </Route>
 
         <Route path="/register" >
@@ -189,34 +194,50 @@ function App() {
 
         {tokenLocalData.token &&
           <Route path="/myProfile" >
-            <MyProfile requestUserData={requestUserData} user={user} />
+            <MyProfile
+              requestUserData={requestUserData}
+              user={user} />
           </Route>
         }
 
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/adminBoard" >
-            <AdminBoard productos={productos} getProductos={getProductos} tableProducts={tableProducts} setTableProducts={setTableProducts} />
+            <AdminBoard
+              productos={productos}
+              getProductos={getProductos}
+              tableProducts={tableProducts} setTableProducts={setTableProducts} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/profileAdmin" >
-            <ProfileAdmin requestUserData={requestUserData} user={user} />
+            <ProfileAdmin
+              requestUserData={requestUserData}
+              user={user} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/messagesList" >
-            <MessagesList messages={messages} getMessages={getMessages} tableMessages={tableMessages} setTableMessages={setTableMessages} />
+            <MessagesList
+              messages={messages}
+              getMessages={getMessages}
+              tableMessages={tableMessages} setTableMessages={setTableMessages} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList getUsers={getUsers} usuarios={usuarios} tableUsers={tableUsers} setTableUsers={setTableUsers} />
+            <UserList
+              usuarios={usuarios}
+              getUsers={getUsers}
+              tableUsers={tableUsers} setTableUsers={setTableUsers} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/salesList" >
-            <SalesList getSales={getSales} sales={sales} tableSales={tableSales} setTableSales={setTableSales} />
+            <SalesList
+              sales={sales}
+              getSales={getSales}
+              tableSales={tableSales} setTableSales={setTableSales} />
           </Route>
         )}
 

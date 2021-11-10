@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom';
-import './navbarMain.css'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-
+import './navbarMain.css'
 
 //React Icons
 import { BsCart, BsCartFill } from 'react-icons/bs';
@@ -15,17 +14,13 @@ import { NavbarAdmin } from '../navbarAdmin/NavbarAdmin';
 import NavbarMainMobile from './NavbarMainMobile';
 
 
-export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, setBusqueda}) => {
+export const NavbarMain = ({ user, favorites, cart, setBusqueda }) => {
     const history = useHistory();
     const tokenLocal = leerDeLocalStorage('token') || {};
 
-    // asigno la variable location
     const location = useLocation();
-    //destructuro pathname from location
     const { pathname } = location;
-    //js split method para obtener el nombre del path del array
     const splitLocation = pathname.split("/");
-
 
     const [show, setShow] = useState(false);
 
@@ -39,7 +34,6 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
     }
 
     // Funcion de busqueda
-
     const filter = (e) => {
         e.preventDefault();
         const keyword = e.target.value;
@@ -49,7 +43,12 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
 
     return (
         <>
-            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "profileAdmin" && splitLocation[1] !== "salesList" &&
+            {splitLocation[1] !== "adminBoard"
+                && splitLocation[1] !== "messagesList"
+                && splitLocation[1] !== "userList"
+                && splitLocation[1] !== "profileAdmin"
+                && splitLocation[1] !== "salesList"
+                &&
                 <Navbar className="navbar d-flex flex-column" expand="lg" >
                     <Container className="py-3">
                         <div className="d-flex align-items-center contenedor">
@@ -71,9 +70,15 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
                                     !tokenLocal.token
                                     &&
                                     <span className="d-flex align-items-center navbar-log mx-2 d-none d-md-block ">
-                                        <a href="/login" className={splitLocation[1] === "login" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Iniciar sesión</a>
+                                        <a href="/login"
+                                            className={splitLocation[1] === "login" ?
+                                                "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>
+                                            Iniciar sesión</a>
                                         <span>/</span>
-                                        <a href="/register" className={splitLocation[1] === "register" ? "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>Registrarse</a>
+                                        <a href="/register"
+                                            className={splitLocation[1] === "register" ?
+                                                "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>
+                                            Registrarse</a>
                                     </span>
                                 }
                                 {
@@ -85,10 +90,20 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
                                         title={<span className="text-white">Hola {user.name} </span>}
                                         menuVariant="ligth"
                                     >
-                                        <NavDropdown.Item className="text-center" as={NavLink} to="/myProfile"><CgProfile className="mb-1" /> Mi perfil</NavDropdown.Item>
-                                        <NavDropdown.Item className="text-center" as={NavLink} to="/adminBoard"><FaWrench className="mb-1" /> Admin Board</NavDropdown.Item>
+                                        <NavDropdown.Item
+                                            className="text-center" as={NavLink} to="/myProfile">
+                                            <CgProfile className="mb-1" /> Mi perfil
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item
+                                            className="text-center" as={NavLink} to="/adminBoard">
+                                            <FaWrench className="mb-1" /> Admin Board
+                                        </NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare className="mb-1" /> Cerrar sesión</NavDropdown.Item>}
+                                        {tokenLocal.token &&
+                                            <NavDropdown.Item className="text-center" onClick={logout} >
+                                                <FaShareSquare className="mb-1" /> Cerrar sesión
+                                            </NavDropdown.Item>
+                                        }
                                     </NavDropdown>
                                 }
                                 {
@@ -100,9 +115,16 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
                                         title={<span>Hola {user.name} </span>}
                                         menuVariant="light"
                                     >
-                                        <NavDropdown.Item className="text-center" as={NavLink} to="/myProfile"><CgProfile className="mb-1" /> Mi perfil</NavDropdown.Item>
+                                        <NavDropdown.Item
+                                            className="text-center" as={NavLink} to="/myProfile">
+                                            <CgProfile className="mb-1" /> Mi perfil
+                                        </NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        {tokenLocal.token && <NavDropdown.Item className="text-center" onClick={logout} > <FaShareSquare className="mb-1" /> Cerrar sesión</NavDropdown.Item>}
+                                        {tokenLocal.token &&
+                                            <NavDropdown.Item className="text-center" onClick={logout} >
+                                                <FaShareSquare className="mb-1" /> Cerrar sesión
+                                            </NavDropdown.Item>
+                                        }
                                     </NavDropdown>
                                 }
                                 <span className="d-flex align-items-center navbar-icons">
@@ -155,7 +177,12 @@ export const NavbarMain = ({ user, favorites, cart, allProducts, setProductos, s
                     </Container>
                 </Navbar>
             }
-            {splitLocation[1] !== "adminBoard" && splitLocation[1] !== "messagesList" && splitLocation[1] !== "userList" && splitLocation[1] !== "adminProfile" && splitLocation[1] !== "salesList" &&
+            {splitLocation[1] !== "adminBoard"
+                && splitLocation[1] !== "messagesList"
+                && splitLocation[1] !== "userList"
+                && splitLocation[1] !== "adminProfile"
+                && splitLocation[1] !== "salesList"
+                &&
                 <NavbarMainMobile user={user} setShow={setShow} show={show} />
             }
             {splitLocation[1] === "adminBoard" && <NavbarAdmin user={user} />}

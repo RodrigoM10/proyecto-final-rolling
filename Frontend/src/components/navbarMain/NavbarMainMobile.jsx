@@ -1,8 +1,7 @@
 import React from 'react'
-import { NavLink, useHistory } from 'react-router-dom';
-import './navbarMain.css'
+import { NavLink } from 'react-router-dom';
 import { Nav, Offcanvas } from 'react-bootstrap';
-
+import './navbarMain.css'
 
 //React Icons
 import { BsFacebook } from 'react-icons/bs';
@@ -13,8 +12,6 @@ import { FaWrench } from 'react-icons/fa';
 
 const NavbarMainMobile = ({ user, setShow, show }) => {
     const tokenLocal = leerDeLocalStorage('token') || {};
-    const history = useHistory();
-
     const handleClose = () => setShow(false);
 
     const logout = () => {
@@ -23,7 +20,6 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
         localStorage.removeItem('cart');
         window.location.href = '/';
     }
-
 
     return (
         <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
@@ -42,13 +38,11 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                     <a href="/login">
                         <button className="btn-general-style">Iniciar sesión</button>
                     </a>
-
                     <a href="/register">
                         <button exact className="btn-general-style">Registrarse</button>
                     </a>
                 </Offcanvas.Header>
             }
-
             {/* si esta registrado un usuario con token valido entonces se muestra */}
             {user.role === 'user' &&
                 <Offcanvas.Header className="d-flex flex-column bienvenido-user">
