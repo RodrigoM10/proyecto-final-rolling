@@ -1,6 +1,5 @@
 //snippet rfc
 
-import React, { useState } from 'react'
 import { Accordion, Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardCarrito } from '../components/cardCart/CardCarrito';
