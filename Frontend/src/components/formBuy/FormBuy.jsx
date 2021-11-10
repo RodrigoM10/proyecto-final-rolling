@@ -68,6 +68,11 @@ export const FormBuy = ({ user, cart }) => {
 
         } catch (error) {
             console.error(error);
+            if (error.response.data) {
+                swal(JSON.stringify(error.response.data));
+            } else {
+                alert('error de conexion')
+            }
         }
 
         setValidated(true);
