@@ -61,12 +61,20 @@ function App() {
   const requestUserData = async () => {
     const tokenLocal = leerDeLocalStorage('token') || {};
     setIsLoading(true);
-    if (tokenLocal.token) {
-      const headers = { 'x-auth-token': tokenLocal.token };
-      const response = await axios.get('http://localhost:4000/api/auth', { headers });
-      setUser(response.data);
+
+    try {
+      if (tokenLocal.token) {
+        const headers = { 'x-auth-token': tokenLocal.token };
+        const response = await axios.get('http://localhost:4000/api/auth', { headers });
+        setUser(response.data);
+      }
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      localStorage.removeItem('token');
+      alert('Su sesión expiró.')
+      window.location.href = '/';
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -77,10 +85,14 @@ function App() {
   const [allProducts, setAllProducts] = useState([])
   const [tableProducts, setTableProducts] = useState([])
   const getProductos = async () => {
-    const response = await axios.get('http://localhost:4000/api/productos');
-    setProductos(response.data);
-    setTableProducts(response.data);
-    setAllProducts(response.data);
+    try {
+      const response = await axios.get('http://localhost:4000/api/productos');
+      setProductos(response.data);
+      setTableProducts(response.data);
+      setAllProducts(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
   useEffect(() => {
     getProductos();
@@ -89,9 +101,13 @@ function App() {
   // get ventas de api rest
   const [tableSales, setTableSales] = useState([]);
   const getSales = async () => {
-    const response = await axios.get('http://localhost:4000/api/ventas');
-    setSales(response.data);
-    setTableSales(response.data);
+    try {
+      const response = await axios.get('http://localhost:4000/api/ventas');
+      setSales(response.data);
+      setTableSales(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
   useEffect(() => {
     getSales();
@@ -100,9 +116,13 @@ function App() {
   // get mensajes de api rest
   const [tableMessages, setTableMessages] = useState([])
   const getMessages = async () => {
-    const response = await axios.get('http://localhost:4000/api/mensajes');
-    setMessages(response.data);
-    setTableMessages(response.data);
+    try {      
+      const response = await axios.get('http://localhost:4000/api/mensajes');
+      setMessages(response.data);
+      setTableMessages(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
   useEffect(() => {
     getMessages();
@@ -111,9 +131,13 @@ function App() {
   // get usuarios de api rest
   const [tableUsers, setTableUsers] = useState([])
   const getUsers = async () => {
-    const response = await axios.get('http://localhost:4000/api/usuarios');
-    setUsuarios(response.data);
-    setTableUsers(response.data);
+    try {
+      const response = await axios.get('http://localhost:4000/api/usuarios');
+      setUsuarios(response.data);
+      setTableUsers(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
   useEffect(() => {
     getUsers();
@@ -156,6 +180,8 @@ function App() {
 
         <Route path="/store" >
           <Store
+          getProductos={getProductos}
+          isLoading={isLoading}
             allProducts={allProducts} setAllProducts={setAllProducts}
             productos={productos} setProductos={setProductos}
             favorites={favorites} setFavorites={setFavorites}
