@@ -23,6 +23,11 @@
   align-items: center;
   width: 20%;
 }
+@media only screen and (max-width: 576px) {
+.swiper-slide{
+  justify-content: start;
+}
+}
 
 .swiper-slide img {
   display: block;

@@ -10,7 +10,9 @@ import { Link } from 'react-router-dom';
 SwiperCore.use([Pagination]);
 
 export function SliderProducts({ productos }) {
-  const mapSliderProductos = productos?.map((producto, i) => (
+
+
+  const mapSliderProductos = productos.slice(25, productos.length).map((producto, i) => (
 
     <SwiperSlide
       key={i} producto={producto}
