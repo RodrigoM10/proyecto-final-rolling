@@ -3,6 +3,11 @@ import { Container, Col, Row, Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./cardsNews.css";
 
+
+const scrollToTop = () => {
+  window.scrollTo(0, 200);
+};
+
 const Cardsnews = () => {
   return (
     <>
@@ -30,7 +35,7 @@ const Cardsnews = () => {
                   juez internacional de vinos, en una serie de inigualables
                   clases magistrales.
                 </Card.Text>
-                <Button as={NavLink} to="/404" className="button-news">VER AHORA</Button>
+                <Button as={NavLink} to="/404" onClick={scrollToTop} className="button-news">VER AHORA</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -52,7 +57,7 @@ const Cardsnews = () => {
                   Para recibir una experiencia de vino personalizada, hecha a
                   medida solo para ti.
                 </Card.Text>
-                <Button as={NavLink} to="/404" className="button-news">EXPLORA AHORA</Button>
+                <Button as={NavLink} to="/404" onClick={scrollToTop} className="button-news">EXPLORA AHORA</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -74,7 +79,7 @@ const Cardsnews = () => {
                   Nuestro programa de recompensas inigualable incluye vales de
                   descuento, gratis envío y más ...
                 </Card.Text>
-                <Button as={NavLink} to="/404" className="button-news">SABER MÁS</Button>
+                <Button as={NavLink} to="/404" onClick={scrollToTop} className="button-news">SABER MÁS</Button>
               </Card.Body>
             </Card>
           </Col>

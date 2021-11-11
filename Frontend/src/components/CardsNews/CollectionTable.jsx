@@ -9,7 +9,13 @@ import {
   Tab,
   TabContent,
 } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "./collectionTable.css";
+
+const scrollToTop = () => {
+  window.scrollTo(0, 250);
+};
+
 
 const CollectionTable = () => {
   return (
@@ -59,7 +65,7 @@ const CollectionTable = () => {
                         Conexiones globales profundas con un dedo firmemente en
                         el pulso de los nombres a conocer de la industria.
                       </p>
-                      <Button className="button-news mt-5">
+                      <Button as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
                         VER COLECCIÓN
                       </Button>
                     </Col>
@@ -81,7 +87,7 @@ const CollectionTable = () => {
                         una fuerte identidad regional. Calidad garantizada y
                         valor en cada vaso.
                       </p>
-                      <Button className="button-news mt-5">
+                      <Button  as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
                         VER COLECCIÓN
                       </Button>
                     </Col>
@@ -102,7 +108,7 @@ const CollectionTable = () => {
                         Primer acceso directo al consumidor en el mundo a uno de
                         los las mejores carteras de vinos del mundo.
                       </p>
-                      <Button className="button-news mt-5">
+                      <Button as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
                         EXPLORA LA GAMA
                       </Button>
                     </Col>
@@ -124,7 +130,7 @@ const CollectionTable = () => {
                         productores venerados solo disponibles para The Wine
                         Collective clientes.
                       </p>
-                      <Button className="button-news mt-5">
+                      <Button as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
                         VER COLECCIÓN
                       </Button>
                     </Col>
