@@ -5,9 +5,9 @@ import { CardsProduct } from "../components/cardProduct/CardsProduct";
 import { FiltersProducts } from "../components/filtersProducts/FiltersProducts";
 import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 import { CartSideButton } from "../components/cartSideButton/CartSideButton";
-import { SpinnerRW } from "../components/spinner/SpinnerRW";
 
-function Store({ productos, favorites, setFavorites, cart, setCart, allProducts, setProductos, busqueda, getProductos}) {
+
+function Store({ productos, favorites, setFavorites, cart, setCart, allProducts, setProductos, busqueda}) {
   const [showSideCart, setShowSideCart] = useState(false);
 
   const [selectCategory, setSelectCategory] = useState('');
@@ -22,7 +22,6 @@ function Store({ productos, favorites, setFavorites, cart, setCart, allProducts,
     setSelectPrice(value);
   }
 
-
   return (
     <div className="bg-grey">
       <Container>
@@ -36,7 +35,6 @@ function Store({ productos, favorites, setFavorites, cart, setCart, allProducts,
           </Col>
           <Col className="d-flex justify-content-center mt-3 mb-5 ">
             <CardsProduct
-              getProductos={getProductos}
               setProductos={setProductos}
               allProducts={allProducts}
               busqueda={busqueda}

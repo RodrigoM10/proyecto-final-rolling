@@ -5,18 +5,13 @@ import { CardProduct } from "./CardProduct";
 import './cardProduct.css'
 
 
-export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSideCart, busqueda, allProducts, selectCategory, selectPrice, getProductos }) => {
+export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSideCart, busqueda, allProducts, selectCategory, selectPrice }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [currentProducts, setCurrentProducts] = useState([]);
 
-
-  const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
-    setIsLoading(true);
-    getProductos();
     const limit = 8;
     const start = 0 + currentPage * limit - limit;
     const end = start + limit;
@@ -39,8 +34,7 @@ export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSi
 
     const totalPages = Math.ceil(searchProducts.length / limit);
     setTotalPages(totalPages);
-    setIsLoading(false)
-  }, [allProducts, currentPage, busqueda, selectCategory, selectPrice, getProductos]);
+  }, [allProducts, currentPage, busqueda, selectCategory, selectPrice]);
 
 
   const mapProductos = currentProducts?.map((producto) => (
@@ -55,7 +49,7 @@ export const CardsProduct = ({ favorites, setFavorites, cart, setCart, setShowSi
   return (
     <>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        {!isLoading && currentProducts?.length !== 0 ?
+        {currentProducts?.length !== 0 ?
           <>
             <span className="mb-3">Pagina {currentPage} de {totalPages}</span>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">{mapProductos}</div>
