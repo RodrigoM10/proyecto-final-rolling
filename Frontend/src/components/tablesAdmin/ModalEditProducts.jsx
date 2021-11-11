@@ -89,7 +89,7 @@ export default function ModalEditProducts(props) {
             <Form.Group className="mb-3 row" controlId="category">
               <Form.Label className="col-12 col-md-3">Categoria:</Form.Label>
               <select name="category" onChange={(e) => handleChange(e)} className="col-12 col-md-9" required>
-                <option value="" disabled selected>Tipo de vino...</option>
+                <option value="" disabled selected={""}>Tipo de vino...</option>
                 <option value="Rojo">Rojo</option>
                 <option value="Espumoso">Espumoso</option>
                 <option value="Blanco">Blanco</option>

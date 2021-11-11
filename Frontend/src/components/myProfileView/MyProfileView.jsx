@@ -97,7 +97,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
 
   return (
     <>
-      <div className="card-profile row">
+      <div className="card-profile row bg-grey">
         <Card.Img
           variant="top"
           className=" col-12 col-lg-6 img-avatar my-2 mx-auto"

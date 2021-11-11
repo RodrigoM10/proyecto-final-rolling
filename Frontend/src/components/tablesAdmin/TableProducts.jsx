@@ -8,7 +8,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
 import CargaProduts from './CargaProducts';
 import ModalEditProducts from './ModalEditProducts';
-import { PaginationStore } from '../paginationStore/PaginationStore';
+import { PaginationTable } from '../paginationStore/PaginationTable';
 
 export const TableProducts = ({ productos, getProductos, tableProducts, setTableProducts }) => {
 
@@ -163,7 +163,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
                     </tbody>
                 </Table>
                 <div className="d-flex justify-content-center ">
-                    <PaginationStore
+                    <PaginationTable
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}
                         totalPages={totalPages}

@@ -8,7 +8,6 @@ function MyProfile({ user, requestUserData }) {
             <Container>
                 <MyProfileView  requestUserData={requestUserData} user={user} />
             </Container>
-
         </div>
     )
 }

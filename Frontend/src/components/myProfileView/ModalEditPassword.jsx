@@ -7,7 +7,6 @@ import swal from 'sweetalert';
 
 export const ModalEditPassword = ({ showModalPassword, closeModal, user, requestUserData }) => {
     const [input, setInput] = useState({ name: user.password });
-    const [validated, setValidated] = useState(false);
 
 
     const errorLink = () => {
@@ -20,7 +19,6 @@ export const ModalEditPassword = ({ showModalPassword, closeModal, user, request
         setInput(newInput);
     }
     const handleSubmit = async (e) => {
-        setValidated(true);
         e.preventDefault();
         try {
             await axios.put(`http://localhost:4000/api/usuarios/${user._id}`, input);
@@ -49,8 +47,6 @@ export const ModalEditPassword = ({ showModalPassword, closeModal, user, request
             >
                 <Form className="form-register my-5 px-3" onSubmit={handleSubmit}>
                     <Form.Group
-                        noValidate
-                        validated={validated}
                         onSubmit={handleSumitVerify} >
                         <Form.Group className="mb-3 row align-items-center justify-content-center">
                             <label className="text-center mb-1">Contraseña Actual</label>

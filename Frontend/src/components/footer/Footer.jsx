@@ -88,7 +88,6 @@ export const Footer = () => {
                     </div>
                 </div>
             }
-
             {splitLocation[1] === "adminBoard" && <FooterAdmin />}
             {splitLocation[1] === "messagesList" && <FooterAdmin />}
             {splitLocation[1] === "userList" && <FooterAdmin />}
