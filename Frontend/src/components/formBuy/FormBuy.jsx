@@ -244,7 +244,6 @@ export const FormBuy = ({ user, cart }) => {
                                 <Form.Control type="text" minLength="16" maxLength="19"
                                     name="buyerCardNumber"
                                     onChange={(e) => handleChange(e)}
-                                    autoComplete={false}
                                     required />
                             </FloatingLabel>
                             <Form.Control.Feedback type="invalid">
@@ -256,7 +255,6 @@ export const FormBuy = ({ user, cart }) => {
                                 <Form.Control type="text"
                                     name="buyerCardName"
                                     onChange={(e) => handleChange(e)}
-                                    autoComplete={false}
                                     required />
                             </FloatingLabel>
                             <Form.Control.Feedback type="invalid">
@@ -269,7 +267,7 @@ export const FormBuy = ({ user, cart }) => {
                                     <Form.Control type="text" minLength="5" maxLength="5"
                                         name="buyerCardDate"
                                         onChange={(e) => handleChange(e)}
-                                        autoComplete={false}
+
                                         required />
                                 </FloatingLabel>
                                 <Form.Control.Feedback type="invalid">
@@ -281,7 +279,7 @@ export const FormBuy = ({ user, cart }) => {
                                     <Form.Control type="text" maxLength="3" minLength="3"
                                         name="buyerCardCode"
                                         onChange={(e) => handleChange(e)}
-                                        autoComplete={false}
+
                                         required />
                                 </FloatingLabel>
                                 <Form.Control.Feedback type="invalid">
