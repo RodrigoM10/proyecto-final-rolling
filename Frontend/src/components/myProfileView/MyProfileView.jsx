@@ -122,7 +122,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
             onChange={onChangeImg}
           />{" "}
           <div className="subir-foto">
-            <h5 className="text-center m-0 py-2 btn-admin">Editar perfil</h5>
+            {/* <h5 className="text-center m-0 py-2 btn-admin">Editar perfil</h5> */}
             <Lottie options={{ animationData: profile, ...defaultOptions }} />
           </div>
         </label>
