@@ -3,7 +3,6 @@ import { Container} from 'react-bootstrap'
 import { FormContact } from '../components/formContact/FormContact'
 import {  FaFacebookSquare, FaInstagramSquare, FaTwitterSquare} from 'react-icons/fa';
 
-
 function Register() {
     return (
         <div className="container-contact" >

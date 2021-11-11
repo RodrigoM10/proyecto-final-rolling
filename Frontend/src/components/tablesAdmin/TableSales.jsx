@@ -13,7 +13,6 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({buyerData: {}, buyerShipping:{}, productsList:[]});
-
     const [showModalViewSale, setShowModalViewSale] = useState(false);
 
     const handleCloseModalViewSale = () => setShowModalViewSale(false);
@@ -41,7 +40,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                 }
             });
     }
-    // trae de la API por venta para borrar.
+
     const deleteSale = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
@@ -50,17 +49,13 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
         await getSales();
         setIsLoading(false);
     };
-
     const refreshSales = async () => {
         setIsLoading(true);
         await getSales();
         setIsLoading(false);
     };
 
-
-    // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
-
     const filter = (e) => {
         const keyword = e.target.value;
         if (keyword !== '') {

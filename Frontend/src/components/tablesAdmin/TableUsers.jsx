@@ -17,7 +17,6 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
     const handleCloseModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
 
-    // funcion para encontrar usuario y mostrar usuario
     const findUser = async (_id) => {
         setIsLoading(true);
         const response = await axios.get(`http://localhost:4000/api/usuarios/${_id}`);
@@ -40,7 +39,6 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                 }
             });
     }
-    // trae de la API por usuario para borrar.
     const deleteUser = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
@@ -55,7 +53,6 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         setIsLoading(false);
     };
 
-    // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
     const filter = (e) => {
         e.preventDefault();
@@ -73,7 +70,6 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         }
         setBusqueda(keyword);
     };
-
 
     return (
         <div>
@@ -147,8 +143,6 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                         ))}
                 </tbody>
             </Table>
-
-            {/* le pasamos las props al modal para que disponga de ellas */}
             <ModalEditUser
                 closeModal={handleCloseModalEditar}
                 showModalEditar={showModalEditar}

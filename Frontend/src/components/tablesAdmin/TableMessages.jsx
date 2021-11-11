@@ -10,7 +10,6 @@ import { SpinnerRW } from '../spinner/SpinnerRW';
 
 
 export const TableMessages = ({ messages, getMessages, tableMessages, setTableMessages }) => {
-
     const [isLoading, setIsLoading] = useState(false);
 
     const alertaBorrar = (_id) => {
@@ -28,7 +27,6 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
             });
     }
 
-    // trae de la API por mensaje para borrar.
     const deleteMessage = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
@@ -44,21 +42,17 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
         setIsLoading(false);
     };
 
-    // Funcion de busqueda
     const [busqueda, setBusqueda] = useState('');
     const filter = (e) => {
         const keyword = e.target.value;
-
         if (keyword !== '') {
             const results = messages.filter((msj) => {
                 return msj.senderName.toLowerCase().includes(keyword.toLowerCase())
                     || msj.senderEmail.toLowerCase().includes(keyword.toLowerCase());
-                // Use the toLowerCase() method to make it case-insensitive
             });
             setTableMessages(results);
         } else {
             setTableMessages(messages);
-            // If the text field is empty, show all users
         }
         setBusqueda(keyword);
     };

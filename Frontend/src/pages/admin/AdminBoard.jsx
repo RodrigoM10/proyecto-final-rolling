@@ -2,8 +2,6 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { TableProducts } from '../../components/tablesAdmin/TableProducts'
 
-
-
 function AdminBoard({ productos, getProductos, tableProducts, setTableProducts }) {
     return (
         <Container>

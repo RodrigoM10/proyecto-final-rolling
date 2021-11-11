@@ -9,9 +9,7 @@ import { CartSideButton } from "../components/cartSideButton/CartSideButton";
 
 function Store({ productos, favorites, setFavorites, cart, setCart, allProducts, setProductos, busqueda}) {
   const [showSideCart, setShowSideCart] = useState(false);
-
   const [selectCategory, setSelectCategory] = useState('');
-
   const [selectPrice, setSelectPrice] = useState('');
 
   const clearFilterCategory = (value) => {

@@ -1,22 +1,20 @@
 import React, { useState } from "react";
-import { Card, ListGroup, OverlayTrigger, Popover, Tooltip } from "react-bootstrap";
-import "./myProfileView.css";
-import swal from "sweetalert";
 
+import axios from "axios";
+import swal from "sweetalert";
 import moment from "moment";
 import "moment/locale/es";
-import { FiSettings } from "react-icons/fi";
-import { useHistory } from "react-router-dom";
-
-import { leerDeLocalStorage } from "../../utils/localStorage";
-
-import { ModalEditProfile } from "./ModalEditProfile";
-import { ModalEditPassword } from "./ModalEditPassword";
-import axios from "axios";
-import { SpinnerRW } from "../spinner/SpinnerRW";
-import { beforeUpload, getBase64 } from "../../utils/load";
 import Lottie from "react-lottie";
 import profile from "../../utils/lottieArchivos/profile.json";
+import "./myProfileView.css";
+import { useHistory } from "react-router-dom";
+import { leerDeLocalStorage } from "../../utils/localStorage";
+import { Card, ListGroup, OverlayTrigger, Popover, Tooltip } from "react-bootstrap";
+import { ModalEditProfile } from "./ModalEditProfile";
+import { ModalEditPassword } from "./ModalEditPassword";
+import { SpinnerRW } from "../spinner/SpinnerRW";
+import { beforeUpload, getBase64 } from "../../utils/load";
+import { FiSettings } from "react-icons/fi";
 
 moment.locale("es");
 
@@ -33,16 +31,8 @@ const defaultOptions = {
 
 export const MyProfileView = ({ user, requestUserData }) => {
   const [isLoading, setIsLoading] = useState(false);
-  console.log(
-    "🚀 ~ file: ModalDeletAccount.jsx ~ line 12 ~ ModalDeleteAccount ~ isLoading",
-    isLoading
-  );
   const history = useHistory();
 
-  console.log(
-    "🚀 ~ file: MyProfileView.jsx ~ line 13 ~ MyProfileView ~ ser",
-    user
-  );
   const [showModalEditar, setShowModalEditar] = useState(false);
   const [showModalPassword, setShowModalPassword] = useState(false);
 

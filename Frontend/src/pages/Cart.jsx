@@ -1,4 +1,3 @@
-//snippet rfc
 import React from 'react'
 import { Accordion, Button, Card, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
@@ -24,10 +23,8 @@ function Cart({ cart, setCart, user }) {
         setCart(updateCart);
     };
 
-    // se usa el metodo "reduce" - con la particularidad de reducir conjunto de datos en uno solo 
     let total = cart.reduce((total, { producto, cantidad }) => total + producto.price * cantidad, 0);
 
-    // mapeo de los productos que estan en el carrito 
     const mapCarrito = cart.map((productCart, i) => (<CardCarrito
         key={i} productCart={productCart}
         cart={cart} setCart={setCart}
@@ -35,7 +32,6 @@ function Cart({ cart, setCart, user }) {
     />
     ));
 
-    //fn limpia productos del carrito
     const clearCart = () => {
         setCart([]);
     };

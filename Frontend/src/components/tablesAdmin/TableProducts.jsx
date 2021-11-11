@@ -15,10 +15,8 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
     const [isLoading, setIsLoading] = useState(false);
     const [productFind, setProductFind] = useState({});
     const [showModalEditar, setShowModalEditar] = useState(false);
-
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-
     const [currentProducts, setCurrentProducts] = useState([])
 
     useEffect(() => {
@@ -44,7 +42,6 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         handleShowModalEditar();
     };
 
-    // trae de la API por producto para borrar.
     const deleteProduct = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
@@ -69,13 +66,12 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
             });
     }
 
-    // Funcion que actualiza los productos, los trae del BACK
     const refreshProductos = async () => {
         setIsLoading(true);
         await getProductos();
         setIsLoading(false);
     };
-    // Funcion de busqueda
+
     const [busqueda, setBusqueda] = useState('');
     const filter = (e) => {
         const keyword = e.target.value;

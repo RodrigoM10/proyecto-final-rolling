@@ -6,7 +6,7 @@ export const ProductFullScreen = ({ producto, cart, setCart }) => {
   const precioMayor = (producto.price)*0.90;
 
   const [isInCart, setIsInCart] = useState(false);
-    // FUNCION PARA aÑADIR A CARRITO CARRITO
+  
     const cantidad = 1
 
     const addToCart = () => {

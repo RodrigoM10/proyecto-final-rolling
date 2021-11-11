@@ -8,7 +8,6 @@ import { SliderProducts } from "../components/sliderProductos/SliderProducts";
 
 const DetailsProduct = ({productos, cart, setCart}) => {
     const [producto, setProducto] = useState([]);
-
     const { productId } = useParams();
 
     useEffect(() => {

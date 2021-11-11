@@ -31,7 +31,6 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                 </div>
                 <button type="button" aria-label="Close" className="navbar-button mx-1" onClick={handleClose} ><VscClose /></button>
             </Offcanvas.Header>
-            {/* si no hay registrado ningun usuario entonces lo de siempre */}
             {!tokenLocal.token
                 &&
                 <Offcanvas.Header className="d-flex justify-content-evenly">
@@ -43,7 +42,6 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                     </a>
                 </Offcanvas.Header>
             }
-            {/* si esta registrado un usuario con token valido entonces se muestra */}
             {user.role === 'user' &&
                 <Offcanvas.Header className="d-flex flex-column bienvenido-user">
                     <p>Bienvenido Sr/a {user.name}</p>

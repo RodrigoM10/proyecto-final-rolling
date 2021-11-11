@@ -1,11 +1,7 @@
-
 import { Container } from 'react-bootstrap';
 import { TableUsers } from '../../components/tablesAdmin/TableUsers';
 
-function UserList(props) {
-
-    const { usuarios, getUsers, setTableUsers, tableUsers } = props;
-
+function UserList({ usuarios, getUsers, setTableUsers, tableUsers }) {
     return (
         <Container>
                 <h2 className="title-style my-2">Usuarios con Membrecia</h2>
