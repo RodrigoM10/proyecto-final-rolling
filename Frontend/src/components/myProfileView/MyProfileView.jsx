@@ -121,10 +121,8 @@ export const MyProfileView = ({ user, requestUserData }) => {
             type="file"
             onChange={onChangeImg}
           />{" "}
-          <button className="m-auto btn-admin " onClick={handleShowModalEditar}>
-            <h5 className="text-center m-0 py-2  ">Editar perfil</h5>
-          </button>
           <div className="subir-foto">
+            <h5 className="text-center m-0 py-2 btn-admin">Editar perfil</h5>
             <Lottie options={{ animationData: profile, ...defaultOptions }} />
           </div>
         </label>
