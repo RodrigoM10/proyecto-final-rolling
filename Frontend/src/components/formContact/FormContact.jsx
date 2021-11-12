@@ -39,6 +39,7 @@ export const FormContact = () => {
                 name="senderName" 
                 required
                 onChange={(e) => handleChange(e)}
+                maxLength="20"
                 />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center">
@@ -49,6 +50,7 @@ export const FormContact = () => {
                 name="senderEmail" 
                 required
                 onChange={(e) => handleChange(e)}
+                maxLength="25"
                 />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center ">
@@ -65,27 +67,6 @@ export const FormContact = () => {
                 />
             </Form.Group>
             <hr />
-            {/* <Form.Group className="mb-4 d-flex flex-column align-items-center align-items-md-start justify-content-center">
-                <label className="mb-2 text-center"> ¿Que estas buscando de nuestra bodega?</label>
-                <select 
-                type="text"
-                name="select"
-                onChange={(e) => handleChange(e)}
-                >
-                    <option>Por favor elija una opcion</option>
-                    <option type="text" value="1">Vinos premiun</option>
-                    <option type="text" value="2">Visitas al bodegon</option>
-                    <option type="text" value="3">Nuevas Ofertas</option>
-                </select>
-            </Form.Group> */}
-            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check 
-                type="checkbox" 
-                label="Manténgame informado sobre mis pedidos, estado de entrega, noticias y ofertas exclusivas de miembros"
-                name="checkbox"
-                onChange={(e) => handleChange(e)}
-                />
-            </Form.Group> */}
             <div className="d-flex flex-column align-items-center align-items-md-start justify-content-center">
                 <button className="btn-general-style">Contactanos</button>
             </div>

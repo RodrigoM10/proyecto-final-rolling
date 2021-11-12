@@ -27,7 +27,7 @@ export const CarouselComments = ({ sliderMensajes }) => {
   }, [])
 
   const mapSliderMensajes = sliderMensajes.map((mensaje, i) => (
-    <SwiperSlide key={i} mensaje={mensaje} className="Card-tamaño mt-5">
+    <SwiperSlide key={i} mensaje={mensaje} className="card-tamaño mt-5">
       <div>
         <div className=" mx-3">
           <Card
@@ -53,13 +53,13 @@ export const CarouselComments = ({ sliderMensajes }) => {
 
   return (
     <>
-      <h3 data-aos="fade-left" className="text-center titulo-comentarios">
+      <h3 data-aos="fade-up" className="text-center titulo-comentarios ">
       Vea lo que han dicho nuestros clientes en Octubre
       </h3>
       <div className="bordes-estilo">
         <Container>
           <Row data-aos="fade-up">
-            <Col className="col-lg-4 satisfaccion-estilo d-flex justify-content-center p-5">
+            <Col className="col-lg-4 satisfaccion-estilo d-flex justify-content-center p-5 ">
               <div className="circulo">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ export const CarouselComments = ({ sliderMensajes }) => {
         </Container>
       </div>
       <Swiper
-        data-aos="fade-right"
+        data-aos="fade-up"
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
@@ -142,7 +142,7 @@ export const CarouselComments = ({ sliderMensajes }) => {
             spaceBetween: 50,
           },
         }}
-        className="mySwiper"
+        className="mySwiper  "
       >
         {mapSliderMensajes}
       </Swiper>

@@ -16,7 +16,7 @@ export const CardFavProduct = ({ favProduct, setFavorites, favorites }) => {
       <div className="productos mx-3" >
         <div className="d-flex justify-content-end">
           <OverlayTrigger
-            placement="right"
+            placement="left"
             delay={{ show: 250, hide: 400 }}
             overlay={
               (props) => (

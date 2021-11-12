@@ -96,6 +96,7 @@ export const FormLogin = ({ requestUserData, cart }) => {
                             className="col-11 login-input"
                             placeholder="Email"
                             aria-describedby="basic-addon1"
+                            maxLength="25"
                         />
                     </div>
                     <div className="mb-3 border-0">
@@ -108,6 +109,7 @@ export const FormLogin = ({ requestUserData, cart }) => {
                             placeholder="Password"
                             minLength="6"
                             aria-describedby="basic-addon1"
+                            maxLength="15"
                         />
                     </div>
                     <button type="submit" className="btn-general-style"> Iniciar sesión</button>

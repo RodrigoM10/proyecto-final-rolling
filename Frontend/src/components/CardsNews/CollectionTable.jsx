@@ -30,9 +30,9 @@ const CollectionTable = () => {
   return (
     <div>
       <Container className="text-center">
-        <h3 data-aos="fade-up" className="collection-tilulo">Explore nuestras colecciones favoritas</h3>
+        <h3 data-aos="fade-up" className="collection-tilulo ">Explore nuestras colecciones favoritas</h3>
         <Tab.Container  id="left-tabs-example" defaultActiveKey="first">
-          <Row data-aos="fade-up" className="mt-5">
+          <Row data-aos="fade-up" className="mt-5 ">
             <Col sm={3} className="p-0 col-sm-12 col-xl-3">
               <Nav variant="pills" className="flex-column">
                 <Nav.Item>

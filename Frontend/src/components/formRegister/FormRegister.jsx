@@ -9,6 +9,7 @@ import './formRegister.css'
 
 export const FormRegister = () => {
     const [input, setInput] = useState({ name: '', lastName: '', email: '', password: '', birthday: '' });
+
     const history = useHistory();
 
     const handleChange = (e) => {
@@ -35,7 +36,11 @@ export const FormRegister = () => {
                 alert('error de conexion')
             }
         }
+        if(input=== " "){
+            alert('inputs vacios')
+        }
     }
+    
     return (
         <Form className="form-register my-5" onSubmit={handleSubmit}>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicEmail">
@@ -79,6 +84,7 @@ export const FormRegister = () => {
                     onChange={(e) => handleChange(e)}
                     type="password"
                     minLength="6"
+                    maxLength="15"
                     required
                 />
             </Form.Group>

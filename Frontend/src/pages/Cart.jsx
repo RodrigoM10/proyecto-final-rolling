@@ -53,7 +53,7 @@ function Cart({ cart, setCart, user }) {
                 {cart.length !==0 &&  
                 <div className="d-flex justify-content-end align-items-center">
                     <OverlayTrigger
-                        placement="right"
+                        placement="left"
                         delay={{ show: 250, hide: 400 }}
                         overlay={
                             (props) => (
@@ -98,9 +98,9 @@ function Cart({ cart, setCart, user }) {
                             Proceder a la compra
                         </Accordion.Header>
                         <Accordion.Body className="px-0">
-                            <div className="row row-cols-1 row-cols-lg-2 w-100 mx-0">
+                            <div className="row row-cols-1 row-cols-lg-2 mx-0 mt-3">
                                 {/* LISTADO DE DATOS DE COMPRA */}
-                                <div className="d-flex flex-column align-items-between datos-compra-div m-auto">
+                                <div className="d-flex flex-column align-items-between datos-compra-div mx-auto">
                                     <h3 className="m-2 text-center ">DATOS DE LA COMPRA</h3>
                                     <div className="row justify-content-md-center align-items-md-center">
                                         {mapCompra}

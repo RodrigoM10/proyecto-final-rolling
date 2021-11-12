@@ -8,13 +8,13 @@ body {
   min-height: 100vh;
 }
 .nav-logo-desktop {
-  width: 290px;
-  height: 80px;
+  width: 250px;
+  height: 60px;
 }
 @media only screen and (max-width: 768px) {
   .nav-logo-desktop {
-    width: 200px;
-    height: 60px;
+    width: 150px;
+    height: 40px;
   }
 }
 .container-register {
@@ -42,6 +42,10 @@ body {
 
 .bg-grey {
   background-color: #f7f7f7;
+}
+.bg-blue{
+  background-color: #203048;
+  border: none;
 }
 /* BOTON GENERAL */
 .btn-general-style {

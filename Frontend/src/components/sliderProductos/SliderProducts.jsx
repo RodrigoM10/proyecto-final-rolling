@@ -10,7 +10,9 @@ import { Link } from 'react-router-dom';
 SwiperCore.use([Pagination]);
 
 export function SliderProducts({ productos }) {
-
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+}
 
   const mapSliderProductos = productos.slice(25, productos.length).map((producto, i) => (
 
@@ -34,7 +36,7 @@ export function SliderProducts({ productos }) {
                 {producto.name}
               </Card.Title>
               <Card.Text className="text-center">
-                <Button as={Link} to={`/store/${producto._id}`} className="btn-admin">MÁS INFORMACIÓN</Button>
+                <Button as={Link} to={`/store/${producto._id}`} onClick={scrollToTop} className="btn-admin">MÁS INFORMACIÓN</Button>
               </Card.Text>
             </Card.Body>
           </Card>

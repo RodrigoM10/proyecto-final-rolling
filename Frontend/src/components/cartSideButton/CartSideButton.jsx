@@ -52,7 +52,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
         <Offcanvas.Body className="text-center mt-2">
           {cart.length !== 0 &&
             <OverlayTrigger
-              placement="right"
+              placement="left"
               delay={{ show: 250, hide: 400 }}
               overlay={
                 (props) => (

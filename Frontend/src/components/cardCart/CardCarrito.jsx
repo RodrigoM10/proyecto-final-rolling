@@ -25,7 +25,7 @@ export const CardCarrito = ({ productCart, cart, setCart, changeCantidad }) => {
     <>
       <div className="d-flex justify-content-end">
         <OverlayTrigger
-          placement="right"
+          placement="left"
           delay={{ show: 250, hide: 400 }}
           overlay={
             (props) => (

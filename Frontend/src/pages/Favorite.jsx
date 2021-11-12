@@ -23,7 +23,7 @@ function Favorite({ favorites, setFavorites, cart, setCart }) {
             <div className="d-flex justify-content-between align-items-center">
                     <h2 className="title-style my-2">Lista de deseos</h2>
                     <OverlayTrigger
-                        placement="right"
+                        placement="left"
                         delay={{ show: 250, hide: 400 }}
                         overlay={
                             (props) => (

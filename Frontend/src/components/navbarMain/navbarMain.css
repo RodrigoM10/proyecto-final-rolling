@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
 
 .navbar {
-    background-color: #203048;
     color: white;
     padding: 0;
+    border: none;
 }
+
 .navbar a {
     text-decoration: none;
     cursor: pointer;
@@ -242,8 +243,6 @@ li:hover::after {
         width: 100%;
     }
 }
-
-
 .swym-header--count {
     display: flex;
     align-items: end;
@@ -259,4 +258,10 @@ li:hover::after {
     right: -7px;
     bottom: 0px;
     z-index: 0;
+}
+.fix-to-top{
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
 }

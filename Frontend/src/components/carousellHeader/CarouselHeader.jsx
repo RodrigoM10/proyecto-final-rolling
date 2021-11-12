@@ -47,7 +47,7 @@ const Carouselheader = ({ sliderProductos }) => {
   ));
 
   return (
-    <Carousel className="carousel-style" fade>
+    <Carousel className="carousel-style " fade>
       {mapSlider}
     </Carousel>
   );

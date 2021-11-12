@@ -109,7 +109,7 @@ export const FormBuy = ({ user, cart }) => {
                         name="buyerEmail"
                         onChange={(e) => handleChange(e)}
                         defaultValue={tokenLocal.token ? user.email : ""}
-                        maxLength="30"
+                        maxLength="40"
                         required
                     />
                 </FloatingLabel>
@@ -146,6 +146,7 @@ export const FormBuy = ({ user, cart }) => {
                             name="buyerName"
                             onChange={(e) => handleChange(e)}
                             defaultValue={tokenLocal.token ? user.name : ""}
+                            maxLength="30"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">
@@ -158,6 +159,7 @@ export const FormBuy = ({ user, cart }) => {
                             name="buyerLastName"
                             onChange={(e) => handleChange(e)}
                             defaultValue={tokenLocal.token ? user.lastName : ""}
+                            maxLength="30"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">
@@ -170,6 +172,7 @@ export const FormBuy = ({ user, cart }) => {
                     <Form.Control type="text"
                         name="buyerAddress1"
                         onChange={(e) => handleChange(e)}
+                        maxLength="30"
                         required />
                 </FloatingLabel>
                 <Form.Control.Feedback type="invalid">
@@ -181,7 +184,9 @@ export const FormBuy = ({ user, cart }) => {
                     <Form.Control type="text"
                         name="buyerAddress2"
                         onChange={(e) => handleChange(e)}
+                        maxLength="10"
                         required />
+                        
                 </FloatingLabel>
                 <Form.Control.Feedback type="invalid">
                     Dato Requerido
@@ -193,6 +198,7 @@ export const FormBuy = ({ user, cart }) => {
                         <Form.Control type="text"
                             name="buyerCity"
                             onChange={(e) => handleChange(e)}
+                        maxLength="20"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">
@@ -204,6 +210,7 @@ export const FormBuy = ({ user, cart }) => {
                         <Form.Control type="text"
                             name="buyerState"
                             onChange={(e) => handleChange(e)}
+                            maxLength="35"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">
@@ -212,7 +219,8 @@ export const FormBuy = ({ user, cart }) => {
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridState">
                     <FloatingLabel controlId="floatingSelect" label="Codigo Postal">
-                        <Form.Control type="text" maxLength="4"
+                        <Form.Control type="text"
+                            maxLength="4"
                             name="buyerZip"
                             onChange={(e) => handleChange(e)}
                             required />
@@ -225,6 +233,7 @@ export const FormBuy = ({ user, cart }) => {
             <Form.Group className="mt-2 mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Instrucciones de entrega</Form.Label>
                 <Form.Control as="textarea"
+                     maxLength="80"
                     name="buyerShippingInstructions"
                     onChange={(e) => handleChange(e)}
                     rows={3} />
@@ -254,7 +263,8 @@ export const FormBuy = ({ user, cart }) => {
                         <Form.Group className="mb-3" controlId="validationCustom08">
                             <FloatingLabel controlId="floatingSelect" label="Nombre Tarjeta">
                                 <Form.Control type="text"
-                                    name="buyerCardName"
+                                 maxLength="20"
+                                 name="buyerCardName"
                                     onChange={(e) => handleChange(e)}
                                     required />
                             </FloatingLabel>
@@ -268,7 +278,6 @@ export const FormBuy = ({ user, cart }) => {
                                     <Form.Control type="text" minLength="5" maxLength="5"
                                         name="buyerCardDate"
                                         onChange={(e) => handleChange(e)}
-
                                         required />
                                 </FloatingLabel>
                                 <Form.Control.Feedback type="invalid">
@@ -277,10 +286,9 @@ export const FormBuy = ({ user, cart }) => {
                             </Form.Group>
                             <Form.Group as={Col} controlId="validationCustom10">
                                 <FloatingLabel controlId="floatingSelect" label="Codigo de seguridad">
-                                    <Form.Control type="text" maxLength="3" minLength="3"
+                                    <Form.Control type="password" maxLength="3" minLength="3"
                                         name="buyerCardCode"
                                         onChange={(e) => handleChange(e)}
-
                                         required />
                                 </FloatingLabel>
                                 <Form.Control.Feedback type="invalid">
