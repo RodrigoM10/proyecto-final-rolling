@@ -38,6 +38,7 @@
     display: inline-block;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
+    color: black !important;
 }
 .card-estilo:hover{
     background: rgb(243, 243, 243);

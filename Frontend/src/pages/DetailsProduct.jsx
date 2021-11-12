@@ -13,7 +13,7 @@ const DetailsProduct = ({productos, cart, setCart}) => {
     useEffect(() => {
         const getProducto = async () => {
             const response = await axios.get(
-                `http://localhost:4000/api/productos/${productId}`
+                `https://proyecto-final-db.herokuapp.com/api/productos/${productId}`
             );
             setProducto(response.data);
         }

@@ -65,7 +65,7 @@ function App() {
     try {
       if (tokenLocal.token) {
         const headers = { 'x-auth-token': tokenLocal.token };
-        const response = await axios.get('http://localhost:4000/api/auth', { headers });
+        const response = await axios.get('https://proyecto-final-db.herokuapp.com/api/auth', { headers });
         setUser(response.data);
       }
       setIsLoading(false);
@@ -86,7 +86,7 @@ function App() {
   const [tableProducts, setTableProducts] = useState([])
   const getProductos = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/productos');
+      const response = await axios.get('https://proyecto-final-db.herokuapp.com/api/productos');
       setProductos(response.data);
       setTableProducts(response.data);
       setAllProducts(response.data);
@@ -102,7 +102,7 @@ function App() {
   const [tableSales, setTableSales] = useState([]);
   const getSales = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/ventas');
+      const response = await axios.get('https://proyecto-final-db.herokuapp.com/api/ventas');
       setSales(response.data);
       setTableSales(response.data);
     } catch (error) {
@@ -117,7 +117,7 @@ function App() {
   const [tableMessages, setTableMessages] = useState([])
   const getMessages = async () => {
     try {      
-      const response = await axios.get('http://localhost:4000/api/mensajes');
+      const response = await axios.get('https://proyecto-final-db.herokuapp.com/api/mensajes');
       setMessages(response.data);
       setTableMessages(response.data);
     } catch (error) {
@@ -132,7 +132,7 @@ function App() {
   const [tableUsers, setTableUsers] = useState([])
   const getUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/usuarios');
+      const response = await axios.get('https://proyecto-final-db.herokuapp.com/api/usuarios');
       setUsuarios(response.data);
       setTableUsers(response.data);
     } catch (error) {

@@ -45,6 +45,7 @@ export const FormRegister = () => {
                     name="name"
                     onChange={(e) => handleChange(e)}
                     type="text"
+                    maxLength="20"
                     required
                 />
             </Form.Group>
@@ -55,6 +56,7 @@ export const FormRegister = () => {
                     name="lastName"
                     onChange={(e) => handleChange(e)}
                     type="text"
+                    maxLength="20"
                     required
                 />
             </Form.Group>
@@ -65,6 +67,7 @@ export const FormRegister = () => {
                     name="email"
                     onChange={(e) => handleChange(e)}
                     type="email"
+                    maxLength="25"
                     required
                 />
             </Form.Group>

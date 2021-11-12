@@ -109,6 +109,7 @@ export const FormBuy = ({ user, cart }) => {
                         name="buyerEmail"
                         onChange={(e) => handleChange(e)}
                         defaultValue={tokenLocal.token ? user.email : ""}
+                        maxLength="30"
                         required
                     />
                 </FloatingLabel>
