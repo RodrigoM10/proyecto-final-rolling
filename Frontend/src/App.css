@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
-  color: white;
+  /* color: white; */
+  color: black;
 }
 .footer-fix {
   display: flex;
