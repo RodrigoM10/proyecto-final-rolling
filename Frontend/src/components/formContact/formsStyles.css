@@ -17,12 +17,26 @@ hr {
 }
 .form-input {
     border: solid 1px rgb(104, 103, 103);
+    border-radius: 0 !important;
+}
+.form-with-input {
+    width: 75% !important;
+
+}
+.form-with-text-area {
+    width: 100% !important;
+}
+@media screen and (max-width: 992px) {
+    .form-with-input {
+        width: 95% !important;
+    }
+    .form-with-text-area {
+        width: 95% !important;
+    }
 }
 .form-input:focus {
-    outline: solid 2px #b59062 ;
-    box-shadow: 0 0 0 0.25rem rgb(104, 103, 103 / 25%) ;
+    box-shadow: 0 0 0 0.25rem rgb(104, 103, 103 / 25%);
 }
-
 .form-input:invalid:required {
-    box-shadow: 0 0 0 0.25rem rgb(230, 87, 87 / 25%)
-  }
+    box-shadow: 0 0 0 0.25rem rgb(230, 87, 87 / 25%);
+}

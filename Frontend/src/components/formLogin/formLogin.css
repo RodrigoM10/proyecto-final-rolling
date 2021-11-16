@@ -24,9 +24,9 @@ border: solid #b59062;
 .login-input {
     height: 50px;
     border: solid 1px rgb(104, 103, 103);
+    border-radius: 0 !important;
 }
 .login-input:focus {
-    outline: solid 2px #b59062 ;
     box-shadow: 0 0 0 0.25rem rgb(104, 103, 103 / 25%) ;
 }
 

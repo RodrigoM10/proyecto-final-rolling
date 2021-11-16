@@ -4,7 +4,7 @@ import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
-import './formBuy.css'
+
 
 export const FormBuy = ({ user, cart }) => {
     const tokenLocal = leerDeLocalStorage('token') || {};
@@ -28,8 +28,8 @@ export const FormBuy = ({ user, cart }) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
         setInput(newInput);
-
     }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -104,7 +104,7 @@ export const FormBuy = ({ user, cart }) => {
                 <h5 className="mt-2">Informacion del Contacto</h5>
             </div>
             <Form.Group className="mb-3" controlId="validationCustom01">
-                <FloatingLabel controlId="floatingSelect" label="Email">
+                <FloatingLabel controlId="floatingEmail" label="Email">
                     <Form.Control type="email"
                         name="buyerEmail"
                         onChange={(e) => handleChange(e)}
@@ -114,7 +114,7 @@ export const FormBuy = ({ user, cart }) => {
                     />
                 </FloatingLabel>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="validationCustom03">
+            <Form.Group className="mb-3" controlId="validationCustom02">
                 <h5 className="mt-2">Nacimiento</h5>
                 {tokenLocal.token ?
                     <Form.Control
@@ -140,8 +140,8 @@ export const FormBuy = ({ user, cart }) => {
             <h5 className="mt-2">Dirección de envio</h5>
 
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="validationCustom02">
-                    <FloatingLabel controlId="floatingSelect" label="Nombre">
+                <Form.Group as={Col} controlId="validationCustom03">
+                    <FloatingLabel controlId="floatingName" label="Nombre">
                         <Form.Control type="text"
                             name="buyerName"
                             onChange={(e) => handleChange(e)}
@@ -154,7 +154,7 @@ export const FormBuy = ({ user, cart }) => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group as={Col} controlId="validationCustom04">
-                    <FloatingLabel controlId="floatingSelect" label="Apellido">
+                    <FloatingLabel controlId="floatingLastName" label="Apellido">
                         <Form.Control type="text"
                             name="buyerLastName"
                             onChange={(e) => handleChange(e)}
@@ -168,11 +168,11 @@ export const FormBuy = ({ user, cart }) => {
                 </Form.Group>
             </Row>
             <Form.Group className="mb-3" controlId="validationCustom05">
-                <FloatingLabel controlId="floatingSelect" label="Dirección">
+                <FloatingLabel controlId="floatingAddress1" label="Dirección">
                     <Form.Control type="text"
                         name="buyerAddress1"
                         onChange={(e) => handleChange(e)}
-                        maxLength="30"
+                        maxLength="35"
                         required />
                 </FloatingLabel>
                 <Form.Control.Feedback type="invalid">
@@ -180,7 +180,7 @@ export const FormBuy = ({ user, cart }) => {
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom06">
-                <FloatingLabel controlId="floatingSelect" label="Piso, departamento ...">
+                <FloatingLabel controlId="floatingAddress2" label="Piso, departamento ...">
                     <Form.Control type="text"
                         name="buyerAddress2"
                         onChange={(e) => handleChange(e)}
@@ -194,7 +194,7 @@ export const FormBuy = ({ user, cart }) => {
             </Form.Group>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridCity">
-                    <FloatingLabel controlId="floatingSelect" label="Ciudad">
+                    <FloatingLabel controlId="floatingCity" label="Ciudad">
                         <Form.Control type="text"
                             name="buyerCity"
                             onChange={(e) => handleChange(e)}
@@ -206,7 +206,7 @@ export const FormBuy = ({ user, cart }) => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridState">
-                    <FloatingLabel controlId="floatingSelect" label="Provincia">
+                    <FloatingLabel controlId="floatingState" label="Provincia">
                         <Form.Control type="text"
                             name="buyerState"
                             onChange={(e) => handleChange(e)}
@@ -217,8 +217,8 @@ export const FormBuy = ({ user, cart }) => {
                         Dato Requerido
                     </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridState">
-                    <FloatingLabel controlId="floatingSelect" label="Codigo Postal">
+                <Form.Group as={Col} controlId="formGridZip">
+                    <FloatingLabel controlId="floatingZip" label="Codigo Postal">
                         <Form.Control type="text"
                             maxLength="4"
                             name="buyerZip"
@@ -250,7 +250,7 @@ export const FormBuy = ({ user, cart }) => {
                             Todas las transacciones son seguras y encriptadas.
                         </Form.Text>
                         <Form.Group className="mb-3" controlId="validationCustom07">
-                            <FloatingLabel controlId="floatingSelect" label="Numero de Tarjeta">
+                            <FloatingLabel controlId="floatingCardNumber" label="Numero de Tarjeta">
                                 <Form.Control type="text" minLength="16" maxLength="19"
                                     name="buyerCardNumber"
                                     onChange={(e) => handleChange(e)}
@@ -261,7 +261,7 @@ export const FormBuy = ({ user, cart }) => {
                             </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="validationCustom08">
-                            <FloatingLabel controlId="floatingSelect" label="Nombre Tarjeta">
+                            <FloatingLabel controlId="floatingCardName" label="Nombre Tarjeta">
                                 <Form.Control type="text"
                                  maxLength="20"
                                  name="buyerCardName"
@@ -274,7 +274,7 @@ export const FormBuy = ({ user, cart }) => {
                         </Form.Group>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="validationCustom10">
-                                <FloatingLabel controlId="floatingSelect" label="Vencimiento (MM/YY)">
+                                <FloatingLabel controlId="floatingCardDate" label="Vencimiento (MM/YY)">
                                     <Form.Control type="text" minLength="5" maxLength="5"
                                         name="buyerCardDate"
                                         onChange={(e) => handleChange(e)}
@@ -285,7 +285,7 @@ export const FormBuy = ({ user, cart }) => {
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} controlId="validationCustom10">
-                                <FloatingLabel controlId="floatingSelect" label="Codigo de seguridad">
+                                <FloatingLabel controlId="floatingCardCode" label="Codigo de seguridad">
                                     <Form.Control type="password" maxLength="3" minLength="3"
                                         name="buyerCardCode"
                                         onChange={(e) => handleChange(e)}

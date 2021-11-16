@@ -283,12 +283,6 @@ li:hover::after {
       z-index: 1020; 
       transition: top 0.3s;
      }
-     .visible {
-         top:0;
-     }
-     .no-visible{
-         top:-100px
-     }
      .fix-to-top{
         position: absolute;
         top: 0;

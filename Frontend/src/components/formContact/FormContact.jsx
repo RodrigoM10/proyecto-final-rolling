@@ -5,14 +5,19 @@ import './formsStyles.css'
 import swal from 'sweetalert'
 
 export const FormContact = () => {
+    // Validaciones reactBoot
+    const [validated, setValidated] = useState(false);
 
-    
     const [input, setInput] = useState({ senderName: '', senderEmail: '', message: '' });
-    
+
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
-        setInput(newInput);
+        if (newInput.senderName.length < 30 && newInput.senderEmail.length < 35 && newInput.message.length < 200) {
+            setInput(newInput);
+        } else {
+            swal('Alcanzaste el numero maximo de caracteres')
+        }
     }
 
     const handleSubmit = async (e) => {
@@ -24,19 +29,27 @@ export const FormContact = () => {
                 icon: "success",
             });
         } catch (error) {
-            console.error(error);
+            if (error.response.data) {
+                swal("Faltan datos", "Completar los campos obligatorios", "warning");
+            } else {
+                alert('error de conexion')
+            }
         }
-        e.target.reset();
+        setValidated(true);
+        if (setValidated === true) {
+            e.target.reset();
+        }
     }
     return (
         <Form
-            className="form-styles my-5  "
+            noValidate validated={validated}
             onSubmit={handleSubmit}
+            className="form-styles my-5"
         >
             <Form.Group className="mb-3 row align-items-center justify-content-center">
-                <label className="col-11 col-md-3">Nombre </label>
-                <input
-                    className="col-11 col-md-9 form-input"
+                <label className="text-center col-11 col-md-3">Nombre </label>
+                <Form.Control
+                    className="col-11 col-md-9 form-input form-with-input"
                     type="text"
                     name="senderName"
                     required
@@ -45,9 +58,9 @@ export const FormContact = () => {
                 />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center">
-                <label className="col-11 col-md-3 align-items-center">Email</label>
-                <input
-                    className="col-11 col-md-9 form-input"
+                <label className="text-center col-11 col-md-3 align-items-center">Email</label>
+                <Form.Control
+                    className="col-11 col-md-9 form-input form-with-input"
                     type="email"
                     name="senderEmail"
                     required
@@ -56,14 +69,14 @@ export const FormContact = () => {
                 />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center ">
-                <textarea
-                    className="col-11 col-md-12 form-input"
+                <Form.Control
+                    className="col-11 col-md-12 form-input form-with-text-area"
                     placeholder="Dejanos un mensaje aqui..."
                     as="textarea"
                     name="message"
                     required
                     minLength="15"
-                    maxLength="250"
+                    maxLength="200"
                     rows={3}
                     onChange={(e) => handleChange(e)}
                 />

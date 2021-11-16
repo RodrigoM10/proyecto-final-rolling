@@ -10,7 +10,7 @@ export const NavMiddle = ({ splitLocation, favorites, cart }) => {
     const [visible, setVisible] = useState(false);
     
     const [isVisible, setIsVisible] = useState('');
-    console.log("🚀 ~ file: NavMiddle.jsx ~ line 13 ~ NavMiddle ~ isVisible", isVisible)
+
     let prevScrollpos = window.pageYOffset;
     const navbarShow = () => {
         if (prevScrollpos >  window.pageYOffset ) {
