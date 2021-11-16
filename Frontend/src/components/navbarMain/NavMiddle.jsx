@@ -8,23 +8,9 @@ import './navbarMain.css'
 
 export const NavMiddle = ({ splitLocation, favorites, cart }) => {
     const [visible, setVisible] = useState(false);
+    
     const [isVisible, setIsVisible] = useState('');
-
-    const linkShow = () => {
-        if (window.scrollY < 150) {
-            setVisible(false)
-        } else {
-            setVisible(true)
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', linkShow)
-        return () => {
-            window.removeEventListener('scroll', linkShow)
-        }
-    }, [visible])
-
+    console.log("🚀 ~ file: NavMiddle.jsx ~ line 13 ~ NavMiddle ~ isVisible", isVisible)
     let prevScrollpos = window.pageYOffset;
     const navbarShow = () => {
         if (prevScrollpos >  window.pageYOffset ) {
@@ -40,6 +26,21 @@ export const NavMiddle = ({ splitLocation, favorites, cart }) => {
             window.removeEventListener('scroll', navbarShow)
         }
     });
+
+    const linkShow = () => {
+        if (window.scrollY < 150) {
+            setVisible(false)
+        } else {
+            setVisible(true)
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', linkShow)
+        return () => {
+            window.removeEventListener('scroll', linkShow)
+        }
+    }, [visible])
+
 
     return (
         <nav className={`bg-blue fix-to-top py-1 ${isVisible}`}>

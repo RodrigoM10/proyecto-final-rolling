@@ -198,7 +198,7 @@ export const FormBuy = ({ user, cart }) => {
                         <Form.Control type="text"
                             name="buyerCity"
                             onChange={(e) => handleChange(e)}
-                        maxLength="20"
+                        maxLength="35"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">

@@ -4,6 +4,7 @@
     color: white;
     padding: 0;
     border: none;
+    z-index: 1030;
 }
 
 .navbar a {
@@ -120,6 +121,7 @@ li:hover::after {
     font-size: 22px;
     margin: 0 0.3rem;
     font-family: "Montserrat", sans-serif;
+    z-index: 1020;
 }
 .navbar-user .nav-link {
     color: white ;
@@ -262,16 +264,22 @@ li:hover::after {
 .fix-to-top{
     padding: 0;
     position: sticky;
-    top: 0;
+    /* top: 0; */
     z-index: 1020;
     transition: top 0.3s;
+}
+.no-visible{
+    top:-100px
+}
+.visible {
+    top:0;
 }
 
 @media screen and (max-width: 768px) {
   .fix-to-top-mobile{
       padding:0;
       position: sticky;
-      top: 0;
+      /* top: 0; */
       z-index: 1020; 
       transition: top 0.3s;
      }
@@ -290,7 +298,4 @@ li:hover::after {
 .position-end {
     position: absolute;
     right: 3rem;
-}
-.dropdown-navbar{
-    z-index: 1030;
 }
