@@ -31,7 +31,7 @@ export const FormLogin = ({ requestUserData, cart }) => {
 
         if (form.checkValidity() === true) {
             try {
-                const response = await axios.post('http://localhost:4000/api/auth/login', input);
+                const response = await axios.post('https://proyecto-final-db.herokuapp.com/api/auth/login', input);
 
                 const { token, name } = response.data;
                 guardarEnLocalStorage({ key: 'token', value: { token } });
@@ -96,7 +96,7 @@ export const FormLogin = ({ requestUserData, cart }) => {
                             className="col-11 login-input"
                             placeholder="Email"
                             aria-describedby="basic-addon1"
-                            maxLength="25"
+                            maxLength="35"
                         />
                     </div>
                     <div className="mb-3 border-0">

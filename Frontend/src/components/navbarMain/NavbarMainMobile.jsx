@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Nav, Offcanvas } from 'react-bootstrap';
 import './navbarMain.css'
 
+
 //React Icons
 import { BsFacebook } from 'react-icons/bs';
 import { VscClose } from 'react-icons/vsc';
@@ -38,7 +39,7 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
                         <button className="btn-general-style">Iniciar sesión</button>
                     </a>
                     <a href="/register">
-                        <button exact className="btn-general-style">Registrarse</button>
+                        <button   className="btn-general-style">Registrarse</button>
                     </a>
                 </Offcanvas.Header>
             }
@@ -69,7 +70,7 @@ const NavbarMainMobile = ({ user, setShow, show }) => {
             <Offcanvas.Body >
                 <div className="responsive-navbar-links text-center ">
                     <li className="p-2 mx-3" >
-                        <Nav.Link as={NavLink} to="/store" exact activeClassName="link-active" onClick={handleClose}>NUESTROS VINOS</Nav.Link>
+                        <Nav.Link as={NavLink} to="/store"  exact activeClassName="link-active" onClick={handleClose}>NUESTROS VINOS</Nav.Link>
                     </li>
                     <li className="p-2 mx-3">
                         <Nav.Link as={NavLink} to="/contact" activeClassName="link-active" onClick={handleClose}>CONTACTO</Nav.Link>

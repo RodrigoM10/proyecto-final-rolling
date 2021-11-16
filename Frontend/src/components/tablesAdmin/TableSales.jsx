@@ -20,7 +20,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/ventas/${_id}`);
+        const response = await axios.get(`https://proyecto-final-db.herokuapp.com/api/ventas/${_id}`);
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
@@ -45,7 +45,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/ventas/${_id}`, { headers });
+        await axios.delete(`https://proyecto-final-db.herokuapp.com/api/ventas/${_id}`, { headers });
         await getSales();
         setIsLoading(false);
     };

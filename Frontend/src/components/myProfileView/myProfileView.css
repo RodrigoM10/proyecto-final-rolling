@@ -33,18 +33,7 @@
   outline: 0;
   box-shadow: 0 0 0 0.1rem #b59062;
 }
-.circle-btn {
-  color: white;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 4rem;
-  background-color: #203048;
-  border: 2px outset #203048;
-}
-.circle-btn:hover {
-  background: #2f476b;
-  color: #b59062;
-}
+
 .card-body-container {
   width: 20rem;
 }

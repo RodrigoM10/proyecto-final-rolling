@@ -38,7 +38,7 @@ export default function CargaProduts({ getProductos }) {
 
     if (form.checkValidity() === true) {
       setIsLoading(true);
-      await axios.post("http://localhost:4000/api/productos/", input);
+      await axios.post("https://proyecto-final-db.herokuapp.com/api/productos/", input);
       swal("Excelente", "Producto agregado", "success");
       await getProductos();
       setIsLoading(false);

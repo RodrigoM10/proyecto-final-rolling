@@ -58,7 +58,7 @@ export const FormBuy = ({ user, cart }) => {
                 productsList: cart.map((cartItem) => ({ productId: cartItem.producto._id, quantity: cartItem.cantidad }))
 
             }
-            await axios.post('http://localhost:4000/api/ventas', newBuy);
+            await axios.post('https://proyecto-final-db.herokuapp.com/api/ventas', newBuy);
 
             swal({
                 title: "Compra Exitosa !",
@@ -109,7 +109,7 @@ export const FormBuy = ({ user, cart }) => {
                         name="buyerEmail"
                         onChange={(e) => handleChange(e)}
                         defaultValue={tokenLocal.token ? user.email : ""}
-                        maxLength="40"
+                        maxLength="35"
                         required
                     />
                 </FloatingLabel>
@@ -146,7 +146,7 @@ export const FormBuy = ({ user, cart }) => {
                             name="buyerName"
                             onChange={(e) => handleChange(e)}
                             defaultValue={tokenLocal.token ? user.name : ""}
-                            maxLength="30"
+                            maxLength="20"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">
@@ -159,7 +159,7 @@ export const FormBuy = ({ user, cart }) => {
                             name="buyerLastName"
                             onChange={(e) => handleChange(e)}
                             defaultValue={tokenLocal.token ? user.lastName : ""}
-                            maxLength="30"
+                            maxLength="20"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">

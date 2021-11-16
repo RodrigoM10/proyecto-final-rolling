@@ -31,7 +31,7 @@ export const TableMessages = ({ messages, getMessages, tableMessages, setTableMe
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/mensajes/${_id}`, { headers });
+        await axios.delete(`https://proyecto-final-db.herokuapp.com/api/mensajes/${_id}`, { headers });
         await getMessages();
         setIsLoading(false);
     };

@@ -163,7 +163,7 @@ function App() {
       />
       <Switch>
         {/* pages */}
-        <Route path="/" exact>
+        <Route path="/" exact >
           <Home />
         </Route>
 
@@ -253,6 +253,7 @@ function App() {
         {isAdmin && (
           <Route path="/userList" >
             <UserList
+              user={user}
               usuarios={usuarios}
               getUsers={getUsers}
               tableUsers={tableUsers} setTableUsers={setTableUsers} />

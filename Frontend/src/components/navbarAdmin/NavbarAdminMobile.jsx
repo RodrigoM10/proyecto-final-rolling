@@ -39,7 +39,7 @@ const NavbarAdminMobile = (props) => {
             <Offcanvas.Body >
                 <div className="responsive-navbar-links text-center ">
                     <li className="p-2 mx-3" >
-                        <Nav.Link as={NavLink} to="/adminBoard" exact activeClassName="link-active" onClick={handleClose}>
+                        <Nav.Link as={NavLink} exact to="/adminBoard"   activeClassName="link-active" onClick={handleClose}>
                             PRODUCTOS
                         </Nav.Link>
                     </li>

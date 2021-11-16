@@ -36,7 +36,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
 
     const findProduct = async (_id) => {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:4000/api/productos/${_id}`);
+        const response = await axios.get(`https://proyecto-final-db.herokuapp.com/api/productos/${_id}`);
         setProductFind(response.data);
         setIsLoading(false);
         handleShowModalEditar();
@@ -46,7 +46,7 @@ export const TableProducts = ({ productos, getProductos, tableProducts, setTable
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/productos/${_id}`, { headers });
+        await axios.delete(`https://proyecto-final-db.herokuapp.com/api/productos/${_id}`, { headers });
         await getProductos();
         setIsLoading(false);
     };

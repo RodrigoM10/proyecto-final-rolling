@@ -23,7 +23,7 @@ export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}
         e.preventDefault();
         e.stopPropagation();
         try {
-            await axios.put(`http://localhost:4000/api/auth/${userFind._id}`, input)
+            await axios.put(`https://proyecto-final-db.herokuapp.com/api/auth/${userFind._id}`, input)
             swal("Cambio exitoso", `El usuario ahora es ${userFind.role === 'admin' ? 'Cliente' : 'Administrador'}`, "success");
             closeModal();
             getUsers();

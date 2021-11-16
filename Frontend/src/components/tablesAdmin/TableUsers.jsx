@@ -8,7 +8,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerRW } from '../spinner/SpinnerRW';
 import { ModalEditUser } from './ModalEditUser';
 
-export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) => {
+export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers, user }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [userFind, setUserFind] = useState({});
@@ -19,7 +19,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
 
     const findUser = async (_id) => {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:4000/api/usuarios/${_id}`);
+        const response = await axios.get(`https://proyecto-final-db.herokuapp.com/api/usuarios/${_id}`);
         setUserFind(response.data);
         setIsLoading(false);
         handleShowModalEditar();
@@ -43,7 +43,7 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/usuarios/${_id}`, { headers });
+        await axios.delete(`https://proyecto-final-db.herokuapp.com/api/usuarios/${_id}`, { headers });
         await getUsers();
         setIsLoading(false);
     };
@@ -123,7 +123,9 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                                                 </Tooltip>)
                                         }
                                     >
-                                        <button className="m-auto circle-btn" onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
+                                        <button 
+                                        disabled={user.email === email }
+                                        className={user.email === email? 'm-auto circle-btn-disable' : 'm-auto circle-btn'} onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
                                     </OverlayTrigger>
                                     <OverlayTrigger
                                         placement="right"
@@ -135,7 +137,9 @@ export const TableUsers = ({ usuarios, getUsers, tableUsers, setTableUsers }) =>
                                                 </Tooltip>)
                                         }
                                     >
-                                        <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                        <button 
+                                        disabled={user.email === email }
+                                        className={user.email === email? 'm-auto circle-btn-disable' : 'm-auto circle-btn'} onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
                                     </OverlayTrigger>
                                 </td>
 

@@ -30,14 +30,26 @@ body {
   background-size: cover;
   color: white;
 }
-.text-welcome-register {
+.text-format {
   padding: 5rem;
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }
-.text-welcome-register h1 {
+.text-format h1 {
   font-family: "Playfair Display", serif;
   font-size: 50px;
+}
+.text-format h5 {
+  text-align: justify;
+}
+.text-format p {
+  text-align: justify;
+}
+.ver-mas {
+  cursor: pointer;
+}
+.ver-mas:hover {
+  color: #b59062;
 }
 
 .bg-grey {
@@ -174,5 +186,24 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
-
+}
+.circle-btn {
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4rem;
+  background-color: #203048;
+  border: 2px outset #203048;
+}
+.circle-btn-disable {
+  color: gray;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4rem;
+  background-color: #203048;
+  border: 2px outset #203048;
+}
+.circle-btn:hover {
+  background: #2f476b;
+  color: #b59062;
 }

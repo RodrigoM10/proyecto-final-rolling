@@ -20,7 +20,7 @@ export const FormRegister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:4000/api/auth/register', input);
+            await axios.post('https://proyecto-final-db.herokuapp.com/api/auth/register', input);
             swal({
                 title: "Excelente!",
                 text: "Te has registrado con exito!",
@@ -72,7 +72,7 @@ export const FormRegister = () => {
                     name="email"
                     onChange={(e) => handleChange(e)}
                     type="email"
-                    maxLength="25"
+                    maxLength="35"
                     required
                 />
             </Form.Group>

@@ -21,7 +21,7 @@ export const ModalEditPassword = ({ showModalPassword, closeModal, user, request
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:4000/api/usuarios/${user._id}`, input);
+            await axios.put(`https://proyecto-final-db.herokuapp.com/api/usuarios/${user._id}`, input);
             alert('Cambio de contraseña exitoso');
             await requestUserData();
             closeModal();

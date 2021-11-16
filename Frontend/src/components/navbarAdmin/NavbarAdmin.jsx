@@ -26,7 +26,7 @@ export const NavbarAdmin = ({ user }) => {
 
     return (
         <>
-            <Navbar className="navbar d-flex flex-column" expand="lg" >
+            <Navbar className="bg-blue navbar d-flex flex-column" expand="lg" >
                 <Container className="py-3">
                     <div className="d-flex align-items-center contenedor">
                         <div className="d-block d-md-none ">
@@ -50,7 +50,7 @@ export const NavbarAdmin = ({ user }) => {
                                 <NavDropdown.Item className="text-center" as={NavLink} to="/profileAdmin">
                                     <CgProfile className="mb-1" /> Mi perfil
                                 </NavDropdown.Item>
-                                <NavDropdown.Item className="text-center" as={NavLink} to="/" exact>
+                                <NavDropdown.Item className="text-center" as={NavLink} exact to="/"  >
                                     <RiArrowGoBackLine className="mb-1" /> Volver a landing
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />

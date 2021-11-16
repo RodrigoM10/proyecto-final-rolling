@@ -3,9 +3,12 @@ import { Card } from 'react-bootstrap';
 import "./cardsLogin.css";
 
 export const CardsLogin = () => {
+
+
     return (
         <div className="tarjetas-login">
-            <Card className="text-center mb-2">
+            <Card 
+            className="text-center mb-2">
                 <Card.Body>
                     <h4>¿Todavia no tienes la Card Vip Member? </h4>
                     <a href="/register">

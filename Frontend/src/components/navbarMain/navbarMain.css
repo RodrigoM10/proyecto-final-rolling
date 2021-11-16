@@ -264,4 +264,33 @@ li:hover::after {
     position: sticky;
     top: 0;
     z-index: 1020;
+    transition: top 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+  .fix-to-top-mobile{
+      padding:0;
+      position: sticky;
+      top: 0;
+      z-index: 1020; 
+      transition: top 0.3s;
+     }
+     .visible {
+         top:0;
+     }
+     .no-visible{
+         top:-100px
+     }
+     .fix-to-top{
+        position: absolute;
+        top: 0;
+        z-index: 0;
+    }
+}
+.position-end {
+    position: absolute;
+    right: 3rem;
+}
+.dropdown-navbar{
+    z-index: 1030;
 }
