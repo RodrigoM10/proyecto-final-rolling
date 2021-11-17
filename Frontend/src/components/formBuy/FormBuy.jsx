@@ -116,6 +116,9 @@ export const FormBuy = ({ user, cart }) => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom02">
                 <h5 className="mt-2">Nacimiento</h5>
+                <Form.Text className="text-muted">
+                    Para comprar alcohol debes ser mayor de edad
+                </Form.Text>
                 {tokenLocal.token ?
                     <Form.Control
                         type="date"
