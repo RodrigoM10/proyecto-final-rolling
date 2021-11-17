@@ -1,6 +1,6 @@
 Rolling Winery - Proyecto Final 
 Se trata de una web e-commerce de bebidas buotique. Cuanta con una landing page, una tienda online donde puedes agregar productos al carrito y a una lista de favoritos. Tambien cuenta con inicio de sesion, registro de usuarios, seccion de contacto y nosotros.
-Al iniciar sesion, puede hacerlo como un usuario ( tipo "user") en modo cliente y tambien puede acceder a un admin board, al iniciar sesion con una cuenta de (tipo admin) en modo administrador ( Si desea probar debe ingresar con, email:mendoza@gmail.com, contraseña: 123456 ), con acceso a lista de productos, mensajes, usuarios, y ventas, todas con sus respectivas funciones de crud. Navegar nuestra web como un usuario logeado, da acceso a un perfil del mismo, en el que puede editar sus datos, cambiar una foto de perfil y eliminar su cuenta.
+Al iniciar sesion, puede hacerlo como un usuario ( tipo "user") en modo cliente y tambien puede acceder a un admin board, al iniciar sesion con una cuenta de (tipo admin) en modo administrador ( Si desea probar el modo administrador debe ingresar con, email:mendoza@gmail.com, contraseña: 123456 ), con acceso a lista de productos, mensajes, usuarios y ventas, todas con sus respectivas funciones de crud. Navegar nuestra web como un usuario logeado, da acceso a un perfil del mismo, en el que puede editar sus datos, cambiar  foto de perfil y eliminar su cuenta.
 
 Status: 
 80 %
