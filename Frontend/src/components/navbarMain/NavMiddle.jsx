@@ -41,6 +41,10 @@ export const NavMiddle = ({ splitLocation, favorites, cart }) => {
         }
     }, [visible])
 
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+      };
+      
 
     return (
         <nav className={`bg-blue fix-to-top py-1 ${isVisible}`}>
@@ -48,17 +52,17 @@ export const NavMiddle = ({ splitLocation, favorites, cart }) => {
                 <div className="d-flex align-items-center justify-content-center w-100 navbar-links">
                     {visible &&
                         <li className="p-2 mx-3" >
-                            <Nav.Link as={NavLink} exact to="/"   activeClassName="link-active">HOME</Nav.Link>
+                            <Nav.Link as={NavLink} exact to="/" onClick={scrollToTop}  activeClassName="link-active">HOME</Nav.Link>
                         </li>
                     }
                     <li className="p-2 mx-3" >
-                        <Nav.Link as={NavLink} to="/store" activeClassName="link-active">NUESTROS VINOS</Nav.Link>
+                        <Nav.Link as={NavLink} to="/store" onClick={scrollToTop} activeClassName="link-active">NUESTROS VINOS</Nav.Link>
                     </li>
                     <li className="p-2 mx-3">
-                        <Nav.Link as={NavLink} to="/contact" activeClassName="link-active">CONTACTO</Nav.Link>
+                        <Nav.Link as={NavLink} to="/contact" onClick={scrollToTop} activeClassName="link-active">CONTACTO</Nav.Link>
                     </li>
                     <li className="p-2 mx-3">
-                        <Nav.Link as={NavLink} to="/about" activeClassName="link-active" >HISTORIA</Nav.Link>
+                        <Nav.Link as={NavLink} to="/about" onClick={scrollToTop} activeClassName="link-active" >HISTORIA</Nav.Link>
                     </li>
                     {visible &&
                         <div className="pb-2 position-end">

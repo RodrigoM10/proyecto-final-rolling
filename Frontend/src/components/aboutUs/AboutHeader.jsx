@@ -11,7 +11,7 @@ export const AboutHeader = () => {
     }
 
     return (
-        <div className="about-style">
+        <div className="about-style overflow-hidden">
             <div className="h-75 d-flex flex-column justify-content-between align-items-center">
                 <div className="my-5 text-center about-text-header">
                     <h1 className="efecto-text1">ROLLING WINE</h1>

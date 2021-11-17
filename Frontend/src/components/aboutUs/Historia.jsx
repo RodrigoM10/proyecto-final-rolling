@@ -10,7 +10,7 @@ export const Historia = () => {
         Aos.init({duration:2000});
     }, [])
     return (
-        <div data-aos="fade-up" className="row gx-3 gy-2 p-3  historia-style">
+        <div data-aos="fade-up" className="row gx-3 gy-2 p-3  historia-style ">
             <h1 className="text-center">¿Quienes somos?</h1>
             <div className="col-12 col-xxl-6 p-2">
                 <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi architecto aliquid, inventore ratione temporibus laboriosam at, maiores vero quisquam dolorum nesciunt possimus numquam ullam quam vitae amet ipsa velit. Totam.</h4>
