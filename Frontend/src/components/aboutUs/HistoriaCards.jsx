@@ -16,7 +16,7 @@ export const HistoriaCards = () => {
                 <h4 style={{ color: '#b59062' }} ><b>Info Relevante</b></h4>
                 {/* <h4 className="mb-3">Somos Rodri, Alvaro y Nico 😉... Tres alumnos de la escuela Rolling Code y este es nuestro proyecto final. Fue un hermoso cursado y estamos agradecidos de Rolling porque nos dio las herramientas y nos marco el camino para ser un <b>"FULLSTACK DEV"</b> con todas las letras! 😎</h4> */}
                 <h4 className="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi architecto aliquid, inventore ratione temporibus laboriosam at, maiores vero quisquam dolorum nesciunt possimus numquam ullam quam vitae amet ipsa velit. Totam.</h4>
-                <h5> <b>MUCHAS GRACIAS JJ y Rick por ser nuestros mentores 😄</b></h5>
+                {/* <h5> <b>MUCHAS GRACIAS JJ y Rick por ser nuestros mentores 😄</b></h5> */}
             </div> 
             <div data-aos="fade-up" className="col-12 col-xxl-6 p-3 ">
                 <Carousel fade>
