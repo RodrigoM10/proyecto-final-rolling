@@ -114,11 +114,11 @@ li:hover::after {
     z-index: 1020;
 }
 .navbar-user .nav-link {
-    color: white ;
+    color: rgb(59, 59, 59) ;
 }
 
 .bienvenido-user{
-    color:#b59062 ;
+    color:#696662 ;
     font-size: 20px;
 }
 

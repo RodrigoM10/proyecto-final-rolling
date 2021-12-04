@@ -138,17 +138,17 @@ body {
   margin: 0;
   display: flow-root;
   text-align: center;
-  background-color: #b59062 !important;
+  background-color: #585858 !important;
   color: white !important;
   font-family: "Montserrat", sans-serif !important;
-  border: 1px solid #b59062;
+  border: 1px solid #cbeaff;
   font-size: 20px;
   padding: 0.5rem 1rem;
   width: 40%;
 }
 .accordion-buy .accordion-header button:hover {
-  background-color: white !important;
-  color: #b59062 !important;
+  background-color: rgb(255, 255, 255) !important;
+  color: #3f3f3f !important;
 }
 .accordion-buy .accordion-header button:focus {
   box-shadow: none;

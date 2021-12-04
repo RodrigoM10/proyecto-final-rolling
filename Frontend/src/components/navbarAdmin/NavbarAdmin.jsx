@@ -37,7 +37,7 @@ export const NavbarAdmin = ({ user }) => {
                             </button>
                         </div>
                         <div className="logo-container" >
-                            <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635957069/logo_11_r58drd.png" alt="img logo" className="nav-logo-desktop" />
+                            <img src="https://www.lacasadeel.net/wp-content/uploads/2016/01/Marvel-y-DC2.jpg" alt="img logo" className="nav-logo-desktop" />
                         </div>
                         {/* condicionales del LOGIN */}
                         <div className="d-flex align-items-center login-register">

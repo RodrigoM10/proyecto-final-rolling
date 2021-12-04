@@ -5,22 +5,22 @@
     border-bottom: 3px solid rgb(46, 46, 46,0.4);
 }
 .cargarProductos{
-    background: red;
+    background: rgb(0, 0, 0);
 }
 .carga-Productos-Accordion{
     display: contents;
     justify-content: center;
 }
 .boton-cargar{
-    background: #b59062;
+    background: #5d5d5d;
     border: none;
     border-radius: 0px;
     width: auto;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
 }
 .boton-cargar:hover{
-    background: whitesmoke;
-    color:#b59062 ;
+    background: rgb(0, 119, 255);
+    color:#ffffff ;
     border: none;
     border-radius: 0px;
     width: auto;
@@ -35,7 +35,8 @@
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
 }
 .formulario-estilo{
-    box-shadow: 1px 1px 5px rgb(196, 146, 146);
+    box-shadow: 1px 1px 5px rgb(98, 98, 98);
+    background-color: rgb(240, 240, 240);
 }
 
 .input-category{

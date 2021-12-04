@@ -58,7 +58,6 @@ export default function CargaProduts({ getProductos }) {
             <Form
               onSubmit={handleSubmit}
               className="formulario-estilo card mt-5 p-5 mx-auto border-0"
-              style={{ width: "auto", background: "beige" }}
             >
               <Row>
                 <Col className="col-12 col-lg-6">
