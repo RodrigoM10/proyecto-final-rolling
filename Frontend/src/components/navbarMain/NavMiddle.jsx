@@ -56,7 +56,7 @@ export const NavMiddle = ({ splitLocation, favorites, cart }) => {
                         </li>
                     }
                     <li className="p-2 mx-3" >
-                        <Nav.Link as={NavLink} to="/store" onClick={scrollToTop} activeClassName="link-active">NUESTROS VINOS</Nav.Link>
+                        <Nav.Link as={NavLink} to="/store" onClick={scrollToTop} activeClassName="link-active">TIENDA</Nav.Link>
                     </li>
                     <li className="p-2 mx-3">
                         <Nav.Link as={NavLink} to="/contact" onClick={scrollToTop} activeClassName="link-active">CONTACTO</Nav.Link>

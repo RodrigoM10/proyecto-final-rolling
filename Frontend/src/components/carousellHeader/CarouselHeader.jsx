@@ -15,7 +15,7 @@ const Carouselheader = ({ sliderProductos }) => {
       <Col className="col-12 col-md-6 p-0">
         <Card className="bg-dark text-white borde text-center">
           <Card.Img
-            src="https://cdn.shopify.com/s/files/1/1504/5726/files/bg-hp-top-banner-left.jpg?v=2588232508259960741"
+            src="https://mundoinformatico.top/wp-content/uploads/2021/04/Marvel-VS-DC-Comics-%C2%BFQue-multiverso-es-mas-grande.jpg"
             alt="Card image"
           />
           <Card.ImgOverlay className="fondo">

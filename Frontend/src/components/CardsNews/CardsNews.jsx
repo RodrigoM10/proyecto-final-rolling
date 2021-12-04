@@ -20,7 +20,7 @@ const Cardsnews = () => {
   return (
     <>
       <div data-aos="fade-up" className="mt-5 text-center ">
-        <h3 className="news-titulo">Descubre nuevos sabores y productores.</h3>
+        <h3 className="news-titulo">Ultimas Noticias</h3>
       </div>
       <Container className="mt-2 mb-3">
         <Row data-aos="fade-up">
@@ -31,18 +31,13 @@ const Cardsnews = () => {
             >
               <Card.Img
                 variant="top"
-                src="https://cdn.shopify.com/s/files/1/1504/5726/files/BWIW_-_Masterclass_Generic_-_Homepage_Tile_214b065a-4ee8-419e-a8a3-04d22fbbdc6d.png?v=1632271161"
+                src="https://www.dccomics.com/sites/default/files/styles/featured_pane_wide/public/featured_pane_images/DC_HP_FeatTout_ww80_wide_616db13dd15075.48263908.png?itok=ps4CfZNW"
               />
               <Card.Body>
                 <Card.Title className="card-titulo">
-                  Experimente nuestras clases magistrales virtuales gratuitas
+                Celebra el 80 aniversario de Wonder Woman
                 </Card.Title>
                 <Card.Text className="borde-card"></Card.Text>
-                <Card.Text className="texto-card">
-                  Con enólogos legendarios de Deep Woods y Tahbilk, además de un
-                  juez internacional de vinos, en una serie de inigualables
-                  clases magistrales.
-                </Card.Text>
                 <Button as={NavLink} to="/404" onClick={scrollToTop} className="button-news">VER AHORA</Button>
               </Card.Body>
             </Card>
@@ -54,17 +49,12 @@ const Cardsnews = () => {
             >
               <Card.Img
                 variant="top"
-                src="https://cdn.shopify.com/s/files/1/1504/5726/files/BWIW_-_Wine_Quiz_-_Homepage_Tile_0fbeb109-ceb0-489e-a0c4-a0fbb97cd26e.png?v=1619674446"
+                src="https://www.dccomics.com/sites/default/files/styles/front_news_default/public/field/image/DCNATION_Blogroll2_JLIncarnate_61a57efb7a2138.59895170.jpg?itok=B8ydeIai"
               />
               <Card.Body>
                 <Card.Title className="card-titulo">
-                  Responda nuestro cuestionario sobre preferencias de vinos
-                </Card.Title>
+                Quién es quién en la Liga de la Justicia</Card.Title>
                 <Card.Text className="borde-card"></Card.Text>
-                <Card.Text className="texto-card">
-                  Para recibir una experiencia de vino personalizada, hecha a
-                  medida solo para ti.
-                </Card.Text>
                 <Button as={NavLink} to="/404" onClick={scrollToTop} className="button-news">EXPLORA AHORA</Button>
               </Card.Body>
             </Card>
@@ -76,17 +66,12 @@ const Cardsnews = () => {
             >
               <Card.Img
                 variant="top"
-                src="https://cdn.shopify.com/s/files/1/1504/5726/files/hp-discovery-3-01oct20.jpg?v=1601523862"
+                src="https://www.dccomics.com/sites/default/files/styles/front_news_default/public/field/image/ActorsAuthors_blog_61a6e6712e8be9.84796734.jpg?itok=g-UKJFNT"
               />
               <Card.Body>
                 <Card.Title className="card-titulo">
-                  Programa de recompensas líder en la industria
-                </Card.Title>
+                ¿Pueden dibujar también?               </Card.Title>
                 <Card.Text className="borde-card"></Card.Text>
-                <Card.Text className="texto-card">
-                  Nuestro programa de recompensas inigualable incluye vales de
-                  descuento, gratis envío y más ...
-                </Card.Text>
                 <Button as={NavLink} to="/404" onClick={scrollToTop} className="button-news">SABER MÁS</Button>
               </Card.Body>
             </Card>

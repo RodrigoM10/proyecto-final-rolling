@@ -43,32 +43,32 @@ export const Footer = () => {
                         <hr />
                         <div className="row text-center align-items-center link-effect">
                             <div className="col-12 col-lg-3 col-md-6 my-4">
-                                <h5>CONCATENOS</h5>
+                                <h5>DC COMICS</h5>
                                 <div className="links mb-2">
-                                    <a href="." >contactwine@winevibes.com</a><br />
-                                    <a href="." >+3816807710</a>
+                                    <a href="." >Personajes</a><br />
+                                    <a href="." >Comics</a><br />
+                                    <a href="." >Peliculas</a>
                                 </div>
                             </div>
                             <div className="col-12 col-lg-3 col-md-6 my-4">
-                                <h5>BODEGAS</h5>
-                                <div className="links mb-2">
-                                    <a href="."  >Teo Calderon</a><br />
-                                    <a href="."  >Aventura</a><br />
-                                    <a href="."  >Don omar</a>
-                                </div>
-                            </div>
-                            <div className="col-12 col-lg-3 col-md-6 my-4">
-                                <h5>EVENTOS</h5>
+                                <h5>MARVEL</h5>
                                 <div className="links">
-                                    <a href="."  >La fiesta del Secreto</a><br />
-                                    <a href="."  >Los Pecados Capitales</a><br />
-                                    <a href="."  >Finca La Escondida</a>
+                                    <a href="."  >Personajes</a><br />
+                                    <a href="."  >Comics</a><br />
+                                    <a href="."  >Peliculas</a>
+                                </div>
+                            </div>
+                            <div className="col-12 col-lg-3 col-md-6 my-4">
+                                <h5>TIENDA</h5>
+                                <div className="links mb-2">
+                                    <a href="."  >Coleccionables</a><br />
+                                    <a href="."  >Comics</a><br />
                                 </div>
                             </div>
                             <div className="col-12 col-lg-3 col-md-6 my-4">
                                 <h5>SOPORTE</h5>
                                 <div className="links">
-                                    <a href="."  >Servicio Tecnico</a><br />
+                                    <a href="."  >Contacto</a><br />
                                     <a href="."  >Avisos Legales</a><br />
                                     <a href="."  >Cookies</a>
                                 </div>
@@ -77,10 +77,10 @@ export const Footer = () => {
                     </div>
                     <div className="d-flex align-items-center justify-content-between footer2">
                         <div>
-                            <p>© 2021 The Wine Vibes All rights reserved</p>
+                            <p>© 2021 Tienda DC/MARVEL</p>
                         </div>
                         <div>
-                            <p>Keep Calm and drink Wine</p>
+                            <p>Universo DC/MARVEL</p>
                         </div>
                         <div>
                             <button className="volverArriba" onClick={scrollToTop}><FaArrowUp /></button>

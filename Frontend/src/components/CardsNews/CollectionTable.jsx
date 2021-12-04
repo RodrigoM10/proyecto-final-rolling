@@ -19,40 +19,40 @@ const scrollToTop = () => {
   window.scrollTo(0, 250);
 };
 
-
 const CollectionTable = () => {
-
-   // Efecto para scroll down 
-   useEffect(() => {
+  // Efecto para scroll down
+  useEffect(() => {
     Aos.init({ duration: 2500 });
-  }, [])
+  }, []);
 
   return (
     <div>
       <Container className="text-center">
-        <h3 data-aos="fade-up" className="collection-tilulo ">Explore nuestras colecciones favoritas</h3>
-        <Tab.Container  id="left-tabs-example" defaultActiveKey="first">
+        <h3 data-aos="fade-up" className="collection-tilulo ">
+          VER TODOS LOS PERSONAJES
+        </h3>
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row data-aos="fade-up" className="mt-5 ">
             <Col sm={3} className="p-0 col-sm-12 col-xl-3">
               <Nav variant="pills" className="flex-column">
                 <Nav.Item>
                   <Nav.Link className="tab-itemStyle d-flex" eventKey="first">
-                    CONEXION GLOBAL
+                    SUPERMAN
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link className="tab-itemStyle d-flex" eventKey="second">
-                    COLECTIVO PREFERIDO
+                    BATMAN
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link className="tab-itemStyle d-flex" eventKey="third">
-                    MERCADO INTERNACIONAL
+                    WONDER WOMAN
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link className="tab-itemStyle d-flex" eventKey="quarter">
-                    EXCLUSIVAS COLECTIVAS
+                    AQUAMAN
                   </Nav.Link>
                 </Nav.Item>
               </Nav>
@@ -64,17 +64,23 @@ const CollectionTable = () => {
                   <Row className="tab-responsive d-flex flex-wrap">
                     <Col className="col-12 p-0 col-sm-12 col-xl-6">
                       <Image
-                        src="https://cdn.shopify.com/s/files/1/1504/5726/files/hp-collections-1-01oct20.jpg?v=1601524350"
+                        src="https://www.dccomics.com/sites/default/files/styles/whos_who/public/Char_WhosWho_Superman_20190116_5c3fc71f524f38.28405711.jpg?itok=U9inHc9Q"
                         fluid
                       />
                     </Col>
                     <Col className="p-5 col col-estilo col-sm-12 col-xl-6">
-                      <h3 className="mt-4">VINO CHICO</h3>
                       <p className="mt-5 pt-3">
-                        Conexiones globales profundas con un dedo firmemente en
-                        el pulso de los nombres a conocer de la industria.
+                        Más rápido que una bala veloz, más poderoso que una
+                        locomotora ... El Hombre de Acero libra una batalla
+                        interminable por la verdad, la justicia y el estilo
+                        estadounidense.
                       </p>
-                      <Button as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
+                      <Button
+                        as={NavLink}
+                        to="/store"
+                        onClick={scrollToTop}
+                        className="button-news mt-5"
+                      >
                         VER COLECCIÓN
                       </Button>
                     </Col>
@@ -85,18 +91,22 @@ const CollectionTable = () => {
                   <Row className="tab-responsive d-flex flex-wrap">
                     <Col className="col-12 p-0 col-sm-12 col-xl-6">
                       <Image
-                        src="https://cdn.shopify.com/s/files/1/1504/5726/files/hp-collections-2-01oct20.jpg?v=1601524387"
+                        src="https://www.dccomics.com/sites/default/files/styles/whos_who/public/Char_WhosWho_Batman_20190116_5c3fc4b40faf04.59002472.jpg?itok=deXetO0x"
                         fluid
                       />
                     </Col>
                     <Col className="p-5 col-estilo">
-                      <h3 className="mt-4">Preferido colectivo</h3>
                       <p className="mt-5 pt-3">
-                        Los vinos que respaldamos. Ofreciendo sabor, carácter y
-                        una fuerte identidad regional. Calidad garantizada y
-                        valor en cada vaso.
+                        En nombre de sus padres asesinados, Bruce Wayne libra la
+                        guerra eterna contra los criminales de Gotham City. El
+                        es la venganza. El es la noche. El es Batman.
                       </p>
-                      <Button  as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
+                      <Button
+                        as={NavLink}
+                        to="/store"
+                        onClick={scrollToTop}
+                        className="button-news mt-5"
+                      >
                         VER COLECCIÓN
                       </Button>
                     </Col>
@@ -107,17 +117,22 @@ const CollectionTable = () => {
                   <Row className="tab-responsive d-flex flex-wrap">
                     <Col className="col-12 p-0 col-sm-12 col-xl-6">
                       <Image
-                        src="https://cdn.shopify.com/s/files/1/1504/5726/files/hp-collections-3-01oct20.jpg?v=1601524410"
+                        src="https://www.dccomics.com/sites/default/files/styles/whos_who/public/Char_WhosWho_WonderWoman_20190116_5c3fc6aa51d124.25659603.jpg?itok=5aBydSqj"
                         fluid
                       />
                     </Col>
                     <Col className="p-5 col-estilo">
-                      <h3 className="mt-4">Mercado internacional</h3>
                       <p className="mt-5 pt-3">
-                        Primer acceso directo al consumidor en el mundo a uno de
-                        los las mejores carteras de vinos del mundo.
+                        Bella como Afrodita, sabia como Atenea, más rápida que
+                        Hermes y más fuerte que Hércules, la princesa Diana de
+                        Themyscira lucha por la paz en el mundo del hombre.
                       </p>
-                      <Button as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
+                      <Button
+                        as={NavLink}
+                        to="/store"
+                        onClick={scrollToTop}
+                        className="button-news mt-5"
+                      >
                         EXPLORA LA GAMA
                       </Button>
                     </Col>
@@ -128,18 +143,22 @@ const CollectionTable = () => {
                   <Row className="tab-responsive d-flex flex-wrap">
                     <Col className="col-12 p-0 col-sm-12 col-xl-6">
                       <Image
-                        src="https://cdn.shopify.com/s/files/1/1504/5726/files/hp-collections-4-01oct20.jpg?v=1601524426"
+                        src="https://www.dccomics.com/sites/default/files/styles/whos_who/public/Char_WhosWho_Aquaman_5c411a95e710b9.62155274.jpg?itok=28sG_KbH"
                         fluid
                       />
                     </Col>
                     <Col className="p-5 col-estilo">
-                      <h3 className="mt-4">Exclusivas colectivas</h3>
                       <p className="mt-5 pt-3">
-                        Vinos exclusivos de algunos de los más emblemáticos y
-                        productores venerados solo disponibles para The Wine
-                        Collective clientes.
+                        Hijo de un farero y una reina atlante, Arthur Curry es
+                        el puente entre el mundo de la superficie y su
+                        tumultuoso reino del mar.
                       </p>
-                      <Button as={NavLink} to="/store" onClick={scrollToTop} className="button-news mt-5">
+                      <Button
+                        as={NavLink}
+                        to="/store"
+                        onClick={scrollToTop}
+                        className="button-news mt-5"
+                      >
                         VER COLECCIÓN
                       </Button>
                     </Col>

@@ -27,7 +27,7 @@ export const FiltersProducts = ({ setSelectCategory, selectCategory, onselectCat
   return (
     <>
       <div className="d-flex flex-column justify-content-start ">
-        <h4>Filtra tus Vinos </h4>
+        <h4>Filtra los articulos </h4>
 
         <div className=" d-flex  align-content-center mt-2">
           <div className="d-flex flex-column">

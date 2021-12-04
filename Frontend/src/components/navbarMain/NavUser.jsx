@@ -15,12 +15,12 @@ export const NavUser = ({ tokenLocal, splitLocation, user, logout, favorites, ca
                 <span className="d-flex align-items-center navbar-log mx-2 d-none d-md-block ">
                     <a href="/login"
                         className={splitLocation[1] === "login" ?
-                            "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>
+                            "link-active pe-2 ps-1 py-1" : "text-black pe-2 ps-1 py-1"}>
                         Iniciar sesión</a>
                     <span>/</span>
                     <a href="/register"
                         className={splitLocation[1] === "register" ?
-                            "link-active pe-2 ps-1 py-1" : "text-white pe-2 ps-1 py-1"}>
+                            "link-active pe-2 ps-1 py-1" : "text-black pe-2 ps-1 py-1"}>
                         Registrarse</a>
                 </span>
             }

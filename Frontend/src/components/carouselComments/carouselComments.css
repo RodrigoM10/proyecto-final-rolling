@@ -30,81 +30,33 @@
   object-fit: cover;
 }
 .comentarios-estilo {
-  background-image: url(https://cdn.shopify.com/s/files/1/1504/5726/files/bg-homepage-reviews_2000x.png?v=1601260536);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   height: auto;
-
 }
-.titulo-comentarios {
-  font-size: 2.8rem;
-  margin-bottom: 3rem;
-  overflow: hidden;
-
-}
-.card-tamaño {
-  width: 22rem !important;
-  margin-bottom: 2rem;
-  background: rgb(255, 255, 255, 0) !important;
-}
-.card-comentarios {
+.card-nuevo {
   background: rgb(255, 255, 255, 0);
   border: none;
 }
-.card-comentarios h3 {
-  font-size: 1.875rem;
-  font-style: italic;
-  line-height: 1;
-  font-weight: bold;
+.titulo-comentarios::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid cornflowerblue;
 }
-.descripcion-comentarios {
-  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 1rem;
+.tamaño-nuevo{
+  height: 3rem;
 }
-.descripcion-nombre {
-  font-size: 700;
-  font-weight: bold;
-  color: #212529;
-  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 1rem;
-  line-height: 1.5;
+.titulo-nuevo {
+  color: rgb(27, 27, 27);
+  margin-top: 48rem;
+  font-weight: 600;
+  border-bottom: 3px solid rgb(0, 0, 0);
 }
-
-.circulo {
-	width: 5rem;
-	height: 5rem;
-	border-radius: 50%;
-	border: 2px solid #b59062;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-  margin:0px 1rem;
+.nuevo-imagen {
+  opacity: 0.5;
 }
-
-.circulo > h2 {
-	font-family: sans-serif;
-	color: white;
-	font-size: 1.4rem;
-	font-weight: bold;
-}
-.bordes-estilo{
-  border-bottom: 1px solid rgb(129, 129, 129);
-  padding-bottom: 2rem;
-  border-top: 1px solid rgb(129, 129, 129);
-  padding-top: 1rem;
-}
-.satisfaccion-estilo h4{
-  font-size: 1.2rem;
-  font-weight: 700;
-  font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-}
-.satisfaccion-estilo p{
-  font-size: 0.5rem;
-  font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+.nuevo-imagen:hover {
+  opacity: 1;
+  z-index: 2;
 }

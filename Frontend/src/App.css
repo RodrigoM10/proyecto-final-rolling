@@ -8,8 +8,7 @@ body {
   min-height: 100vh;
 }
 .nav-logo-desktop {
-  width: 250px;
-  height: 60px;
+  height: 10rem;
 }
 @media only screen and (max-width: 768px) {
   .nav-logo-desktop {
@@ -53,10 +52,10 @@ body {
 }
 
 .bg-grey {
-  background-color: #f7f7f7;
+  background-color: #f1f1f1;
 }
 .bg-blue{
-  background-color: #203048;
+  background-color: #ffffff;
   border: none;
 }
 /* BOTON GENERAL */
@@ -93,7 +92,7 @@ body {
 }
 .btn-admin:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.1rem #b59062;
+  box-shadow: 0 0 0 0.1rem #222120;
 }
 /* search tables admin */
 .search-table {
@@ -104,7 +103,7 @@ body {
 .title-style {
   /* font-family: "Montserrat", sans-serif; */
   /* font-weight: 900; */
-  color: #b59062;
+  color: #4292fa;
   padding-bottom: 1rem;
   border-bottom: 1px solid #dee2e6 !important;
 }

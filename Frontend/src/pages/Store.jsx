@@ -23,7 +23,7 @@ function Store({ productos, favorites, setFavorites, cart, setCart, allProducts,
   return (
     <div className="bg-grey">
       <Container>
-        <h2 className="title-style mt-5">Todos nuestros vinos</h2>
+        <h2 className="title-style mt-5">Conoce todos los Articulos</h2>
         <Row>
           <Col className="col-12 col-md-2 d-flex justify-content-center p-0 mb-2">
             <FiltersProducts 
